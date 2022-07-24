@@ -1,0 +1,125 @@
+.icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 1.5rem;
+    z-index: 99;
+}
+
+.fa-facebook-square,
+.fa-github,
+.fa-instagram-square,
+.fa-linkedin,
+.fa-medium,
+.fa-stack-overflow,
+.fa-twitter {
+    color: #6d2ae2;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a .fa-facebook-square:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+a .fa-github:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    color: grey;
+}
+
+a .fa-medium:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+a .fa-instagram-square:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+a .fa-linkedin:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+a .fa-stack-overflow:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+a .fa-twitter:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.sayHi {
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+    font-weight: bold;
+    align-items: center;
+    text-decoration: none;
+    z-index: 99;
+}
+
+.sayHi .s {
+    color: #4285f4;
+}
+
+.sayHi .a {
+    color: #db4437;
+}
+
+.sayHi .y {
+    color: #f4b400;
+}
+
+.sayHi .hi {
+    color: #0f9d58;
+}
+
+@media (max-width: 900px) {
+    .sayHi {
+        transform: rotate(90deg) !important;
+        bottom: 3rem;
+        right: -1.5rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .icons {
+        left: 0.5rem;
+    }
+}
