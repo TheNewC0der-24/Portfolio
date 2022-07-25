@@ -38,7 +38,7 @@ const float = keyframes`
 
 const Spaceman = styled.div`
 position: absolute;
-top: 15%;
+top: 12%;
 right: 5%;
 width: 30vw;
 animation: ${float} 4s ease infinite;
@@ -54,7 +54,11 @@ position: absolute;
 top: 10%;
 left: 5%;
 color: #9a9ea1;
-font-size: calc(3rem + 5vw);
+font-size: calc(2.5rem + 5vw);
+
+@media (max-width: 768px) {
+ top: 16%; 
+}
 `;
 
 const Main = styled.div`
@@ -98,7 +102,7 @@ const About = () => {
           <img src={astronaut} alt="spaceman" />
         </Spaceman>
         <div className="container mt-5">
-          <Title data-aos="fade-down">About</Title>
+          <Title data-aos="fade-down">.about()</Title>
           <div className="container">
             <Main>
               <div className="container mt-5">

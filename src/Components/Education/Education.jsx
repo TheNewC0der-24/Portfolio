@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
+
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 import { lightTheme, darkTheme } from '../Themes';
 
@@ -80,6 +83,11 @@ const GlobalStyle = createGlobalStyle`
 
 
 const Education = () => {
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
+
     return (
         <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
@@ -100,7 +108,7 @@ const Education = () => {
                                     style={{ width: '25px', height: '25px' }}>
                                 </lord-icon>
                                 <span className='ms-2'>
-                                    Education
+                                    .education()
                                 </span>
                             </div>
                         </div>
@@ -109,7 +117,7 @@ const Education = () => {
                         <div className="qualification_sections container">
                             <div className="qualification_content">
                                 <div className="qualification_data">
-                                    <div>
+                                    <div data-aos="fade-right">
                                         <h3 className="qualification_title">Secondary</h3>
                                         <span className="qualification_subtitle">St. Anselm's Sr. Sec. School</span>
                                         <div className="qualification_calender">
@@ -132,7 +140,7 @@ const Education = () => {
                                         <span className="qualification_line"></span>
                                     </div>
 
-                                    <div>
+                                    <div data-aos="fade-left">
                                         <h3 className="qualification_title">Higher Secondary</h3>
                                         <span className="qualification_subtitle">St. Anselm's Sr. Sec. School</span>
                                         <div className="qualification_calender">
@@ -143,8 +151,8 @@ const Education = () => {
                                 </div>
 
                                 <div className="qualification_data">
-                                    <div>
-                                        <h3 className="qualification_title">Computer Science Engineering</h3>
+                                    <div data-aos="fade-right">
+                                        <h3 className="qualification_title">B.tech</h3>
                                         <span className="qualification_subtitle">Jaypee University Of Engineering And Technology</span>
                                         <div className="qualification_calender">
                                             <i className="far fa-calendar-alt me-1"></i>
