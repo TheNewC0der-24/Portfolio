@@ -54,8 +54,12 @@ const Navbar = () => {
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/work">.work()</NavLink>
                             </li>
                             <li className={`${styles.navItem} nav-item`}>
+                                <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/experience">.experience()</NavLink>
+                            </li>
+                            <li className={`${styles.navItem} nav-item`}>
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/blogs">.blogs()</NavLink>
                             </li>
+
                             <div className="dropdown-center">
                                 <li className='nav-item dropdown'>
                                     <div className={`${styles.navLink} nav-link dropdown-toggle`} role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" ata-bs-display="static" aria-expanded="false">
@@ -68,28 +72,12 @@ const Navbar = () => {
                                         <li>
                                             <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/interest">.interest()</NavLink>
                                         </li>
-                                        <li>
-                                            <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/experience">.experience()</NavLink>
-                                        </li>
                                     </ul>
                                 </li>
                             </div>
                             <li className={`${styles.navItem} nav-item`}>
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/contact">.contact Me()</NavLink>
                             </li>
-
-
-                            {/* <li className={`${styles.navItem} nav-item`}>
-                                <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/education">.education()</NavLink>
-                            </li> */}
-
-                            {/* <li className={`${styles.navItem} nav-item`}>
-                                <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/skills">.skills()</NavLink>
-                            </li> */}
-
-                            {/* <li className={`${styles.navItem} nav-item`}>
-                                <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/experience">.experience()</NavLink>
-                            </li> */}
                         </ul>
                     </div>
                 </div>
