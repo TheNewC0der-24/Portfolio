@@ -56,11 +56,6 @@
     background-color: #dee2e6 !important;
 }
 
-.dropdown-item .active {
-    color: #0e1313 !important;
-    background-color: #dee2e6 !important;
-}
-
 @media (max-width: 991.5px) {
     .navItem:nth-child(1) {
         border-top: 1px solid #dee2e6 !important;
