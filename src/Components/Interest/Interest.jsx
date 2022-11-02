@@ -86,15 +86,15 @@ const Interest = () => {
                             <div className="card">
                                 <div className="card-body">
                                     <div className="icon"><i className="fa-solid fa-terminal"></i></div>
-                                    <h5 className="card-title">COMPETETIVE CODING</h5>
-                                    <p className="card-text">In my free time, i prefer to try to to some problem-solving on various Competitive Coding platforms.</p>
+                                    <h5 className="card-title">COMPETITIVE CODING</h5>
+                                    <p className="card-text">In my free time, i prefer to try to do some problem-solving on various Competitive Coding platforms.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="col">
                             <div className="card">
                                 <div className="card-body">
-                                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <div className="icon"><i className="fas fa-graduation-cap"></i></div>
                                     <h5 className="card-title">LEARNING NEW THINGS</h5>
                                     <p className="card-text">I believe in constantly updating myself by learning something new with practical Implementations.</p>
                                 </div>
@@ -104,8 +104,8 @@ const Interest = () => {
                             <div className="card">
                                 <div className="card-body">
                                     <div className="icon"><i className="fa-solid fa-code"></i></div>
-                                    <h5 className="card-title">WEB DESIGNING </h5>
-                                    <p className="card-text">I love designing websites and upgrading myself by learning new skills and implementing them.</p>
+                                    <h5 className="card-title">DEVELOP FRONTEND</h5>
+                                    <p className="card-text">I love designing websites, web apps, and upgrading myself by learning new skills and implementing them.</p>
                                 </div>
                             </div>
                         </div>
