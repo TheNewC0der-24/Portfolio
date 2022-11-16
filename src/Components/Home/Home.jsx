@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
   .card {
     font-family: 'Special Elite', cursive !important;
     border: none !important;
+    border-radius: 0 !important;
+    border-top : 0.5rem solid #6d2ae2 !important;
     color: #6d2ae2 !important;
     cursor: pointer;
   }
