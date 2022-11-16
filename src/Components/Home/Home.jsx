@@ -91,14 +91,11 @@ const Home = () => {
                     </p>
                 </Welcome>
                 <Intro theme={lightTheme} className="intro text-center">
-                    <h3 className='mb-4 mt-5'>
-                        bhavya <span className='fw-bold' style={{ color: '#6d2ae2' }}>.is()</span>
-                    </h3>
-                    <h1 className='name'>Bhavya Khurana</h1>
-                    <h5>I am a{" "}
+                    <h2 className='name'>Bhavya Khurana</h2>
+                    <h1>I am a{" "}
                         <em className='fw-bold' style={{ color: '#6d2ae2' }}>{text}</em>
                         <Cursor cursorStyle='_' />
-                    </h5>
+                    </h1>
                 </Intro>
                 <div className="mt-5 container">
                     <div className="container cards my-5 row row-cols-1 row-cols-md-3 g-4">
@@ -106,11 +103,11 @@ const Home = () => {
                             <div className="card h-100">
                                 <div className="card-body">
                                     <FaQuoteLeft />
-                                    <p className="card-text mt-2">There are only{" "}
+                                    <h5 className="card-text mt-2">There are only{" "}
                                         <span className='fs-3'>10</span>
                                         {" "}types of people in this world who
                                         know binary and those who don't.
-                                    </p>
+                                    </h5>
                                     <FaQuoteRight className='d-flex justify-content-end ms-auto' />
                                 </div>
                             </div>
@@ -119,10 +116,10 @@ const Home = () => {
                             <div className="card h-100">
                                 <div className="card-body">
                                     <FaQuoteLeft />
-                                    <p className="card-text mt-3">
+                                    <h5 className="card-text mt-3">
                                         <span className='fw-bold'>Only half of programming is coding.</span>{" "}
                                         The other 90% is debugging.
-                                    </p>
+                                    </h5>
                                     <FaQuoteRight className='d-flex justify-content-end ms-auto' />
                                 </div>
                             </div>
@@ -131,9 +128,9 @@ const Home = () => {
                             <div className="card h-100">
                                 <div className="card-body">
                                     <FaQuoteLeft />
-                                    <p className="card-text mt-3">
+                                    <h5 className="card-text mt-3">
                                         Building a website is easy, designing one takes skill.
-                                    </p>
+                                    </h5>
                                     <FaQuoteRight className='d-flex justify-content-end ms-auto' />
                                 </div>
                             </div>
