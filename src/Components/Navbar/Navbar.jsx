@@ -30,9 +30,11 @@ const Navbar = () => {
             <GlobalStyle />
             <nav className={`${styles.navbar} navbar navbar-expand-lg sticky-top`}>
                 <div className="container-fluid">
-                    <Link className={`${styles.navbarBrand} navbar-brand fw-bolder me-4`} to="/">
+                    <Link className={`${styles.navbarBrand} navbar-brand fw-bolder me-4 d-flex`} to="/">
                         <img src={Profile} alt="bhavya" width="30" height="30" className={`${styles.img} rounded-circle me-2`} />
-                        <span>.bhavya</span>&lt;/&gt;
+                        <div className={styles.name}>
+                            <span>.bhavya</span>&lt;/&gt;
+                        </div>
                     </Link>
                     <SoundBar className='soundbar' />
                     <button onClick={handleClick} className={`${styles.navbarToggler} navbar-toggler`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -75,6 +75,16 @@
     }
 }
 
+@media (max-width: 399.5px) {
+    .name {
+        display: none;
+    }
+
+    .navbarBrand {
+        margin-right: 0.5rem !important;
+    }
+}
+
 @media (max-width: 294px) {
     .navbarToggler {
         justify-content: end !important;
