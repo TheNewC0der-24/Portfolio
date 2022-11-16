@@ -100,13 +100,14 @@ const Home = () => {
             <SocialLinks />
             <div className='container'>
                 <Welcome theme={darkTheme}>
-                    <p className="mt-5 mb-5 d-flex welcome justify-content-between p-2 fw-bold">
+                    <p className="mt-5 mb-3 d-flex welcome justify-content-between p-2 fw-bold">
                         𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 &lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;!
                         <span className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
                     </p>
                 </Welcome>
                 <Intro theme={lightTheme} className="intro text-center">
-                    <h2 className='name'>Bhavya Khurana</h2>
+                    <h2>I am <span className='name'>Bhavya Khurana</span></h2>
+                    <h3>and</h3>
                     <h1>I am a{" "}
                         <em className='fw-bold' style={{ color: '#6d2ae2' }}>{text}</em>
                         <Cursor cursorStyle='_' />
