@@ -1,4 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
@@ -67,9 +70,19 @@ color : ${props => props.theme.text};
     font-family: 'Caveat', cursive;
     color: #6d2ae2;
 }
+
+.know-more-btn {
+    color: #0e1313;
+    border: 2px solid #0e1313;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
 `;
 
 const Home = () => {
+
+    const navigate = useNavigate();
 
     const words = ['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer'];
     const { text } = useTypewriter({
@@ -98,9 +111,10 @@ const Home = () => {
                         <em className='fw-bold' style={{ color: '#6d2ae2' }}>{text}</em>
                         <Cursor cursorStyle='_' />
                     </h1>
+                    <button onClick={() => navigate("/about")} className='mt-3 know-more-btn'>Know more about me</button>
                 </Intro>
-                <div className="mt-5 container">
-                    <div className="container cards my-5 row row-cols-1 row-cols-md-3 g-4">
+                <div className="container mt-5">
+                    <div className="container cards row row-cols-1 row-cols-md-3 g-4">
                         <div data-aos="zoom-in" className="col">
                             <div className="card h-100">
                                 <div className="card-body">
@@ -132,6 +146,39 @@ const Home = () => {
                                     <FaQuoteLeft />
                                     <h5 className="card-text mt-3">
                                         Building a website is easy, designing one takes skill.
+                                    </h5>
+                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="zoom-in" className="col">
+                            <div className="card h-100">
+                                <div className="card-body">
+                                    <FaQuoteLeft />
+                                    <h5 className="card-text mt-3">
+                                        while (!(succeed = try()));
+                                    </h5>
+                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="zoom-out" className="col">
+                            <div className="card h-100">
+                                <div className="card-body">
+                                    <FaQuoteLeft />
+                                    <h5 className="card-text mt-3">
+                                        Where there's a CODE <br /> there's a BUG.
+                                    </h5>
+                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
+                                </div>
+                            </div>
+                        </div>
+                        <div data-aos="zoom-in" className="col">
+                            <div className="card h-100">
+                                <div className="card-body">
+                                    <FaQuoteLeft />
+                                    <h5 className="card-text mt-3">
+                                        Code can't lie <br /> Comments can.
                                     </h5>
                                     <FaQuoteRight className='d-flex justify-content-end ms-auto' />
                                 </div>
