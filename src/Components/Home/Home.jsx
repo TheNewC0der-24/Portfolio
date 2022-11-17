@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 // Routing
@@ -119,8 +119,6 @@ color : ${props => props.theme.text};
 
 const Home = () => {
 
-    const [loading, setLoading] = useState(false);
-
     const navigate = useNavigate();
 
     const words = ['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer'];
@@ -135,11 +133,6 @@ const Home = () => {
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
-
-    if (loading) {
-        setLoading(true);
-        return <div>Loading...</div>
-    }
 
     return (
         <>
