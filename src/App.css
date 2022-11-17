@@ -4,3 +4,33 @@
     background-color: #dee2e6 !important;
     border-bottom: none !important;
 }
+
+input,
+textarea {
+    text-decoration: none !important;
+    outline: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: none !important;
+    color: #dee2e6 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #dee2e6 !important;
+}
+
+.btn,
+.btn-close {
+    text-decoration: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #6d2ae2 !important;
+    text-decoration: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
