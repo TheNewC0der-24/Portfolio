@@ -1,44 +1,60 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+// Routing
 import { useNavigate } from 'react-router-dom';
 
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+// Icon
+import { BsDot } from 'react-icons/bs';
+
+// Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
+// Image
+import profile from '../../assets/Image/profile.png';
+
+// Animation
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
+// Theme
 import { lightTheme, darkTheme } from '../Themes';
 
+// Typewriter
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
-
+// Global Style
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #dee2e6;
+    background-color: ${props => props.theme.body};
     overflow-x: hidden;
   }
 
-  .card {
-    font-family: 'Special Elite', cursive !important;
-    border: none !important;
-    border-radius: 0 !important;
-    border-top : 0.5rem solid #6d2ae2 !important;
-    color: #6d2ae2 !important;
-    cursor: pointer;
+  .img {
+    border-radius: 50%;
   }
 
-  .card:hover {
-    box-shadow:
-        0px 0px 2.2px rgba(0, 0, 0, 0.07),
-        0px 0px 5.3px rgba(0, 0, 0, 0.05),
-        0px 0px 10px rgba(0, 0, 0, 0.042),
-        0px 0px 17.9px rgba(0, 0, 0, 0.035),
-        0px 0px 33.4px rgba(0, 0, 0, 0.028),
-        0px 0px 80px rgba(0, 0, 0, 0.02);   
-
+  .dot {
+    animation: upDown 1s linear infinite;
   }
+
+    @keyframes upDown {
+        0% {
+            transform: translateY(-5px);
+        }
+        25% {
+            transform: translateY(5px);
+        }
+        50% {
+            transform: translateY(10px);
+        }
+        75% {
+            transform: translateY(5px);
+        }
+        100% {
+            transform: translateY(-5px);
+        }
+    }
 
   @media (max-width: 767.5px) {
     .welcome {
@@ -46,12 +62,21 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
     }
 
+    .row {
+        flex-direction: column-reverse !important;
+    }
+
     .intro {
         text-align: center;
     }
 
-    .cards{
-        margin-left: 0 !important;
+    .img {
+        margin-bottom : 1rem !important;
+        width: 200px !important;
+    }
+
+    .know-more-btn {
+        margin-top: 1rem !important;
     }
 }
 `;
@@ -67,8 +92,20 @@ const Intro = styled.div`
 color : ${props => props.theme.text};
 
 .name{
+    font-weight : 900;
+}
+
+.name span {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.typewriter {
     font-family: 'Caveat', cursive;
-    color: #6d2ae2;
 }
 
 .know-more-btn {
@@ -82,113 +119,59 @@ color : ${props => props.theme.text};
 
 const Home = () => {
 
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
 
     const words = ['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer'];
     const { text } = useTypewriter({
         words,
         loop: 0,
+        delay: 100,
+        deleteSpeed: 50,
+        typeSpeed: 70,
     });
 
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
 
+    if (loading) {
+        setLoading(true);
+        return <div>Loading...</div>
+    }
+
     return (
-        <ThemeProvider theme={lightTheme}>
-            <GlobalStyle />
-            <SocialLinks />
-            <div className='container'>
-                <Welcome theme={darkTheme}>
-                    <p className="mt-5 mb-3 d-flex welcome justify-content-between p-2 fw-bold">
-                        𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 &lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;!
-                        <span className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
-                    </p>
-                </Welcome>
-                <Intro theme={lightTheme} className="intro text-center">
-                    <h2>I am <span className='name'>Bhavya Khurana</span></h2>
-                    <h3>and</h3>
-                    <h1>I am a{" "}
-                        <em className='fw-bold' style={{ color: '#6d2ae2' }}>{text}</em>
-                        <Cursor cursorStyle='_' />
-                    </h1>
-                    <button onClick={() => navigate("/about")} className='mt-3 know-more-btn'>Know more about me</button>
-                </Intro>
-                <div className="container mt-5">
-                    <div className="container cards row row-cols-1 row-cols-md-3 g-4">
-                        <div data-aos="zoom-in" className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaQuoteLeft />
-                                    <h5 className="card-text mt-2">There are only{" "}
-                                        <span className='fs-3'>10</span>
-                                        {" "}types of people in this world who
-                                        know binary and those who don't.
-                                    </h5>
-                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
-                                </div>
+        <>
+            <ThemeProvider theme={lightTheme}>
+                <GlobalStyle />
+                <SocialLinks />
+                <div className='container'>
+                    <Welcome theme={darkTheme}>
+                        <p className="mt-5 d-flex welcome justify-content-between p-2 fw-bold">
+                            𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 &lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;!
+                            <span className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
+                        </p>
+                    </Welcome>
+                    <div className="container d-flex my-4">
+                        <Intro theme={lightTheme} className="intro row mx-auto">
+                            <div className="col-md-7 m-auto">
+                                <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
+                                <h1>
+                                    <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
+                                    <Cursor cursorStyle='_' />
+                                </h1>
+                                <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
+                                <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                             </div>
-                        </div>
-                        <div data-aos="zoom-in" className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaQuoteLeft />
-                                    <h5 className="card-text mt-3">
-                                        <span className='fw-bold'>Only half of programming is coding.</span>{" "}
-                                        The other 90% is debugging.
-                                    </h5>
-                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
-                                </div>
+                            <div className="col-md-5 m-auto">
+                                <img src={profile} alt="profile" className='img-fluid img' />
                             </div>
-                        </div>
-                        <div data-aos="zoom-in" className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaQuoteLeft />
-                                    <h5 className="card-text mt-3">
-                                        Building a website is easy, designing one takes skill.
-                                    </h5>
-                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="zoom-in" className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaQuoteLeft />
-                                    <h5 className="card-text mt-3">
-                                        while (!(succeed = try()));
-                                    </h5>
-                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="zoom-in" className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaQuoteLeft />
-                                    <h5 className="card-text mt-3">
-                                        Where there's a CODE <br /> there's a BUG.
-                                    </h5>
-                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
-                                </div>
-                            </div>
-                        </div>
-                        <div data-aos="zoom-in" className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaQuoteLeft />
-                                    <h5 className="card-text mt-3">
-                                        Code can't lie <br /> Comments can.
-                                    </h5>
-                                    <FaQuoteRight className='d-flex justify-content-end ms-auto' />
-                                </div>
-                            </div>
-                        </div>
+                        </Intro>
                     </div>
                 </div>
-            </div>
-        </ThemeProvider>
+            </ThemeProvider>
+        </>
     )
 }
 
