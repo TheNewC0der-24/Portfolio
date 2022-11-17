@@ -22,7 +22,7 @@
 }
 
 .cardTitle::before {
-    content: "<>";
+    content: "<h1>";
     position: absolute;
     color: #dee2e6;
     font-size: large;
