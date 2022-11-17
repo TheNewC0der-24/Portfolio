@@ -129,7 +129,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div data-aos="zoom-out" className="col">
+                        <div data-aos="zoom-in" className="col">
                             <div className="card h-100">
                                 <div className="card-body">
                                     <FaQuoteLeft />
@@ -163,7 +163,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div data-aos="zoom-out" className="col">
+                        <div data-aos="zoom-in" className="col">
                             <div className="card h-100">
                                 <div className="card-body">
                                     <FaQuoteLeft />
