@@ -1,0 +1,35 @@
+.getInTouch {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.contact {
+    color: #6d2ae2;
+}
+
+.mail {
+    color: #dee2e6;
+    text-decoration: none !important;
+}
+
+.mail:hover {
+    color: #dee2e6;
+}
+
+.submitBtn {
+    color: #dee2e6;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #6d2ae2;
+}
+
+@media (max-width: 767.5px) {
+    .form {
+        width: 100% !important;
+    }
+}
