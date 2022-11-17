@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './Contact.module.css';
+import { RiFunctionLine } from 'react-icons/ri';
 
 import chat from '../../assets/Image/Chat.svg';
 
@@ -99,9 +100,9 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div className='d-flex justify-content-center flex-wrap gap-4'>
-                                    <h5><i className="fas fa-map-marker-alt"></i></h5>
-                                    <h5><i className="fas fa-map-marker-alt"></i></h5>
-                                    <h5><i className="fas fa-map-marker-alt"></i></h5>
+                                    <RiFunctionLine />
+                                    <RiFunctionLine />
+                                    <RiFunctionLine />
                                 </div>
                             </div>
                         </div>
