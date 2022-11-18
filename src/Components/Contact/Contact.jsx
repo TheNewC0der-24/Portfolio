@@ -83,7 +83,7 @@ const Contact = () => {
                                     </form>
                                 </div>
                                 <div className="col-md-5 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
-                                    <img src={chat} alt="let's chat" className='img-fluid' />
+                                    <img src={chat} alt="let's chat" width={400} className='img-fluid' />
                                     <div className='my-5'>
                                         <h5 className={styles.contact}><i className="fas fa-map-marker-alt"></i> Address</h5>
                                         <p>5, Ambeshwar Colony, Opp. Shyam Nagar Metro Station, Jaipur, Rajasthan, India</p>
