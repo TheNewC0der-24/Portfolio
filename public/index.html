@@ -17,10 +17,48 @@
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Bhavya Khurana</title>
+
+  <style>
+    .loading {
+      -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+      animation: sk-scaleout 1s infinite ease-in-out;
+      background-color: #6d2ae2;
+      border-radius: 100%;
+      height: 6em;
+      width: 6em;
+    }
+
+    .loader-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #dee2e6;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    @keyframes sk-scaleout {
+      0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
+        opacity: 0.5;
+        transform: scale(1);
+      }
+    }
+  </style>
+
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div class="loader-container" id="spinner">
+    <h1 class="loading"></h1>
+    <h2>Loading...</h2>
+  </div>
   <div id="root"></div>
 
   <!-- LordIcons -->

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
@@ -13,8 +14,20 @@ import Contact from './Components/Contact/Contact';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
+
+  const [loading, setLoading] = useState(true);
+
+  const spinner = document.getElementById('spinner');
+  if (spinner) {
+    setTimeout(() => {
+      spinner.style.display = 'none';
+      setLoading(false);
+    }, 2000);
+  }
+
   return (
-    <>
+
+    !loading && (
       <Router>
         <Navbar />
         <Routes>
@@ -29,7 +42,7 @@ function App() {
           <Route exact path="/contact" element={<Contact />} />
         </Routes>
       </Router>
-    </>
+    )
   );
 }
 
