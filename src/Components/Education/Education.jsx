@@ -1,84 +1,49 @@
 import React, { useEffect } from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+
+import { FcCalendar } from 'react-icons/fc';
+
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
-import { lightTheme, darkTheme } from '../Themes';
+import { lightTheme } from '../Themes';
+
+import school from '../../assets/Image/school.svg';
+import college from '../../assets/Image/college.svg';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #dee2e6;
+    background-color: ${(props) => props.theme.body};
   }
 
-.section_subtitle{
+  .section_title {
+    color: ${({ theme }) => theme.text};
+    font-weight : bold;
+  }
+
+  .section_subtitle{
     display: block;
     margin-bottom: 3rem;
-    color: #6d2ae2;
-}
+    font-weight: 600;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+ }
 
-.qualification_tabs{
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 2rem;
-}
+  .card {
+    background: none !important;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+  }
 
-.qualification_button{
-    font-size: 1.125rem;
-    font-weight: 900;
-     background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
-}
-
-.icon{
-    font-size: 1.8rem;
-    margin-right: 0.25rem;
-}
-
-.qualification_data{
-    display: grid;
-    grid-template-columns: 1fr max-content 1fr;
-    column-gap: 1.5rem;
-}
-
-.qualification_title{
-    font-size: 0.938rem;
-    font-weight: 500;
-}
-
-.qualification_subtitle{
-    display: inline-block;
-    font-size: 0.813rem;
-    margin-bottom: 1rem;
-    color: #6d2ae2;
-}
-
-.qualification_calender{
-    font-size: 0.75rem;
-    color: grey;
-}
-
-.qualification_rounder{
-    display: inline-block;
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background-color: #6d2ae2;
-    border-radius: 50%;
-    z-index: 99;
-}
-
-.qualification_line{
-    display: block;
-    width: 1px;
-    height: 100%;
-    background-color: white;
-    transform: translate(5.3px,0px);
-}
+  .img {
+    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+ }
 `;
 
 
@@ -93,75 +58,60 @@ const Education = () => {
             <GlobalStyle />
             <SocialLinks />
             <div className="container">
-                <div className="qualification container mt-5 section text-center">
-                    <h2 className="section_title">Qualification</h2>
-                    <span className="section_subtitle">My personal journey</span>
-
-                    <div className="qualification_container container">
-                        <div className="qualification_tabs">
-                            <div className="qualification_button button-flex">
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/stxtcyyo.json"
-                                    trigger="loop"
-                                    colors="primary:#6d2ae2"
-                                    state="morph"
-                                    style={{ width: '25px', height: '25px' }}>
-                                </lord-icon>
-                                <span className='ms-2'>
-                                    .education()
-                                </span>
-                            </div>
-                        </div>
-
-
-                        <div className="qualification_sections container">
-                            <div className="qualification_content">
-                                <div className="qualification_data">
-                                    <div data-aos="fade-right">
-                                        <h3 className="qualification_title">Secondary</h3>
-                                        <span className="qualification_subtitle">St. Anselm's Sr. Sec. School</span>
-                                        <div className="qualification_calender">
-                                            <i className="far fa-calendar-alt me-1"></i>
+                <div className="my-5 text-center">
+                    <h2 className="section_title">
+                        <lord-icon
+                            src="https://cdn.lordicon.com/stxtcyyo.json"
+                            trigger="loop"
+                            colors="primary:#0e1313"
+                            state="morph"
+                            style={{ width: '30px', height: '30px' }}>
+                        </lord-icon>
+                        <span className='ms-2'>
+                            .education()
+                        </span>
+                    </h2>
+                    <span className="section_subtitle">My journey</span>
+                </div>
+                <div className="container">
+                    <div className="container text-center">
+                        <div className="row">
+                            <div className="col-md-4 mb-5">
+                                <div className="card border-0 h-100">
+                                    <div className="card-body">
+                                        <img src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <h3 className='card-title'>Secondary</h3>
+                                        <h5>St. Anselm's Sr. Sec. School</h5>
+                                        <div className="text-secondary">
+                                            <FcCalendar className='fs-2' />
                                             2016 - 2017
                                         </div>
                                     </div>
-
-                                    <div>
-                                        <span className="qualification_rounder"></span>
-                                        <span className="qualification_line"></span>
-                                    </div>
                                 </div>
-
-                                <div className="qualification_data">
-                                    <div></div>
-
-                                    <div>
-                                        <span className="qualification_rounder"></span>
-                                        <span className="qualification_line"></span>
-                                    </div>
-
-                                    <div data-aos="fade-left">
-                                        <h3 className="qualification_title">Higher Secondary</h3>
-                                        <span className="qualification_subtitle">St. Anselm's Sr. Sec. School</span>
-                                        <div className="qualification_calender">
-                                            <i className="far fa-calendar-alt me-1"></i>
+                            </div>
+                            <div className="col-md-4 mb-5">
+                                <div className="card border-0 h-100">
+                                    <div className="card-body">
+                                        <img src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <h3>Higher Secondary</h3>
+                                        <h5>St. Anselm's Sr. Sec. School</h5>
+                                        <div className="text-secondary">
+                                            <FcCalendar className='fs-2' />
                                             2018 - 2019
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="qualification_data">
-                                    <div data-aos="fade-right">
-                                        <h3 className="qualification_title">B.tech</h3>
-                                        <span className="qualification_subtitle">Jaypee University Of Engineering And Technology</span>
-                                        <div className="qualification_calender">
-                                            <i className="far fa-calendar-alt me-1"></i>
+                            </div>
+                            <div className="col-md-4 mb-5">
+                                <div className="card border-0 h-100">
+                                    <div className="card-body">
+                                        <img src={college} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <h3>B.tech</h3>
+                                        <h5>Jaypee University Of Engineering And Technology</h5>
+                                        <div className="text-secondary">
+                                            <FcCalendar className='fs-2' />
                                             2019 - 2023
                                         </div>
-                                    </div>
-
-                                    <div>
-                                        <span className="qualification_rounder"></span>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +119,7 @@ const Education = () => {
                     </div>
                 </div>
             </div>
-        </ThemeProvider >
+        </ThemeProvider>
     )
 }
 
