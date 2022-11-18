@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, lazy, Suspense } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import Home from './Components/Home/Home';
-import About from './Components/About/About';
-import Education from './Components/Education/Education';
-import Interest from './Components/Interest/Interest';
-import Skills from './Components/Skills/Skills';
-import Work from './Components/Projects/Project';
-import Experience from './Components/Experience/Experience';
-import Blogs from './Components/Blogs/Blogs';
-import Contact from './Components/Contact/Contact';
+import LoadingScreen from './LoadingScreen/LoadingScreen';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+const Home = lazy(() => import('./Components/Home/Home'));
+const About = lazy(() => import('./Components/About/About'));
+const Education = lazy(() => import('./Components/Education/Education'));
+const Interest = lazy(() => import('./Components/Interest/Interest'));
+const Skills = lazy(() => import('./Components/Skills/Skills'));
+const Work = lazy(() => import('./Components/Projects/Project'));
+const Experience = lazy(() => import('./Components/Experience/Experience'));
+const Blogs = lazy(() => import('./Components/Blogs/Blogs'));
+const Contact = lazy(() => import('./Components/Contact/Contact'));
+
 
 function App() {
 
@@ -30,17 +32,19 @@ function App() {
     !loading && (
       <Router>
         <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/work" element={<Work />} />
-          <Route exact path="/experience" element={<Experience />} />
-          <Route exact path="/blogs" element={<Blogs />} />
-          <Route exact path="/education" element={<Education />} />
-          <Route exact path="/interest" element={<Interest />} />
-          <Route exact path="/skills" element={<Skills />} />
-          <Route exact path="/contact" element={<Contact />} />
-        </Routes>
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/work" element={<Work />} />
+            <Route exact path="/experience" element={<Experience />} />
+            <Route exact path="/blogs" element={<Blogs />} />
+            <Route exact path="/education" element={<Education />} />
+            <Route exact path="/interest" element={<Interest />} />
+            <Route exact path="/skills" element={<Skills />} />
+            <Route exact path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
       </Router>
     )
   );
