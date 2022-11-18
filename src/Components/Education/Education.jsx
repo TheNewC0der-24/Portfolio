@@ -10,8 +10,8 @@ import "aos/dist/aos.css";
 
 import { lightTheme } from '../Themes';
 
-import school from '../../assets/Image/school.svg';
-import college from '../../assets/Image/college.svg';
+import school from '../../assets/Images/school.svg';
+import college from '../../assets/Images/college.svg';
 
 const GlobalStyle = createGlobalStyle`
   body {

@@ -8,7 +8,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-import Profile from '../../assets/Image/portrait.png';
+import Profile from '../../assets/Images/portrait.png';
 
 const GlobalStyle = createGlobalStyle`
 .active {

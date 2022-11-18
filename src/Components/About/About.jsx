@@ -6,7 +6,7 @@ import styles from './About.module.css';
 import { TiArrowForward } from 'react-icons/ti';
 
 // Image
-import about from '../../assets/Image/about.svg';
+import about from '../../assets/Images/about.svg';
 
 // Particles
 import ParticleComponent from '../../subComponents/ParticleComponent';

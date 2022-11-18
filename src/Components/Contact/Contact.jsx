@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './Contact.module.css';
 import { RiFunctionLine } from 'react-icons/ri';
 
-import chat from '../../assets/Image/Chat.svg';
+import chat from '../../assets/Images/Chat.svg';
 
 import BackgroundAnimation from '../../subComponents/BackgroundAnimate/BackgroundAnimate';
 

@@ -11,7 +11,7 @@ import { BsDot } from 'react-icons/bs';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Image
-import profile from '../../assets/Image/profile.png';
+import profile from '../../assets/Images/profile.png';
 
 // Animation
 import Aos from 'aos';
