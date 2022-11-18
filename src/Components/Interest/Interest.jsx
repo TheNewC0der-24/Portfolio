@@ -50,6 +50,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Intro = styled.div`
 .interest {
+    font-weight: bold;
     text-shadow: 1px 3px 2px rgba(109, 42, 226, 1);
 }
 
