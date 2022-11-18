@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 // Routing
@@ -119,6 +119,14 @@ color : ${props => props.theme.text};
 
 const Home = () => {
 
+    const image = [profile];
+
+    const [profileImg, setProfileImage] = useState(profile);
+
+    useEffect(() => {
+        setProfileImage(image);
+    }, []);
+
     const navigate = useNavigate();
 
     const words = ['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer'];
@@ -158,7 +166,7 @@ const Home = () => {
                                 <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                             </div>
                             <div className="col-md-5 m-auto">
-                                <img src={profile} alt="profile" className='img-fluid img' />
+                                <img src={profileImg} alt="profile" className='img-fluid img' />
                             </div>
                         </Intro>
                     </div>
