@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './navbar.module.css';
+import styles from './Navbar.module.css';
 import SoundBar from '../../subComponents/SoundBar';
 
 import { createGlobalStyle } from 'styled-components';
@@ -73,6 +73,9 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/interest">.interest()</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/skills">.skills()</NavLink>
                                         </li>
                                     </ul>
                                 </li>
