@@ -20,14 +20,14 @@ const GlobalStyle = createGlobalStyle`
 
   .section_title {
     color: ${({ theme }) => theme.text};
-    font-weight : bold;
+    font-weight: bold;
   }
 
   .section_subtitle{
     display: block;
     margin-bottom: 3rem;
+    font-family: 'Caveat', cursive;
     font-weight: 600;
-    text-transform: uppercase;
     background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
     background-clip: text !important;
     -moz-background-clip: text !important;
@@ -36,13 +36,22 @@ const GlobalStyle = createGlobalStyle`
     -webkit-text-fill-color: transparent !important;
  }
 
+ .section_subtitle::before {
+    content: "-";
+ }
+
+ .section_subtitle::after {
+    content: "-";
+ }
+
   .card {
     background: none !important;
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
   }
 
   .img {
-    box-shadow: inset -5px -5px 9px rgba(255,255,255,0.45), inset 5px 5px 9px rgba(94,104,121,0.3);
+    box-shadow:  5px 5px 10px #abaeb1,
+             -5px -5px 10px #ffffff;
  }
 `;
 
@@ -71,46 +80,61 @@ const Education = () => {
                             .education()
                         </span>
                     </h2>
-                    <span className="section_subtitle">My journey</span>
+                    <h3 className="section_subtitle">My journey</h3>
                 </div>
                 <div className="container">
                     <div className="container text-center">
                         <div className="row">
-                            <div className="col-md-4 mb-5">
+                            <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
                                         <img src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
-                                        <h3 className='card-title'>Secondary</h3>
-                                        <h5>St. Anselm's Sr. Sec. School</h5>
-                                        <div className="text-secondary">
-                                            <FcCalendar className='fs-2' />
-                                            2016 - 2017
+                                        <h3 className='card-title my-2'>Secondary</h3>
+                                        <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
+                                        <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
+                                            <p>
+                                                <FcCalendar className='fs-2' />
+                                                2016 - 2017
+                                            </p>
+                                            <p>
+                                                78.2%
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 mb-5">
+                            <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
                                         <img src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
-                                        <h3>Higher Secondary</h3>
-                                        <h5>St. Anselm's Sr. Sec. School</h5>
-                                        <div className="text-secondary">
-                                            <FcCalendar className='fs-2' />
-                                            2018 - 2019
+                                        <h3 className='card-title my-2'>Higher Secondary</h3>
+                                        <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
+                                        <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
+                                            <p>
+                                                <FcCalendar className='fs-2' />
+                                                2018 - 2019
+                                            </p>
+                                            <p>
+                                                61.2%
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 mb-5">
+                            <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
                                         <img src={college} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
-                                        <h3>B.tech</h3>
-                                        <h5>Jaypee University Of Engineering And Technology</h5>
-                                        <div className="text-secondary">
-                                            <FcCalendar className='fs-2' />
-                                            2019 - 2023
+                                        <h3 className='card-title my-2'>B. Tech</h3>
+                                        <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>Jaypee University Of Engineering And Technology</h5>
+                                        <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
+                                            <p>
+                                                <FcCalendar className='fs-2' />
+                                                2019 - 2023
+                                            </p>
+                                            <p>
+                                                67.45%
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +143,7 @@ const Education = () => {
                     </div>
                 </div>
             </div>
-        </ThemeProvider>
+        </ThemeProvider >
     )
 }
 
