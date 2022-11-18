@@ -42,7 +42,7 @@ const About = () => {
             <div className="container d-flex mt-5">
               <div className="row mx-auto">
                 <div className="col-md-5">
-                  <h5 className={`${styles.me} mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
+                  <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
                   <img src={about} alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
                   <div>
                     <span className={styles.tag}>&lt;p&gt;</span>
