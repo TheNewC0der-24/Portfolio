@@ -125,6 +125,7 @@ const Home = () => {
 
     useEffect(() => {
         setProfileImage(image);
+        // eslint-disable-next-line
     }, []);
 
     const navigate = useNavigate();
