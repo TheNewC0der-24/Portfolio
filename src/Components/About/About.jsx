@@ -1,76 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import { createGlobalStyle } from 'styled-components';
+import React from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styles from './About.module.css';
 
+// Icon
+import { TiArrowForward } from 'react-icons/ti';
+
+// Image
+import about from '../../assets/Image/about.svg';
+
+// Particles
 import ParticleComponent from '../../subComponents/ParticleComponent';
 
-import Aos from 'aos';
-import "aos/dist/aos.css";
+import AnimatedText from 'react-animated-text-content';
 
+// Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
-import html from "../../assets/Languages/html.png";
-import css from "../../assets/Languages/css.png";
-import js from "../../assets/Languages/js.png";
-import reactJs from "../../assets/Languages/reactJs.png";
-import bootstrap from "../../assets/Languages/bootstrap.png";
-import mui from "../../assets/Languages/mui.png";
-import tailwindCss from "../../assets/Languages/tailwindCss.png";
-import antD from "../../assets/Languages/antD.png";
-import npm from "../../assets/Languages/npm.png";
-import yarn from "../../assets/Languages/yarn.png";
-import git from "../../assets/Languages/git.png";
-import github from "../../assets/Languages/github.png";
-import heroku from "../../assets/Languages/heroku.png";
-import netlify from "../../assets/Languages/netlify.png";
-import vercel from "../../assets/Languages/vercel.png";
-import sql from "../../assets/Languages/sql.png";
+// Theme
+import { darkTheme } from '../Themes';
 
 import Resume from '../../assets/Resume.pdf';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #0e1313;
+    background-color: ${props => props.theme.body};
   }
 `;
 
-const images = [html, css, js, reactJs, bootstrap, mui, tailwindCss, antD, npm, yarn, git, github, heroku, netlify, vercel, sql];
-
 const About = () => {
-
-  const [image, setImage] = useState(reactJs);
-
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-
-    const intervalId = setInterval(() => {
-      setImage(images[Math.floor(Math.random() * images.length)]);
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-
-  }, []);
-
 
   return (
     <>
-      <GlobalStyle />
-      <SocialLinks />
-      <ParticleComponent />
-      <div className="container mt-3">
-        <div className={`${styles.row} row mx-4`}>
-          <div className='col-md-7 m-auto'>
-            <h1 className={styles.cardTitle}>.about()</h1>
-            <span className={styles.span}>&lt;/h1&gt;</span>
-            <div data-aos="fade-right" className={`${styles.card} card my-4`}>
-              <div className="card-body">
-                <div className={styles.cardText}>
-                  I am <span>Bhavya Khurana</span>, and I'm a <span>Frontend Developer</span> from Jaypee University of Engineering and Technology, Guna, India. I am in my final year of my bachelors program, majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like ReactJS. I am constantly working on improving my skills as a software engineer.
-                  <br /> <br />
-                  I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
-                  <br /> <br />
+      <ThemeProvider theme={darkTheme}>
+        <GlobalStyle />
+        <SocialLinks />
+        <ParticleComponent />
+        <div className={`${styles.container} container my-4`}>
+          <h1 className={`${styles.title} text-center`}>.about <span style={{ color: "#6d2ae2" }}>Me()</span></h1>
+          <h5 className='text-center' style={{ color: "#9a9ea1" }}>ALLOW ME TO INTRODUCE MYSELF</h5>
+          <div className="container">
+            <div className="container d-flex mt-5">
+              <div className="row mx-auto">
+                <div className="col-md-5">
+                  <h5 className={`${styles.me} mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
+                  <img src={about} alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
+                  <div>
+                    <span className={styles.tag}>&lt;p&gt;</span>
+                    <p className={styles.content}>
+                      I'm obsessed with making things and even more obsessed with making things better.
+                    </p>
+                    <span className={styles.tag}>&lt;p&gt;</span>
+                  </div>
+                </div>
+                <div className={`${styles.mainContent} col-md-7`}>
+                  <div className={styles.tag}>&lt;h5&gt;</div>
+                  <h5>
+                    I am <span className={`${styles.main} text-danger`}>Bhavya Khurana</span>, and I'm a <span className={`${styles.main} text-warning`}>Frontend Developer</span> from <span className='text-success fw-bold'>Jaypee University of Engineering and Technology, Guna, India</span>. I am in my final year of my bachelors program, majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like <span className={`${styles.main} text-primary`}>React.JS</span>. I am constantly working on improving my skills as a software engineer.
+                  </h5>
+                  <h5>
+                    I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
+                  </h5>
+                  <div className={styles.tag}>&lt;h5&gt;</div>
                   <code className='fw-bold fs-5' style={{ color: '#6d2ae2' }}>
-                    Open to Opportunities related to Web Development.
+                    <AnimatedText
+                      type="chars"
+                      animation={{
+                        x: '200px',
+                        y: '-20px',
+                        scale: 1.1,
+                        ease: 'ease-in-out',
+                      }}
+                      animationType="rifle"
+                      interval={0.06}
+                      duration={0.8}
+                      tag="p"
+                      className="animated-paragraph"
+                      includeWhiteSpaces
+                      threshold={0.1}
+                      rootMargin="20%"
+                    >
+                      Open to Opportunities related to Web Development.
+                    </AnimatedText>
                   </code>
                   <div className='mt-4 mb-3'>
                     <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume</a>
@@ -79,13 +89,8 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className='col-md-5 m-auto'>
-            <div className="container d-flex justify-content-center mx-auto">
-              <img src={image} alt="Languages" width={300} className={`${styles.img} img-fluid`} />
-            </div>
-          </div>
         </div>
-      </div>
+      </ThemeProvider>
     </>
   )
 }
