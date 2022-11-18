@@ -83,7 +83,7 @@ const About = () => {
                     </AnimatedText>
                   </code>
                   <div className='mt-4 mb-3'>
-                    <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume</a>
+                    <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume <span></span></a>
                   </div>
                 </div>
               </div>
