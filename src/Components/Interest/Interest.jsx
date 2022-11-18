@@ -112,17 +112,6 @@ const Interest = () => {
                     </div>
                 </div>
             </div>
-
-            {/*
-
-
-                <div className="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <div className="icon-box">
-                        <h4 className="title"><a href="#"></a></h4>
-                        <p className="description"></p>
-                    </div>
-                </div>
-            </div> */}
         </ThemeProvider >
     )
 }
