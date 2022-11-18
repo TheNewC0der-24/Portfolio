@@ -49,6 +49,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Intro = styled.div`
+.interest {
+    text-shadow: 1px 3px 2px rgba(109, 42, 226, 1);
+}
+
 .intro{
     font-family: 'Caveat', cursive;
 }
@@ -72,7 +76,7 @@ const Interest = () => {
             <SocialLinks />
             <div className="container text-center my-5">
                 <Intro>
-                    <h1>.interest()</h1>
+                    <h1 className='interest'>.interest()</h1>
                     <h5><span className='intro'>Things I Love</span></h5>
                 </Intro>
                 <Quote className='my-5 mx-4'>
