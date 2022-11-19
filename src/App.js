@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useState, lazy, Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorFallback from './ErrorBoundary';
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
+// import Navbar from './Components/Navbar/Navbar';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
+const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
 const Home = lazy(() => import('./Components/Home/Home'));
 const About = lazy(() => import('./Components/About/About'));
 const Education = lazy(() => import('./Components/Education/Education'));
@@ -31,20 +34,24 @@ function App() {
 
     !loading && (
       <Router>
-        <Navbar />
-        <Suspense fallback={<LoadingScreen />}>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/work" element={<Work />} />
-            <Route exact path="/experience" element={<Experience />} />
-            <Route exact path="/blogs" element={<Blogs />} />
-            <Route exact path="/education" element={<Education />} />
-            <Route exact path="/interest" element={<Interest />} />
-            <Route exact path="/skills" element={<Skills />} />
-            <Route exact path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {
+          window.location.reload();
+        }}>
+          <Suspense fallback={<LoadingScreen />}>
+            <Navbar />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/work" element={<Work />} />
+              <Route exact path="/experience" element={<Experience />} />
+              <Route exact path="/blogs" element={<Blogs />} />
+              <Route exact path="/education" element={<Education />} />
+              <Route exact path="/interest" element={<Interest />} />
+              <Route exact path="/skills" element={<Skills />} />
+              <Route exact path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </Router>
     )
   );
