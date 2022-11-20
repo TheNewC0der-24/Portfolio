@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs, { send } from '@emailjs/browser';
 import styles from './Contact.module.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
@@ -37,8 +38,6 @@ const GlobalStyle = createGlobalStyle`
 
 const Contact = () => {
 
-    const [value, setValue] = React.useState(false);
-
     const initialValues = {
         name: "",
         email: "",
@@ -71,6 +70,8 @@ const Contact = () => {
         return error;
     };
 
+    const form = useRef();
+
     return (
         <>
             <ThemeProvider theme={darkTheme}>
@@ -97,6 +98,13 @@ const Contact = () => {
                                     <h5>Any question or remarks? Just write a message!</h5>
                                     <Formik initialValues={initialValues}
                                         onSubmit={() => {
+                                            emailjs.sendForm('service_oept3k5', 'template_1u8sgyc', form.current, 'J0p498TOPVXH53bfO')
+                                                .then((result) => {
+                                                    console.warn(result.text);
+                                                }, (error) => {
+                                                    console.error(error.text);
+                                                });
+
                                             toast.success('Message sent successfully!!', {
                                                 position: "top-right",
                                                 autoClose: 2000,
@@ -113,7 +121,7 @@ const Contact = () => {
                                         }}
                                     >
                                         {({ errors, touched }) => (
-                                            <Form autoComplete='off' className={`${styles.form} d-grid col-10 my-5`}>
+                                            <Form ref={form} autoComplete='off' className={`${styles.form} d-grid col-10 my-5`}>
                                                 <div className="mb-3">
                                                     <Field
                                                         type="text"
