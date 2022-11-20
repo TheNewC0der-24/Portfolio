@@ -1,19 +1,25 @@
 import React from 'react';
-
 import styles from './Contact.module.css';
-import { RiFunctionLine } from 'react-icons/ri';
-
-import chat from '../../assets/Images/Chat.svg';
-
-import BackgroundAnimation from '../../subComponents/BackgroundAnimate/BackgroundAnimate';
-
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+// Icon
+import { RiFunctionLine } from 'react-icons/ri';
+
+// Image
+import chat from '../../assets/Images/Chat.svg';
+
+// Background Animation
+import BackgroundAnimation from '../../subComponents/BackgroundAnimate/BackgroundAnimate';
+
+// Themes
 import { lightTheme, darkTheme } from '../Themes';
 
+// Alert
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Form Validation
+import { Formik, Form, Field } from "formik";
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -31,19 +37,39 @@ const GlobalStyle = createGlobalStyle`
 
 const Contact = () => {
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        toast.success('Message sent successfully!!', {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-        });
-    }
+    const [value, setValue] = React.useState(false);
+
+    const initialValues = {
+        name: "",
+        email: "",
+        message: "",
+    };
+
+    const validateName = (value) => {
+        let error;
+        if (!value) {
+            error = "*This field is required";
+        }
+        return error;
+    };
+
+    const validateEmail = (value) => {
+        let error;
+        if (!value) {
+            error = "*This field is required";
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+            error = "*Invalid email address";
+        }
+        return error;
+    };
+
+    const validateMessage = (value) => {
+        let error;
+        if (!value) {
+            error = "*This field is required";
+        }
+        return error;
+    };
 
     return (
         <>
@@ -69,18 +95,80 @@ const Contact = () => {
                                 <div className="col-md-7 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
                                     <h1 className={styles.getInTouch}>Get In Touch</h1>
                                     <h5>Any question or remarks? Just write a message!</h5>
-                                    <form className={`${styles.form} d-grid col-10 my-5`}>
-                                        <div className="mb-3">
-                                            <input type="text" className="form-control" id="name" placeholder="Enter your name" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <input type="email" className="form-control" id="email" placeholder="Enter your email address" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <textarea className="form-control" id="message" rows="5" placeholder="Go ahead, I am listening..."></textarea>
-                                        </div>
-                                        <button onClick={handleSubmit} type="submit" className={styles.submitBtn}>Submit</button>
-                                    </form>
+                                    <Formik initialValues={initialValues}
+                                        onSubmit={() => {
+                                            toast.success('Message sent successfully!!', {
+                                                position: "top-right",
+                                                autoClose: 2000,
+                                                hideProgressBar: false,
+                                                closeOnClick: true,
+                                                pauseOnHover: true,
+                                                draggable: true,
+                                                progress: undefined,
+                                                theme: "colored",
+                                            })
+                                            document.getElementById("name").value = "";
+                                            document.getElementById("email").value = "";
+                                            document.getElementById("message").value = "";
+                                        }}
+                                    >
+                                        {({ errors, touched }) => (
+                                            <Form autoComplete='off' className={`${styles.form} d-grid col-10 my-5`}>
+                                                <div className="mb-3">
+                                                    <Field
+                                                        type="text"
+                                                        className={`form-control ${errors.name && touched.name ? "border-danger" : ""}`}
+                                                        id="name"
+                                                        name="name"
+                                                        placeholder="Enter your name"
+                                                        validate={validateName}
+                                                    />
+                                                    {errors.name && touched.name && (
+                                                        <div className="form-text text-danger">
+                                                            {errors.name}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="mb-3">
+                                                    <Field
+                                                        type="email"
+                                                        className={`form-control ${errors.email && touched.email ? "border-danger" : ""}`}
+                                                        id="email"
+                                                        name="email"
+                                                        placeholder="Enter your email address"
+                                                        validate={validateEmail}
+                                                    />
+                                                    {errors.email && touched.email && (
+                                                        <div className="form-text text-danger">
+                                                            {errors.email}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="mb-3">
+                                                    <Field as="textarea"
+                                                        className={`form-control ${errors.message && touched.message ? "border-danger" : ""}`}
+                                                        id="message"
+                                                        name="message"
+                                                        rows="5"
+                                                        placeholder="Go ahead, I am listening..."
+                                                        validate={validateMessage}
+                                                    />
+                                                    {errors.message && touched.message && (
+                                                        <div className="form-text text-danger">
+                                                            {errors.message}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <button
+                                                    type="submit"
+                                                    className={styles.submitBtn}
+                                                    id="submitBtn"
+                                                >
+                                                    Submit
+                                                </button>
+                                            </Form>
+                                        )}
+                                    </Formik>
                                 </div>
                                 <div className="col-md-5 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
                                     <img src={chat} alt="let's chat" width={400} className='img-fluid' />
