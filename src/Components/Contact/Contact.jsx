@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import emailjs, { send } from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
