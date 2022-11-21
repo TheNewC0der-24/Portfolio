@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
   .section_title {
     color: ${({ theme }) => theme.text};
     font-weight: bold;
+    margin-bottom: 0 !important;
   }
 
   .section_subtitle{
@@ -94,7 +95,7 @@ const Education = () => {
                             .education()
                         </span>
                     </h2>
-                    <h3 className="section_subtitle">My journey</h3>
+                    <h3 className="section_subtitle">Academic Learning</h3>
                 </div>
                 <div className="container">
                     <div className="container text-center">
