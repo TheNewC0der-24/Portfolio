@@ -47,7 +47,7 @@ const Contact = () => {
     const validateName = (value) => {
         let error;
         if (!value) {
-            error = "*This field is required";
+            error = "*Name is required";
         }
         return error;
     };
@@ -55,7 +55,7 @@ const Contact = () => {
     const validateEmail = (value) => {
         let error;
         if (!value) {
-            error = "*This field is required";
+            error = "*Email is required";
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
             error = "*Invalid email address";
         }
@@ -65,7 +65,7 @@ const Contact = () => {
     const validateMessage = (value) => {
         let error;
         if (!value) {
-            error = "*This field is required";
+            error = "*Message is required";
         }
         return error;
     };
