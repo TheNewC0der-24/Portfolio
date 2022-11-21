@@ -53,6 +53,20 @@ const GlobalStyle = createGlobalStyle`
     box-shadow:  5px 5px 10px #abaeb1,
              -5px -5px 10px #ffffff;
  }
+
+ .visit {
+    background: none !important;
+    border-radius : 0px !important;
+    border: none !important;
+    color : #0e1313 !important;
+    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3) !important;
+    transition: all 0.2s ease;
+ }
+
+    .visit:hover {
+            box-shadow: inset -5px 5px 7px #bdc0c4,
+                    inset 5px -5px 7px #ffffff !important;
+    }
 `;
 
 
@@ -97,9 +111,11 @@ const Education = () => {
                                                 2016 - 2017
                                             </p>
                                             <p>
+                                                <span className='fw-bold me-1'>Score:</span>
                                                 78.2%
                                             </p>
                                         </div>
+                                        <a href='https://stanselmsmns.ac.in/' target="_blank" className='visit btn btn-primary d-block'>Visit School</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,9 +131,11 @@ const Education = () => {
                                                 2018 - 2019
                                             </p>
                                             <p>
+                                                <span className='fw-bold me-1'>Score:</span>
                                                 61.2%
                                             </p>
                                         </div>
+                                        <a href='https://stanselmsmns.ac.in/' target="_blank" className='visit btn btn-primary d-block'>Visit School</a>
                                     </div>
                                 </div>
                             </div>
@@ -133,9 +151,11 @@ const Education = () => {
                                                 2019 - 2023
                                             </p>
                                             <p>
+                                                <span className='fw-bold me-1'>Score:</span>
                                                 67.45%
                                             </p>
                                         </div>
+                                        <a href='https://www.juet.ac.in/' target="_blank" className='visit btn btn-primary d-block'>Visit College</a>
                                     </div>
                                 </div>
                             </div>
