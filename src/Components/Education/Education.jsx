@@ -116,7 +116,7 @@ const Education = () => {
                                                 78.2%
                                             </p>
                                         </div>
-                                        <a href='https://stanselmsmns.ac.in/' target="_blank" className='visit btn btn-primary d-block'>Visit School</a>
+                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn btn-primary d-block'>Visit School</a>
                                     </div>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ const Education = () => {
                                                 61.2%
                                             </p>
                                         </div>
-                                        <a href='https://stanselmsmns.ac.in/' target="_blank" className='visit btn btn-primary d-block'>Visit School</a>
+                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn btn-primary d-block'>Visit School</a>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@ const Education = () => {
                                                 67.45%
                                             </p>
                                         </div>
-                                        <a href='https://www.juet.ac.in/' target="_blank" className='visit btn btn-primary d-block'>Visit College</a>
+                                        <a href='https://www.juet.ac.in/' target="_blank" rel="noreferrer" className='visit btn btn-primary d-block'>Visit College</a>
                                     </div>
                                 </div>
                             </div>
