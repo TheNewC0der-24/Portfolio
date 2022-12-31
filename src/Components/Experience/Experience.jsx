@@ -119,9 +119,9 @@ const Experience = () => {
                                                 <p>Nagpur, India</p>
                                             </div>
                                             <hr />
-                                            <p><span className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>aCLOUD</span></p>
+                                            <p><span className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>CLOUD COACH</span></p>
                                             <ul>
-                                                <li>Working on the frontend part of an application which is an AI bot for automatic assessment and feedback that can be used for
+                                                <li>Created the frontend part of an application which is an AI bot for automatic assessment and feedback that can be used for
                                                     interviews, training like sales or leadership, course testing, screening, job simulation etc.</li>
                                             </ul>
                                         </div>
