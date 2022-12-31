@@ -157,7 +157,7 @@ const Home = () => {
                     </Welcome>
                     <div className="container d-flex my-4">
                         <Intro theme={lightTheme} className="intro row mx-auto">
-                            <div className="col-md-7 m-auto">
+                            <div className="col-md-7 m-auto float-start">
                                 <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
                                 <h1>
                                     <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
@@ -166,7 +166,7 @@ const Home = () => {
                                 <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
                                 <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                             </div>
-                            <div className="col-md-5 m-auto">
+                            <div className="col-md-5 m-auto float-end">
                                 <img src={profileImg} alt="profile" className='img-fluid img' />
                             </div>
                         </Intro>
