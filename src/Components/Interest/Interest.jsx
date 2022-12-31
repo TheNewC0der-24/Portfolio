@@ -10,6 +10,15 @@ const GlobalStyle = createGlobalStyle`
     color : #dee2e6;
   }
 
+  .intro {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
   .card {
     background: none !important;
     border-radius : 0px !important;
@@ -48,23 +57,6 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-const Intro = styled.div`
-.interest {
-    font-weight: bold;
-    text-shadow: 1px 3px 2px rgba(109, 42, 226, 1);
-}
-
-.intro{
-    font-family: 'Caveat', cursive;
-}
-.intro::before {
-   content : "-";
-}
-.intro::after {
-   content : "-";
-}
-`;
-
 const Quote = styled.p`
     font-family: 'Special Elite', cursive;
     color: #6d2ae2;
@@ -76,10 +68,10 @@ const Interest = () => {
             <GlobalStyle />
             <SocialLinks />
             <div className="container text-center my-5">
-                <Intro>
-                    <h1 className='interest'>.interest()</h1>
-                    <h5><span className='intro'>Things I Love</span></h5>
-                </Intro>
+                <div>
+                    <h1 className='fw-bold'>.interest()</h1>
+                    <h6 className='fw-bold'>Things <span className='intro'>I Love</span></h6>
+                </div>
                 <Quote className='my-5 mx-4'>
                     <blockquote className="blockquote mb-0">
                         <p><span>PASSION</span> IS NOT ABOUT DOING SOMETHING <span>BIG PASSION</span> IS DOING SMALL THINGS WITH 100%</p>

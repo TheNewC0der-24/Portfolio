@@ -20,30 +20,22 @@ const GlobalStyle = createGlobalStyle`
 
   .section_title {
     color: ${({ theme }) => theme.text};
-    font-weight: bold;
     margin-bottom: 0 !important;
   }
 
   .section_subtitle{
     display: block;
     margin-bottom: 3rem;
-    font-family: 'Caveat', cursive;
-    font-weight: 600;
+ }
+
+  .section_subtitle span {
     background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
     background-clip: text !important;
     -moz-background-clip: text !important;
     -webkit-background-clip: text !important;
     -moz-text-fill-color: transparent !important;
     -webkit-text-fill-color: transparent !important;
- }
-
- .section_subtitle::before {
-    content: "-";
- }
-
- .section_subtitle::after {
-    content: "-";
- }
+  }
 
   .card {
     background: none !important;
@@ -83,7 +75,7 @@ const Education = () => {
             <SocialLinks />
             <div className="container">
                 <div className="my-5 text-center">
-                    <h2 className="section_title">
+                    <h1 className="section_title fw-bold">
                         <lord-icon
                             src="https://cdn.lordicon.com/stxtcyyo.json"
                             trigger="loop"
@@ -94,8 +86,8 @@ const Education = () => {
                         <span className='ms-2'>
                             .education()
                         </span>
-                    </h2>
-                    <h3 className="section_subtitle">Academic Learning</h3>
+                    </h1>
+                    <h6 className="section_subtitle fw-bold">Academic <span>Learning</span></h6>
                 </div>
                 <div className="container">
                     <div className="container text-center">

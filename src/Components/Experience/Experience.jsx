@@ -74,7 +74,7 @@ const Experience = () => {
                     <div className='container'>
                         <div className='container my-3'>
                             <h1 className='title text-center'>.experience()</h1>
-                            <h6 className='sub-title text-center'>PROFESSIONAL <span>JOURNEY</span></h6>
+                            <h6 className='sub-title text-center fw-bold'>PROFESSIONAL <span>JOURNEY</span></h6>
                             <div className="accordion accordion-flush my-5" id="accordionExample">
                                 <div className="accordion-item mb-3">
                                     <h2 className="accordion-header" id="headingOne">
