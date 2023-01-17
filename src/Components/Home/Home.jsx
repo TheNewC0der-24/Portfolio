@@ -28,18 +28,24 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 // Global Style
 const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme.body};
-    overflow-x: hidden;
-  }
+    body {
+        background-color: ${props => props.theme.body};
+        overflow-x: hidden;
+    }
 
-  .img {
-    border-radius: 50%;
-  }
+    .tag {
+        color: #6d2ae2;
+        font-family: 'Caveat', cursive;
+    }
 
-  .dot {
-    animation: upDown 1s linear infinite;
-  }
+    .img {
+        border-radius: 50%;
+        width: 400px;
+    }
+
+    .dot {
+        animation: upDown 1s linear infinite;
+    }
 
     @keyframes upDown {
         0% {
@@ -76,6 +82,10 @@ const GlobalStyle = createGlobalStyle`
     .img {
         margin-bottom : 1rem !important;
         width: 200px !important;
+    }
+
+    .tag {
+        display: none;
     }
 
     .know-more-btn {
@@ -159,18 +169,22 @@ const Home = () => {
                         </p>
                     </Welcome>
                     <div className="container d-flex my-4">
-                        <Intro theme={lightTheme} className="intro row mx-auto">
-                            <div className="col-md-7 m-auto float-start">
-                                <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
-                                <h1>
-                                    <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
-                                    <Cursor cursorStyle='_' />
-                                </h1>
-                                <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
-                                <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
-                            </div>
-                            <div className="col-md-5 m-auto float-end">
-                                <LazyLoadImage src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
+                        <Intro theme={lightTheme} className="intro mx-auto">
+                            <div className='clearfix row'>
+                                <div className="col-md-7 m-auto">
+                                    <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
+                                    <h1>
+                                        <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
+                                        <Cursor cursorStyle='_' />
+                                    </h1>
+                                    <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
+                                    <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
+                                </div>
+                                <div className="col-md-5 m-auto">
+                                    <p className='tag' align="right">&lt;img&gt;</p>
+                                    <LazyLoadImage data-aos="zoom-out" src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
+                                    <p className='tag'>&lt;img&gt;</p>
+                                </div>
                             </div>
                         </Intro>
                     </div>
