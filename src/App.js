@@ -1,9 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React, { useState, lazy, Suspense } from 'react';
+
+import {
+  BrowserRouter as Router, Routes, Route
+} from 'react-router-dom';
+
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from './ErrorBoundary';
 import './App.css';
-// import Navbar from './Components/Navbar/Navbar';
+
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 
 const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
