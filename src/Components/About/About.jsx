@@ -43,7 +43,7 @@ const About = () => {
           <h5 className='text-center' style={{ color: "#9a9ea1" }}>ALLOW ME TO INTRODUCE MYSELF</h5>
           <div className="container">
             <div className="container d-flex mt-5">
-              <div className="row clearfix mx-auto">
+              <div className={`${styles.row} row mx-auto`}>
                 <div className="col-md-5">
                   <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
                   <LazyLoadImage delayTime={100} threshold={100} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
@@ -58,7 +58,7 @@ const About = () => {
                 <div className={`${styles.mainContent} col-md-7`}>
                   <div className={styles.tag}>&lt;h5&gt;</div>
                   <h5>
-                    I am <span className={`${styles.main} text-danger`}>Bhavya Khurana</span>, and I'm a <span className={`${styles.main} text-warning`}>Frontend Developer</span> from <span className='text-success fw-bold'>Jaypee University of Engineering and Technology, Guna, India</span>. I am in my final year of my bachelors program, majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like <span className={`${styles.main} bs-info-text`}>React.JS</span>. I am constantly working on improving my skills as a software engineer.
+                    I am <span className={`${styles.main} text-danger`}>Bhavya Khurana</span>, and I'm a <span className={`${styles.main} text-warning`}>Frontend Developer</span> from <span className='text-success fw-bold'>Jaypee University of Engineering and Technology, Guna, India</span>. I am in my final year of my bachelors program, majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like <span className={`${styles.main} text-primary-emphasis`}>React.JS</span>. I am constantly working on improving my skills as a software engineer.
                   </h5>
                   <h5>
                     I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
