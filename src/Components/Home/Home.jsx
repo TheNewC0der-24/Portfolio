@@ -4,6 +4,8 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 // Routing
 import { useNavigate } from 'react-router-dom';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 // Icon
 import { BsDot } from 'react-icons/bs';
 
@@ -12,6 +14,8 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Image
 import profile from '../../assets/Images/profile.png';
+import placeholderImg from '../../assets/Images/placeholderProfile.png';
+
 
 // Animation
 import Aos from 'aos';
@@ -167,7 +171,7 @@ const Home = () => {
                                 <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                             </div>
                             <div className="col-md-5 m-auto float-end">
-                                <img src={profileImg} alt="profile" className='img-fluid img' />
+                                <LazyLoadImage placeholderSrc={placeholderImg} src={profileImg} effect="black-and-white" alt="profile" className='img-fluid img' />
                             </div>
                         </Intro>
                     </div>
