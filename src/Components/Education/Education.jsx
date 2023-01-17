@@ -159,7 +159,7 @@ const Education = () => {
                     </div>
                 </div>
             </div>
-        </ThemeProvider >
+        </ThemeProvider>
     )
 }
 
