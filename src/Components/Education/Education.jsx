@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import { FcCalendar } from 'react-icons/fc';
 
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
@@ -95,7 +98,7 @@ const Education = () => {
                             <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
-                                        <img src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <LazyLoadImage effect="blur" src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
                                         <h3 className='card-title my-2'>Secondary</h3>
                                         <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
                                         <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
@@ -115,7 +118,7 @@ const Education = () => {
                             <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
-                                        <img src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <LazyLoadImage effect="blur" src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
                                         <h3 className='card-title my-2'>Higher Secondary</h3>
                                         <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
                                         <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
@@ -135,7 +138,7 @@ const Education = () => {
                             <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
-                                        <img src={college} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <LazyLoadImage effect="blur" src={college} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
                                         <h3 className='card-title my-2'>B. Tech</h3>
                                         <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>Jaypee University Of Engineering And Technology</h5>
                                         <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
