@@ -2,6 +2,9 @@ import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styles from './About.module.css';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 // Icon
 import { TiArrowForward } from 'react-icons/ti';
 
@@ -43,7 +46,7 @@ const About = () => {
               <div className="row mx-auto">
                 <div className="col-md-5">
                   <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
-                  <img src={about} alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
+                  <LazyLoadImage delayTime={100} threshold={100} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
                   <div>
                     <span className={styles.tag}>&lt;p&gt;</span>
                     <p className={styles.content}>
@@ -61,7 +64,7 @@ const About = () => {
                     I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
                   </h5>
                   <div className={styles.tag}>&lt;h5&gt;</div>
-                  <code className='fw-bold fs-5' style={{ color: '#6d2ae2' }}>
+                  <p className='fw-bold fs-5 my-2' style={{ color: '#6d2ae2', fontFamily: 'Special Elite' }}>
                     <AnimatedText
                       type="chars"
                       animation={{
@@ -81,7 +84,7 @@ const About = () => {
                     >
                       Open to Opportunities related to Web Development.
                     </AnimatedText>
-                  </code>
+                  </p>
                   <div className='mt-4 mb-3'>
                     <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume <span></span></a>
                   </div>
