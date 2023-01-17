@@ -21,6 +21,8 @@ import heroku from "../../assets/Languages/heroku.png";
 import netlify from "../../assets/Languages/netlify.png";
 import vercel from "../../assets/Languages/vercel.png";
 import sql from "../../assets/Languages/sql.png";
+import redux from "../../assets/Languages/redux.svg";
+import ts from "../../assets/Languages/ts.svg";
 
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
@@ -64,7 +66,8 @@ const Skills = () => {
                         <span>.skills()</span>
                         <h2>-My Learnings-</h2>
                         <p className='text-center mx-auto w-75'>
-                            I have worked with a range of Technologies in Web Development and Programming world.
+                            These are my skills and this contains all the technologies and programming languages that I have learnt
+                            until now. I am constantly learning, therefore I may update this section more often.
                         </p>
                     </div>
                     <div className="container">
@@ -204,6 +207,22 @@ const Skills = () => {
                                             <div className="card-body text-center">
                                                 <img src={sql} width={125} className='img-fluid mx-auto img p-3' alt="sql" />
                                                 <h3 className="card-title my-3">My SQL</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                        <div className="card border-0 h-100">
+                                            <div className="card-body text-center">
+                                                <img src={redux} width={125} className='img-fluid mx-auto img p-3' alt="redux" />
+                                                <h3 className="card-title my-3">Redux</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                        <div className="card border-0 h-100">
+                                            <div className="card-body text-center">
+                                                <img src={ts} width={125} className='img-fluid mx-auto img p-3' alt="typescript" />
+                                                <h3 className="card-title my-3">TypeScript</h3>
                                             </div>
                                         </div>
                                     </div>
