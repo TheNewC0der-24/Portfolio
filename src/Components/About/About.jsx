@@ -64,7 +64,7 @@ const About = () => {
                     I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
                   </h5>
                   <div className={styles.tag}>&lt;h5&gt;</div>
-                  <p className='fw-bold fs-5 my-2' style={{ color: '#6d2ae2', fontFamily: 'Special Elite' }}>
+                  <div className='fw-bold fs-5 my-2' style={{ color: '#6d2ae2', fontFamily: 'Special Elite' }}>
                     <AnimatedText
                       type="chars"
                       animation={{
@@ -84,7 +84,7 @@ const About = () => {
                     >
                       Open to Opportunities related to Web Development.
                     </AnimatedText>
-                  </p>
+                  </div>
                   <div className='mt-4 mb-3'>
                     <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume <span></span></a>
                   </div>
