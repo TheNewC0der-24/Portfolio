@@ -13,8 +13,6 @@ import { BsDot } from 'react-icons/bs';
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
-import AnimatedText from 'react-animated-text-content';
-
 // Image
 import profile from '../../assets/Images/profile.png';
 
