@@ -9,6 +9,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import Profile from '../../assets/Images/portrait.png';
+import Sidebar from './Sidebar/Sidebar';
 
 const GlobalStyle = createGlobalStyle`
 .active {
@@ -62,7 +63,7 @@ const Navbar = () => {
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/blogs">.blogs()</NavLink>
                             </li>
 
-                            <div className="dropdown-center">
+                            {/* <div className="dropdown-center">
                                 <li className='nav-item dropdown'>
                                     <div className={`${styles.navLink} nav-link dropdown-toggle`} role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" ata-bs-display="static" aria-expanded="false">
                                         .others()
@@ -79,14 +80,19 @@ const Navbar = () => {
                                         </li>
                                     </ul>
                                 </li>
-                            </div>
+                            </div> */}
+
                             <li className={`${styles.navItem} nav-item`}>
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/contact">.contact Me()</NavLink>
                             </li>
+
+                            <button onClick={handleClick} className={`${styles.btn} btn btn-primary`} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">Others</button>
                         </ul>
                     </div>
                 </div>
             </nav>
+
+            <Sidebar />
         </>
     )
 }
