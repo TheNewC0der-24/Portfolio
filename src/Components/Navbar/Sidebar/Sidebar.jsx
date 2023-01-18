@@ -18,7 +18,7 @@ const Sidebar = () => {
                     <p>Hello,</p>
                     <p>Greetings of the day! Hope you are doing well.</p>
 
-                    <p className='my-4'>If you want to know about my EDUCATION, INTERESTS, and SKILLS... then just click the 👇 links... </p>
+                    <p className='my-4'>If you want to know about my EDUCATION, INTERESTS, and SKILLS... then just click the 👇 buttons... </p>
                     <div className={styles.nav}>
                         <button className={`${styles.btn} btn btn-primary my-3`} data-bs-dismiss="offcanvas" onClick={() => navigate("./education")}>
                             .education()
