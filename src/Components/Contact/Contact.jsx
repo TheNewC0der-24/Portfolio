@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+// Email.js
+import emailjs from '@emailjs/browser';
 
 // Icon
 import { RiFunctionLine } from 'react-icons/ri';
@@ -41,6 +43,7 @@ const Contact = () => {
     const initialValues = {
         name: "",
         email: "",
+        subject: "",
         message: "",
     };
 
@@ -55,12 +58,22 @@ const Contact = () => {
     const validateEmail = (value) => {
         let error;
         if (!value) {
-            error = "*Email is required";
+            error = "*E-mail is required";
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-            error = "*Invalid email address";
+            error = "*Invalid e-mail address";
         }
         return error;
     };
+
+    const validateSubject = (value) => {
+        let error;
+        if (!value) {
+            error = "*Select Subject";
+        } else if (value === "Select...") {
+            error = "*Choose correct option";
+        }
+        return error;
+    }
 
     const validateMessage = (value) => {
         let error;
@@ -140,7 +153,7 @@ const Contact = () => {
                                                         className={`form-control ${errors.email && touched.email ? "border-danger" : ""}`}
                                                         id="email"
                                                         name="email"
-                                                        placeholder="Enter your email address"
+                                                        placeholder="Enter your e-mail address"
                                                         validate={validateEmail}
                                                     />
                                                     {errors.email && touched.email && (
@@ -149,6 +162,30 @@ const Contact = () => {
                                                         </div>
                                                     )}
                                                 </div>
+                                                <div className="mb-3 form-floating">
+                                                    <Field as="select"
+                                                        className={`form-select  ${errors.subject && touched.subject ? "border-danger" : ""}`}
+                                                        id="subject"
+                                                        name="subject"
+                                                        placeholder="Subject"
+                                                        validate={validateSubject}>
+                                                        <option selected value="Select">Select...</option>
+                                                        <option value="Budget">Budget</option>
+                                                        <option value="Questions">Questions</option>
+                                                        <option value="Opinion">Opinion</option>
+                                                        <option value="Suggestions">Suggestions</option>
+                                                        <option value="Just chatting">Just chatting</option>
+                                                        <option value="Questions">Other</option>
+                                                    </Field>
+                                                    <label className='fw-bold text-dark' htmlFor="floatingSelect">Subject</label>
+                                                    {
+                                                        errors.subject && touched.subject &&
+                                                        <div className="form-text text-danger">
+                                                            {errors.subject}
+                                                        </div>
+                                                    }
+                                                </div>
+
                                                 <div className="mb-3">
                                                     <Field as="textarea"
                                                         className={`form-control ${errors.message && touched.message ? "border-danger" : ""}`}
@@ -169,7 +206,7 @@ const Contact = () => {
                                                     className={styles.submitBtn}
                                                     id="submitBtn"
                                                 >
-                                                    Submit
+                                                    Send Message
                                                 </button>
                                             </Form>
                                         )}
