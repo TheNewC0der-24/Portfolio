@@ -168,10 +168,10 @@ const Home = () => {
                             <span data-aos="zoom-in" className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
                         </p>
                     </Welcome>
-                    <div className="container d-flex my-4">
-                        <Intro theme={lightTheme} className="intro mx-auto">
+                    <div className="container d-flex justify-content-center align-items-center m-auto">
+                        <Intro theme={lightTheme} className="intro">
                             <div className='clearfix row'>
-                                <div className="col-md-7 m-auto float-start">
+                                <div className="col-md-7 col-lg-7 m-auto float-start">
                                     <h1 data-aos="fade-up" className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
                                     <h1>
                                         <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
@@ -180,9 +180,9 @@ const Home = () => {
                                     <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
                                     <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                                 </div>
-                                <div className="col-md-5 m-auto float-end">
+                                <div className="col-md-5 col-lg-5 m-auto float-end">
                                     <p className='tag' align="right">&lt;img&gt;</p>
-                                    <LazyLoadImage data-aos="zoom-out" src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
+                                    <LazyLoadImage data-aos="zoom-in" src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
                                     <p className='tag'>&lt;img&gt;</p>
                                 </div>
                             </div>
