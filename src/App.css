@@ -1,9 +1,9 @@
-.dropdown-item.active,
+/* .dropdown-item.active,
 .dropdown-item:active {
     color: #0e1313 !important;
     background-color: #dee2e6 !important;
     border-bottom: none !important;
-}
+} */
 
 input,
 textarea {
@@ -13,6 +13,13 @@ textarea {
     box-shadow: none !important;
     background: none !important;
     color: #dee2e6 !important;
+}
+
+select {
+    text-decoration: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
 }
 
 input::placeholder,
@@ -28,7 +35,8 @@ textarea::placeholder {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     border-color: #6d2ae2 !important;
     text-decoration: none !important;
     outline: 0 !important;
