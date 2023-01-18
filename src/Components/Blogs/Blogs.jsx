@@ -30,7 +30,7 @@ const Blogs = () => {
                             <h4 className="alert-heading fw-bold">No Blogs to read!!</h4>
                             <hr />
                             <p className="mb-0">This page is Under Construction...</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </div>
 
