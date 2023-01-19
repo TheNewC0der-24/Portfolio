@@ -165,9 +165,10 @@ const Home = () => {
                     <Welcome theme={darkTheme}>
                         <p className="mt-5 d-flex welcome justify-content-between p-2 fw-bold">
                             𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 &lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;!
-                            <span data-aos="zoom-in" className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
+                            <span data-aos="flip-down" className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
                         </p>
                     </Welcome>
+
                     <div className="container d-flex justify-content-center align-items-center m-auto">
                         <Intro theme={lightTheme} className="intro">
                             <div className='clearfix row'>
@@ -182,8 +183,10 @@ const Home = () => {
                                 </div>
                                 <div className="col-md-5 col-lg-5 m-auto float-end">
                                     <p className='tag' align="right">&lt;img&gt;</p>
-                                    <LazyLoadImage data-aos="zoom-in" src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
-                                    <p className='tag'>&lt;img&gt;</p>
+                                    <div className="card border-0" style={{ backgroundColor: "#dee2e6" }}>
+                                        <LazyLoadImage data-aos="zoom-in" src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
+                                    </div>
+                                    <p className='tag'>&lt;/img&gt;</p>
                                 </div>
                             </div>
                         </Intro>
