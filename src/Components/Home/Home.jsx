@@ -132,15 +132,6 @@ color : ${props => props.theme.text};
 
 const Home = () => {
 
-    const image = [profile];
-
-    const [profileImg, setProfileImage] = useState(profile);
-
-    useEffect(() => {
-        setProfileImage(image);
-        // eslint-disable-next-line
-    }, []);
-
     const navigate = useNavigate();
 
     const words = ['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer'];
@@ -184,7 +175,7 @@ const Home = () => {
                                 <div className="col-md-5 col-lg-5 m-auto float-end">
                                     <p className='tag' align="right">&lt;img&gt;</p>
                                     <div className="card border-0" style={{ backgroundColor: "#dee2e6" }}>
-                                        <LazyLoadImage data-aos="zoom-in" src={profileImg} effect="blur" alt="profile" className='img-fluid img' />
+                                        <LazyLoadImage data-aos="zoom-in" src={profile} effect="blur" alt="profile" className='img-fluid img' />
                                     </div>
                                     <p className='tag'>&lt;/img&gt;</p>
                                 </div>
