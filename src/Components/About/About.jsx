@@ -46,7 +46,7 @@ const About = () => {
               <div className={`${styles.row} row mx-auto`}>
                 <div className="col-md-5">
                   <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
-                  <LazyLoadImage delayTime={100} threshold={100} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
+                  <LazyLoadImage delayTime={5} threshold={10} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
                   <div>
                     <span className={styles.tag}>&lt;p&gt;</span>
                     <p className={styles.content}>
