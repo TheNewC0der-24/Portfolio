@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import './SocialLinks.css';
 
+import { SiHashnode } from 'react-icons/si';
+
 import { motion } from 'framer-motion';
 
 const Line = styled(motion.span)`
@@ -69,6 +71,16 @@ const SocialLinks = () => {
                     animate={{ scale: [0, 1, 1.5, 1] }}
                     transition={{ type: 'spring', duration: 1, delay: 2 }}
                 >
+                    <a href="https://hashnode.com/@BhavyaKhurana" rel="noreferrer" target="_blank">
+                        <SiHashnode className="mb-3 fs-4 fa-brands fa-hashnode" />
+                    </a>
+                </motion.div>
+
+                <motion.div
+                    initial={{ transform: "scale(0)" }}
+                    animate={{ scale: [0, 1, 1.5, 1] }}
+                    transition={{ type: 'spring', duration: 1, delay: 2.2 }}
+                >
                     <a href="https://stackoverflow.com/users/16262496/bhavya-khurana" rel="noreferrer" target="_blank">
                         <i className="mb-3 fs-4 fa-brands fa-stack-overflow"></i>
                     </a>
@@ -77,7 +89,7 @@ const SocialLinks = () => {
                 <motion.div
                     initial={{ transform: "scale(0)" }}
                     animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 2.2 }}
+                    transition={{ type: 'spring', duration: 1, delay: 2.4 }}
                 >
                     <a href="https://twitter.com/Bhavya06001699" rel="noreferrer" target="_blank">
                         <i className="mb-3 fs-4 fa-brands fa-twitter"></i>

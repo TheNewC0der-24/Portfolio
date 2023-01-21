@@ -13,6 +13,7 @@
 .fa-instagram-square,
 .fa-linkedin,
 .fa-medium,
+.fa-hashnode,
 .fa-stack-overflow,
 .fa-twitter {
     color: #6d2ae2;
@@ -58,6 +59,15 @@ a .fa-instagram-square:hover {
 }
 
 a .fa-linkedin:hover {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+a .fa-hashnode:hover {
     background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
     background-clip: text !important;
     -moz-background-clip: text !important;
