@@ -86,7 +86,7 @@ const Navbar = () => {
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/contact">.contact Me()</NavLink>
                             </li>
 
-                            <button onClick={handleClick} className={`${styles.btn} btn btn-primary`} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">Others</button>
+                            <button onClick={handleClick} className={`${styles.btn} btn btn-primary ms-2`} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">Others</button>
                         </ul>
                     </div>
                 </div>
