@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
 
     .img {
         border-radius: 50%;
-        width: 400px;
+        width: 250px;
     }
 
     .dot {
@@ -73,10 +73,6 @@ const GlobalStyle = createGlobalStyle`
 
     .row {
         flex-direction: column-reverse !important;
-    }
-
-    .intro {
-        text-align: center;
     }
 
     .img {
@@ -154,32 +150,23 @@ const Home = () => {
                 <SocialLinks />
                 <div className='container'>
                     <Welcome theme={darkTheme}>
-                        <p className="mt-5 d-flex welcome justify-content-between p-2 fw-bold">
+                        <p className=" d-flex welcome justify-content-between p-2 mt-2 fw-bold">
                             𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 &lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;!
-                            <span data-aos="flip-down" className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
+                            <span className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
                         </p>
                     </Welcome>
-
-                    <div className="container d-flex justify-content-center align-items-center m-auto">
-                        <Intro theme={lightTheme} className="intro">
-                            <div className='clearfix row'>
-                                <div className="col-md-7 col-lg-7 m-auto float-start">
-                                    <h1 data-aos="fade-up" className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
-                                    <h1>
-                                        <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
-                                        <Cursor cursorStyle='_' />
-                                    </h1>
-                                    <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
-                                    <button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
-                                </div>
-                                <div className="col-md-5 col-lg-5 m-auto float-end">
-                                    <p className='tag' align="right">&lt;img&gt;</p>
-                                    <div className="card border-0" style={{ backgroundColor: "#dee2e6" }}>
-                                        <LazyLoadImage data-aos="zoom-in" src={profile} effect="blur" alt="profile" className='img-fluid img' />
-                                    </div>
-                                    <p className='tag'>&lt;/img&gt;</p>
-                                </div>
-                            </div>
+                    <div className="container d-flex justify-content-center align-items-center text-center m-auto">
+                        <Intro theme={lightTheme}>
+                            <p className='tag' align="right">&lt;img&gt;</p>
+                            <LazyLoadImage data-aos="zoom-in" src={profile} effect="blur" alt="profile" className='img-fluid img' />
+                            <p className='tag' align="left">&lt;/img&gt;</p>
+                            <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
+                            <h1>
+                                <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
+                                <Cursor cursorStyle='_' />
+                            </h1>
+                            <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
+                            <button onClick={() => navigate("/about")} className=' know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                         </Intro>
                     </div>
                 </div>
