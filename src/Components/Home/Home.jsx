@@ -150,7 +150,7 @@ const Home = () => {
                 <SocialLinks />
                 <div className='container'>
                     <Welcome theme={darkTheme}>
-                        <p className=" d-flex welcome justify-content-between p-2 mt-2 fw-bold">
+                        <p className="d-flex welcome justify-content-between p-2 mt-2 fw-bold">
                             𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰 &lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;!
                             <span className="badge text-white" style={{ backgroundColor: '#6d2ae2' }}>made with ❤️</span>
                         </p>
