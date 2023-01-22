@@ -4,8 +4,8 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 // Routing
 import { useNavigate } from 'react-router-dom';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Icon
 import { BsDot } from 'react-icons/bs';
@@ -14,7 +14,7 @@ import { BsDot } from 'react-icons/bs';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Image
-import profile from '../../assets/Images/profile.png';
+// import profile from '../../assets/Images/profile.png';
 
 // Animation
 import Aos from 'aos';
@@ -263,31 +263,13 @@ const Home = () => {
                     </div>
                 </div>
             </ThemeProvider>
+
+            {/* <p className='tag' align="right">&lt;img&gt;</p>
+            <LazyLoadImage data-aos="zoom-in" src={profile} effect="blur" alt="profile" className='img-fluid img' />
+            <p className='tag' align="left">&lt;/img&gt;</p> */}
         </>
     )
 }
 
 export default Home;
 
-{/* <div className="row">
-<div className="col-md-7 m-auto">
-<h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
-<h1>
-<em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
-<Cursor cursorStyle='_' />
-</h1>
-<p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
-<button onClick={() => navigate("/about")} className='mt-5 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
-</div>
-<div className="col-md-5 m-auto">
-<div className="card">
-<div className="card-body">
-
-</div>
-</div>
-</div>
-</div> */}
-
-{/* <p className='tag' align="right">&lt;img&gt;</p>
-<LazyLoadImage data-aos="zoom-in" src={profile} effect="blur" alt="profile" className='img-fluid img' />
-<p className='tag' align="left">&lt;/img&gt;</p> */}
