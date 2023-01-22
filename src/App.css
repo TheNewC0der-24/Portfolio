@@ -36,9 +36,28 @@ textarea::placeholder {
 
 input:focus,
 textarea:focus,
-select:focus {
+select:focus,
+.page-link:focus {
     border-color: #6d2ae2 !important;
     text-decoration: none !important;
     outline: 0 !important;
     box-shadow: none !important;
+}
+
+.page-link {
+    color: #0e1313 !important;
+}
+
+.active>.page-link {
+    background-color: #6d2ae2 !important;
+    border-color: #6d2ae2 !important;
+    border-bottom: none !important;
+    color: #dee2e6 !important;
+}
+
+.page-item.active {
+    background-color: #6d2ae2 !important;
+    border-color: #6d2ae2 !important;
+    border-bottom: none !important;
+    color: #dee2e6 !important;
 }
