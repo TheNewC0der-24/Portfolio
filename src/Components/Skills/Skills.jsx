@@ -66,7 +66,7 @@ const Skills = () => {
                         <span>.skills()</span>
                         <h2>-My Learnings-</h2>
                         <p className='text-center mx-auto w-75'>
-                            These are my skills and this contains all the technologies and programming languages that I have learnt
+                            These are my skills and this contains all the web technologies, programming languages, databases, frameworks, libraries, tools and hosting platforms that I have learnt
                             until now. I am constantly learning, therefore I may update this section more often.
                         </p>
                     </div>
