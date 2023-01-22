@@ -101,15 +101,15 @@ const Interest = () => {
                             <div className="card h-100">
                                 <div className="card-body">
                                     <div className="icon"><i className="fa-solid fa-code"></i></div>
-                                    <h5 className="card-title">DEVELOP FRONTEND</h5>
-                                    <p className="card-text">I love designing websites, web apps, and upgrading myself by learning new skills and implementing them.</p>
+                                    <h5 className="card-title">FRONTEND</h5>
+                                    <p className="card-text">I'm more frontend focused and love to design websites, web apps with Reactjs as well as pure HTML, CSS and Javascript.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </ThemeProvider >
+        </ThemeProvider>
     )
 }
 
