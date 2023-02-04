@@ -111,46 +111,45 @@ const Project = () => {
 
                                     <div className="row g-4">
                                         {
-                                            project && project.map((post) => {
-                                                return (
-                                                    <div className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
-                                                        <div className="card shadow border-0 h-100" key={post.id}>
-                                                            <div className="card-body d-flex justify-content-between flex-column">
-                                                                <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
-                                                                    <div>
-                                                                        <FaRegFolder className='icon' size={30} />
-                                                                    </div>
-                                                                    <div className='d-flex gap-2 align-items-center my-3'>
-                                                                        <a href={post.html_url} target="_blank" rel="noreferrer">
-                                                                            <FiGithub className='links' size={20} />
-                                                                        </a>
-
-                                                                        {
-                                                                            post.homepage && (
-                                                                                <a href={post.homepage} target="_blank" rel="noreferrer">
-                                                                                    <FiExternalLink className='links' size={23} />
-                                                                                </a>
-                                                                            )
-                                                                        }
-                                                                    </div>
+                                            project && project.map((post) => (
+                                                <div key={post.id} className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
+                                                    <div className="card shadow border-0 h-100" >
+                                                        <div className="card-body d-flex justify-content-between flex-column">
+                                                            <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
+                                                                <div>
+                                                                    <FaRegFolder className='icon' size={30} />
                                                                 </div>
-                                                                <h4 className="card-title fw-bold">{post.name}</h4>
-                                                                <p className="card-text">{post.description}</p>
+                                                                <div className='d-flex gap-2 align-items-center my-3'>
+                                                                    <a href={post.html_url} target="_blank" rel="noreferrer">
+                                                                        <FiGithub className='links' size={20} />
+                                                                    </a>
 
-                                                                <div className='d-flex flex-wrap gap-2'>
                                                                     {
-                                                                        post.topics.map((topic) => {
-                                                                            return (
-                                                                                <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
-                                                                            )
-                                                                        })
+                                                                        post.homepage && (
+                                                                            <a href={post.homepage} target="_blank" rel="noreferrer">
+                                                                                <FiExternalLink className='links' size={23} />
+                                                                            </a>
+                                                                        )
                                                                     }
                                                                 </div>
                                                             </div>
+                                                            <h4 className="card-title fw-bold">{post.name}</h4>
+                                                            <p className="card-text">{post.description}</p>
+
+                                                            <div className='d-flex flex-wrap gap-2'>
+                                                                {
+                                                                    post.topics.map((topic) => {
+                                                                        return (
+                                                                            <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
+                                                                        )
+                                                                    })
+                                                                }
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                )
-                                            })
+                                                </div>
+                                            )
+                                            )
                                         }
                                     </div>
 
