@@ -16,10 +16,6 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 // Image
 // import profile from '../../assets/Images/profile.png';
 
-// Animation
-import Aos from 'aos';
-import "aos/dist/aos.css";
-
 // Theme
 import { lightTheme, darkTheme } from '../Themes';
 
@@ -194,10 +190,6 @@ const Home = () => {
         typeSpeed: 70,
     });
 
-    useEffect(() => {
-        Aos.init({ duration: 2000 });
-    }, []);
-
     return (
         <>
             <ThemeProvider theme={lightTheme}>
@@ -224,7 +216,7 @@ const Home = () => {
                                     <button onClick={() => navigate("/about")} className='mt-4 mb-3 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                                 </div>
                                 <div className='main'>
-                                    <div data-aos="zoom-in" className="card border-0">
+                                    <div className="card border-0">
                                         <div className="card-body">
                                             <pre>
                                                 1&nbsp;class&nbsp;<b>Person</b>&nbsp;&#123;
