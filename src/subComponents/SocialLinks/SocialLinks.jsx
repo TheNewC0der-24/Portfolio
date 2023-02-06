@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import './SocialLinks.css';
 
 import { SiHashnode } from 'react-icons/si';
+import { FaFacebookSquare } from 'react-icons/fa';
 
 import { motion } from 'framer-motion';
 
@@ -22,7 +23,8 @@ const SocialLinks = () => {
                     transition={{ type: 'spring', duration: 1, delay: 1 }}
                 >
                     <a href="https://www.facebook.com/bhavya.khurana.399/" rel="noreferrer" target="_blank">
-                        <i className="mb-3 fs-4 fa-brands fa-facebook-square"></i>
+                        {/* <i className="mb-3 fs-4 fa-brands fa-facebook-square"></i> */}
+                        <FaFacebookSquare className="mb-3 fs-4 fa-brands fa-facebook-square" />
                     </a>
                 </motion.div>
 

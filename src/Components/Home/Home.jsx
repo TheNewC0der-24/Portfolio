@@ -20,7 +20,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 import { lightTheme, darkTheme } from '../Themes';
 
 // Typewriter
-import { useTypewriter, Cursor } from "react-simple-typewriter";
+import { Typewriter } from "react-simple-typewriter";
 
 // Global Style
 const GlobalStyle = createGlobalStyle`
@@ -181,15 +181,6 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    const words = ['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer'];
-    const { text } = useTypewriter({
-        words,
-        loop: 0,
-        delay: 100,
-        deleteSpeed: 50,
-        typeSpeed: 70,
-    });
-
     return (
         <>
             <ThemeProvider theme={lightTheme}>
@@ -209,8 +200,19 @@ const Home = () => {
                                 <div className='intro-text'>
                                     <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
                                     <h1>
-                                        <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>{text}</em>
-                                        <Cursor cursorStyle='_' />
+                                        <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>
+                                            <Typewriter
+                                                words={['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer']}
+                                                loop={0}
+                                                cursor
+                                                cursorStyle='_'
+                                                typeSpeed={70}
+                                                deleteSpeed={50}
+                                                delaySpeed={1000}
+                                            // onLoopDone={handleDone}
+                                            // onType={handleType}
+                                            />
+                                        </em>
                                     </h1>
                                     <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
                                     <button onClick={() => navigate("/about")} className='mt-4 mb-3 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
