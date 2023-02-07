@@ -57,7 +57,7 @@ const Project = () => {
 
     const [loading, setLoading] = useState(false);
 
-    const perPage = 8;
+    const perPage = 9;
 
     const url = `https://api.github.com/users/TheNewC0der-24/repos?per_page=${perPage}&page=1`;
 
@@ -112,7 +112,7 @@ const Project = () => {
                                     <div className="row g-4">
                                         {
                                             project && project.map((post) => (
-                                                <div key={post.id} className='col-xs-12 col-sm-12 col-md-12 col-lg-6'>
+                                                <div key={post.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
                                                     <div className="card shadow border-0 h-100" >
                                                         <div className="card-body d-flex justify-content-between flex-column">
                                                             <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
