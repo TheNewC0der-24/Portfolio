@@ -11,6 +11,9 @@ import AnimatedText from 'react-animated-text-content';
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
 // Theme
 import { darkTheme } from '../Themes';
 
@@ -44,7 +47,7 @@ const About = () => {
               <div className={`${styles.row} row mx-auto`}>
                 <div className="col-md-5">
                   <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
-                  <img src={about} alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
+                  <LazyLoadImage delayTime={0.5} threshold={1} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
                   <div>
                     <span className={styles.tag}>&lt;p&gt;</span>
                     <p className={styles.content}>
