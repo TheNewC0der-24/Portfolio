@@ -195,65 +195,67 @@ const Home = () => {
                     </Welcome>
 
                     <div className="container p-3-sm">
-                        <Intro theme={lightTheme} className="intro">
-                            <div className="d-flex justify-content-around flex-wrap align-items-center gap-1 my-3">
-                                <div className='intro-text'>
-                                    <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
-                                    <h1>
-                                        <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>
-                                            <Typewriter
-                                                words={['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer']}
-                                                loop={0}
-                                                cursor
-                                                cursorStyle='_'
-                                                typeSpeed={70}
-                                                deleteSpeed={50}
-                                                delaySpeed={1000}
-                                            // onLoopDone={handleDone}
-                                            // onType={handleType}
-                                            />
-                                        </em>
-                                    </h1>
-                                    <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
-                                    <button onClick={() => navigate("/about")} className='mt-4 mb-3 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
-                                </div>
-                                <div className='main'>
-                                    <div className="card border-0">
-                                        <div className="card-body">
-                                            <pre>
-                                                1&nbsp;class&nbsp;<b>Person</b>&nbsp;&#123;
-                                            </pre>
-                                            <pre>
-                                                2&nbsp;&nbsp;&nbsp;&nbsp;constructor()&nbsp;&#123;
-                                            </pre>
-                                            <pre>
-                                                3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name&nbsp;=&nbsp;"<b>Bhavya Khurana</b>";
-                                            </pre>
-                                            <pre>
-                                                4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.traits&nbsp;=&nbsp;["<b>DEV</b>", "<b>DESIGN</b>"];
-                                            </pre>
-                                            <pre>
-                                                5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age&nbsp;=&nbsp;new&nbsp;Date().getFullYear()&nbsp;-&nbsp;2001;
-                                            </pre>
-                                            <pre>
-                                                6&nbsp;&nbsp;&nbsp;&nbsp;&#125;&nbsp;
-                                            </pre>
-                                            <pre>
-                                                7&nbsp;&#125;&nbsp;
-                                            </pre>
+                        <div className="container">
+                            <Intro theme={lightTheme} className="intro">
+                                <div className="d-flex justify-content-around flex-wrap align-items-center gap-1 my-3">
+                                    <div className='intro-text'>
+                                        <h1 className='name'>I<span>'</span>m Bhavya{" "}<span>Khurana</span></h1>
+                                        <h1>
+                                            <em className='fw-bold typewriter' style={{ color: '#6d2ae2' }}>
+                                                <Typewriter
+                                                    words={['Web-Developer', 'Programmer', 'Tech Enthusiast', 'Writer']}
+                                                    loop={0}
+                                                    cursor
+                                                    cursorStyle='_'
+                                                    typeSpeed={70}
+                                                    deleteSpeed={50}
+                                                    delaySpeed={1000}
+                                                // onLoopDone={handleDone}
+                                                // onType={handleType}
+                                                />
+                                            </em>
+                                        </h1>
+                                        <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
+                                        <button onClick={() => navigate("/about")} className='mt-4 mb-3 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
+                                    </div>
+                                    <div className='main'>
+                                        <div className="card border-0">
+                                            <div className="card-body">
+                                                <pre>
+                                                    1&nbsp;class&nbsp;<b>Person</b>&nbsp;&#123;
+                                                </pre>
+                                                <pre>
+                                                    2&nbsp;&nbsp;&nbsp;&nbsp;constructor()&nbsp;&#123;
+                                                </pre>
+                                                <pre>
+                                                    3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name&nbsp;=&nbsp;"<b>Bhavya Khurana</b>";
+                                                </pre>
+                                                <pre>
+                                                    4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.traits&nbsp;=&nbsp;["<b>DEV</b>", "<b>DESIGN</b>"];
+                                                </pre>
+                                                <pre>
+                                                    5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age&nbsp;=&nbsp;new&nbsp;Date().getFullYear()&nbsp;-&nbsp;2001;
+                                                </pre>
+                                                <pre>
+                                                    6&nbsp;&nbsp;&nbsp;&nbsp;&#125;&nbsp;
+                                                </pre>
+                                                <pre>
+                                                    7&nbsp;&#125;&nbsp;
+                                                </pre>
+                                            </div>
+                                        </div>
+                                        <div className="color-box">
+                                            <div className='box' style={{ background: "#6d2ae2" }}></div>
+                                            <div className='box' style={{ background: "#9F8FEF" }}></div>
+                                            <div className='box' style={{ background: "#8270DB" }}></div>
+                                            <div className='box' style={{ background: "#0e1313" }}></div>
+                                            <div className='box' style={{ background: "#DFD8FD" }}></div>
                                         </div>
                                     </div>
-                                    <div className="color-box">
-                                        <div className='box' style={{ background: "#6d2ae2" }}></div>
-                                        <div className='box' style={{ background: "#9F8FEF" }}></div>
-                                        <div className='box' style={{ background: "#8270DB" }}></div>
-                                        <div className='box' style={{ background: "#0e1313" }}></div>
-                                        <div className='box' style={{ background: "#DFD8FD" }}></div>
-                                    </div>
                                 </div>
-                            </div>
 
-                        </Intro>
+                            </Intro>
+                        </div>
                     </div>
                 </div>
             </ThemeProvider>
