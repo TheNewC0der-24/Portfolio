@@ -1,15 +1,7 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import styles from './About.module.css';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-
-// Icon
-import { TiArrowForward } from 'react-icons/ti';
-
-// Image
-import about from '../../assets/Images/about.svg';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 // Particles
 import ParticleComponent from '../../subComponents/ParticleComponent';
@@ -23,6 +15,12 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 import { darkTheme } from '../Themes';
 
 import Resume from '../../assets/Resume.pdf';
+
+// Icon
+import { TiArrowForward } from 'react-icons/ti';
+
+// Image
+import about from '../../assets/Images/about.svg';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -46,7 +44,7 @@ const About = () => {
               <div className={`${styles.row} row mx-auto`}>
                 <div className="col-md-5">
                   <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
-                  <LazyLoadImage delayTime={5} threshold={10} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
+                  <img src={about} alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
                   <div>
                     <span className={styles.tag}>&lt;p&gt;</span>
                     <p className={styles.content}>
