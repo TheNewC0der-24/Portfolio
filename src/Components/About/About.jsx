@@ -85,6 +85,16 @@ const About = () => {
     setTimeout(() => setPulsing(false), 600);
   };
 
+  const handleDownload = () => {
+    const path = Resume;
+    const link = document.createElement("a");
+    link.href = path;
+    link.setAttribute("download", "Resume.pdf");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       <ThemeProvider theme={darkTheme}>
@@ -159,7 +169,7 @@ const About = () => {
                   </div>
                   <div className='mt-4 mb-3'>
                     {/* <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume <span></span></a> */}
-                    <button className={styles.downloadBtn}>Download Resume <span></span></button>
+                    <button onClick={handleDownload} className={styles.downloadBtn}>Download Resume <span></span></button>
                   </div>
                 </div>
               </div>
