@@ -169,13 +169,35 @@ const Intro = styled.div`
     }
 
     .know-more-btn {
-        color: #0e1313;
-        border: 2px solid #0e1313;
+        border: 1px solid #0e1313;
+        color: #dee2e6;
         text-decoration: none;
-        padding: 10px;
         font-weight: bold;
+        position: relative;
+        font-weight: 600;
+        padding: 12px 20px;
+        outline: none;
+        background-color: transparent;
+        border-radius: 5px;
     }
-`;
+
+    .know-more-btn:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        top: 7px;
+        left: 7px;
+        height: 100%;
+        background-color: rgba(109, 42, 226, 0.5);
+        z-index: -1;
+        transition: all 0.35s;
+        border-radius: inherit;
+    }
+
+    .know-more-btn:hover:after {
+        top: 0px;
+        left: 0px;
+    }`;
 
 const Home = () => {
 
@@ -210,8 +232,6 @@ const Home = () => {
                                                     typeSpeed={70}
                                                     deleteSpeed={50}
                                                     delaySpeed={1000}
-                                                // onLoopDone={handleDone}
-                                                // onType={handleType}
                                                 />
                                             </em>
                                         </h1>
@@ -253,7 +273,6 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-
                             </Intro>
                         </div>
                     </div>
