@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './About.module.css';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+import { motion } from "framer-motion";
 
 // Particles
 import ParticleComponent from '../../subComponents/ParticleComponent';
@@ -10,9 +12,6 @@ import AnimatedText from 'react-animated-text-content';
 
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Theme
 import { darkTheme } from '../Themes';
@@ -29,9 +28,42 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${props => props.theme.body};
   }
-`;
+
+  .pulse {
+    animation: pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .loadable {
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  img {
+    display: block;
+    transform: rotate(-0.5deg);
+  }
+
+  @keyframes pulse {
+    0%,
+      100% {
+        opacity: 1;
+      }
+    50% {
+      opacity: 0.3;
+    }
+  }`;
 
 const About = () => {
+
+  const [imageLoading, setImageLoading] = useState(true);
+  const [pulsing, setPulsing] = useState(true);
+
+  const imageLoaded = () => {
+    setImageLoading(false);
+    setTimeout(() => setPulsing(false), 600);
+  };
 
   return (
     <>
@@ -44,11 +76,30 @@ const About = () => {
           <h5 className='text-center' style={{ color: "#9a9ea1" }}>ALLOW ME TO INTRODUCE MYSELF</h5>
           <div className="container">
             <div className="container d-flex mt-5">
-              <div className={`${styles.row} row mx-auto`}>
-                <div className="col-md-5">
-                  <h5 className={`${styles.me} fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
-                  <LazyLoadImage delayTime={0.5} threshold={1} src={about} effect="blur" alt="profile" width={300} className={`${styles.img} mb-5 img-fluid`} />
-                  <div>
+              <div className={`${styles.row} row g-5 mx-auto`}>
+                <div className="col-lg-5">
+                  <h5 className={`${styles.me} text-center fw-bold mb-3`}>That's me <TiArrowForward className={`${styles.icon} fs-4`} /></h5>
+                  <div className={`${pulsing ? "pulse" : ""} d-flex justify-content-center loadable`} style={{ width: "325px", background: "#dee2e6", transform: "rotate(-10deg)" }}>
+                    <motion.img
+                      initial={{ height: "auto", opacity: 0 }}
+                      // style={{ height: imageLoading ? "5rem" : "auto" }}
+                      animate={{
+                        height: imageLoading ? "auto" : "auto",
+                        opacity: imageLoading ? 0 : 1
+                      }}
+                      transition={
+                        ({ height: { delay: 0, duration: 0.4 } },
+                          { opacity: { delay: 0.5, duration: 0.4 } })
+                      }
+                      onLoad={imageLoaded}
+                      width={300}
+                      src={about}
+                      alt="profile"
+                      className="img-fluid"
+                    />
+                  </div>
+
+                  <div className='mt-5'>
                     <span className={styles.tag}>&lt;p&gt;</span>
                     <p className={styles.content}>
                       I'm obsessed with making things and even more obsessed with making things better.
@@ -56,7 +107,7 @@ const About = () => {
                     <span className={styles.tag}>&lt;p&gt;</span>
                   </div>
                 </div>
-                <div className={`${styles.mainContent} col-md-7`}>
+                <div className={`${styles.mainContent} col-lg-7`}>
                   <div className={styles.tag}>&lt;h5&gt;</div>
                   <h5>
                     I am <span className={`${styles.main} text-danger`}>Bhavya Khurana</span>, and I'm a <span className={`${styles.main} text-warning`}>Frontend Developer</span> from <span className='text-success fw-bold'>Jaypee University of Engineering and Technology, Guna, India</span>. I am in my final year of my bachelors program, majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like <span className={`${styles.main} text-primary-emphasis`}>React.JS</span>. I am constantly working on improving my skills as a software engineer.
