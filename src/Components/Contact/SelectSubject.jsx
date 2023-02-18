@@ -16,6 +16,7 @@ export default ({ onChange, options, value, customStyles }) => {
                 onChange={value => onChange(value)}
                 styles={customStyles}
                 options={options}
+                placeholder='Select a Subject'
             />
         </div>
 
