@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './Contact.module.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
@@ -22,7 +22,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Form Validation
-import { Formik, Form, Field } from "formik";
+import { useFormik } from "formik";
+import SelectSubject from './SelectSubject';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -40,50 +41,104 @@ const GlobalStyle = createGlobalStyle`
 
 const Contact = () => {
 
-    const initialValues = {
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-    };
+    // eslint-disable-next-line
+    const [isClearable, setIsClearable] = useState(true);
+    // eslint-disable-next-line
+    const [isSearchable, setIsSearchable] = useState(true);
 
-    const validateName = (value) => {
-        let error;
-        if (!value) {
-            error = "*Name is required";
+    const validate = values => {
+        const errors = {};
+        if (!values.name) {
+            errors.name = "*Name is required";
         }
-        return error;
-    };
 
-    const validateEmail = (value) => {
-        let error;
-        if (!value) {
-            error = "*E-mail is required";
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-            error = "*Invalid e-mail address";
+        if (!values.email) {
+            errors.email = "*E-mail is required";
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+            errors.email = "*Invalid e-mail address";
         }
-        return error;
-    };
-
-    const validateSubject = (value) => {
-        let error;
-        if (!value) {
-            error = "*Select Subject";
-        } else if (value === "Select...") {
-            error = "*Choose correct option";
+        if (!values.subject) {
+            errors.subject = "*Select Subject";
+        } else if (values.subject === "Select...") {
+            errors.subject = "*Choose correct option";
         }
-        return error;
+        if (!values.message) {
+            errors.message = "*Message is required";
+        }
+        return errors;
     }
 
-    const validateMessage = (value) => {
-        let error;
-        if (!value) {
-            error = "*Message is required";
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+        },
+        validate,
+        onSubmit: () => {
+            emailjs.sendForm('service_oept3k5', 'template_1u8sgyc', form.current, 'J0p498TOPVXH53bfO')
+                .then((result) => {
+                    console.warn(result.text);
+                }, (error) => {
+                    console.error(error.text);
+                });
+
+            formik.resetForm();
+
+            toast.success('Message sent successfully!!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            })
         }
-        return error;
-    };
+    });
 
     const form = useRef();
+
+    const options = [
+        { value: 'just chatting', label: 'Just chatting' },
+        { value: 'budget', label: 'Budget' },
+        { value: 'questions', label: 'Questions' },
+        { value: 'opinion', label: 'Opinion' },
+        { value: 'suggestions', label: 'Suggestions' },
+        { value: 'other', label: 'Other' },
+    ];
+
+    const customStyles = {
+        control: (provided, state) => ({
+            ...provided,
+            width: "100%",
+            textDecoration: "none",
+            outline: 0,
+            boxShadow: "none",
+            borderRadius: 0,
+            backgroundColor: "none",
+            color: "#dee2e6",
+            borderColor: state.isFocused ? "#6d2ae2" : "#dee2e6" && formik.errors.subject ? "#dc3545" : "#dee2e6",
+            "&:hover": {
+                borderColor: "#dee2e6",
+            },
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            color: state.isSelected ? '#dee2e6' : '#0e1313',
+            padding: 10,
+            width: "100%",
+            backgroundColor: state.isSelected ? '#6d2ae2' : '#dee2e6',
+        }),
+        singleValue: (provided, state) => {
+            const color = "#dee2e6";
+            const opacity = state.isDisabled ? 0.5 : 1;
+            const transition = 'opacity 300ms';
+            return { ...provided, opacity, transition, color };
+        }
+    }
 
     return (
         <>
@@ -109,108 +164,84 @@ const Contact = () => {
                                 <div className="col-md-7 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
                                     <h1 className={styles.getInTouch}>Get In Touch</h1>
                                     <h5>Any question or remarks? Just write a message!</h5>
-                                    <Formik initialValues={initialValues}
-                                        onSubmit={() => {
-                                            emailjs.sendForm('service_oept3k5', 'template_1u8sgyc', form.current, 'J0p498TOPVXH53bfO')
-                                                .then((result) => {
-                                                    console.warn(result.text);
-                                                }, (error) => {
-                                                    console.error(error.text);
-                                                });
+                                    <form ref={form} autoComplete='off' onSubmit={formik.handleSubmit} className={`${styles.form} d-grid col-10 my-5`}>
+                                        <div className="mb-3">
+                                            <input
+                                                id="name"
+                                                name="name"
+                                                type="text"
+                                                className={`form-control ${formik.errors.name ? "border-danger" : ""}`}
+                                                placeholder="Enter your name"
+                                                onChange={formik.handleChange}
+                                                value={formik.values.name}
+                                            />
+                                            {formik.errors.name ? (<div className="form-text text-danger">
+                                                {formik.errors.name}
+                                            </div>
+                                            ) : null}
+                                        </div>
+                                        <div className="mb-3">
+                                            <input
+                                                id="email"
+                                                name="email"
+                                                className={`form-control ${formik.errors.email ? "border-danger" : ""}`}
+                                                type="email"
+                                                placeholder="Enter your e-mail address"
+                                                onChange={formik.handleChange}
+                                                value={formik.values.email}
+                                            />
+                                            {formik.errors.email ? (
+                                                <div className="form-text text-danger">
+                                                    {formik.errors.email}
+                                                </div>
+                                            ) : null}
+                                        </div>
+                                        <div className="mb-3">
+                                            <SelectSubject
+                                                id="subject"
+                                                name="subject"
+                                                customStyles={customStyles}
+                                                className={formik.errors.subject ? "border-danger" : ""}
+                                                options={options}
+                                                // defaultValue={options[0]}
+                                                onChange={value => formik.setFieldValue('subject', value.value)}
+                                                value={formik.values.subject}
+                                                isClearable={isClearable}
+                                                isSearchable={isSearchable}
+                                            />
+                                            {formik.errors.subject ? (
+                                                <div className="form-text text-danger">
+                                                    {formik.errors.subject}
+                                                </div>
+                                            ) : null}
+                                        </div>
 
-                                            toast.success('Message sent successfully!!', {
-                                                position: "top-right",
-                                                autoClose: 2000,
-                                                hideProgressBar: false,
-                                                closeOnClick: true,
-                                                pauseOnHover: true,
-                                                draggable: true,
-                                                progress: undefined,
-                                                theme: "colored",
-                                            })
-                                        }}
-                                    >
-                                        {({ errors, touched }) => (
-                                            <Form ref={form} autoComplete='off' className={`${styles.form} d-grid col-10 my-5`}>
-                                                <div className="mb-3">
-                                                    <Field
-                                                        type="text"
-                                                        className={`form-control ${errors.name && touched.name ? "border-danger" : ""}`}
-                                                        id="name"
-                                                        name="name"
-                                                        placeholder="Enter your name"
-                                                        validate={validateName}
-                                                    />
-                                                    {errors.name && touched.name && (
-                                                        <div className="form-text text-danger">
-                                                            {errors.name}
-                                                        </div>
-                                                    )}
+                                        <div className="mb-3">
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                className={`form-control ${formik.errors.message ? "border-danger" : ""}`}
+                                                rows="5"
+                                                placeholder="Go ahead, I am listening..."
+                                                onChange={formik.handleChange}
+                                                value={formik.values.message}
+                                            />
+                                            {formik.errors.message ? (
+                                                <div className="form-text text-danger">
+                                                    {formik.errors.message}
                                                 </div>
-                                                <div className="mb-3">
-                                                    <Field
-                                                        type="email"
-                                                        className={`form-control ${errors.email && touched.email ? "border-danger" : ""}`}
-                                                        id="email"
-                                                        name="email"
-                                                        placeholder="Enter your e-mail address"
-                                                        validate={validateEmail}
-                                                    />
-                                                    {errors.email && touched.email && (
-                                                        <div className="form-text text-danger">
-                                                            {errors.email}
-                                                        </div>
-                                                    )}
-                                                </div>
-                                                <div className="mb-3 form-floating">
-                                                    <Field as="select"
-                                                        className={`form-select  ${errors.subject && touched.subject ? "border-danger" : ""}`}
-                                                        id="subject"
-                                                        name="subject"
-                                                        placeholder="Subject"
-                                                        validate={validateSubject}>
-                                                        <option selected value="Select">Select...</option>
-                                                        <option value="Budget">Budget</option>
-                                                        <option value="Questions">Questions</option>
-                                                        <option value="Opinion">Opinion</option>
-                                                        <option value="Suggestions">Suggestions</option>
-                                                        <option value="Just chatting">Just chatting</option>
-                                                        <option value="Questions">Other</option>
-                                                    </Field>
-                                                    <label className='fw-bold text-dark' htmlFor="floatingSelect">Subject</label>
-                                                    {
-                                                        errors.subject && touched.subject &&
-                                                        <div className="form-text text-danger">
-                                                            {errors.subject}
-                                                        </div>
-                                                    }
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Field as="textarea"
-                                                        className={`form-control ${errors.message && touched.message ? "border-danger" : ""}`}
-                                                        id="message"
-                                                        name="message"
-                                                        rows="5"
-                                                        placeholder="Go ahead, I am listening..."
-                                                        validate={validateMessage}
-                                                    />
-                                                    {errors.message && touched.message && (
-                                                        <div className="form-text text-danger">
-                                                            {errors.message}
-                                                        </div>
-                                                    )}
-                                                </div>
-                                                <button
-                                                    type="submit"
-                                                    className={styles.submitBtn}
-                                                    id="submitBtn"
-                                                >
-                                                    Send Message
-                                                </button>
-                                            </Form>
-                                        )}
-                                    </Formik>
+                                            ) : null}
+                                        </div>
+                                        <button
+                                            type="submit"
+                                            className={styles.submitBtn}
+                                            id="submitBtn"
+                                        >
+                                            Send Message
+                                        </button>
+                                    </form>
+                                    {/* )} */}
+                                    {/* </Formik> */}
                                 </div>
                                 <div className="col-md-5 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
                                     <img src={chat} alt="let's chat" width={400} className='img-fluid' />
