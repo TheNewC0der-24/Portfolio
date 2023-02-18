@@ -99,29 +99,30 @@ const Project = () => {
 
     return (
         <>
-            <ThemeProvider theme={lightTheme}>
-                <GlobalStyle />
-                <SocialLinks />
-                <ParticleComponent theme="light" />
-                <div className="container">
-                    <div className="container">
+            {
+                loading ? (
+                    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+                        <div className="spinner-border" style={{ color: "#6d2ae2" }} role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
+                    <ThemeProvider theme={lightTheme}>
+                        <GlobalStyle />
+                        <SocialLinks />
+                        <ParticleComponent theme="light" />
                         <div className="container">
-                            <h1 className="mt-3 text-center">.work()</h1>
-                            <h6 className='sub-title text-center fw-bold mb-4'>My <span>Projects</span></h6>
+                            <div className="container">
+                                <div className="container">
+                                    <h1 className="mt-3 text-center">.work()</h1>
+                                    <h6 className='sub-title text-center fw-bold mb-4'>My <span>Projects</span></h6>
 
-                            <div className="row g-4">
-                                {
-                                    project && project?.map((item) => (
-                                        <div key={item.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
-                                            <div className="card shadow border-0 h-100">
-                                                {
-                                                    loading ? (
-                                                        <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-                                                            <div className="spinner-border" style={{ color: "#6d2ae2" }} role="status">
-                                                                <span className="visually-hidden">Loading...</span>
-                                                            </div>
-                                                        </div>
-                                                    ) : (
+                                    <div className="row g-4">
+                                        {
+                                            project && project?.map((item) => (
+                                                <div key={item.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
+                                                    <div className="card shadow border-0 h-100">
+
                                                         <div className="card-body d-flex justify-content-between flex-column">
                                                             <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
                                                                 <div>
@@ -154,41 +155,43 @@ const Project = () => {
                                                                 }
                                                             </div>
                                                         </div>
-                                                    )
-                                                }
 
-                                            </div>
-                                        </div>
-                                    )
-                                    )
-                                }
-                            </div>
 
-                            <div className='my-3 sticky-bottom'>
-                                <ReactPaginate
-                                    previousLabel={"<<"}
-                                    nextLabel={">>"}
-                                    breakLabel={"..."}
-                                    pageCount={7}
-                                    marginPagesDisplayed={2}
-                                    pageRangeDisplayed={3}
-                                    onPageChange={handlePageClick}
-                                    containerClassName={"pagination justify-content-center flex-wrap"}
-                                    pageClassName={"page-item"}
-                                    pageLinkClassName={"page-link"}
-                                    previousClassName={"page-item"}
-                                    previousLinkClassName={"page-link"}
-                                    nextClassName={"page-item"}
-                                    nextLinkClassName={"page-link"}
-                                    breakClassName={"page-item"}
-                                    breakLinkClassName={"page-link"}
-                                    activeClassName={"active"}
-                                />
+                                                    </div>
+                                                </div>
+                                            )
+                                            )
+                                        }
+                                    </div>
+
+
+                                    <div className='my-3 sticky-bottom'>
+                                        <ReactPaginate
+                                            previousLabel={"<<"}
+                                            nextLabel={">>"}
+                                            breakLabel={"..."}
+                                            pageCount={7}
+                                            marginPagesDisplayed={2}
+                                            pageRangeDisplayed={3}
+                                            onPageChange={handlePageClick}
+                                            containerClassName={"pagination justify-content-center flex-wrap"}
+                                            pageClassName={"page-item"}
+                                            pageLinkClassName={"page-link"}
+                                            previousClassName={"page-item"}
+                                            previousLinkClassName={"page-link"}
+                                            nextClassName={"page-item"}
+                                            nextLinkClassName={"page-link"}
+                                            breakClassName={"page-item"}
+                                            breakLinkClassName={"page-link"}
+                                            activeClassName={"active"}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </ThemeProvider>
+                    </ThemeProvider>
+                )
+            }
         </>
     )
 }
