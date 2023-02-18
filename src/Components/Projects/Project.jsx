@@ -59,11 +59,19 @@ const Project = () => {
 
     const perPage = 9;
 
+    const headers = {
+        "Content-Type": "application/json",
+        'Authorization': `token ${process.env.REACT_APP_GITHUB_TOKEN}`
+    }
+
     const url = `https://api.github.com/users/TheNewC0der-24/repos?per_page=${perPage}&page=1`;
 
     useEffect(() => {
         setLoading(true);
-        axios.get(url)  // Get the data from the API
+        axios.get(url,
+            {
+                headers: headers
+            })  // Get the data from the API
             .then((response) => {
                 setProject(response.data);  // Set the data to the state
                 setLoading(false);
@@ -91,54 +99,54 @@ const Project = () => {
 
     return (
         <>
-            {
-                loading ? (
-                    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-                        <div className="spinner-border" style={{ color: "#6d2ae2" }} role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                ) : (
-                    <ThemeProvider theme={lightTheme}>
-                        <GlobalStyle />
-                        <SocialLinks />
-                        <ParticleComponent theme="light" />
+            <ThemeProvider theme={lightTheme}>
+                <GlobalStyle />
+                <SocialLinks />
+                <ParticleComponent theme="light" />
+                <div className="container">
+                    <div className="container">
                         <div className="container">
-                            <div className="container">
-                                <div className="container">
-                                    <h1 className="mt-3 text-center">.work()</h1>
-                                    <h6 className='sub-title text-center fw-bold mb-4'>My <span>Projects</span></h6>
+                            <h1 className="mt-3 text-center">.work()</h1>
+                            <h6 className='sub-title text-center fw-bold mb-4'>My <span>Projects</span></h6>
 
-                                    <div className="row g-4">
-                                        {
-                                            project && project.map((post) => (
-                                                <div key={post.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
-                                                    <div className="card shadow border-0 h-100" >
+                            <div className="row g-4">
+                                {
+                                    project && project?.map((item) => (
+                                        <div key={item.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
+                                            <div className="card shadow border-0 h-100">
+                                                {
+                                                    loading ? (
+                                                        <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
+                                                            <div className="spinner-border" style={{ color: "#6d2ae2" }} role="status">
+                                                                <span className="visually-hidden">Loading...</span>
+                                                            </div>
+                                                        </div>
+                                                    ) : (
                                                         <div className="card-body d-flex justify-content-between flex-column">
                                                             <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
                                                                 <div>
                                                                     <FaRegFolder className='icon' size={30} />
                                                                 </div>
                                                                 <div className='d-flex gap-2 align-items-center my-3'>
-                                                                    <a href={post.html_url} target="_blank" rel="noreferrer">
+                                                                    <a href={item.html_url} target="_blank" rel="noreferrer">
                                                                         <FiGithub className='links' size={20} />
                                                                     </a>
 
                                                                     {
-                                                                        post.homepage && (
-                                                                            <a href={post.homepage} target="_blank" rel="noreferrer">
+                                                                        item.homepage && (
+                                                                            <a href={item.homepage} target="_blank" rel="noreferrer">
                                                                                 <FiExternalLink className='links' size={23} />
                                                                             </a>
                                                                         )
                                                                     }
                                                                 </div>
                                                             </div>
-                                                            <h4 className="card-title fw-bold">{post.name}</h4>
-                                                            <p className="card-text">{post.description}</p>
+                                                            <h4 className="card-title fw-bold">{item.name}</h4>
+                                                            <p className="card-text">{item.description}</p>
 
                                                             <div className='d-flex flex-wrap gap-2'>
                                                                 {
-                                                                    post.topics.map((topic) => {
+                                                                    item.topics.map((topic) => {
                                                                         return (
                                                                             <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
                                                                         )
@@ -146,40 +154,41 @@ const Project = () => {
                                                                 }
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            )
-                                            )
-                                        }
-                                    </div>
+                                                    )
+                                                }
 
-                                    <div className='my-3 sticky-bottom'>
-                                        <ReactPaginate
-                                            previousLabel={"<<"}
-                                            nextLabel={">>"}
-                                            breakLabel={"..."}
-                                            pageCount={7}
-                                            marginPagesDisplayed={2}
-                                            pageRangeDisplayed={3}
-                                            onPageChange={handlePageClick}
-                                            containerClassName={"pagination justify-content-center flex-wrap"}
-                                            pageClassName={"page-item"}
-                                            pageLinkClassName={"page-link"}
-                                            previousClassName={"page-item"}
-                                            previousLinkClassName={"page-link"}
-                                            nextClassName={"page-item"}
-                                            nextLinkClassName={"page-link"}
-                                            breakClassName={"page-item"}
-                                            breakLinkClassName={"page-link"}
-                                            activeClassName={"active"}
-                                        />
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                    )
+                                }
+                            </div>
+
+                            <div className='my-3 sticky-bottom'>
+                                <ReactPaginate
+                                    previousLabel={"<<"}
+                                    nextLabel={">>"}
+                                    breakLabel={"..."}
+                                    pageCount={7}
+                                    marginPagesDisplayed={2}
+                                    pageRangeDisplayed={3}
+                                    onPageChange={handlePageClick}
+                                    containerClassName={"pagination justify-content-center flex-wrap"}
+                                    pageClassName={"page-item"}
+                                    pageLinkClassName={"page-link"}
+                                    previousClassName={"page-item"}
+                                    previousLinkClassName={"page-link"}
+                                    nextClassName={"page-item"}
+                                    nextLinkClassName={"page-link"}
+                                    breakClassName={"page-item"}
+                                    breakLinkClassName={"page-link"}
+                                    activeClassName={"active"}
+                                />
                             </div>
                         </div>
-                    </ThemeProvider>
-                )
-            }
+                    </div>
+                </div>
+            </ThemeProvider>
         </>
     )
 }
