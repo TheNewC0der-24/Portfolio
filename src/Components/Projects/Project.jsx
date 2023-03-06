@@ -4,15 +4,14 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
+import LoadingScreen from '../../LoadingScreen/LoadingScreen';
+
 // Theme
 import { lightTheme } from '../Themes';
 
 import axios from 'axios';
 
 import ReactPaginate from 'react-paginate';
-
-// Particles
-import ParticleComponent from '../../subComponents/ParticleComponent';
 
 // Icons
 import { FaRegFolder } from 'react-icons/fa';
@@ -101,16 +100,11 @@ const Project = () => {
         <>
             {
                 loading ? (
-                    <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-                        <div className="spinner-border" style={{ color: "#6d2ae2" }} role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
+                    <LoadingScreen />
                 ) : (
                     <ThemeProvider theme={lightTheme}>
                         <GlobalStyle />
                         <SocialLinks />
-                        <ParticleComponent theme="light" />
                         <div className="container">
                             <div className="container">
                                 <div className="container">
