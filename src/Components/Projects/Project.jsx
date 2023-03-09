@@ -109,7 +109,7 @@ const Project = () => {
                             <div className="container">
                                 <div className="container">
                                     <h1 className="mt-3 text-center">.work()</h1>
-                                    <h6 className='sub-title text-center fw-bold mb-4'>My <span>Projects</span></h6>
+                                    <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
 
                                     <div className="row g-4">
                                         {

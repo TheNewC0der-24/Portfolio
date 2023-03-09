@@ -90,7 +90,7 @@ const Education = () => {
                             .education()
                         </span>
                     </h1>
-                    <h6 className="section_subtitle fw-bold">Academic <span>Learning</span></h6>
+                    <h6 className="section_subtitle fw-bold">ACADEMIC <span>LEARNING</span></h6>
                 </div>
                 <div className="container">
                     <div className="container text-center">

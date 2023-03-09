@@ -69,8 +69,8 @@ const Interest = () => {
             <SocialLinks />
             <div className="container text-center my-5">
                 <div>
-                    <h1 className='fw-bold'>.interest()</h1>
-                    <h6 className='fw-bold'>Things <span className='intro'>I Love</span></h6>
+                    <h1>.interest()</h1>
+                    <h6 className='fw-bold'>THINGS <span className='intro'>I LOVE</span></h6>
                 </div>
                 <Quote className='my-5 mx-4'>
                     <blockquote className="blockquote mb-0">
