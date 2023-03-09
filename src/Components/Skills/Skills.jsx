@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from './Skills.module.css';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-// Images
+// Images`
 import cpp from '../../assets/Languages/c++.png';
 import python from '../../assets/Languages/python.png';
 import js from "../../assets/Languages/js.png";
