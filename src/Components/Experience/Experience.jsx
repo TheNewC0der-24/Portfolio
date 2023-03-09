@@ -8,6 +8,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 import { darkTheme } from '../Themes';
 
 // Image
+import bookeeLogo from '../../assets/Images/bookeeLogo.png';
 import egslogo from '../../assets/Images/egsLogo.png';
 import tslogo from '../../assets/Images/tsLogo.png';
 import vlogo from '../../assets/Images/vLogo.svg';
@@ -79,28 +80,60 @@ const Experience = () => {
                                 <div className="accordion-item mb-3">
                                     <h2 className="accordion-header" id="headingOne">
                                         <button className="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            <img src={egslogo} width={100} alt="egs" className='img-fluid' />Evren Global Solutions Pvt. Ltd.
+                                            <img src={bookeeLogo} width={100} alt="bookee" className='img-fluid' />Bookee
                                         </button>
                                     </h2>
                                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div className="accordion-body">
                                             <h5>Frontend Developer - INTERNSHIP</h5>
                                             <div className='d-flex justify-content-between gap-5'>
-                                                <p>July 2022 - Present</p>
+                                                <p>March 2023 - Present</p>
+                                                <p>Bengaluru, Karnataka, India</p>
+                                            </div>
+                                            <hr />
+                                            <p><a href='https://crm.bookeeapp.com/' target="_blank" rel="noreferrer" className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>CRM</a></p>
+                                            <ul>
+                                                <li>Working on CRM</li>
+                                            </ul>
+
+                                            <p><span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>Embed</span></p>
+                                            <ul>
+                                                <li>Working on Embed</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="accordion-item mb-3">
+                                    <h2 className="accordion-header" id="headingOne">
+                                        <button className="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <img src={egslogo} width={100} alt="egs" className='img-fluid' />Evren Global Solutions Pvt. Ltd.
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div className="accordion-body">
+                                            <h5>Frontend Developer - INTERNSHIP</h5>
+                                            <div className='d-flex justify-content-between gap-5'>
+                                                <p>July 2022 - Feb 2023</p>
                                                 <p>Delhi, India</p>
                                             </div>
                                             <hr />
                                             <p><a href='https://injobs.careers/' target="_blank" rel="noreferrer" className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>InJOBS</a></p>
                                             <ul>
                                                 <li>Created landing page.</li>
-                                                <li>Created an application that helps student to find Jobs and Internships, apart from that MSME and Working professional can post jobs, internships, and research project.</li>
-                                                <li>Created an admin panel - Admin can see the statistics and can see which candidates are under which Mentor.</li>
+                                                <li>Created a Job portal that helps student to find Jobs and Internships, apart from that MSME and Working professional can post jobs, internships, and research project.Created the InJOBS portal for where jobseekers can find jobs, research projects, freelancing and internships related opportunities. Apart from that, MSME and Working professionals can post these opportunities.</li>
+                                                <li>Created an admin panel for InJOBS portal - Admin can see the statistics and can see which candidates are under which Mentor.</li>
                                             </ul>
 
                                             <p><span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>Acu 1st Insurance</span></p>
                                             <ul>
                                                 <li>Created landing page.</li>
-                                                <li>Working an insurance application.</li>
+                                                <li>Created a CRM for an insurance company.</li>
+                                            </ul>
+
+                                            <p><span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>BOI</span></p>
+                                            <ul>
+                                                <li>Created landing page.</li>
+                                                <li>Created a portal for BOI (Bharat Organization of India).</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -115,8 +148,8 @@ const Experience = () => {
                                         <div className="accordion-body">
                                             <h5>Frontend Developer - INTERNSHIP</h5>
                                             <div className='d-flex justify-content-between gap-5'>
-                                                <p>June 2022 - August 2022</p>
-                                                <p>Nagpur, India</p>
+                                                <p>June 2022 - July 2022</p>
+                                                <p>Nagpur, Maharashtra, India</p>
                                             </div>
                                             <hr />
                                             <p><span className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>CLOUD COACH</span></p>
@@ -129,16 +162,16 @@ const Experience = () => {
                                 </div>
                                 <div className="accordion-item mb-3">
                                     <h2 className="accordion-header" id="headingThree">
-                                        <button className="accordion-button fw-bold fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <button className="accordion-button fw-bold fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                             <img src={vlogo} alt="verzeo" className='img-fluid me-3' />GMAT Verzeo
                                         </button>
                                     </h2>
-                                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div className="accordion-body">
                                             <h5>Web Developer - APPRENTICESHIP</h5>
                                             <div className='d-flex justify-content-between gap-5'>
                                                 <p>May 2020 - July 2022</p>
-                                                <p>Bangalore, India</p>
+                                                <p>Bengaluru, Karnataka, India</p>
                                             </div>
                                             <hr />
                                             <ul>
