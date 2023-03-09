@@ -48,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
   img {
     display: block;
     // transform: rotate(-10deg);
+    z-index: 999;
   }
 
   @keyframes pulse {
