@@ -111,7 +111,7 @@ const About = () => {
         <ParticleComponent />
         <div className={`${styles.container} container my-4`}>
           <h1 className={`${styles.title} text-center`}>.about <span style={{ color: "#6d2ae2" }}>Me()</span></h1>
-          <h5 className='text-center' style={{ color: "#9a9ea1" }}>ALLOW ME TO INTRODUCE MYSELF</h5>
+          <h6 className='text-center fw-bold' style={{ color: "#9a9ea1" }}>ALLOW ME TO INTRODUCE MYSELF</h6>
           <div className="container">
             <div className="container d-flex mt-5">
               <div className={`${styles.row} row g-5 mx-auto`}>
