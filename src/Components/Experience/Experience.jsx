@@ -78,12 +78,12 @@ const Experience = () => {
                             <h6 className='sub-title text-center fw-bold'>PROFESSIONAL <span>JOURNEY</span></h6>
                             <div className="accordion accordion-flush my-5" id="accordionExample">
                                 <div className="accordion-item mb-3">
-                                    <h2 className="accordion-header" id="headingOne">
-                                        <button className="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <h2 className="accordion-header" id="headingFour">
+                                        <button className="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                             <img src={bookeeLogo} width={100} alt="bookee" className='img-fluid' />Bookee
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div id="collapseFour" className="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                         <div className="accordion-body">
                                             <h5>Frontend Developer - INTERNSHIP</h5>
                                             <div className='d-flex justify-content-between gap-5'>
@@ -161,7 +161,7 @@ const Experience = () => {
                                     </div>
                                 </div>
                                 <div className="accordion-item mb-3">
-                                    <h2 className="accordion-header" id="headingThree">
+                                    <h2 className="accordion-header" id="headingOne">
                                         <button className="accordion-button fw-bold fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                             <img src={vlogo} alt="verzeo" className='img-fluid me-3' />GMAT Verzeo
                                         </button>
