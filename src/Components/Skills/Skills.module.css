@@ -1,4 +1,4 @@
-.sectionTitle {
+/* .sectionTitle {
     position: relative;
     padding: 30px 0;
     text-align: center;
@@ -31,4 +31,42 @@
     font-size: 52px;
     font-family: 'Libre Baskerville', serif;
     line-height: 0;
+} */
+
+.line {
+    border: 2px solid #fac99c;
+    background-color: #fac99c;
+}
+
+.skills .progress {
+    height: 60px;
+    display: block;
+    background: none;
+}
+
+.skills .progress .skill {
+    padding: 10px 0;
+    display: block;
+    font-weight: 900;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    font-size: 15px;
+}
+
+.skills .progress .skill .val {
+    float: right;
+    font-style: normal;
+    padding-top: 7.5px;
+}
+
+.skills .progress-bar-wrap {
+    background: #bbbbbb;
+    border-radius: 10px;
+}
+
+.skills .progress-bar {
+    width: 1px;
+    border-radius: 10px;
+    height: 5px;
+    background: linear-gradient(135deg, #FCCF31 10%, #F55555 100%);
 }

@@ -59,6 +59,19 @@ const GlobalStyle = createGlobalStyle`
         -webkit-text-fill-color: transparent !important;
     }
 
+    .card {
+        backdrop-filter: blur(4px);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .card-img-top {
+        width: 90%;
+    }
+
+    // .card-img-top:hover {
+    //     width: 100%;
+    // }
+
     .icon {
         font-size: 2.5rem;
         color: ${props => props.theme.body};
@@ -68,17 +81,27 @@ const GlobalStyle = createGlobalStyle`
     }
 
     .img {
-        box-shadow: 3px 3px 10px #abaeb1,
-                    -3px -3px 10px #ffffff;
-        cursor: pointer;
+        box-shadow: inset -3px 3px 7px #bdc0c4,
+                    inset 3px -3px 7px #ffffff;
         transition: all 0.2s ease;
-        
+        cursor: pointer;
+    }
+
+    .img-not-hover {
+        box-shadow: inset -3px 3px 7px #bdc0c4,
+                    inset 3px -3px 7px #ffffff;
+        transition: all 0.2s ease;
+        cursor: pointer;
     }
 
     .img:hover {
-        box-shadow: inset -3px 3px 7px #bdc0c4,
-                    inset 3px -3px 7px #ffffff;
-        transform: translateY(2px);
+        box-shadow: 3px 3px 10px #abaeb1,
+                    -3px -3px 10px #ffffff;
+        transform: translateY(-2px);
+    }
+
+    .line {
+        border: 2px solid #6d2ae2;
     }
 `;
 
@@ -98,6 +121,9 @@ const Skills = () => {
                         These are my skills and this contains all the web technologies, programming languages, databases, frameworks, libraries, tools and hosting platforms that I have learnt
                         until now. I am constantly learning, therefore I may update this section more often.
                     </p>
+
+                    <hr className="my-4 mx-5 line" />
+
                     <div className="container mt-5">
                         <div className="container">
                             <div className="container">
@@ -188,133 +214,190 @@ const Skills = () => {
                                     </div>
                                 </div>
 
-                                <div className="row g-5 mt-5">
+                                <div className='mt-5'>
                                     {/* Database and OS */}
-                                    <div className="col-12">
-                                        <div className="card border-0">
-                                            <div className="card-body">
-                                                <div className='d-flex align-items-center gap-2'>
-                                                    <FaCode className='icon' />
-                                                    <h5>DATABASE AND OS</h5>
-                                                </div>
-                                                <hr className='w-50' />
-                                                <div className='row g-2 mt-4'>
-                                                    <div className='col-sm-6 col-md-6 col-lg-3'>
-                                                        <img src={sql} width={75} className='img-fluid' alt="MySQL" />
-                                                    </div>
-                                                    <div className='col-sm-6 col-md-6 col-lg-3'>
-                                                        <img src={windows} width={75} className='img-fluid' alt="Windows" />
-                                                    </div>
-                                                    <div className='col-sm-6 col-md-6 col-lg-3'>
-                                                        <img src={linux} width={75} className='img-fluid' alt="Linux" />
-                                                    </div>
-                                                    <div className='col-sm-6 col-md-6 col-lg-3'>
-                                                        <img src={ubuntu} width={75} className='img-fluid' alt="UBUNTU" />
-                                                    </div>
+                                    <div className='d-flex align-items-center gap-2'>
+                                        <FaCode className='icon' />
+                                        <h5>DATABASE AND OS</h5>
+                                    </div>
+                                    <hr className='w-50' />
+                                    <div className="row g-5">
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card shadow border-0">
+                                                <img src={sql} className='img-not-hover mx-auto p-3 card-img-top' alt="sql" />
+                                                <div className="card-body text-center">
+                                                    <h3 className="card-title my-3">MySQL</h3>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    {/* Tools and Hosting */}
-                                    <div className="col-12">
-                                        <div className="card border-0">
-                                            <div className="card-body">
-                                                <div className='d-flex align-items-center gap-2'>
-                                                    <FaCode className='icon' />
-                                                    <h5>TOOLS AND HOSTING</h5>
-                                                </div>
-                                                <hr className='w-50' />
-                                                <div className='row g-2 mt-4'>
-                                                    <div className='col-sm-12 col-md-2'>
-                                                        <img src={git} width={75} className='img-fluid' alt="git" />
-                                                    </div>
-                                                    <div className='col-sm-12 col-md-2'>
-                                                        <img src={github} width={75} className='img-fluid' alt="GitHub" />
-                                                    </div>
-                                                    <div className='col-sm-12 col-md-2'>
-                                                        <img src={heroku} width={75} className='img-fluid' alt="Heroku" />
-                                                    </div>
-                                                    <div className='col-sm-12 col-md-2'>
-                                                        <img src={netlify} width={75} className='img-fluid' alt="Netlify" />
-                                                    </div>
-                                                    <div className='col-sm-12 col-md-2'>
-                                                        <img src={vercel} width={75} className='img-fluid' alt="Vercel" />
-                                                    </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card shadow border-0">
+                                                <img src={windows} className='mx-auto img-not-hover p-3 card-img-top' alt="windows" />
+                                                <div className="card-body text-center">
+                                                    <h3 className="card-title my-3">Windows</h3>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    {/* IDEs / Editors */}
-                                    <div className="col-12">
-                                        <div className="card border-0">
-                                            <div className="card-body">
-                                                <div className='d-flex align-items-center gap-2'>
-                                                    <FaCode className='icon' />
-                                                    <h5>IDES / EDITORS</h5>
-                                                </div>
-                                                <hr className='w-50' />
-
-                                                <div className='row g-2 mt-4'>
-                                                    <div className='col-md-4'>
-                                                        <img src={vscode} width={75} className='img-fluid' alt="Vs Code" />
-                                                    </div>
-                                                    <div className='col-md-4'>
-                                                        <img src={pycharm} width={75} className='img-fluid' alt="PyCharm" />
-                                                    </div>
-                                                    <div className='col-md-4'>
-                                                        <img src={atom} width={75} className='img-fluid' alt="atom" />
-                                                    </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card shadow border-0">
+                                                <img src={linux} className='mx-auto img-not-hover p-3 card-img-top' alt="linux" />
+                                                <div className="card-body text-center">
+                                                    <h3 className="card-title my-3">Linux</h3>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <div className="card border-0">
-                                            <div className="card-body">
-                                                <div className='d-flex align-items-center gap-2'>
-                                                    <FaCode className='icon' />
-                                                    <h5>Others</h5>
-                                                </div>
-                                                <hr className='w-50' />
-                                                <div className='vstack gap-2 mt-4'>
-                                                    <div className='d-flex gap-2 align-items-center'>
-                                                        <img src={markdown} width={75} className='img-fluid' alt="Markdown" />
-                                                        <h6>Markdown</h6>
-                                                    </div>
-                                                    <div className='d-flex gap-2 align-items-center'>
-                                                        <img src={latex} width={75} className='img-fluid' alt="LaTeX" />
-                                                        <h6>LaTeX</h6>
-                                                    </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card shadow border-0">
+                                                <img src={ubuntu} className=' mx-auto img-not-hover p-3 card-img-top' alt="ubuntu" />
+                                                <div className="card-body text-center">
+                                                    <h3 className="card-title my-3">Ubuntu</h3>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="row g-5 mt-5">
-                                    <div className="col-lg-12">
-                                        <div className='d-flex align-items-center gap-2'>
-                                            <FaCode className='icon' />
-                                            <h5>Knowledge</h5>
+                                <div className='mt-5'>
+                                    {/* Tools and Hosting */}
+                                    <div className='d-flex align-items-center gap-2'>
+                                        <FaCode className='icon' />
+                                        <h5>TOOLS AND HOSTING</h5>
+                                    </div>
+                                    <hr className='w-50' />
+                                    <div className="row g-5">
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={git} className='img-fluid mx-auto img p-3 card-img-top' alt="git" />
+                                                <div className="card-body text-center">
+                                                    <h4 className="card-title my-3">Git</h4>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <hr className='w-50' />
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={github} className='img-fluid mx-auto img p-3 card-img-top' alt="github" />
+                                                <div className="card-body text-center">
+                                                    <h4 className="card-title my-3">GiHhub</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={heroku} className='img-fluid mx-auto img p-3 card-img-top' alt="heroku" />
+                                                <div className="card-body text-center">
+                                                    <h4 className="card-title my-3">Heroku</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={netlify} className=' mx-auto img p-3 card-img-top' alt="netlify" />
+                                                <div className="card-body text-center">
+                                                    <h4 className="card-title my-3">Netlify</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={vercel} className=' mx-auto img p-3 card-img-top' alt="vercel" />
+                                                <div className="card-body text-center">
+                                                    <h4 className="card-title my-3">Vercel</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={github} className='img-fluid mx-auto img p-3 card-img-top' alt="github-pages" />
+                                                <div className="card-body text-center">
+                                                    <h4 className="card-title my-3">GitHub Pages</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                        <div className='mt-4'>
-                                            <ul>
-                                                <li>Object Oriented Programming</li>
-                                                <li>REST APIs</li>
-                                                <li>Error Handling</li>
-                                                <li>Asynchronous Programming</li>
-                                                <li>Responsive and Mobile Ready</li>
-                                                <li>Agile Methodologies</li>
-                                                <li>Version Control</li>
-                                                <li>Unit Testing</li>
-                                                <li>API Integration</li>
-                                                <li>PWA (Progressive Web App)</li>
-                                            </ul>
+                                <div className='mt-5'>
+                                    {/* IDEs / Editors */}
+                                    <div className='d-flex align-items-center gap-2'>
+                                        <FaCode className='icon' />
+                                        <h5>IDES / EDITORS</h5>
+                                    </div>
+                                    <hr className='w-50' />
+                                    <div className="row g-5">
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={vscode} className='mx-auto img-not-hover p-3 card-img-top' alt="vscode" />
+                                                <div className="card-body text-center">
+                                                    <h1 className="card-title my-3">VS Code</h1>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={pycharm} className='mx-auto img-not-hover p-3 card-img-top' alt="pycharm" />
+                                                <div className="card-body text-center">
+                                                    <h1 className="card-title my-3">PyCharm</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={atom} className='mx-auto img-not-hover p-3 card-img-top' alt="atom" />
+                                                <div className="card-body text-center">
+                                                    <h1 className="card-title my-3">Atom</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='mt-5'>
+                                    {/* Others */}
+                                    <div className='d-flex align-items-center gap-2'>
+                                        <FaCode className='icon' />
+                                        <h5>OTHER</h5>
+                                    </div>
+                                    <hr className='w-50' />
+                                    <div className="row g-5">
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={markdown} className='mx-auto img-not-hover p-3 card-img-top' alt="markdown" />
+                                                <div className="card-body text-center">
+                                                    <h1 className="card-title my-3">Markdown</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-sm-6 col-md-4 col-lg-4 col-xl-3">
+                                            <div className="card h-100 shadow border-0">
+                                                <img src={latex} className='mx-auto img-not-hover p-3 card-img-top' alt="latex" />
+                                                <div className="card-body text-center">
+                                                    <h1 className="card-title my-3">LaTeX</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="mt-5">
+                                    <div className='d-flex align-items-center gap-2'>
+                                        <FaCode className='icon' />
+                                        <h5>Knowledge</h5>
+                                    </div>
+                                    <hr className='w-50' />
+
+                                    <div className='mt-4'>
+                                        <ul>
+                                            <li>Object Oriented Programming</li>
+                                            <li>REST APIs</li>
+                                            <li>Error Handling</li>
+                                            <li>Asynchronous Programming</li>
+                                            <li>Responsive and Mobile Ready</li>
+                                            <li>Agile Methodologies</li>
+                                            <li>Version Control</li>
+                                            <li>Unit Testing</li>
+                                            <li>API Integration</li>
+                                            <li>PWA (Progressive Web App)</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
