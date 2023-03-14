@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 // Routing
@@ -202,6 +202,9 @@ const Intro = styled.div`
 const Home = () => {
 
     const navigate = useNavigate();
+
+    const title = "Bhavya Khurana";
+    document.title = title;
 
     return (
         <>

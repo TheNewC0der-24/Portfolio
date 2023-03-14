@@ -66,6 +66,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Experience = () => {
+
+    const title = "Bhavya Khurana | Experience";
+    document.title = title;
+
     return (
         <>
             <ThemeProvider theme={darkTheme}>

@@ -72,6 +72,9 @@ const Education = () => {
         Aos.init({ duration: 2000 });
     }, []);
 
+    const title = "Bhavya Khurana | Education";
+    document.title = title;
+
     return (
         <ThemeProvider theme={lightTheme}>
             <GlobalStyle />

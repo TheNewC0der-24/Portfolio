@@ -63,6 +63,10 @@ const Quote = styled.p`
 `;
 
 const Interest = () => {
+
+    const title = "Bhavya Khurana | Interests";
+    document.title = title;
+
     return (
         <ThemeProvider theme={darkTheme}>
             <GlobalStyle />

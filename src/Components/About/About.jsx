@@ -16,7 +16,6 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 // Theme
 import { darkTheme } from '../Themes';
 
-
 // Icon
 import { TiArrowForward } from 'react-icons/ti';
 
@@ -102,6 +101,9 @@ const About = () => {
     link.click();
     document.body.removeChild(link);
   };
+
+  const title = "Bhavya Khurana | About Me";
+  document.title = title;
 
   return (
     <>

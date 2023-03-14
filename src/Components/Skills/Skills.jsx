@@ -107,6 +107,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Skills = () => {
 
+    const title = "Bhavya Khurana | Skills";
+    document.title = title;
+
     return (
         <>
             <ThemeProvider theme={lightTheme}>

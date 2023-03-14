@@ -140,6 +140,9 @@ const Contact = () => {
         }
     }
 
+    const title = "Bhavya Khurana | Contact Me";
+    document.title = title;
+
     return (
         <>
             <ThemeProvider theme={darkTheme}>

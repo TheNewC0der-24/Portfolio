@@ -96,6 +96,9 @@ const Project = () => {
         });
     }
 
+    const title = "Bhavya Khurana | Work";
+    document.title = title;
+
     return (
         <>
             {

@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Blogs = () => {
 
+    const title = "Bhavya Khurana | Blogs";
+    document.title = title;
+
     return (
         <>
             <ThemeProvider theme={lightTheme}>
