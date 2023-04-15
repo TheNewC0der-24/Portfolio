@@ -4,6 +4,9 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 import { darkTheme } from '../Themes';
 
+import { FaCode, FaTerminal } from 'react-icons/fa';
+import { GiOpenBook } from 'react-icons/gi';
+
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: #0e1313;
@@ -41,16 +44,13 @@ const GlobalStyle = createGlobalStyle`
 
   .icon{
     margin: 0 auto 20px auto;
-    padding-top: 17px;
+    padding: 15px;
     display: inline-block;
     text-align: center;
     border-radius: 50%;
     width: 72px;
     height: 72px;
     background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
-}
-
-.icon i{
     font-size: 36px;
     line-height: 1;
     color: #dee2e6;
@@ -86,7 +86,7 @@ const Interest = () => {
                         <div className="col">
                             <div className="card h-100">
                                 <div className="card-body">
-                                    <div className="icon"><i className="fa-solid fa-terminal"></i></div>
+                                    <FaTerminal className="icon" />
                                     <h5 className="card-title">COMPETITIVE CODING</h5>
                                     <p className="card-text">In my free time, i prefer to try to do some problem-solving on various Competitive Coding platforms.</p>
                                 </div>
@@ -95,7 +95,7 @@ const Interest = () => {
                         <div className="col">
                             <div className="card h-100">
                                 <div className="card-body">
-                                    <div className="icon"><i className="fas fa-graduation-cap"></i></div>
+                                    <GiOpenBook className="icon" />
                                     <h5 className="card-title">LEARNING NEW THINGS</h5>
                                     <p className="card-text">I believe in constantly updating myself by learning something new with practical Implementations.</p>
                                 </div>
@@ -104,7 +104,7 @@ const Interest = () => {
                         <div className="col">
                             <div className="card h-100">
                                 <div className="card-body">
-                                    <div className="icon"><i className="fa-solid fa-code"></i></div>
+                                    <FaCode className="icon" />
                                     <h5 className="card-title">FRONTEND</h5>
                                     <p className="card-text">I'm more frontend focused and love to design websites, web apps with Reactjs as well as pure HTML, CSS and Javascript.</p>
                                 </div>
