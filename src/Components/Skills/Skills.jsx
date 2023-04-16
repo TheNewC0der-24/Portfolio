@@ -58,9 +58,8 @@ const GlobalStyle = createGlobalStyle`
     .card {
         background-color: #DFD8FD;
         border-left: 5px solid #6d2ae2;
+        border-right: 5px solid #6d2ae2;
         border-color: #6d2ae2;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
     }
 
     .icon {
