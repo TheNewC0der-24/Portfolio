@@ -13,8 +13,8 @@ import "aos/dist/aos.css";
 
 import { lightTheme } from '../Themes';
 
-import school from '../../assets/Images/school.svg';
-import college from '../../assets/Images/college.svg';
+import school from '../../assets/Images/Education/school.svg';
+import college from '../../assets/Images/Education/college.svg';
 
 const GlobalStyle = createGlobalStyle`
   body {
