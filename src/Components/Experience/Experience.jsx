@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 // Social Links
@@ -7,11 +7,30 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 // Theme
 import { darkTheme } from '../Themes';
 
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Box,
+    Typography,
+    Avatar,
+    Divider,
+    List,
+    ListItem,
+    IconButton,
+    ListItemButton,
+    ListItemText,
+} from '@mui/material';
+
+import { FaPlus, FaMinus, FaExternalLinkAlt, FaReact, FaAngular, FaHtml5, FaCss3Alt } from 'react-icons/fa';
+import { SiRedux, SiJquery, SiMui, SiJavascript } from 'react-icons/si';
+import { BsBootstrapFill } from 'react-icons/bs';
+
 // Image
-import bookeeLogo from '../../assets/Images/bookeeLogo.png';
-import egslogo from '../../assets/Images/egsLogo.png';
-import tslogo from '../../assets/Images/tsLogo.png';
-import vlogo from '../../assets/Images/vLogo.svg';
+import bookeeLogo from '../../assets/Images/Experience/bookeeLogo.png';
+import egslogo from '../../assets/Images/Experience/egsLogo.png';
+import tslogo from '../../assets/Images/Experience/tsLogo.png';
+import vlogo from '../../assets/Images/Experience/vLogo.png';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -70,6 +89,13 @@ const Experience = () => {
     const title = "Bhavya Khurana | Experience";
     document.title = title;
 
+    const [expanded, setExpanded] = useState('panel1');
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
+
+
     return (
         <>
             <ThemeProvider theme={darkTheme}>
@@ -80,116 +106,288 @@ const Experience = () => {
                         <div className='container my-3'>
                             <h1 className='title text-center'>.experience()</h1>
                             <h6 className='sub-title text-center fw-bold'>PROFESSIONAL <span>JOURNEY</span></h6>
-                            <div className="accordion accordion-flush my-5" id="accordionExample">
-                                <div className="accordion-item mb-3">
-                                    <h2 className="accordion-header" id="headingFour">
-                                        <button className="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                            <img src={bookeeLogo} width={100} alt="bookee" className='img-fluid' />Bookee
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" className="accordion-collapse collapse show" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <h5>Frontend Developer - INTERNSHIP</h5>
-                                            <div className='d-flex justify-content-between gap-5'>
-                                                <p>March 2023 - Present</p>
-                                                <p>Bengaluru, Karnataka, India</p>
-                                            </div>
-                                            <hr />
-                                            <p><a href='https://crm.bookeeapp.com/' target="_blank" rel="noreferrer" className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>CRM</a></p>
-                                            <ul>
-                                                <li>Working on CRM</li>
-                                            </ul>
 
-                                            <p><span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>Embed</span></p>
-                                            <ul>
-                                                <li>Working on Embed</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item mb-3">
-                                    <h2 className="accordion-header" id="headingOne">
-                                        <button className="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <img src={egslogo} width={100} alt="egs" className='img-fluid' />Evren Global Solutions Pvt. Ltd.
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <h5>Frontend Developer - INTERNSHIP</h5>
-                                            <div className='d-flex justify-content-between gap-5'>
-                                                <p>July 2022 - Feb 2023</p>
-                                                <p>Delhi, India</p>
-                                            </div>
-                                            <hr />
-                                            <p><a href='https://injobs.careers/' target="_blank" rel="noreferrer" className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>InJOBS</a></p>
-                                            <ul>
-                                                <li>Created landing page.</li>
-                                                <li>Created a Job portal that helps student to find Jobs and Internships, apart from that MSME and Working professional can post jobs, internships, and research project.Created the InJOBS portal for where jobseekers can find jobs, research projects, freelancing and internships related opportunities. Apart from that, MSME and Working professionals can post these opportunities.</li>
-                                                <li>Created an admin panel for InJOBS portal - Admin can see the statistics and can see which candidates are under which Mentor.</li>
-                                            </ul>
+                            <Box sx={{ mt: 5 }}>
+                                <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                                    <AccordionSummary expandIcon={expanded === 'panel1' ? <FaMinus color="#dee2e6" /> : <FaPlus color="#dee2e6" />}
+                                        sx={{ backgroundColor: 'rgba(109, 42, 226, 1)' }}
+                                    >
+                                        <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", }}>
+                                            <Avatar alt="Bookee" src={bookeeLogo} />
+                                            <Typography variant='h5' color="#dee2e6">Bookee</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ backgroundColor: "#0e1313", border: '1px solid rgba(109, 42, 226, 1)' }}>
+                                        <Typography variant='h5' color="#dee2e6">Software Developer Engineer (Frontend) - INTERNSHIP</Typography>
+                                        <Box mt={1} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
+                                            <Typography variant='subtitle1' color="#dee2e6">March 2023 - Present</Typography>
+                                            <Typography variant='subtitle1' color="#dee2e6">Bengaluru, Karnataka, India</Typography>
+                                        </Box>
+                                        <Divider sx={{ bgcolor: "#dee2e6", mt: 2, mb: 2 }} />
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2" }}>
+                                            <ListItem
+                                                secondaryAction={
+                                                    <IconButton edge="end" href='https://crm.bookeeapp.com/' target="_blank" rel="noreferrer">
+                                                        <FaExternalLinkAlt color='#6d2ae2' />
+                                                    </IconButton>
+                                                }
+                                                disablePadding
+                                            >
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        primary="Bookee CRM"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>Working on Customer relationship management system.</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaAngular /> <BsBootstrapFill />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2", mt: 2 }}>
+                                            <ListItem
+                                                secondaryAction={
+                                                    <IconButton edge="end" href='https://halofitnessbrooklyn.weebly.com/reserve.html#/login' target="_blank" rel="noreferrer">
+                                                        <FaExternalLinkAlt color='#6d2ae2' />
+                                                    </IconButton>
+                                                }
+                                                disablePadding
+                                            >
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        primary="Embed"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>Working on Embed</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaReact /> <SiRedux />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                    </AccordionDetails>
+                                </Accordion>
 
-                                            <p><span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>Acu 1st Insurance</span></p>
-                                            <ul>
-                                                <li>Created landing page.</li>
-                                                <li>Created a CRM for an insurance company.</li>
-                                            </ul>
+                                <Accordion sx={{ mt: 3 }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                                    <AccordionSummary expandIcon={expanded === 'panel2' ? <FaMinus color="#dee2e6" /> : <FaPlus color="#dee2e6" />}
+                                        sx={{ backgroundColor: 'rgba(109, 42, 226, 1)' }}
+                                    >
+                                        <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", }}>
+                                            <Avatar alt="EGS" src={egslogo} />
+                                            <Typography variant='h5' color="#dee2e6">Evren Global Solutions Pvt. Ltd.</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ backgroundColor: "#0e1313", border: '1px solid rgba(109, 42, 226, 1)' }}>
+                                        <Typography variant='h5' color="#dee2e6">Frontend Developer - INTERNSHIP</Typography>
+                                        <Box mt={1} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
+                                            <Typography variant='subtitle1' color="#dee2e6">July 2022 - Feb 2023</Typography>
+                                            <Typography variant='subtitle1' color="#dee2e6">Delhi, India</Typography>
+                                        </Box>
+                                        <Divider sx={{ bgcolor: "#dee2e6", mt: 2, mb: 2 }} />
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2" }}>
+                                            <ListItem
+                                                secondaryAction={
+                                                    <IconButton edge="end" href='https://injobs.careers/' target="_blank" rel="noreferrer">
+                                                        <FaExternalLinkAlt color='#6d2ae2' />
+                                                    </IconButton>
+                                                }
+                                                disablePadding
+                                            >
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        primary="InJOBS"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>Created landing page.</li>
+                                                                    <li>Created a Job portal that helps student to find Jobs and Internships, apart from that MSME and Working professional can post jobs, internships, and research project.Created the InJOBS portal for where jobseekers can find jobs, research projects, freelancing and internships related opportunities. Apart from that, MSME and Working professionals can post these opportunities.</li>
+                                                                    <li>Created an admin panel for InJOBS portal - Admin can see the statistics and can see which candidates are under which Mentor.</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaHtml5 /> <FaCss3Alt /> <BsBootstrapFill /> <SiJquery /> <FaReact />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2", mt: 2 }}>
+                                            <ListItem
+                                                secondaryAction={
+                                                    <IconButton edge="end" href='https://www.acu1stchoice.com/' target="_blank" rel="noreferrer">
+                                                        <FaExternalLinkAlt color='#6d2ae2' />
+                                                    </IconButton>
+                                                }
+                                                disablePadding
+                                            >
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        primary="Acu 1st Insurance"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>Created landing page.</li>
+                                                                    <li>Created a CRM for an insurance company.</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaReact /> <SiRedux /> <SiMui />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2", mt: 2 }}>
+                                            <ListItem
+                                                secondaryAction={
+                                                    <IconButton edge="end" href='https://matrimonial.boindia.org/' target="_blank" rel="noreferrer">
+                                                        <FaExternalLinkAlt color='#6d2ae2' />
+                                                    </IconButton>
+                                                }
+                                                disablePadding
+                                            >
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        primary="BOI Matrimony"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>Created the landing page.</li>
+                                                                    <li>Created the web portal for Brahmin Organization of India.</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaReact /> <SiMui />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                    </AccordionDetails>
+                                </Accordion>
 
-                                            <p><span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>BOI</span></p>
-                                            <ul>
-                                                <li>Created landing page.</li>
-                                                <li>Created a portal for BOI (Bharat Organization of India).</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item mb-3">
-                                    <h2 className="accordion-header" id="headingTwo">
-                                        <button className="accordion-button fw-bold fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <img src={tslogo} width={100} alt="ts" className='img-fluid me-3' />Talent Sumo
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <h5>Frontend Developer - INTERNSHIP</h5>
-                                            <div className='d-flex justify-content-between gap-5'>
-                                                <p>June 2022 - July 2022</p>
-                                                <p>Nagpur, Maharashtra, India</p>
-                                            </div>
-                                            <hr />
-                                            <p><span className='badge text-decoration-none' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>CLOUD COACH</span></p>
-                                            <ul>
-                                                <li>Created the frontend part of an application which is an AI bot for automatic assessment and feedback that can be used for
-                                                    interviews, training like sales or leadership, course testing, screening, job simulation etc.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="accordion-item mb-3">
-                                    <h2 className="accordion-header" id="headingOne">
-                                        <button className="accordion-button fw-bold fs-5 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                            <img src={vlogo} alt="verzeo" className='img-fluid me-3' />GMAT Verzeo
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div className="accordion-body">
-                                            <h5>Web Developer - APPRENTICESHIP</h5>
-                                            <div className='d-flex justify-content-between gap-5'>
-                                                <p>May 2020 - July 2022</p>
-                                                <p>Bengaluru, Karnataka, India</p>
-                                            </div>
-                                            <hr />
-                                            <ul>
-                                                <li>It is a two month online course for learning web-development technologies.</li>
-                                                <li>Learned so many web technologies like - HTML5, CSS3, Bootstrap, JavaScript, DOM, AJAX, and jQuery.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                <Accordion sx={{ mt: 3 }} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                                    <AccordionSummary expandIcon={expanded === 'panel3' ? <FaMinus color="#dee2e6" /> : <FaPlus color="#dee2e6" />}
+                                        sx={{ backgroundColor: 'rgba(109, 42, 226, 1)' }}
+                                    >
+                                        <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", }}>
+                                            <Avatar alt="Talent Sumo" src={tslogo} />
+                                            <Typography variant='h5' color="#dee2e6">Talent Sumo</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ backgroundColor: "#0e1313", border: '1px solid rgba(109, 42, 226, 1)' }}>
+                                        <Typography variant='h5' color="#dee2e6">Frontend Developer - INTERNSHIP</Typography>
+                                        <Box mt={1} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
+                                            <Typography variant='subtitle1' color="#dee2e6">June 2022 - July 2022</Typography>
+                                            <Typography variant='subtitle1' color="#dee2e6">Nagpur, Maharashtra, India</Typography>
+                                        </Box>
+                                        <Divider sx={{ bgcolor: "#dee2e6", mt: 2, mb: 2 }} />
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2" }}>
+                                            <ListItem
+                                                secondaryAction={
+                                                    <IconButton edge="end" href='https://sandbox.coachbots.com/login' target="_blank" rel="noreferrer">
+                                                        <FaExternalLinkAlt color='#6d2ae2' />
+                                                    </IconButton>
+                                                }
+                                                disablePadding
+                                            >
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        primary="CLOUD COACH"
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>Created the end-to-end User interface of the product, which is an AI bot for automatic assessment and feedback that can be used for interviews, training like sales or leadership, course testing, screening, job simulation etc.</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaHtml5 /> <FaCss3Alt /> <SiMui /> <FaReact />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                    </AccordionDetails>
+                                </Accordion>
+
+                                <Accordion sx={{ mt: 3 }} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                                    <AccordionSummary expandIcon={expanded === 'panel4' ? <FaMinus color="#dee2e6" /> : <FaPlus color="#dee2e6" />}
+                                        sx={{ backgroundColor: 'rgba(109, 42, 226, 1)' }}
+                                    >
+                                        <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", }}>
+                                            <Avatar alt="Verzeo" src={vlogo} />
+                                            <Typography variant='h5' color="#dee2e6">GMAT Verzeo</Typography>
+                                        </Box>
+                                    </AccordionSummary>
+                                    <AccordionDetails sx={{ backgroundColor: "#0e1313", border: '1px solid rgba(109, 42, 226, 1)' }}>
+                                        <Typography variant='h5' color="#dee2e6">Web Developer - APPRENTICESHIP</Typography>
+                                        <Box mt={1} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
+                                            <Typography variant='subtitle1' color="#dee2e6">May 2020 - July 2020</Typography>
+                                            <Typography variant='subtitle1' color="#dee2e6">Bengaluru, Karnataka, India</Typography>
+                                        </Box>
+                                        <Divider sx={{ bgcolor: "#dee2e6", mt: 2, mb: 2 }} />
+                                        <List sx={{ bgcolor: '#DFD8FD', color: "#6d2ae2" }}>
+                                            <ListItem disablePadding>
+                                                <ListItemButton role={undefined} dense>
+                                                    <ListItemText
+                                                        secondary={
+                                                            <React.Fragment>
+                                                                <ul>
+                                                                    <li>It is a two month online course for learning web-development technologies.</li>
+                                                                    <li>Learned so many technologies for web-development like - HTML5, CSS3, Bootstrap, JavaScript, DOM, AJAX, and jQuery.</li>
+                                                                </ul>
+                                                            </React.Fragment>
+                                                        }
+                                                    />
+                                                </ListItemButton>
+                                            </ListItem>
+                                            <Box p={2}>
+                                                <Typography variant='subtitle1'>Technologies Used :</Typography>
+                                                <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
+                                                    <FaHtml5 /> <FaCss3Alt /> <BsBootstrapFill /> <SiJavascript /> <SiJquery />
+                                                </Box>
+                                            </Box>
+                                        </List>
+                                    </AccordionDetails>
+                                </Accordion>
+                            </Box>
                         </div>
                     </div>
                 </div>
-            </ThemeProvider>
+            </ThemeProvider >
         </>
     )
 }
