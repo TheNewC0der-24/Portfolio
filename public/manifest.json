@@ -1,7 +1,9 @@
 {
+    "short_name": "Bhavya Khurana",
     "name": "Bhavya Khurana Portfolio",
-    "theme_color": "#000000",
-    "background_color": "#000000",
+    "description": "I am Bhavya Khurana, and I'm a Frontend Developer from Jaypee University of Engineering and Technology, Guna, India. I am in my final year of my bachelors program, majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like React.JS and Angular. I am constantly working on improving my skills as a software engineer.",
+    "theme_color": "#6d2ae2",
+    "background_color": "#0e1313",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
