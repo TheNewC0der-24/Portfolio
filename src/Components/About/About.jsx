@@ -20,7 +20,7 @@ import { darkTheme } from '../Themes';
 import { TiArrowForward } from 'react-icons/ti';
 
 // Image
-import about from '../../assets/Images/portrait.png';
+import about from '../../assets/Images/portrait.svg';
 
 import Resume from '../../assets/Resume.pdf';
 
