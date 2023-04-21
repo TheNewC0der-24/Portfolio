@@ -57,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-const Quote = styled.p`
+const Quote = styled.div`
     font-family: 'Special Elite', cursive;
     color: #6d2ae2;
 `;
