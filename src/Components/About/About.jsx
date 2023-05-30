@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 // Particles
 import ParticleComponent from '../../subComponents/ParticleComponent';
 
-import AnimatedText from 'react-animated-text-content';
+// import AnimatedText from 'react-animated-text-content';
 
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
@@ -157,7 +157,7 @@ const About = () => {
                   </p>
                   <div className={styles.tag}>&lt;h5&gt;</div>
                   <div className='fw-bold fs-5 my-2' style={{ color: '#6d2ae2', fontFamily: 'Special Elite' }}>
-                    <AnimatedText
+                    {/* <AnimatedText
                       type="chars"
                       animation={{
                         x: '200px',
@@ -175,7 +175,7 @@ const About = () => {
                       rootMargin="20%"
                     >
                       Open to Opportunities related to Web Development.
-                    </AnimatedText>
+                    </AnimatedText> */}
                   </div>
                   <div className='mt-4 mb-3'>
                     {/* <a href={Resume} className={styles.downloadBtn} role="button" download>Download Resume <span></span></a> */}

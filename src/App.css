@@ -7,62 +7,62 @@
 
 input,
 textarea {
-    text-decoration: none !important;
-    outline: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    background: none !important;
-    color: #dee2e6 !important;
+  text-decoration: none !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: none !important;
+  color: #dee2e6 !important;
 }
 
 select {
-    text-decoration: none !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0px !important;
+  text-decoration: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: #dee2e6 !important;
+  color: #dee2e6 !important;
 }
 
 .btn,
 .btn-close {
-    text-decoration: none !important;
-    outline: 0 !important;
-    box-shadow: none !important;
+  text-decoration: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 input:focus,
 textarea:focus,
 select:focus,
 .page-link:focus {
-    border-color: #6d2ae2 !important;
-    text-decoration: none !important;
-    outline: 0 !important;
-    box-shadow: none !important;
+  border-color: #6d2ae2 !important;
+  text-decoration: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .page-link {
-    color: #0e1313 !important;
+  color: #0e1313 !important;
 }
 
 .active>.page-link {
-    background-color: #6d2ae2 !important;
-    border-color: #6d2ae2 !important;
-    border-bottom: none !important;
-    color: #dee2e6 !important;
+  background-color: #6d2ae2 !important;
+  border-color: #6d2ae2 !important;
+  border-bottom: none !important;
+  color: #dee2e6 !important;
 }
 
 .page-item.active {
-    background-color: #6d2ae2 !important;
-    border-color: #6d2ae2 !important;
-    border-bottom: none !important;
-    color: #dee2e6 !important;
+  background-color: #6d2ae2 !important;
+  border-color: #6d2ae2 !important;
+  border-bottom: none !important;
+  color: #dee2e6 !important;
 }
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root:first-of-type {
-    border-top-left-radius: 0px !important;
-    border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
 }

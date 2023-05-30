@@ -49,39 +49,6 @@ const GlobalStyle = createGlobalStyle`
         -moz-text-fill-color: transparent !important;
         -webkit-text-fill-color: transparent !important;
     }
-
-    .accordion-item {
-        border: 1px solid rgba(109, 42, 226, 1) !important;
-        background-color: rgba(109, 42, 226, 1) !important;
-    }
-    
-    .accordion-body {
-        background-color: #0e1313 !important;
-        color: #fff !important;
-    }
-
-    .accordion-button {
-        box-shadow: none !important;
-        background-color: ${(props) => props.theme.text};
-        color: #dee2e6;
-    }
-
-    .accordion-button:not(.collapsed) {
-        background-color: rgba(109, 42, 226, 0.9) !important;
-        color: #dee2e6;
-    }
-
-    .accordion-item:last-of-type .accordion-button.collapsed {
-        border-radius: 0 !important;
-    }
-
-    .accordion-button:after {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    }
-
-    .accordion-button:not(.collapsed)::after {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    }
 `;
 
 const Experience = () => {

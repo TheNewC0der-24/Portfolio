@@ -11,7 +11,7 @@ import { lightTheme } from '../Themes';
 
 import axios from 'axios';
 
-import ReactPaginate from 'react-paginate';
+// import ReactPaginate from 'react-paginate';
 
 // Icons
 import { FaRegFolder } from 'react-icons/fa';
@@ -162,7 +162,7 @@ const Project = () => {
                                     </div>
 
 
-                                    <div className='my-3 sticky-bottom'>
+                                    {/* <div className='my-3 sticky-bottom'>
                                         <ReactPaginate
                                             previousLabel={"<<"}
                                             nextLabel={">>"}
@@ -182,7 +182,7 @@ const Project = () => {
                                             breakLinkClassName={"page-link"}
                                             activeClassName={"active"}
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
