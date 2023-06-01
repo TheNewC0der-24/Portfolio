@@ -27,6 +27,18 @@
     font-weight: bold;
 }
 
+.img {
+    display: block;
+    z-index: 999;
+    filter: grayscale(100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
 .tag {
     color: #dee2e6;
     font-family: 'Caveat', cursive;

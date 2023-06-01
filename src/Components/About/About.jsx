@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import styles from './About.module.css';
 
+import {
+  Box,
+  Button
+} from '@mui/material';
+
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import { motion } from "framer-motion";
@@ -19,6 +24,7 @@ import about from '../../assets/Images/portrait.svg';
 
 import Resume from '../../assets/Resume.pdf';
 import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
+import Modal from './Modal';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -40,17 +46,6 @@ const GlobalStyle = createGlobalStyle`
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
     border: 5px solid #6d2ae2;
     transition: all 0.3s ease-in-out;
-  }
-  
-  img {
-    display: block;
-    z-index: 999;
-    filter: grayscale(100%);
-    transition: all 0.3s ease-in-out;
-  }
-  img:hover{
-    filter: grayscale(0%);
-    transform: scale(1.1);
   }
 
   @keyframes pulse {
@@ -88,6 +83,16 @@ const About = () => {
 
   const [imageLoading, setImageLoading] = useState(true);
   const [pulsing, setPulsing] = useState(true);
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpenModal = () => {
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
 
   const imageLoaded = () => {
     setImageLoading(false);
@@ -151,11 +156,17 @@ const About = () => {
                       I'm obsessed with making things and even more obsessed with making things better.
                     </p>
                     <span className={styles.tag}>&lt;p&gt;</span>
-                    <div className='mt-4 mb-3'>
-                      <button onClick={handleDownload} className={styles.downloadBtn}>Download Resume<span></span></button>
-                    </div>
                   </div>
-
+                  <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: "1rem" }}>
+                    <Button variant="contained" sx={{
+                      bgcolor: '#6d2ae6', color: '#dee2e6', '&:hover': {
+                        bgcolor: '#6d2ae6',
+                        color: '#dee2e6'
+                      }
+                    }} onClick={handleClickOpenModal}>
+                      Read More
+                    </Button>
+                  </Box>
                 </div>
                 <div className={`${styles.mainContent} col-lg-7`}>
                   <div className={styles.tag}>&lt;h5&gt;</div>
@@ -165,18 +176,20 @@ const About = () => {
                   <p>
                     I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
                   </p>
-                  <p>
-                    I am a creative and skilled Frontend Developer with a passion for building elegant and intuitive user interfaces. With over 1 year of experience, I have worked on various web projects for clients in industries. I have expertise in experience with responsive design, accessibility, and website optimization. I have completed several online certification courses. I am a problem-solver with excellent communication skills and the ability to work well under pressure. I am committed to delivering high-quality solutions that meet user needs and exceed client expectations.
-                  </p>
                   <div className={styles.tag}>&lt;h5&gt;</div>
                   <p className='fw-bold my-2 p-2' style={{ backgroundColor: '#dee2e6', color: '#6d2ae2', fontFamily: 'Special Elite' }}>
                     Open to Opportunities related to Web Development.
                   </p>
+                  <div className='mt-4 mb-3'>
+                    <button onClick={handleDownload} className={styles.downloadBtn}>Download Resume<span></span></button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <Modal open={open} handleCloseModal={handleCloseModal} />
       </ThemeProvider>
     </>
   )
