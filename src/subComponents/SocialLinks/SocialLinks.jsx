@@ -52,7 +52,7 @@ const SocialLinks = () => {
                     animate={{ scale: [0, 1, 1.5, 1] }}
                     transition={{ type: 'spring', duration: 1, delay: 1.6 }}
                 >
-                    <a href="https://www.linkedin.com/in/bhavyakhurana24/" rel="noreferrer" target="_blank">
+                    <a href="https://www.linkedin.com/in/bhavya-khurana/" rel="noreferrer" target="_blank">
                         <FaLinkedin className={`${styles.socialIcon} mb-3 fs-4`} />
                     </a>
                 </motion.div>
@@ -92,7 +92,7 @@ const SocialLinks = () => {
                     animate={{ scale: [0, 1, 1.5, 1] }}
                     transition={{ type: 'spring', duration: 1, delay: 2.4 }}
                 >
-                    <a href="https://twitter.com/Bhavya06001699" rel="noreferrer" target="_blank">
+                    <a href="https://twitter.com/Cynophilist_B" rel="noreferrer" target="_blank">
                         <FaTwitter className={`${styles.socialIcon} mb-3 fs-4`} />
                     </a>
                 </motion.div>

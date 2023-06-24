@@ -9,6 +9,7 @@ import ErrorFallback from './ErrorBoundary';
 import './App.css';
 
 import LoadingScreen from './LoadingScreen/LoadingScreen';
+import NotFound from './NotFound/404NotFound';
 
 const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
 const Home = lazy(() => import('./Components/Home/Home'));
@@ -69,6 +70,7 @@ function AppContent() {
               <Route exact path="/interest" element={<Interest />} />
               <Route exact path="/skills" element={<Skills />} />
               <Route exact path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </React.Fragment>
         )
