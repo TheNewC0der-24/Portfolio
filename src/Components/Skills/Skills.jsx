@@ -29,11 +29,11 @@ import {
     SiPycharm,
     SiAtom,
     SiWindows11,
-    SiLatex
+    SiLatex,
+    SiVisualstudiocode
 } from 'react-icons/si';
 import { IoLogoJavascript } from 'react-icons/io';
 import { BsBootstrapFill } from 'react-icons/bs';
-import { TbBrandVscode } from 'react-icons/tb';
 
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
@@ -154,7 +154,7 @@ const Skills = () => {
                                         <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>DATABASE, IDES / EDITORS & OS</Typography>
                                         <div className='d-flex flex-wrap gap-4 mt-4'>
                                             <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiMysql style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><TbBrandVscode style={{ color: "#6d2ae2" }} /></span></h1>
+                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiVisualstudiocode style={{ color: "#6d2ae2" }} /></span></h1>
                                             <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiPycharm style={{ color: "#6d2ae2" }} /></span></h1>
                                             <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiAtom style={{ color: "#6d2ae2" }} /></span></h1>
                                             <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiWindows11 style={{ color: "#6d2ae2" }} /></span></h1>

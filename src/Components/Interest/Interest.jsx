@@ -4,8 +4,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 import { darkTheme } from '../Themes';
 
-import { FaCode, FaTerminal } from 'react-icons/fa';
-import { GiOpenBook } from 'react-icons/gi';
+import InterestCard from './InterestCard';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -47,9 +46,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 15px;
     display: inline-block;
     text-align: center;
-    border-radius: 50%;
-    width: 72px;
-    height: 72px;
+    border-radius: 10px;
+    width: 75px;
+    height: 75px;
     background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
     font-size: 36px;
     line-height: 1;
@@ -82,35 +81,7 @@ const Interest = () => {
                     </blockquote>
                 </Quote>
                 <div className="container d-flex justify-content-center mx-auto">
-                    <div className="container row row-cols-1 row-cols-md-3 g-4">
-                        <div className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaTerminal className="icon" />
-                                    <h5 className="card-title">COMPETITIVE CODING</h5>
-                                    <p className="card-text">In my free time, i prefer to try to do some problem-solving on various Competitive Coding platforms.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <GiOpenBook className="icon" />
-                                    <h5 className="card-title">LEARNING NEW THINGS</h5>
-                                    <p className="card-text">I believe in constantly updating myself by learning something new with practical Implementations.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col">
-                            <div className="card h-100">
-                                <div className="card-body">
-                                    <FaCode className="icon" />
-                                    <h5 className="card-title">FRONTEND</h5>
-                                    <p className="card-text">I'm more frontend focused and love to design websites, web apps with Reactjs as well as pure HTML, CSS and Javascript.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <InterestCard />
                 </div>
             </div>
         </ThemeProvider>

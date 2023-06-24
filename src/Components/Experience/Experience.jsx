@@ -22,8 +22,8 @@ import {
     ListItemText,
 } from '@mui/material';
 
-import { FaPlus, FaMinus, FaExternalLinkAlt, FaReact, FaAngular, FaHtml5, FaCss3Alt } from 'react-icons/fa';
-import { SiRedux, SiJquery, SiMui, SiJavascript } from 'react-icons/si';
+import { FaPlus, FaMinus, FaExternalLinkAlt, FaReact, FaAngular, FaHtml5, FaCss3Alt, FaSass, FaGitAlt, FaCss3 } from 'react-icons/fa';
+import { SiRedux, SiJquery, SiMui, SiJavascript, SiTypescript, SiOpenai } from 'react-icons/si';
 import { BsBootstrapFill } from 'react-icons/bs';
 
 // Image
@@ -106,7 +106,11 @@ const Experience = () => {
                                                         secondary={
                                                             <React.Fragment>
                                                                 <ul>
-                                                                    <li>Working on Customer relationship management system.</li>
+                                                                    <li>Developed responsive user interfaces using Angular framework for a CRM application, ensuring seamless user experience across multiple devices and browsers.</li>
+                                                                    <li>Collaborated with backend developers and designers to integrate frontend components with backend APIs, ensuring smooth data flow and system functionality.</li>
+                                                                    <li>Implemented complex UI features such as dynamic form validations, and data filtering to enhance the usability and effectiveness of the CRM application.</li>
+                                                                    <li>Designed and implemented a modular and scalable code structure, allowing for easy maintenance and future enhancements of the CRM application.</li>
+                                                                    <li>Actively participated in agile development processes, attending daily stand-ups, sprint planning, and retrospectives to effectively deliver features within project timelines.</li>
                                                                 </ul>
                                                             </React.Fragment>
                                                         }
@@ -116,7 +120,7 @@ const Experience = () => {
                                             <Box p={2}>
                                                 <Typography variant='subtitle1'>Technologies Used :</Typography>
                                                 <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
-                                                    <FaAngular /> <BsBootstrapFill />
+                                                    <FaAngular /> <BsBootstrapFill /> <FaSass /> <SiTypescript /> <FaGitAlt />
                                                 </Box>
                                             </Box>
                                         </List>
@@ -135,7 +139,10 @@ const Experience = () => {
                                                         secondary={
                                                             <React.Fragment>
                                                                 <ul>
-                                                                    <li>Working on Embed</li>
+                                                                    <li>Make API calls.</li>
+                                                                    <li>Fix UI bugs.</li>
+                                                                    <li>Handling form errors.</li>
+                                                                    <li>Implemented new functionalities.</li>
                                                                 </ul>
                                                             </React.Fragment>
                                                         }
@@ -145,7 +152,7 @@ const Experience = () => {
                                             <Box p={2}>
                                                 <Typography variant='subtitle1'>Technologies Used :</Typography>
                                                 <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
-                                                    <FaReact /> <SiRedux />
+                                                    <FaReact /> <SiRedux /> <SiJavascript /> <FaCss3 /> <FaGitAlt />
                                                 </Box>
                                             </Box>
                                         </List>
@@ -183,8 +190,8 @@ const Experience = () => {
                                                         secondary={
                                                             <React.Fragment>
                                                                 <ul>
-                                                                    <li>Created landing page.</li>
-                                                                    <li>Created a Job portal that helps student to find Jobs and Internships, apart from that MSME and Working professional can post jobs, internships, and research project.Created the InJOBS portal for where jobseekers can find jobs, research projects, freelancing and internships related opportunities. Apart from that, MSME and Working professionals can post these opportunities.</li>
+                                                                    <li>Created landing page for InJOBS.</li>
+                                                                    <li>Created the InJOBS portal, a platform where jobseekers can discover job opportunities, research projects, freelance gigs, and internships. Additionally, MSMEs (Micro, Small, and Medium Enterprises) and working professionals can post their own opportunities on the platform.</li>
                                                                     <li>Created an admin panel for InJOBS portal - Admin can see the statistics and can see which candidates are under which Mentor.</li>
                                                                 </ul>
                                                             </React.Fragment>
@@ -195,7 +202,7 @@ const Experience = () => {
                                             <Box p={2}>
                                                 <Typography variant='subtitle1'>Technologies Used :</Typography>
                                                 <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
-                                                    <FaHtml5 /> <FaCss3Alt /> <BsBootstrapFill /> <SiJquery /> <FaReact />
+                                                    <FaHtml5 /> <FaCss3Alt /> <BsBootstrapFill /> <SiJquery /> <FaReact /> <FaGitAlt />
                                                 </Box>
                                             </Box>
                                         </List>
@@ -214,8 +221,10 @@ const Experience = () => {
                                                         secondary={
                                                             <React.Fragment>
                                                                 <ul>
-                                                                    <li>Created landing page.</li>
-                                                                    <li>Created a CRM for an insurance company.</li>
+                                                                    <li>Implemented responsive designs and mobile-first development principles, resulting in improved accessibility across devices.</li>
+                                                                    <li>Developed a robust CRM application for managing insurance policies, claims, and customer data using React, Redux, and Material-UI.</li>
+                                                                    <li>Implemented form validation and error handling to ensure accurate data entry and improve data integrity.</li>
+                                                                    <li>Integrated with RESTful APIs to fetch and update data from external systems, including underwriting systems and payment gateways.</li>
                                                                 </ul>
                                                             </React.Fragment>
                                                         }
@@ -225,7 +234,7 @@ const Experience = () => {
                                             <Box p={2}>
                                                 <Typography variant='subtitle1'>Technologies Used :</Typography>
                                                 <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
-                                                    <FaReact /> <SiRedux /> <SiMui />
+                                                    <FaReact /> <SiMui /> <SiRedux /> <FaGitAlt />
                                                 </Box>
                                             </Box>
                                         </List>
@@ -246,6 +255,8 @@ const Experience = () => {
                                                                 <ul>
                                                                     <li>Created the landing page.</li>
                                                                     <li>Created the web portal for Brahmin Organization of India.</li>
+                                                                    <li>Implemented the chat feature.</li>
+                                                                    <li>Implemented secure user sign up and login.</li>
                                                                 </ul>
                                                             </React.Fragment>
                                                         }
@@ -255,7 +266,7 @@ const Experience = () => {
                                             <Box p={2}>
                                                 <Typography variant='subtitle1'>Technologies Used :</Typography>
                                                 <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
-                                                    <FaReact /> <SiMui />
+                                                    <FaReact /> <SiRedux /> <SiMui /> <FaGitAlt />
                                                 </Box>
                                             </Box>
                                         </List>
@@ -303,7 +314,7 @@ const Experience = () => {
                                             <Box p={2}>
                                                 <Typography variant='subtitle1'>Technologies Used :</Typography>
                                                 <Box sx={{ display: "flex", gap: '0.5rem', alignItems: "center", mt: 1 }}>
-                                                    <FaHtml5 /> <FaCss3Alt /> <SiMui /> <FaReact />
+                                                    <FaHtml5 /> <FaCss3Alt /> <SiMui /> <FaReact /> <SiOpenai />
                                                 </Box>
                                             </Box>
                                         </List>
@@ -333,8 +344,7 @@ const Experience = () => {
                                                         secondary={
                                                             <React.Fragment>
                                                                 <ul>
-                                                                    <li>It is a two month online course for learning web-development technologies.</li>
-                                                                    <li>Learned so many technologies for web-development like - HTML5, CSS3, Bootstrap, JavaScript, DOM, AJAX, and jQuery.</li>
+                                                                    <li>It was a two-month online course focused on web development technologies, where I learned HTML5, CSS3, Bootstrap, JavaScript, DOM manipulation, AJAX, and jQuery</li>
                                                                 </ul>
                                                             </React.Fragment>
                                                         }
