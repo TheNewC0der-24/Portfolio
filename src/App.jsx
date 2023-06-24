@@ -1,7 +1,7 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense, useEffect } from 'react';
 
 import {
-  BrowserRouter as Router, Routes, Route
+  BrowserRouter as Router, Routes, Route, useLocation
 } from 'react-router-dom';
 
 import { ErrorBoundary } from 'react-error-boundary';
@@ -21,27 +21,43 @@ const Experience = lazy(() => import('./Components/Experience/Experience'));
 const Blogs = lazy(() => import('./Components/Blogs/Blogs'));
 const Contact = lazy(() => import('./Components/Contact/Contact'));
 
-
 function App() {
+  return (
+    <Router>
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={() => {
+          window.location.href = '/';
+        }}
+      >
+        <AppContent />
+      </ErrorBoundary>
+    </Router>
+  );
+}
 
-  const [loading, setLoading] = useState(true);
+function AppContent() {
 
-  const spinner = document.getElementById('spinner');
-  if (spinner) {
-    setTimeout(() => {
-      spinner.style.display = 'none';
+  const [loading, setLoading] = useState(false);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }
+
+    return () => clearTimeout(timer);
+  }, [location]);
 
   return (
-
-    !loading && (
-      <Router>
-        <ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {
-          window.location.reload();
-        }}>
-          <Suspense fallback={<LoadingScreen />}>
+    <Suspense fallback={<LoadingScreen />}>
+      {
+        loading ? (
+          <LoadingScreen />
+        ) : (
+          <React.Fragment>
             <Navbar />
             <Routes>
               <Route exact path="/" element={<Home />} />
@@ -54,10 +70,10 @@ function App() {
               <Route exact path="/skills" element={<Skills />} />
               <Route exact path="/contact" element={<Contact />} />
             </Routes>
-          </Suspense>
-        </ErrorBoundary>
-      </Router>
-    )
+          </React.Fragment>
+        )
+      }
+    </Suspense>
   );
 }
 
