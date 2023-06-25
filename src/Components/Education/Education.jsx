@@ -42,6 +42,8 @@ const GlobalStyle = createGlobalStyle`
 
   .card {
     background: none !important;
+    border-radius : 0px !important;
+    border-top: 5px solid #6d2ae2 !important;
     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
   }
 
@@ -82,13 +84,6 @@ const Education = () => {
             <div className="container">
                 <div className="my-5 text-center">
                     <h1 className="section_title fw-bold">
-                        <lord-icon
-                            src="https://cdn.lordicon.com/stxtcyyo.json"
-                            trigger="loop"
-                            colors="primary:#0e1313"
-                            state="morph"
-                            style={{ width: '30px', height: '30px' }}>
-                        </lord-icon>
                         <span className='ms-2'>
                             .education()
                         </span>
@@ -101,7 +96,7 @@ const Education = () => {
                             <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
-                                        <LazyLoadImage effect="blur" src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <LazyLoadImage effect="blur" src={school} alt="school" width={125} className='img-fluid mx-auto img rounded-circle p-2' />
                                         <h3 className='card-title my-2'>Secondary</h3>
                                         <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
                                         <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
@@ -114,14 +109,14 @@ const Education = () => {
                                                 78.2%
                                             </p>
                                         </div>
-                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn btn-primary d-block'>Visit School</a>
+                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn d-block'>Visit School</a>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
-                                        <LazyLoadImage effect="blur" src={school} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <LazyLoadImage effect="blur" src={school} alt="school" width={125} className='img-fluid mx-auto img rounded-circle p-2' />
                                         <h3 className='card-title my-2'>Higher Secondary</h3>
                                         <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
                                         <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
@@ -134,14 +129,14 @@ const Education = () => {
                                                 61.2%
                                             </p>
                                         </div>
-                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn btn-primary d-block'>Visit School</a>
+                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn d-block'>Visit School</a>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
                                 <div className="card border-0 h-100">
                                     <div className="card-body">
-                                        <LazyLoadImage effect="blur" src={college} alt="school" width={150} className='img-fluid mx-auto img rounded-circle p-2' />
+                                        <LazyLoadImage effect="blur" src={college} alt="school" width={125} className='img-fluid mx-auto img rounded-circle p-2' />
                                         <h3 className='card-title my-2'>B. Tech</h3>
                                         <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>Jaypee University Of Engineering And Technology</h5>
                                         <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
@@ -154,7 +149,7 @@ const Education = () => {
                                                 67.45%
                                             </p>
                                         </div>
-                                        <a href='https://www.juet.ac.in/' target="_blank" rel="noreferrer" className='visit btn btn-primary d-block'>Visit College</a>
+                                        <a href='https://www.juet.ac.in/' target="_blank" rel="noreferrer" className='visit btn d-block'>Visit College</a>
                                     </div>
                                 </div>
                             </div>
