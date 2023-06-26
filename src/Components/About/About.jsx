@@ -132,7 +132,6 @@ const About = () => {
                   <div className={`${pulsing ? "pulse" : ""} d-flex justify-content-center loadable `} style={{ background: "#0e1313", display: 'block' }}>
                     <motion.img
                       initial={{ height: "auto", opacity: 0 }}
-                      // style={{ height: imageLoading ? "5rem" : "auto" }}
                       animate={{
                         height: imageLoading ? "auto" : "auto",
                         opacity: imageLoading ? 0 : 1

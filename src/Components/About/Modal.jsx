@@ -44,7 +44,7 @@ export default function Modal({ handleCloseModal, open }) {
                         color: '#dee2e6',
                     }
                 }}>
-                    <DialogContentText>
+                    <DialogContentText sx={{ textAlign: "center" }}>
                         I am a creative and skilled Frontend Developer with a passion for building elegant and intuitive user interfaces. With over 1 year of experience, I have worked on various web projects for clients in industries. I have expertise in experience with responsive design, accessibility, and website optimization. I have completed several online certification courses. I am a problem-solver with excellent communication skills and the ability to work well under pressure. I am committed to delivering high-quality solutions that meet user needs and exceed client expectations.
                     </DialogContentText>
                 </DialogContent>
