@@ -87,7 +87,7 @@ const Experience = () => {
                                     <AccordionDetails sx={{ backgroundColor: "#0e1313", border: '1px solid rgba(109, 42, 226, 1)' }}>
                                         <Typography variant='h5' color="#dee2e6">Software Developer Engineer (Frontend) - INTERNSHIP</Typography>
                                         <Box mt={1} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", }}>
-                                            <Typography variant='subtitle1' color="#dee2e6">March 2023 - Present</Typography>
+                                            <Typography variant='subtitle1' color="#dee2e6">March 2023 - June 2023</Typography>
                                             <Typography variant='subtitle1' color="#dee2e6">Bengaluru, Karnataka, India</Typography>
                                         </Box>
                                         <Divider sx={{ bgcolor: "#dee2e6", mt: 2, mb: 2 }} />
