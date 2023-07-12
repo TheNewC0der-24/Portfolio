@@ -149,9 +149,9 @@ const About = () => {
                     />
                   </div>
 
-                  <div className='mt-5 text-center'>
+                  <div className='mt-3 text-center'>
                     <span className={styles.tag}>&lt;p&gt;</span>
-                    <p className={styles.content} style={{ color: "#6d2ae2" }}>
+                    <p className={`${styles.content} fs-4`} style={{ color: "#6d2ae2", fontFamily: 'Caveat' }}>
                       I'm obsessed with making things and even more obsessed with making things better.
                     </p>
                     <span className={styles.tag}>&lt;p&gt;</span>
@@ -170,13 +170,16 @@ const About = () => {
                 <div className={`${styles.mainContent} col-lg-7`}>
                   <div className={styles.tag}>&lt;h5&gt;</div>
                   <p>
-                    I am <span className={`${styles.main} text-danger fs-5`}>Bhavya Khurana</span>, and I'm a <span className={`${styles.main} text-warning fs-5`}>Frontend Developer</span>. I have completed my bachelors program from <span className={`${styles.main} text-success fs-5`}>Jaypee University of Engineering and Technology, Guna, India</span> majoring in Computer Science. Furthermore, I have been working on web based development project with frontend related tech like <span className={`${styles.main} text-primary-emphasis fs-5`}>React.JS</span> and <span className={`${styles.main} text-primary-emphasis fs-5`}>Angular</span>. I am constantly working on improving my skills as a software engineer.
+                    My name is <span className={`${styles.main} text-danger fs-5`}>Bhavya Khurana</span>, and I am a <span className={`${styles.main} text-primary fs-5`}>Frontend Developer</span>. I
+                    graduated from <span className={`${styles.main} text-success fs-5`}>Jaypee University of Engineering and Technology, Guna, India</span>, with
+                    a major in Computer Science and Engineering. I have a strong focus on web development, particularly in frontend technologies such
+                    as <span className={`${styles.main} text-warning fs-5`}>ReactJS</span> and  <span className={`${styles.main} text-warning fs-5`}>Angular</span>. I
+                    am constantly striving to enhance my skills as a software engineer.
                   </p>
                   <p>
-                    I am an incessant learner and a keen observer. Always ready to learn something new and enjoy bringing new ideas to life. I believe everything is an Art when we put our consciousness.
                   </p>
                   <div className={styles.tag}>&lt;h5&gt;</div>
-                  <p className='fw-bold my-2 p-2' style={{ backgroundColor: '#dee2e6', color: '#6d2ae2', fontFamily: 'Special Elite' }}>
+                  <p className='fw-bold my-2 p-2' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', fontFamily: 'Special Elite' }}>
                     Open to Opportunities related to Web Development.
                   </p>
                   <div className='mt-4 mb-3'>
