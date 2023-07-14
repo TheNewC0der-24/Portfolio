@@ -14,6 +14,7 @@ import {
     IconButton,
     Collapse,
     Box,
+    Button
 } from '@mui/material';
 
 import { styled } from '@mui/material/styles';
@@ -200,49 +201,25 @@ const Project = () => {
 
                         </Grid>
 
-                        {/* <div className="row g-4">
-                            {
-                                filteredProjects?.map((item) => (
-                                    <div key={item.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
-                                        <div className="card border-0 h-100 bg-light">
-                                            <img src={item.image} className="card-img-top" alt={item.name} />
-                                            <div className="card-body d-flex justify-content-between flex-column">
-                                                <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
-                                                    <div>
-                                                        <FaRegFolder className='icon' size={30} />
-                                                    </div>
-                                                    <div className='d-flex gap-2 align-items-center my-3'>
-                                                        <a href={item.html_url} target="_blank" rel="noreferrer">
-                                                            <FiGithub className='links' size={20} />
-                                                        </a>
-
-                                                        {
-                                                            item.homepage && (
-                                                                <a href={item.homepage} target="_blank" rel="noreferrer">
-                                                                    <FiExternalLink className='links' size={23} />
-                                                                </a>
-                                                            )
-                                                        }
-                                                    </div>
-                                                </div>
-                                                <h4 className="card-title fw-bold">{item.name}</h4>
-                                                <p className="card-text">{item.description}</p>
-
-                                                <div className='d-flex flex-wrap gap-2'>
-                                                    {
-                                                        item.topics.map((topic) => {
-                                                            return (
-                                                                <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))
-                            }
-                        </div> */}
+                        <Box sx={{ display: "flex", justifyContent: "center", mb: 5 }}>
+                            <Button
+                                variant="outlined"
+                                size="large"
+                                sx={{
+                                    borderColor: '#6d2ae2',
+                                    color: '#6d2ae2',
+                                    '&:hover': {
+                                        backgroundColor: '#6d2ae2',
+                                        color: '#fff'
+                                    }
+                                }}
+                                href="https://github.com/TheNewC0der-24"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                View More On Github
+                            </Button>
+                        </Box>
                     </div>
                 </div>
             </div>
