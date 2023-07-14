@@ -1,21 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+
+import {
+    TextField,
+    Grid,
+    Card,
+    CardMedia,
+    CardContent,
+    CardHeader,
+    Avatar,
+    Typography,
+    CardActions,
+    IconButton,
+    Collapse,
+    Box,
+} from '@mui/material';
+
+import { styled } from '@mui/material/styles';
 
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
-import LoadingScreen from '../../LoadingScreen/LoadingScreen';
-
 // Theme
 import { lightTheme } from '../Themes';
 
-import axios from 'axios';
-
-// import ReactPaginate from 'react-paginate';
+import project from '../../Data/projectsData.json';
 
 // Icons
 import { FaRegFolder } from 'react-icons/fa';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { MdOutlineExpandMore } from 'react-icons/md';
+
+import { formatDate } from '../../Helpers/formatData';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -31,13 +47,12 @@ const GlobalStyle = createGlobalStyle`
         -webkit-text-fill-color: transparent !important;
     }
 
-    .card {
-        backdrop-filter: blur(4px);
-        background-color: rgba(255, 255, 255, 0.1);
+    input {
+        color: #6d2ae2 !important;
     }
 
-    .icon {
-        color: #6d2ae2;
+    input::placeholder {
+        color: #000 !important;
     }
 
     .links {
@@ -50,146 +65,188 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+const ExpandMore = styled((props) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+    }),
+}));
+
 const Project = () => {
-
-    const [project, setProject] = useState();
-
-    const [loading, setLoading] = useState(false);
-
-    const perPage = 9;
-
-    const headers = {
-        "Content-Type": "application/json",
-        'Authorization': `token ${process.env.REACT_APP_GITHUB_TOKEN}`
-    }
-
-    const url = `https://api.github.com/users/TheNewC0der-24/repos?per_page=${perPage}&page=1`;
-
-    useEffect(() => {
-        setLoading(true);
-        axios.get(url,
-            {
-                headers: headers
-            })  // Get the data from the API
-            .then((response) => {
-                setProject(response.data);  // Set the data to the state
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const fetchProject = async (pageNumber) => {
-        const response = await fetch(
-            `https://api.github.com/users/TheNewC0der-24/repos?per_page=${perPage}&page=${pageNumber}`
-        );
-        const data = await response.json();
-        return data;
-    };
-
-    const handlePageClick = (data) => {
-        let selected = data.selected;
-        fetchProject(selected + 1).then((data) => {
-            setProject(data);
-        });
-    }
 
     const title = "Bhavya Khurana | Work";
     document.title = title;
 
+    const [searchTerm, setSearchTerm] = useState('');
+    const [expanded, setExpanded] = useState({});
+
+    const filteredProjects = project.filter(project =>
+        project.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
+    const handleExpandClick = (projectId) => {
+        setExpanded((prevExpanded) => ({
+            ...prevExpanded,
+            [projectId]: !prevExpanded[projectId],
+        }));
+    };
+
+
     return (
-        <>
-            {
-                loading ? (
-                    <LoadingScreen />
-                ) : (
-                    <ThemeProvider theme={lightTheme}>
-                        <GlobalStyle />
-                        <SocialLinks />
-                        <div className="container">
-                            <div className="container">
-                                <div className="container">
-                                    <h1 className="mt-3 text-center">.work()</h1>
-                                    <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
+        <ThemeProvider theme={lightTheme}>
+            <GlobalStyle />
+            <SocialLinks />
+            <div className="container">
+                <div className="container">
+                    <div className="container">
+                        <h1 className="mt-3 text-center">.work()</h1>
+                        <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
 
-                                    <div className="row g-4">
-                                        {
-                                            project && project?.map((item) => (
-                                                <div key={item.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
-                                                    <div className="card shadow border-0 h-100">
+                        <Box sx={{ display: "flex", justifyContent: "end", marginBottom: '1rem', }}>
+                            <TextField
+                                fullWidth
+                                size='small'
+                                placeholder="Search topics..."
+                                sx={{
+                                    width: '100%',
+                                    maxWidth: '300px',
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                    },
+                                }}
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </Box>
 
-                                                        <div className="card-body d-flex justify-content-between flex-column">
-                                                            <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
-                                                                <div>
-                                                                    <FaRegFolder className='icon' size={30} />
-                                                                </div>
-                                                                <div className='d-flex gap-2 align-items-center my-3'>
-                                                                    <a href={item.html_url} target="_blank" rel="noreferrer">
-                                                                        <FiGithub className='links' size={20} />
-                                                                    </a>
+                        <Grid container spacing={2} sx={{ mb: 5 }}>
+                            {
+                                filteredProjects?.length === 0 ? (
+                                    <Box sx={{ display: "flex", justifyContent: "center", margin: "auto", mt: 5 }}>
+                                        <Typography variant='h5'>No Work found with topic <span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{searchTerm}</span></Typography>
+                                    </Box>
+                                ) :
+                                    filteredProjects?.map((item) => (
+                                        <Grid item xs={12} sm={12} md={6} lg={4} key={item.id}>
+                                            <Card sx={{ borderBottom: '5px solid #6d2ae2' }}>
+                                                <CardHeader
+                                                    avatar={
+                                                        <Avatar sx={{ bgcolor: "#DFD8FD", color: "#6d2ae2" }}>
+                                                            <FaRegFolder />
+                                                        </Avatar>
+                                                    }
+                                                    title={item.name}
+                                                    subheader={formatDate(item.created_at)}
+                                                />
+                                                <CardMedia
+                                                    component="img"
+                                                    height="194"
+                                                    sx={{ objectFit: 'cover' }}
+                                                    image={item.image}
+                                                    alt={item.name}
+                                                />
+                                                <CardActions disableSpacing>
+                                                    <IconButton href={item.html_url} target="_blank" rel="noreferrer">
+                                                        <FiGithub className='links' />
+                                                    </IconButton>
+                                                    {
+                                                        item.homepage && (
+                                                            <IconButton href={item.homepage} target="_blank" rel="noreferrer">
+                                                                <FiExternalLink className='links' />
+                                                            </IconButton>
+                                                        )
+                                                    }
 
-                                                                    {
-                                                                        item.homepage && (
-                                                                            <a href={item.homepage} target="_blank" rel="noreferrer">
-                                                                                <FiExternalLink className='links' size={23} />
-                                                                            </a>
-                                                                        )
-                                                                    }
-                                                                </div>
-                                                            </div>
-                                                            <h4 className="card-title fw-bold">{item.name}</h4>
-                                                            <p className="card-text">{item.description}</p>
-
-                                                            <div className='d-flex flex-wrap gap-2'>
-                                                                {
-                                                                    item.topics.map((topic) => {
-                                                                        return (
-                                                                            <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
-                                                                        )
-                                                                    })
-                                                                }
-                                                            </div>
+                                                    <ExpandMore
+                                                        expand={expanded[item.id]}
+                                                        onClick={() => handleExpandClick(item.id)}
+                                                        aria-expanded={expanded[item.id]}
+                                                    >
+                                                        <MdOutlineExpandMore />
+                                                    </ExpandMore>
+                                                </CardActions>
+                                                <Collapse in={expanded[item.id]} timeout="auto" unmountOnExit>
+                                                    <CardContent>
+                                                        <Typography variant="body2" color="text.secondary">
+                                                            {item.description}
+                                                        </Typography>
+                                                        <div className='d-flex flex-wrap gap-2 mt-2'>
+                                                            {
+                                                                item.topics.map((topic) => {
+                                                                    return (
+                                                                        <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
+                                                                    )
+                                                                })
+                                                            }
                                                         </div>
+                                                    </CardContent>
+                                                </Collapse>
+                                            </Card>
+                                        </Grid>
+                                    ))
+                            }
 
+                        </Grid>
 
+                        {/* <div className="row g-4">
+                            {
+                                filteredProjects?.map((item) => (
+                                    <div key={item.id} className='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
+                                        <div className="card border-0 h-100 bg-light">
+                                            <img src={item.image} className="card-img-top" alt={item.name} />
+                                            <div className="card-body d-flex justify-content-between flex-column">
+                                                <div className='d-flex justify-content-between align-items-center gap-2 mb-3'>
+                                                    <div>
+                                                        <FaRegFolder className='icon' size={30} />
+                                                    </div>
+                                                    <div className='d-flex gap-2 align-items-center my-3'>
+                                                        <a href={item.html_url} target="_blank" rel="noreferrer">
+                                                            <FiGithub className='links' size={20} />
+                                                        </a>
+
+                                                        {
+                                                            item.homepage && (
+                                                                <a href={item.homepage} target="_blank" rel="noreferrer">
+                                                                    <FiExternalLink className='links' size={23} />
+                                                                </a>
+                                                            )
+                                                        }
                                                     </div>
                                                 </div>
-                                            )
-                                            )
-                                        }
+                                                <h4 className="card-title fw-bold">{item.name}</h4>
+                                                <p className="card-text">{item.description}</p>
+
+                                                <div className='d-flex flex-wrap gap-2'>
+                                                    {
+                                                        item.topics.map((topic) => {
+                                                            return (
+                                                                <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
-
-                                    {/* <div className='my-3 sticky-bottom'>
-                                        <ReactPaginate
-                                            previousLabel={"<<"}
-                                            nextLabel={">>"}
-                                            breakLabel={"..."}
-                                            pageCount={7}
-                                            marginPagesDisplayed={2}
-                                            pageRangeDisplayed={3}
-                                            onPageChange={handlePageClick}
-                                            containerClassName={"pagination justify-content-center flex-wrap"}
-                                            pageClassName={"page-item"}
-                                            pageLinkClassName={"page-link"}
-                                            previousClassName={"page-item"}
-                                            previousLinkClassName={"page-link"}
-                                            nextClassName={"page-item"}
-                                            nextLinkClassName={"page-link"}
-                                            breakClassName={"page-item"}
-                                            breakLinkClassName={"page-link"}
-                                            activeClassName={"active"}
-                                        />
-                                    </div> */}
-                                </div>
-                            </div>
-                        </div>
-                    </ThemeProvider>
-                )
-            }
-        </>
+                                ))
+                            }
+                        </div> */}
+                    </div>
+                </div>
+            </div>
+        </ThemeProvider>
     )
 }
 
