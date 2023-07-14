@@ -1,0 +1,420 @@
+[
+    {
+        "id": 1,
+        "name": "AI Genie",
+        "image": "./ProjectImg/AIGenie.png",
+        "html_url": "https://github.com/TheNewC0der-24/AI-Genie",
+        "description": "AI-Genie is a web application that leverages the power of the OpenAI API to provide advanced AI capabilities.",
+        "homepage": "https://ai-genie.netlify.app/",
+        "created_at": "2023-04-28T19:17:17Z",
+        "topics": [
+            "material-ui",
+            "momentjs",
+            "openai-api",
+            "reactjs"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Battery Level Indicator",
+        "image": "./ProjectImg/BatteryLevelIndicator.png",
+        "html_url": "https://github.com/TheNewC0der-24/Battery-Level-Indicator",
+        "description": "Battery status monitoring refers to the ability of a device to keep track of the current battery level and charging status",
+        "homepage": "https://thenewc0der-24.github.io/Battery-Level-Indicator/",
+        "created_at": "2023-02-08T21:26:07Z",
+        "topics": [
+            "battery-monitor",
+            "css",
+            "gh-pages",
+            "html",
+            "javascript"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "CodePen Clone",
+        "image": "./ProjectImg/CodePenClone.png",
+        "html_url": "https://github.com/TheNewC0der-24/CodePen-Clone",
+        "description": "I love CodePen. It is perfect for prototyping project ideas and is a really cool idea. I like it so much I decided to see what it would take to create my own CodePen.",
+        "homepage": "https://my-codepen-clone.netlify.app/",
+        "created_at": "2022-01-30T18:59:29Z",
+        "topics": [
+            "codemirror",
+            "codepen",
+            "fortawesome",
+            "react-codemirror2",
+            "reactjs"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "CurrencyXchange",
+        "image": "./ProjectImg/CurrencyXchange.png",
+        "html_url": "https://github.com/TheNewC0der-24/CurrencyXchange",
+        "description": "The Currency Converter application! This is a user-friendly and intuitive web-based tool built with React and Material-UI (MUI) that allows you to easily convert currencies.",
+        "homepage": "https://x-changecurrency.netlify.app/",
+        "created_at": "2023-07-03T18:22:47Z",
+        "topics": [
+            "axios",
+            "currency-converter",
+            "material-ui",
+            "react"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Detect Network Status",
+        "image": "./ProjectImg/DetectNetworkStatus.png",
+        "html_url": "https://github.com/TheNewC0der-24/Detect-Network-Status",
+        "description": "Monitor and test Internet connectivity. Detect when Internet doesn't work over operating Wi-Fi or Ethernet. Also detect latency, download speed, and effective bandwidth",
+        "homepage": "https://detect-network-status.vercel.app/",
+        "created_at": "2022-07-07T02:38:33Z",
+        "topics": [
+            "network-analysis",
+            "react-icons",
+            "reactjs",
+            "vercel"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "DevCodeHub",
+        "image": "./ProjectImg/DevCodeHub.png",
+        "html_url": "https://github.com/TheNewC0der-24/DevCodeHub",
+        "description": "A web application that serves as a clone of the popular W3Schools editor, built using HTML, CSS, and JavaScript. This editor provides a user-friendly interface for writing and testing HTML, CSS, and JS code in real-time, making it a valuable tool for learning and experimenting with web development.",
+        "homepage": "https://thenewc0der-24.github.io/DevCodeHub/",
+        "created_at": "2022-01-13T14:33:26Z",
+        "topics": [
+            "code-editor",
+            "html-css-javascript",
+            "w3schools"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Expense Tracker - Powered by Speechly",
+        "image": "./ProjectImg/ExpenseTracker.png",
+        "html_url": "https://github.com/TheNewC0der-24/Expense-Tracker",
+        "description": "An Expense Tracker is a software or application that helps to keep an accurate record of your money inflow and outflow.",
+        "homepage": "https://voicepowered-expense-tracker.netlify.app/",
+        "created_at": "2022-06-18T21:14:10Z",
+        "topics": [
+            "chartjs",
+            "context-api",
+            "material-ui",
+            "react-chartjs-2",
+            "reactjs",
+            "speechly"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "git Cheatsheet",
+        "image": "./ProjectImg/gitCheatsheet.png",
+        "html_url": "https://github.com/TheNewC0der-24/git-cheatsheet",
+        "description": "Git is the free and open source distributed version control system that's responsible for everything GitHub related that happens locally on your computer. This cheat sheet features the most important and commonly used Git commands for easy reference.",
+        "homepage": "https://git-everything-is-local.netlify.app/",
+        "created_at": "2022-06-16T21:50:27Z",
+        "topics": [
+            "css",
+            "git",
+            "git-cheatsheet",
+            "html",
+            "javascript"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Github User Search",
+        "image": "./ProjectImg/GithubUserSearch.png",
+        "html_url": "https://github.com/TheNewC0der-24/Github-User-Search",
+        "description": "Search and view user's Details via the GitHub API.",
+        "homepage": "https://github-search-user-application.vercel.app/",
+        "created_at": "2022-11-07T06:39:12Z",
+        "topics": [
+            "axios-react",
+            "github-api",
+            "mui",
+            "pwa",
+            "react",
+            "react-icons"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Google Drive Direct Download Link Generator",
+        "image": "./ProjectImg/GoogleDriveDirectLinkGenerator.png",
+        "html_url": "https://github.com/TheNewC0der-24/Google-Drive-Direct-Download-Link-Generator",
+        "description": "This tool allows you to generate a direct download link to files you have stored in Google Drive. I have created Google Drive Direct Download Link Generator using HTML, CSS and JavaScript.",
+        "homepage": "https://thenewc0der-24.github.io/Google-Drive-Direct-Download-Link-Generator/",
+        "created_at": "2021-12-08T20:35:43Z",
+        "topics": [
+            "css",
+            "google-drive-direct-link-generator",
+            "html",
+            "javascript"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Google Keep Clone",
+        "image": "./ProjectImg/GoogleKeepClone.png",
+        "html_url": "https://github.com/TheNewC0der-24/Google-Keep-Clone",
+        "description": "This project is a clone of Google Keep, a note-taking application developed by Google. It was built using React and Material UI",
+        "homepage": "https://keepitnotes.vercel.app/",
+        "created_at": "2023-03-01T12:23:58Z",
+        "topics": [
+            "google-keep-clone",
+            "material-ui",
+            "react"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "iNotebook",
+        "image": "./ProjectImg/iNotebook.png",
+        "html_url": "https://github.com/TheNewC0der-24/iNotebook",
+        "description": "The simple way to keep notes. All your notes, synced on all your devices. iNotebook now for iOS, Android, Mac, Windows, Linux, or in your browser.",
+        "homepage": "",
+        "created_at": "2022-04-02T21:09:52Z",
+        "topics": [
+            "express",
+            "jwt-token",
+            "mongodb",
+            "nodejs",
+            "nodemon",
+            "reactjs"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Login with React-Redux",
+        "image": "./ProjectImg/LoginReactRedux.png",
+        "html_url": "https://github.com/TheNewC0der-24/Login-with-Redux-REACT",
+        "description": "It is a login system using redux.",
+        "homepage": "https://login-with-redux.netlify.app/",
+        "created_at": "2022-12-15T18:53:03Z",
+        "topics": [
+            "iconify",
+            "material-ui",
+            "react",
+            "react-redux",
+            "redux",
+            "redux-toolkit",
+            "yarn"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Manage Landing Page",
+        "image": "./ProjectImg/ManageLandingPage.png",
+        "html_url": "https://github.com/TheNewC0der-24/Manage-Landing-Page",
+        "description": "This is a solution to the Manage landing page challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.",
+        "homepage": "https://thenewc0der-24.github.io/Manage-Landing-Page/",
+        "created_at": "2023-01-24T20:08:26Z",
+        "topics": [
+            "css",
+            "gh-pages",
+            "html5",
+            "javascript",
+            "tailwind-css"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Multi Language - i18next",
+        "image": "./ProjectImg/i18Next.png",
+        "html_url": "https://github.com/TheNewC0der-24/Multi-Language-i18next",
+        "description": "React i18n framework, react-i18next is another popular internationalization library which uses components to render or re-render the translated content of your application once users request a change of language.",
+        "homepage": "https://i18next-multi-language.netlify.app/",
+        "created_at": "2022-10-05T20:28:33Z",
+        "topics": [
+            "bootstrap5",
+            "i18next",
+            "js-cookie",
+            "npm",
+            "react",
+            "react-icons"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Netflix Landing Page Clone",
+        "image": "./ProjectImg/NetflixLandingClone.png",
+        "html_url": "https://github.com/TheNewC0der-24/Netflix-Landing-Page_Clone",
+        "description": "I re-create the Netflix landing page using HTML, CSS and a bit of JavaScript for the tabs. I use modern CSS3+ techniques like Grid, Flex, overlays, shadows, etc",
+        "homepage": "https://thenewc0der-24.github.io/Netflix-Landing-Page_Clone/",
+        "created_at": "2021-07-18T21:27:08Z",
+        "topics": [
+            "css3",
+            "html",
+            "javascript",
+            "landing-page",
+            "netflix-clone"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Pixabay-Image-Finder",
+        "image": "./ProjectImg/Pixabay.png",
+        "html_url": "https://github.com/TheNewC0der-24/Pixabay-Image-Finder",
+        "description": "An image finder application that uses the PixaBay API to fetch images based on a query string.",
+        "homepage": "https://image-finder-xi.vercel.app/",
+        "created_at": "2022-05-04T10:56:53Z",
+        "topics": [
+            "material-ui",
+            "pixabay",
+            "reactjs",
+            "vercel-deployment"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Postman Clone",
+        "image": "./ProjectImg/PostmanClone.png",
+        "html_url": "https://github.com/TheNewC0der-24/Postman-Clone",
+        "description": "I have created this Clone using HTML, CSS, and JavaScript. Used for API testing",
+        "homepage": "https://thenewc0der-24.github.io/Postman-Clone/",
+        "created_at": "2021-09-17T16:25:23Z",
+        "topics": [
+            "bootstrap",
+            "html-css-javascript",
+            "postman"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Quizizz",
+        "image": "./ProjectImg/Quizizz.png",
+        "html_url": "https://github.com/TheNewC0der-24/Quizizz",
+        "description": "Use the Quizizz app to learn anything, anywhere. You can study on your own or engage in group quizzes, assignments, and presentations—in person and remotely. Quizizz can be used by people in schools, homes, and offices around the world.",
+        "homepage": "https://quizizz-redux.netlify.app/",
+        "created_at": "2022-07-30T18:41:39Z",
+        "topics": [
+            "html-entities",
+            "material-ui",
+            "react",
+            "react-redux",
+            "react-router-dom",
+            "redux"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Resume Builder",
+        "image": "./ProjectImg/ResumeBuilder.png",
+        "html_url": "https://github.com/TheNewC0der-24/resume-builder",
+        "description": "A Resume that stands out!  Make your own resume. It's free. You're just minutes away from a polished, professional RESUME. Take the next step toward the job you want with an impressive, eye-catching RESUME.",
+        "homepage": "https://thenewc0der-24.github.io/resume-builder/",
+        "created_at": "2022-06-26T15:19:45Z",
+        "topics": [
+            "gh-pages",
+            "print-to-pdf",
+            "react-icons",
+            "reactjs"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "RichTexturize",
+        "image": "./ProjectImg/RichTexturize.png",
+        "html_url": "https://github.com/TheNewC0der-24/RichTexturize",
+        "description": "It is a rich text editor which provides lot of feature to enhance your text.",
+        "homepage": "https://richtexturize.netlify.app/",
+        "created_at": "2023-01-10T22:28:22Z",
+        "topics": [
+            "netlify-deployment",
+            "npm",
+            "react-draft-js",
+            "react-draft-wysiwyg",
+            "reactjs",
+            "text-editor"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Rick an dMorty - Wiki",
+        "image": "./ProjectImg/rickandmorty.png",
+        "html_url": "https://github.com/TheNewC0der-24/RickandMorty-Wiki",
+        "description": "I Like Rick & Morty so created this Wiki. This project was bootstrapped with Create React App.",
+        "homepage": "https://rickandmorty-wikipedia.netlify.app/",
+        "created_at": "2022-01-27T21:54:55Z",
+        "topics": [
+            "bootstrap",
+            "fetch-api",
+            "react-paginate",
+            "react-router-dom",
+            "reactjs"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "SoundSculpt",
+        "image": "./ProjectImg/SoundSculpt.png",
+        "html_url": "https://github.com/TheNewC0der-24/SoundSculpt",
+        "description": "I have created this Website using HTML, CSS and JavaScript.",
+        "homepage": "https://thenewc0der-24.github.io/SoundSculpt/",
+        "created_at": "2021-08-15T18:37:26Z",
+        "topics": [
+            "css",
+            "html",
+            "javascript",
+            "music",
+            "music-website"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Textonus",
+        "image": "./ProjectImg/Textonus.png",
+        "html_url": "https://github.com/TheNewC0der-24/Textonus",
+        "description": "Voice to Text Online Notepad Professional, Accurate & Free Speech Recognition Text Editor Distraction-Free, Fast, Easy to Use Web App for Dictation & Typing",
+        "homepage": "https://textonus.netlify.app/",
+        "created_at": "2022-10-08T21:08:25Z",
+        "topics": [
+            "ant-design",
+            "bootstrap",
+            "localstorage",
+            "npm",
+            "pwa-app",
+            "react-copy-to-clipboard",
+            "reactjs",
+            "reactstrap",
+            "speech-recognition",
+            "voice-to-text"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "ToDo Buddy",
+        "image": "./ProjectImg/ToDoBuddy.png",
+        "html_url": "https://github.com/TheNewC0der-24/ToDo-Buddy",
+        "description": "ToDo - a task management application. It allows users to manage their tasks from a smartphone, tablet and computer.",
+        "homepage": "https://todo-buddy-app.netlify.app/",
+        "created_at": "2022-04-19T09:43:38Z",
+        "topics": [
+            "antd",
+            "framer-motion",
+            "reactjs",
+            "redux",
+            "redux-toolkit"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "URLx",
+        "image": "./ProjectImg/URLx.png",
+        "html_url": "https://github.com/TheNewC0der-24/URLx",
+        "description": "URLx is a free tool to shorten a URL or reduce a link Use our URL Shortener to create a shortened link making it easy to remember",
+        "homepage": "https://url-x.vercel.app/",
+        "created_at": "2022-10-23T18:30:28Z",
+        "topics": [
+            "axios",
+            "materializecss",
+            "react-copy-to-clipboard",
+            "react-icons",
+            "react-router-dom",
+            "reactjs"
+        ]
+    }
+]
