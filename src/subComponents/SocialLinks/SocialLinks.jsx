@@ -42,7 +42,7 @@ const SocialLinks = () => {
                     animate={{ scale: [0, 1, 1.5, 1] }}
                     transition={{ type: 'spring', duration: 1, delay: 1.4 }}
                 >
-                    <a href="https://www.instagram.com/__khurana__._/" rel="noreferrer" target="_blank">
+                    <a href="https://www.instagram.com/__cynophilist__._/" rel="noreferrer" target="_blank">
                         <FaInstagram className={`${styles.socialIcon} mb-3 fs-4`} />
                     </a>
                 </motion.div>
