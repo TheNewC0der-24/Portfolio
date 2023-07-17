@@ -126,7 +126,7 @@
     {
         "id": 9,
         "name": "Github User Search",
-        "image": "./ProjectImg/GithubUserSearch.png",
+        "image": "./ProjectImg/GitHubUserSearch.png",
         "html_url": "https://github.com/TheNewC0der-24/Github-User-Search",
         "description": "Search and view user's Details via the GitHub API.",
         "homepage": "https://github-search-user-application.vercel.app/",
@@ -255,7 +255,7 @@
     },
     {
         "id": 17,
-        "name": "Pixabay-Image-Finder",
+        "name": "Pixabay Image Finder",
         "image": "./ProjectImg/Pixabay.png",
         "html_url": "https://github.com/TheNewC0der-24/Pixabay-Image-Finder",
         "description": "An image finder application that uses the PixaBay API to fetch images based on a query string.",
