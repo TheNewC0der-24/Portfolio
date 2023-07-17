@@ -126,7 +126,7 @@
     {
         "id": 9,
         "name": "Github User Search",
-        "image": "./ProjectImg/GitHubUserSearch.png",
+        "image": "./ProjectImg/GithubUserSearch.png",
         "html_url": "https://github.com/TheNewC0der-24/Github-User-Search",
         "description": "Search and view user's Details via the GitHub API.",
         "homepage": "https://github-search-user-application.vercel.app/",
