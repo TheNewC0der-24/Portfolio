@@ -156,16 +156,6 @@ const About = () => {
                     </p>
                     <span className={styles.tag}>&lt;p&gt;</span>
                   </div>
-                  <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: "1rem" }}>
-                    <Button variant="contained" sx={{
-                      bgcolor: '#6d2ae6', color: '#dee2e6', '&:hover': {
-                        bgcolor: '#6d2ae6',
-                        color: '#dee2e6'
-                      }
-                    }} onClick={handleClickOpenModal}>
-                      Read More
-                    </Button>
-                  </Box>
                 </div>
                 <div className={`${styles.mainContent} col-lg-7`}>
                   <div className={styles.tag}>&lt;h5&gt;</div>
@@ -182,8 +172,19 @@ const About = () => {
                   <p className='fw-bold my-2 p-2' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', fontFamily: 'Special Elite' }}>
                     Open to Opportunities related to Web Development.
                   </p>
-                  <div className='mt-4 mb-3'>
-                    <button onClick={handleDownload} className={styles.downloadBtn}>Download Resume<span></span></button>
+                  <div className='d-flex gap-3 mt-4 mb-3'>
+                    <button
+                      className={styles.btn}
+                      onClick={handleClickOpenModal}
+                    >
+                      Read More
+                    </button>
+                    <button
+                      onClick={handleDownload}
+                      className={styles.btn}
+                    >
+                      Download Resume
+                    </button>
                   </div>
                 </div>
               </div>

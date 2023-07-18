@@ -36,7 +36,7 @@ export default function Modal({ handleCloseModal, open }) {
                 }}
             >
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", padding: '1rem 2rem 0 2rem' }}>
-                    <Typography sx={{ bgcolor: '#6d2ae2', padding: '0.2rem 0.5rem' }}>More about me</Typography>
+                    <Typography sx={{ bgcolor: '#6d2ae2', padding: '0.2rem 0.5rem', borderRadius: "4px" }}>More about me</Typography>
                     <IoMdCloseCircle fontSize={30} color='#6d2ae2' cursor='pointer' onClick={handleCloseModal} />
                 </Box>
                 <DialogContent sx={{
