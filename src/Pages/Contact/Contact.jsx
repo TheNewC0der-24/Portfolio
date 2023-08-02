@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styles from './Contact.module.css';
+
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 // Email.js
@@ -15,7 +16,7 @@ import chat from '../../assets/Images/Chat.svg';
 import BackgroundAnimation from '../../subComponents/BackgroundAnimate/BackgroundAnimate';
 
 // Themes
-import { lightTheme, darkTheme } from '../Themes';
+import { lightTheme, darkTheme } from '../../Components/Themes';
 
 // Alert
 import { ToastContainer, toast } from 'react-toastify';
@@ -23,7 +24,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Form Validation
 import { useFormik } from "formik";
-import SelectSubject from './SelectSubject';
+
+// Components
+import SelectSubject from '../../Components/SelectSubject';
 
 const GlobalStyle = createGlobalStyle`
     body {

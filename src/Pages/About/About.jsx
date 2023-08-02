@@ -1,30 +1,20 @@
 import React, { useState } from 'react';
 import styles from './About.module.css';
 
-import {
-  Box,
-  Button
-} from '@mui/material';
-
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-import { motion } from "framer-motion";
 
 // Social Links
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { darkTheme } from '../Themes';
-
-// Icon
-import { TiArrowForward } from 'react-icons/ti';
+import { darkTheme } from '../../Components/Themes';
 
 // Image
 import about from '../../assets/Images/portrait.svg';
 
 import Resume from '../../assets/Resume.pdf';
 import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
-import Modal from './Modal';
+import OffCanvas from '../../Components/OffCanvas/OffCanvas';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -84,16 +74,6 @@ const About = () => {
   const [imageLoading, setImageLoading] = useState(true);
   const [pulsing, setPulsing] = useState(true);
 
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpenModal = () => {
-    setOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setOpen(false);
-  };
-
   const imageLoaded = () => {
     setImageLoading(false);
     setTimeout(() => setPulsing(false), 600);
@@ -125,29 +105,6 @@ const About = () => {
             <div className="container d-flex mt-5">
               <div className={`${styles.row} row g-5 mx-auto`}>
                 <div className="col-lg-5">
-                  <h5 className={`${styles.me} text-center fw-bold mb-3`}>
-                    That's me <TiArrowForward className={`${styles.icon} fs-4`} />
-                  </h5>
-
-                  <div className={`${pulsing ? "pulse" : ""} d-flex justify-content-center loadable `} style={{ background: "#0e1313", display: 'block' }}>
-                    <motion.img
-                      initial={{ height: "auto", opacity: 0 }}
-                      animate={{
-                        height: imageLoading ? "auto" : "auto",
-                        opacity: imageLoading ? 0 : 1
-                      }}
-                      transition={
-                        ({ height: { delay: 0, duration: 0.4 } },
-                          { opacity: { delay: 0.5, duration: 0.4 } })
-                      }
-                      onLoad={imageLoaded}
-                      width="100%"
-                      src={about}
-                      alt="profile"
-                      className={`${styles.img} img-fluid`}
-                      data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom"
-                    />
-                  </div>
 
                   <div className='mt-3 text-center'>
                     <span className={styles.tag}>&lt;p&gt;</span>
@@ -175,7 +132,9 @@ const About = () => {
                   <div className='d-flex gap-3 mt-4 mb-3'>
                     <button
                       className={styles.btn}
-                      onClick={handleClickOpenModal}
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#offcanvasBottom"
+                      aria-controls="offcanvasBottom"
                     >
                       Read More
                     </button>
@@ -192,7 +151,7 @@ const About = () => {
           </div>
         </div>
 
-        <Modal open={open} handleCloseModal={handleCloseModal} />
+        <OffCanvas />
       </ThemeProvider>
     </>
   )

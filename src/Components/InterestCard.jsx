@@ -1,5 +1,5 @@
 import React from 'react';
-import { interestData } from '../../Data/interestData';
+import { interestData } from '../Data/interestData';
 
 const Card = ({ title, content, Icon }) => (
     <div className="col-lg-4 col-md-6">

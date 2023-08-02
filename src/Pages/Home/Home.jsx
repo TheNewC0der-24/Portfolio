@@ -4,9 +4,6 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 // Routing
 import { useNavigate } from 'react-router-dom';
 
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import 'react-lazy-load-image-component/src/effects/blur.css';
-
 // Icon
 import { BsDot } from 'react-icons/bs';
 
@@ -14,7 +11,7 @@ import { BsDot } from 'react-icons/bs';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme, darkTheme } from '../Themes';
+import { lightTheme, darkTheme } from '../../Components/Themes';
 
 // Typewriter
 import { Typewriter } from "react-simple-typewriter";

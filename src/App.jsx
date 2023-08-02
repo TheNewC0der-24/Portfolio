@@ -12,15 +12,15 @@ import LoadingScreen from './LoadingScreen/LoadingScreen';
 import NotFound from './NotFound/404NotFound';
 
 const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
-const Home = lazy(() => import('./Components/Home/Home'));
-const About = lazy(() => import('./Components/About/About'));
-const Education = lazy(() => import('./Components/Education/Education'));
-const Interest = lazy(() => import('./Components/Interest/Interest'));
-const Skills = lazy(() => import('./Components/Skills/Skills'));
-const Work = lazy(() => import('./Components/Projects/Project'));
-const Experience = lazy(() => import('./Components/Experience/Experience'));
-const Blogs = lazy(() => import('./Components/Blogs/Blogs'));
-const Contact = lazy(() => import('./Components/Contact/Contact'));
+const Home = lazy(() => import('./Pages/Home/Home'));
+const About = lazy(() => import('./Pages/About/About'));
+const Education = lazy(() => import('./Pages/Education/Education'));
+const Interest = lazy(() => import('./Pages/Interest/Interest'));
+const Skills = lazy(() => import('./Pages/Skills/Skills'));
+const Work = lazy(() => import('./Pages/Work/Work'));
+const Experience = lazy(() => import('./Pages/Experience/Experience'));
+const Blogs = lazy(() => import('./Pages/Blogs/Blogs'));
+const Contact = lazy(() => import('./Pages/Contact/Contact'));
 
 function App() {
   return (

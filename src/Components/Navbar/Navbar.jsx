@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 
 import SoundBar from '../../subComponents/SoundBar';
 
 import { createGlobalStyle } from 'styled-components';
 
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 import Profile from '../../assets/Images/portrait.png';
-import Sidebar from './Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
+import DisplayImg from '../DisplayImg/DisplayImg';
 
 const GlobalStyle = createGlobalStyle`
 .active {
@@ -32,12 +33,12 @@ const Navbar = () => {
             <GlobalStyle />
             <nav className={`${styles.navbar} navbar navbar-expand-lg sticky-top`}>
                 <div className="container-fluid">
-                    <Link className={`${styles.navbarBrand} navbar-brand fw-bolder me-4 d-flex`} to="/">
-                        <img src={Profile} alt="bhavya" width="30" height="30" className={`${styles.img} rounded-circle me-2`} />
+                    <div className={`${styles.navbarBrand} navbar-brand fw-bolder me-4 d-flex`}>
+                        <img src={Profile} alt="bhavya" width="30" height="30" className={`${styles.img} rounded-circle me-2`} data-bs-toggle="modal" data-bs-target="#imgModal" title='Click here' />
                         <div className={styles.name}>
                             <span>.bhavya</span>&lt;/&gt;
                         </div>
-                    </Link>
+                    </div>
                     <SoundBar className='soundbar' />
                     <button onClick={handleClick} className={`${styles.navbarToggler} navbar-toggler`} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         {
@@ -64,25 +65,6 @@ const Navbar = () => {
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/blogs">.blogs()</NavLink>
                             </li>
 
-                            {/* <div className="dropdown-center">
-                                <li className='nav-item dropdown'>
-                                    <div className={`${styles.navLink} nav-link dropdown-toggle`} role="button" data-bs-toggle="dropdown" data-bs-auto-close="true" ata-bs-display="static" aria-expanded="false">
-                                        .others()
-                                    </div>
-                                    <ul className={`${styles.dropdownMenu} dropdown-menu`}>
-                                        <li>
-                                            <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/education">.education()</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/interest">.interest()</NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink onClick={handleClick} className={`${styles.dropdownItem} dropdown-item`} to="/skills">.skills()</NavLink>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </div> */}
-
                             <li className={`${styles.navItem} nav-item`}>
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/contact">.contact Me()</NavLink>
                             </li>
@@ -92,7 +74,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-
+            <DisplayImg />
             <Sidebar />
         </>
     )

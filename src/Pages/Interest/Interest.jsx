@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
-import { darkTheme } from '../Themes';
+import { darkTheme } from '../../Components/Themes';
 
 import InterestCard from './InterestCard';
 
@@ -63,29 +63,29 @@ const Quote = styled.div`
 
 const Interest = () => {
 
-    const title = "Bhavya Khurana | Interests";
-    document.title = title;
+  const title = "Bhavya Khurana | Interests";
+  document.title = title;
 
-    return (
-        <ThemeProvider theme={darkTheme}>
-            <GlobalStyle />
-            <SocialLinks />
-            <div className="container text-center my-5">
-                <div>
-                    <h1>.interest()</h1>
-                    <h6 className='fw-bold'>THINGS <span className='intro'>I LOVE</span></h6>
-                </div>
-                <Quote className='my-5 mx-4'>
-                    <blockquote className="blockquote mb-0">
-                        <p><span>PASSION</span> IS NOT ABOUT DOING SOMETHING <span>BIG PASSION</span> IS DOING SMALL THINGS WITH 100%</p>
-                    </blockquote>
-                </Quote>
-                <div className="container d-flex justify-content-center mx-auto">
-                    <InterestCard />
-                </div>
-            </div>
-        </ThemeProvider>
-    )
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <GlobalStyle />
+      <SocialLinks />
+      <div className="container text-center my-5">
+        <div>
+          <h1>.interest()</h1>
+          <h6 className='fw-bold'>THINGS <span className='intro'>I LOVE</span></h6>
+        </div>
+        <Quote className='my-5 mx-4'>
+          <blockquote className="blockquote mb-0">
+            <p><span>PASSION</span> IS NOT ABOUT DOING SOMETHING <span>BIG PASSION</span> IS DOING SMALL THINGS WITH 100%</p>
+          </blockquote>
+        </Quote>
+        <div className="container d-flex justify-content-center mx-auto">
+          <InterestCard />
+        </div>
+      </div>
+    </ThemeProvider>
+  )
 }
 
 export default Interest;

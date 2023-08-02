@@ -11,7 +11,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
-import { lightTheme } from '../Themes';
+import { lightTheme } from '../../Components/Themes';
 
 import school from '../../assets/Images/Education/school.svg';
 import college from '../../assets/Images/Education/college.svg';

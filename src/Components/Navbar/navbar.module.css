@@ -2,10 +2,6 @@
     background-color: #0e1313 !important;
 }
 
-/* .navbarNav {
-    margin-right: 4.5rem;
-} */
-
 .navLink {
     color: #dee2e6 !important;
 }
@@ -27,7 +23,8 @@
 }
 
 .img {
-    transform: translateY(-2.3px);
+    transform: translateY(0.5px);
+    cursor: pointer;
 }
 
 .navbarBrand span {

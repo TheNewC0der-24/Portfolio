@@ -2,16 +2,6 @@
     color: #dee2e6;
 }
 
-.me {
-    color: #6d2ae2;
-    font-family: 'Caveat', cursive;
-    transform: rotate(-5deg);
-}
-
-.icon {
-    transform: rotate(50deg);
-}
-
 .content,
 .mainContent {
     color: #dee2e6;

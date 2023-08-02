@@ -23,7 +23,7 @@ import { styled } from '@mui/material/styles';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme } from '../Themes';
+import { lightTheme } from '../../Components/Themes';
 
 import project from '../../Data/projectsData.json';
 

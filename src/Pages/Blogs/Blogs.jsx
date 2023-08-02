@@ -9,7 +9,7 @@ import underConstruction from '../../assets/Images/blog.svg'
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme } from '../Themes';
+import { lightTheme } from '../../Components/Themes';
 
 const GlobalStyle = createGlobalStyle`
   body {
