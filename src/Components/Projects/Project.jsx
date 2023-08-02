@@ -153,8 +153,6 @@ const Project = () => {
                                                 />
                                                 <CardMedia
                                                     component="img"
-                                                    height="194"
-                                                    sx={{ objectFit: { xs: "contain", sm: "cover", md: "cover", lg: "cover" } }}
                                                     image={item.image}
                                                     alt={item.name}
                                                 />
