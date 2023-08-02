@@ -10,7 +10,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 import { darkTheme } from '../../Components/Themes';
 
 // Image
-import about from '../../assets/Images/portrait.svg';
+// import about from '../../assets/Images/portrait.svg';
 
 import Resume from '../../assets/Resume.pdf';
 import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';

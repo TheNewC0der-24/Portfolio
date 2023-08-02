@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-import Profile from '../../assets/Images/portrait.png';
+import Profile from '../../assets/Images/MyImgs/portrait.svg';
 import Sidebar from '../Sidebar/Sidebar';
 import DisplayImg from '../DisplayImg/DisplayImg';
 
@@ -34,7 +34,7 @@ const Navbar = () => {
             <nav className={`${styles.navbar} navbar navbar-expand-lg sticky-top`}>
                 <div className="container-fluid">
                     <div className={`${styles.navbarBrand} navbar-brand fw-bolder me-4 d-flex`}>
-                        <img src={Profile} alt="bhavya" width="30" height="30" className={`${styles.img} rounded-circle me-2`} data-bs-toggle="modal" data-bs-target="#imgModal" title='Click here' />
+                        <img src={Profile} className={`${styles.img} rounded-circle me-2`} alt="bhavya" width="30" height="30" data-bs-toggle="modal" data-bs-target="#imgModal" title='Click here' />
                         <div className={styles.name}>
                             <span>.bhavya</span>&lt;/&gt;
                         </div>

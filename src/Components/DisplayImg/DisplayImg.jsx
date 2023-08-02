@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import img1 from '../../assets/Images/portrait.png';
-import img2 from '../../assets/Images/portrait.svg';
+import img1 from '../../assets/Images/MyImgs/portrait.svg';
+import img2 from '../../assets/Images/MyImgs/portrait.png';
+import img3 from '../../assets/Images/MyImgs/myDog.png';
 
 import { createGlobalStyle } from 'styled-components';
 
@@ -26,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 .dotts {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .dott {
@@ -50,15 +52,29 @@ const GlobalStyle = createGlobalStyle`
 
 .icon {
     transform: rotate(50deg);
-}
-
-`;
+}`;
 
 const DisplayImg = () => {
+
+    const navigate = useNavigate();
+
+    const closeModal = () => {
+        const modalBackdrop = document.querySelector('.modal-backdrop');
+        if (modalBackdrop) {
+            modalBackdrop.classList.remove('show');
+            modalBackdrop.remove();
+        }
+        document.body.classList.remove('modal-open');
+    };
+
+    useEffect(() => {
+        closeModal();
+    }, [navigate]);
 
     const images = [
         img1,
         img2,
+        img3
     ];
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -83,7 +99,7 @@ const DisplayImg = () => {
                     <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title fw-bold me">
-                                That's me <TiArrowForward className="icon fs-4" />
+                                That's {img3 === images[currentSlide] ? 'my dog' : 'me'} <TiArrowForward className="icon fs-4" />
                             </h5>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -112,9 +128,22 @@ const DisplayImg = () => {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button data-bs-dismiss="modal">Close</button>
-                            <button onClick={goToPrevSlide}>&lt; Prev</button>
-                            <button onClick={goToNextSlide}>Next &gt;</button>
+                            <button
+                                className='btn btn-dark'
+                                onClick={goToPrevSlide}
+                                disabled={currentSlide === 0}
+                                style={{ backgroundColor: '#6d2ae2', border: 'none' }}
+                            >
+                                Prev
+                            </button>
+                            <button
+                                onClick={goToNextSlide}
+                                className='btn btn-dark'
+                                style={{ backgroundColor: '#6d2ae2', border: 'none' }}
+                                disabled={currentSlide === images.length - 1}
+                            >
+                                Next
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -114,15 +114,6 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
     }
 
-    // .row {
-    //     flex-direction: column-reverse !important;
-    // }
-
-    // .img {
-    //     margin-bottom : 1rem !important;
-    //     width: 200px !important;
-    // }
-
     .know-more-btn {
         margin-top: 1rem !important;
         border-radius: 5px;
