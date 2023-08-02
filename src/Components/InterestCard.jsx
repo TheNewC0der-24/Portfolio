@@ -5,7 +5,7 @@ const Card = ({ title, content, Icon }) => (
     <div className="col-lg-4 col-md-6">
         <div className="card h-100">
             <div className="card-body">
-                {Icon && <Icon className="icon" />}
+                {Icon && <Icon className="icons" />}
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{content}</p>
             </div>

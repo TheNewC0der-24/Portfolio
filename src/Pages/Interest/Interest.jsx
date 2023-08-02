@@ -4,7 +4,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 import { darkTheme } from '../../Components/Themes';
 
-import InterestCard from './InterestCard';
+import InterestCard from '../../Components/InterestCard';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Caveat', cursive;
   }
 
-  .icon{
+  .icons{
     margin: 0 auto 20px auto;
     padding: 15px;
     display: inline-block;
