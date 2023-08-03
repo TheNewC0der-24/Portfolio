@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import img1 from '../../assets/Images/MyImgs/portrait.svg';
@@ -58,13 +58,16 @@ const DisplayImg = () => {
 
     const navigate = useNavigate();
 
+    const btnClose = useRef(null);
+
     const closeModal = () => {
-        const modalBackdrop = document.querySelector('.modal-backdrop');
-        if (modalBackdrop) {
-            modalBackdrop.classList.remove('show');
-            modalBackdrop.remove();
-        }
-        document.body.classList.remove('modal-open');
+        // const modalBackdrop = document.querySelector('.modal-backdrop');
+        // if (modalBackdrop) {
+        //     modalBackdrop.classList.remove('show');
+        //     modalBackdrop.remove();
+        // }
+        // document.body.classList.remove('modal-open');
+        btnClose.current.click();
     };
 
     useEffect(() => {
@@ -101,7 +104,7 @@ const DisplayImg = () => {
                             <h5 className="modal-title fw-bold me">
                                 That's {img3 === images[currentSlide] ? 'my dog' : 'me'} <TiArrowForward className="icon fs-4" />
                             </h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button ref={btnClose} type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="carousel-container">

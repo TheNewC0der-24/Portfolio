@@ -24,8 +24,9 @@
 
 .img {
     border: 1px solid #6d2ae2;
-    transform: translateY(0.5px);
+    transform: translateY(-2.3px);
     cursor: pointer;
+    animation: heartBeat 1s linear infinite;
 }
 
 .navbarBrand span {
@@ -59,6 +60,20 @@
     color: #0e1313 !important;
     background-color: #dee2e6 !important;
 } */
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 @media (max-width: 991.5px) {
     .navItem:nth-child(1) {

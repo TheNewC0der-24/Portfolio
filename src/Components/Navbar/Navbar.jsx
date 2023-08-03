@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import styles from "./Navbar.module.css";
 
-import SoundBar from '../../subComponents/SoundBar';
-
+import { NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import { NavLink } from 'react-router-dom';
+import SoundBar from '../../subComponents/SoundBar';
 
-import { FaBars, FaTimes } from 'react-icons/fa';
-
-import Profile from '../../assets/Images/MyImgs/portrait.svg';
+import Profile from '../../assets/Images/MyImgs/portrait.png';
 import Sidebar from '../Sidebar/Sidebar';
 import DisplayImg from '../DisplayImg/DisplayImg';
+
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const GlobalStyle = createGlobalStyle`
 .active {
@@ -21,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-
 const Navbar = () => {
 
     const [toggle, setToggle] = useState(false);
@@ -29,7 +27,7 @@ const Navbar = () => {
     const handleClick = () => setToggle(!toggle);
 
     return (
-        <>
+        <React.Fragment>
             <GlobalStyle />
             <nav className={`${styles.navbar} navbar navbar-expand-lg sticky-top`}>
                 <div className="container-fluid">
@@ -76,7 +74,7 @@ const Navbar = () => {
             </nav>
             <DisplayImg />
             <Sidebar />
-        </>
+        </React.Fragment>
     )
 }
 
