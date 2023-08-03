@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 // Social Links
@@ -7,7 +7,7 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 // Theme
 import { darkTheme } from '../../Components/Themes';
 
-import axios from 'axios';
+import experience from '../../Data/experienceData.json';
 
 import {
     Accordion,
@@ -55,17 +55,6 @@ const Experience = () => {
     document.title = title;
 
     const [expanded, setExpanded] = useState('panel1');
-    const [experience, setExperience] = useState([]);
-
-    useEffect(() => {
-        axios.get('src/Data/experienceData.json')
-            .then((response) => {
-                setExperience(response.data.experiences);
-            })
-            .catch((error) => {
-                console.log('Error: ', error);
-            })
-    }, []);
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -109,9 +98,13 @@ const Experience = () => {
                                                                     <Typography variant='h6' color="#6d2ae2">
                                                                         {project.name}
                                                                     </Typography>
-                                                                    <IconButton edge="end" href={project.link} target="_blank" rel="noreferrer">
-                                                                        <FaExternalLinkAlt color='#6d2ae2' />
-                                                                    </IconButton>
+                                                                    {
+                                                                        project.link && (
+                                                                            <IconButton edge="end" href={project.link} target="_blank" rel="noreferrer">
+                                                                                <FaExternalLinkAlt color='#6d2ae2' />
+                                                                            </IconButton>
+                                                                        )
+                                                                    }
                                                                 </Box>
                                                             }
                                                             secondary={
