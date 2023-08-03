@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { FcCalendar } from 'react-icons/fc';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
+
+import educationData from '../../Data/educationData.json';
 
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
 import { lightTheme } from '../../Components/Themes';
-
-import school from '../../assets/Images/Education/school.svg';
-import college from '../../assets/Images/Education/college.svg';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -41,10 +40,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .card {
-    background: none !important;
-    border-radius : 0px !important;
-    border-top: 5px solid #6d2ae2 !important;
-    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
+    // background: none !important;
+    // border-radius : 0px !important;
+    // border-top: 5px solid #6d2ae2 !important;
+    // box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
   }
 
   .img {
@@ -52,19 +51,19 @@ const GlobalStyle = createGlobalStyle`
              -5px -5px 10px #ffffff;
  }
 
- .visit {
-    background: none !important;
-    border-radius : 0px !important;
-    border: none !important;
-    color : #0e1313 !important;
-    box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3) !important;
-    transition: all 0.2s ease;
- }
+//  .visit {
+//     background: none !important;
+//     border-radius : 0px !important;
+//     border: none !important;
+//     color : #0e1313 !important;
+//     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3) !important;
+//     transition: all 0.2s ease;
+//  }
 
-    .visit:hover {
-            box-shadow: inset -5px 5px 7px #bdc0c4,
-                    inset 5px -5px 7px #ffffff !important;
-    }
+//     .visit:hover {
+//             box-shadow: inset -5px 5px 7px #bdc0c4,
+//                     inset 5px -5px 7px #ffffff !important;
+//     }
 `;
 
 
@@ -91,68 +90,33 @@ const Education = () => {
                     <h6 className="section_subtitle fw-bold">ACADEMIC <span>LEARNING</span></h6>
                 </div>
                 <div className="container">
-                    <div className="container text-center">
+                    <div className="container">
                         <div className="row">
-                            <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
-                                <div className="card border-0 h-100">
-                                    <div className="card-body">
-                                        <LazyLoadImage effect="blur" src={school} alt="school" width={125} className='img-fluid mx-auto img rounded-circle p-2' />
-                                        <h3 className='card-title my-2'>Secondary</h3>
-                                        <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
-                                        <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
-                                            <p>
-                                                <FcCalendar className='fs-2' />
-                                                2016 - 2017
-                                            </p>
-                                            <p>
-                                                <span className='fw-bold me-1'>Score:</span>
-                                                78.2%
-                                            </p>
+                            {
+                                educationData.map((data) => (
+                                    <div key={data.id} className={data.className}>
+                                        <div className="card border-0 h-100" data-aos="zoom-in" style={{ backgroundColor: `${data.bgColor}`, color: `${data.color}` }}>
+                                            <div className="card-body">
+                                                <h5 className='card-title my-3'>{data.duration}</h5>
+                                                <h4 className='fw-bold'>{data.institutionName}</h4>
+                                                <h5 className='card-title my-3'>{data.degreeName}</h5>
+                                                <div className='my-3'>
+                                                    <span className='fw-bold me-1 badge bg-light text-dark'>{data.grade}</span>
+                                                </div>
+                                                <button
+                                                    href={data.link}
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    className='d-flex gap-2 align-items-center btn btn-dark fw-bold'
+                                                    style={{ border: "none", backgroundColor: '#6d2ae2', color: "#dee2e6" }}
+                                                >
+                                                    Visit <FaExternalLinkAlt />
+                                                </button>
+                                            </div>
                                         </div>
-                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn d-block'>Visit School</a>
                                     </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
-                                <div className="card border-0 h-100">
-                                    <div className="card-body">
-                                        <LazyLoadImage effect="blur" src={school} alt="school" width={125} className='img-fluid mx-auto img rounded-circle p-2' />
-                                        <h3 className='card-title my-2'>Higher Secondary</h3>
-                                        <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>St. Anselm's Sr. Sec. School, Mansarovar, Jaipur</h5>
-                                        <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
-                                            <p>
-                                                <FcCalendar className='fs-2' />
-                                                2018 - 2019
-                                            </p>
-                                            <p>
-                                                <span className='fw-bold me-1'>Score:</span>
-                                                61.2%
-                                            </p>
-                                        </div>
-                                        <a href='https://stanselmsmns.ac.in/' target="_blank" rel="noreferrer" className='visit btn d-block'>Visit School</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-6 col-xl-4 mb-5">
-                                <div className="card border-0 h-100">
-                                    <div className="card-body">
-                                        <LazyLoadImage effect="blur" src={college} alt="school" width={125} className='img-fluid mx-auto img rounded-circle p-2' />
-                                        <h3 className='card-title my-2'>B. Tech</h3>
-                                        <h5 className='fw-bold' style={{ color: "#6d2ae2" }}>Jaypee University Of Engineering And Technology</h5>
-                                        <div className='d-flex gap-3 flex-wrap justify-content-between my-3'>
-                                            <p>
-                                                <FcCalendar className='fs-2' />
-                                                2019 - 2023
-                                            </p>
-                                            <p>
-                                                <span className='fw-bold me-1'>Score:</span>
-                                                67.45%
-                                            </p>
-                                        </div>
-                                        <a href='https://www.juet.ac.in/' target="_blank" rel="noreferrer" className='visit btn d-block'>Visit College</a>
-                                    </div>
-                                </div>
-                            </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
