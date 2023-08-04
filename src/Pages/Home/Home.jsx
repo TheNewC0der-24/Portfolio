@@ -220,7 +220,7 @@ const Home = () => {
                                     <p className='my-3 fw-bold'>I design and Code simple yet beautiful websites.</p>
                                     <button onClick={() => navigate("/about")} className='mt-4 mb-3 know-more-btn'>Know more about me<BsDot className="dot ms-1" /></button>
                                 </div>
-                                <div className='main'>
+                                <div className='main mb-5'>
                                     <div className="card border-0">
                                         <div className="card-body">
                                             <pre>

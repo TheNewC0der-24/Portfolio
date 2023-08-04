@@ -39,31 +39,9 @@ const GlobalStyle = createGlobalStyle`
     -webkit-text-fill-color: transparent !important;
   }
 
-  .card {
-    // background: none !important;
-    // border-radius : 0px !important;
-    // border-top: 5px solid #6d2ae2 !important;
-    // box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3);
-  }
-
   .img {
-    box-shadow:  5px 5px 10px #abaeb1,
-             -5px -5px 10px #ffffff;
+    box-shadow:  5px 5px 10px #abaeb1, -5px -5px 10px #ffffff;
  }
-
-//  .visit {
-//     background: none !important;
-//     border-radius : 0px !important;
-//     border: none !important;
-//     color : #0e1313 !important;
-//     box-shadow: -5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3) !important;
-//     transition: all 0.2s ease;
-//  }
-
-//     .visit:hover {
-//             box-shadow: inset -5px 5px 7px #bdc0c4,
-//                     inset 5px -5px 7px #ffffff !important;
-//     }
 `;
 
 

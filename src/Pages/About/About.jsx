@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import styles from './About.module.css';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
@@ -9,75 +12,77 @@ import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 // Theme
 import { darkTheme } from '../../Components/Themes';
 
-// Image
-// import about from '../../assets/Images/portrait.svg';
-
-import Resume from '../../assets/Resume.pdf';
 import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
-import OffCanvas from '../../Components/OffCanvas/OffCanvas';
+
+import ReadMore from '../../Components/ReadMore';
+import Resume from '../../assets/Resume.pdf';
+import bmac from '../../assets/Images/bmac.svg';
 
 const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${props => props.theme.body};
-    color: ${props => props.theme.text};
   }
 
-  .pulse {
-    animation: pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-  
-  .loadable {
-    width: 250px;
-    height: 250px;
-    overflow: hidden;
-    margin: 0 auto;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 5px solid #6d2ae2;
-    transition: all 0.3s ease-in-out;
+  .title, .sub-title {
+    color: #dee2e6;
   }
 
-  @keyframes pulse {
-    0%,
-      100% {
-        opacity: 1;
-      }
-    50% {
-      opacity: 0.3;
+  .sub-title span {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
     }
-  }
-  
-  @media (max-width: 991.5px) and (min-width: 767.5px) {
-    .loadable {
-        width: 225px;
-        height: 225px;
-    }
+
+  .about-card {
+    background: none !important;
+    backdrop-filter: blur(4px) !important;
   }
 
-  @media (max-width: 449.5px) {
-    .loadable {
-        width: 200px;
-        height: 200px;
-    }
+  .note {
+    background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
+    border-radius: 0px !important;
   }
 
-  @media (max-width: 280.5px) {
-    .loadable {
-        width: 150px;
-        height: 150px;
+  .tag {
+    font-family: 'Caveat', cursive;
+    color: #6d2ae2;
+  }
+
+  .bmac {
+    color: #ffdd00;
+    border-bottom: 1px solid #ffdd00;
+  }
+
+  @media (max-width: 767.5px) {
+    .text {
+        text-align: center !important;
     }
-  }`;
+
+    .tag{
+      display: none !important;
+    }
+
+    .view-resume-btn {
+      display: grid !important;
+      margin: auto !important;
+    }
+
+    .bmac-div {
+      justify-content: center !important;
+    }
+}
+`;
 
 const About = () => {
 
-  const [imageLoading, setImageLoading] = useState(true);
-  const [pulsing, setPulsing] = useState(true);
+  const navigate = useNavigate();
 
-  const imageLoaded = () => {
-    setImageLoading(false);
-    setTimeout(() => setPulsing(false), 600);
-  };
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   const handleDownload = () => {
     const path = Resume;
@@ -98,60 +103,89 @@ const About = () => {
         <GlobalStyle />
         <SocialLinks />
         <ParticleBackgroundAnimate />
-        <div className={`${styles.container} container`}>
-          <h1 className={`${styles.title} text-center`}>.about <span style={{ color: "#6d2ae2" }}>Me()</span></h1>
-          <h6 className='text-center fw-bold' style={{ color: "#dee2e6" }}>ALLOW ME TO INTRODUCE MYSELF</h6>
-          <div className="container">
-            <div className="container d-flex mt-5">
-              <div className={`${styles.row} row g-5 mx-auto`}>
-                <div className="col-lg-5">
+        <div className="container">
+          <h1 className="title text-center">.about Me()</h1>
+          <h6 className='sub-title text-center fw-bold' style={{ color: "#dee2e6" }}>BEYOND <span style={{ color: "#6d2ae2" }}>THE SURFACE</span></h6>
 
-                  <div className='mt-3 text-center'>
-                    <span className={styles.tag}>&lt;p&gt;</span>
-                    <p className={`${styles.content} fs-4`} style={{ color: "#6d2ae2", fontFamily: 'Caveat' }}>
-                      I'm obsessed with making things and even more obsessed with making things better.
-                    </p>
-                    <span className={styles.tag}>&lt;p&gt;</span>
+          <div className="container text my-5">
+            <div className="card about-card">
+              <div className="card-body">
+                <h5 className="card-title tag fw-bold">//about</h5>
+                <div className='mb-4' style={{ color: "#dee2e6" }}>
+                  <p className='card-text'>
+                    👋 Hey there! I'm <span className='badge' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2' }}>Bhavya Khurana</span>, a
+                    passionate <span className='fw-bold' style={{ color: '#6d2ae2' }}>frontend developer</span> and <span className='fw-bold' style={{ color: '#6d2ae2' }}>content writer</span> with
+                    a soft spot for dogs 🐶. I spend my days crafting user-friendly interfaces and bringing creative designs to life. When I'm not
+                    coding, you'll often find me typing away, weaving engaging content for various platforms. I believe in the power of words to inspire
+                    and connect people.
+                  </p>
+
+                  <p className='card-text'>
+                    In the tech world, I'm well-versed in HTML, CSS, JavaScript and, TypeScript, constantly exploring new frameworks and tools to enhance user
+                    experiences. I enjoy the challenge of optimizing websites for performance and responsiveness across different devices.
+                  </p>
+
+                  <div className='card border-0 note my-4'>
+                    <div className="card-body">
+                      <div className="d-flex gap-2 justify-content-between flex-wrap align-items-center">
+                        <h4 style={{ color: "#dee2e6" }}>
+                          I'm obsessed with making things and even more obsessed with making things better.
+                        </h4>
+                        <div className='view-resume-btn'>
+                          <button
+                            className='btn fw-bold'
+                            style={{ color: "#6d2ae6", backgroundColor: "#dee2e6", border: "none" }}
+                            onClick={() => navigate('/resume')}
+                          >
+                            View Resume
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <p className='card-text'>
+                    But that's not all—I'm also a dedicated dog enthusiast. Whether it's going on long walks, playing fetch at the park, or cuddling up with
+                    my furry friends, I find immense joy and relaxation in the company of canines.
+                  </p>
                 </div>
-                <div className={`${styles.mainContent} col-lg-7`}>
-                  <div className={styles.tag}>&lt;h5&gt;</div>
-                  <p>
-                    My name is <span className={`${styles.main} text-danger fs-5`}>Bhavya Khurana</span>, and I am a <span className={`${styles.main} text-primary fs-5`}>Frontend Developer</span>. I
-                    graduated from <span className={`${styles.main} text-success fs-5`}>Jaypee University of Engineering and Technology, Guna, India</span>, with
-                    a major in Computer Science and Engineering. I have a strong focus on web development, particularly in frontend technologies such
-                    as <span className={`${styles.main} text-warning fs-5`}>ReactJS</span> and  <span className={`${styles.main} text-warning fs-5`}>Angular</span>. I
-                    am constantly striving to enhance my skills as a software engineer.
+
+                <div className='card card-body border-0' data-aos="zoom-in" style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', borderRadius: "0px" }}>
+                  <p className='fw-bold'>
+                    Feel free to explore my work and writing samples to get a taste of my work. If you have any frontend development or content
+                    writing projects in mind, or simply want to chat about dogs, I'd love to connect with you! Let's collaborate and create something pawsome
+                    together 🐾
                   </p>
-                  <p>
-                  </p>
-                  <div className={styles.tag}>&lt;h5&gt;</div>
-                  <p className='fw-bold my-2 p-2' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', fontFamily: 'Special Elite' }}>
-                    Open to Opportunities related to Web Development.
-                  </p>
-                  <div className='d-flex gap-3 mt-4 mb-3'>
+
+                  <div>
                     <button
-                      className={styles.btn}
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#offcanvasBottom"
-                      aria-controls="offcanvasBottom"
+                      className='btn fw-bold'
+                      style={{ color: "#DFD8FD", backgroundColor: "#6d2ae6", border: "none" }}
+                      data-bs-toggle="collapse"
+                      data-bs-target="#readMore"
+                      aria-expanded="false"
+                      aria-controls="readMore"
                     >
                       Read More
                     </button>
-                    <button
-                      onClick={handleDownload}
-                      className={styles.btn}
-                    >
-                      Download Resume
-                    </button>
+                    <ReadMore />
                   </div>
                 </div>
+
+                <div className='d-flex align-items-center gap-2 fw-bold mt-3 bmac-div'>
+                  <span style={{ color: "#dee2e6" }}>You can also</span>
+                  <img src={bmac} alt="bmac" />
+                  <a className='bmac text-decoration-none' href="https://www.buymeacoffee.com/bhavyakhurana"
+                    target="_blank" rel="noreferrer"
+                  >
+                    buy me a coffee
+                  </a>
+                </div>
+
               </div>
             </div>
           </div>
         </div>
-
-        <OffCanvas />
       </ThemeProvider>
     </>
   )

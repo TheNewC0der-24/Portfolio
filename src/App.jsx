@@ -14,6 +14,7 @@ import NotFound from './NotFound/404NotFound';
 const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
 const Home = lazy(() => import('./Pages/Home/Home'));
 const About = lazy(() => import('./Pages/About/About'));
+const Resume = lazy(() => import('./Components/DisplayResume'));
 const Education = lazy(() => import('./Pages/Education/Education'));
 const Interest = lazy(() => import('./Pages/Interest/Interest'));
 const Skills = lazy(() => import('./Pages/Skills/Skills'));
@@ -52,6 +53,8 @@ function AppContent() {
     return () => clearTimeout(timer);
   }, [location]);
 
+  const isResumeRoute = location.pathname === '/resume';
+
   return (
     <Suspense fallback={<LoadingScreen />}>
       {
@@ -59,10 +62,11 @@ function AppContent() {
           <LoadingScreen />
         ) : (
           <React.Fragment>
-            <Navbar />
+            {!isResumeRoute && <Navbar />}
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/about" element={<About />} />
+              <Route exact path="/resume" element={<Resume />} />
               <Route exact path="/work" element={<Work />} />
               <Route exact path="/experience" element={<Experience />} />
               <Route exact path="/blogs" element={<Blogs />} />
