@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +27,6 @@ const DisplayResume = () => {
 
     const navigate = useNavigate();
 
-    const downloadRef = useRef(null);
     const [isDownloaded, setIsDownloaded] = useState(false);
 
     const handleDownload = () => {
@@ -67,7 +66,6 @@ const DisplayResume = () => {
                             className='btn fw-bold'
                             style={{ background: '#6d2ae2', color: '#dee2e6', border: 'none' }}
                             onClick={handleDownload}
-                            ref={downloadRef}
                         >
                             {isDownloaded ? (
                                 <React.Fragment>
