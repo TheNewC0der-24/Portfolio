@@ -14,7 +14,7 @@ import NotFound from './NotFound/404NotFound';
 const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
 const Home = lazy(() => import('./Pages/Home/Home'));
 const About = lazy(() => import('./Pages/About/About'));
-const Resume = lazy(() => import('./Components/DisplayResume'));
+const Resume = lazy(() => import('./Components/DisplayResume/DisplayResume'));
 const Education = lazy(() => import('./Pages/Education/Education'));
 const Interest = lazy(() => import('./Pages/Interest/Interest'));
 const Skills = lazy(() => import('./Pages/Skills/Skills'));

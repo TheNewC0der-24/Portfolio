@@ -15,7 +15,6 @@ import { darkTheme } from '../../Components/Themes';
 import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
 
 import ReadMore from '../../Components/ReadMore';
-import Resume from '../../assets/Resume.pdf';
 import bmac from '../../assets/Images/bmac.svg';
 
 const GlobalStyle = createGlobalStyle`
@@ -83,16 +82,6 @@ const About = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
-
-  const handleDownload = () => {
-    const path = Resume;
-    const link = document.createElement("a");
-    link.href = path;
-    link.setAttribute("download", "Resume.pdf");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   const title = "Bhavya Khurana | About Me";
   document.title = title;
