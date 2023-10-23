@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
-import { darkTheme } from '../../Components/Themes';
+import { darkTheme } from '../../Themes';
 
 import InterestCard from '../../Components/InterestCard';
 

@@ -11,7 +11,7 @@ import { BsDot } from 'react-icons/bs';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme, darkTheme } from '../../Components/Themes';
+import { lightTheme, darkTheme } from '../../Themes';
 
 // Typewriter
 import { Typewriter } from "react-simple-typewriter";

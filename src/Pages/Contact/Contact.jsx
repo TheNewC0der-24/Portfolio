@@ -16,7 +16,7 @@ import chat from '../../assets/Images/Chat.svg';
 import BackgroundAnimation from '../../subComponents/BackgroundAnimate/BackgroundAnimate';
 
 // Themes
-import { lightTheme, darkTheme } from '../../Components/Themes';
+import { lightTheme, darkTheme } from '../../Themes';
 
 // Alert
 import { ToastContainer, toast } from 'react-toastify';

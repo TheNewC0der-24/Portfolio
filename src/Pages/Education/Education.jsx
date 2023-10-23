@@ -13,7 +13,7 @@ import educationData from '../../Data/educationData.json';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
-import { lightTheme } from '../../Components/Themes';
+import { lightTheme } from '../../Themes';
 
 const GlobalStyle = createGlobalStyle`
   body {

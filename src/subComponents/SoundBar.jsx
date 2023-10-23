@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled, { keyframes, ThemeProvider } from 'styled-components';
-import { darkTheme } from '../Components/Themes'
+import { darkTheme } from '../Themes'
 import music from '../assets/Audio/music.mp3';
 
 const Box = styled.div`
