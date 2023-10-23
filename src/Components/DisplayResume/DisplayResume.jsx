@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
-
 import { useNavigate } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
+import { Button } from '@mui/material';
 
 import { FaDownload, FaCheck } from 'react-icons/fa';
 
@@ -55,28 +55,34 @@ const DisplayResume = () => {
                 <div className='d-flex justify-content-between align-items-center gap-2 flex-wrap my-3'>
                     <h1 className='title'>RESUME</h1>
                     <div className='d-flex flex-wrap gap-2 align-items-center'>
-                        <button
-                            className='btn fw-bold'
-                            style={{ background: 'none', color: '#6d2ae2', border: '1px solid #6d2ae2' }}
+                        <Button
+                            variant="outlined"
+                            sx={{
+                                textTransform: "capitalize",
+                                borderColor: "#6d2ae2",
+                                color: "#6d2ae2",
+                                "&:hover": {
+                                    borderColor: "#6d2ae2",
+                                },
+                            }}
                             onClick={() => navigate('/about')}
                         >
                             Back
-                        </button>
-                        <button
-                            className='btn fw-bold'
-                            style={{ background: '#6d2ae2', color: '#dee2e6', border: 'none' }}
+                        </Button>
+                        <Button
+                            variant="contained"
+                            sx={{
+                                textTransform: "capitalize",
+                                backgroundColor: "#6d2ae2",
+                                "&:hover": {
+                                    backgroundColor: "#6d2ae2",
+                                },
+                            }}
                             onClick={handleDownload}
+                            endIcon={isDownloaded ? <FaCheck /> : <FaDownload />}
                         >
-                            {isDownloaded ? (
-                                <React.Fragment>
-                                    Downloaded <FaCheck />
-                                </React.Fragment>
-                            ) : (
-                                <React.Fragment>
-                                    Download PDF <FaDownload />
-                                </React.Fragment>
-                            )}
-                        </button>
+                            {isDownloaded ? "Downloaded" : "Download PDF"}
+                        </Button>
                     </div>
                 </div>
                 <img src={resume} className='img-thumbnail' alt="Resume" />

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
 import Aos from 'aos';
 import "aos/dist/aos.css";
@@ -10,7 +12,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { darkTheme } from '../../Components/Themes';
+import { darkTheme } from '../../Themes';
 
 import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
 
@@ -64,10 +66,10 @@ const GlobalStyle = createGlobalStyle`
       display: none !important;
     }
 
-    .view-resume-btn {
-      display: grid !important;
-      margin: auto !important;
-    }
+    // .view-resume-btn {
+    //   display: grid !important;
+    //   margin: auto !important;
+    // }
 
     .bmac-div {
       justify-content: center !important;
@@ -78,6 +80,7 @@ const GlobalStyle = createGlobalStyle`
 const About = () => {
 
   const navigate = useNavigate();
+  const [showReadMore, setShowReadMore] = useState(false);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -92,7 +95,7 @@ const About = () => {
         <GlobalStyle />
         <SocialLinks />
         <ParticleBackgroundAnimate />
-        <div className="container">
+        <div className="container mt-4">
           <h1 className="title text-center">.about Me()</h1>
           <h6 className='sub-title text-center fw-bold' style={{ color: "#dee2e6" }}>BEYOND <span style={{ color: "#6d2ae2" }}>THE SURFACE</span></h6>
 
@@ -120,14 +123,18 @@ const About = () => {
                         <h4 style={{ color: "#dee2e6" }}>
                           I'm obsessed with making things and even more obsessed with making things better.
                         </h4>
-                        <div className='view-resume-btn'>
-                          <button
-                            className='btn fw-bold'
-                            style={{ color: "#6d2ae6", backgroundColor: "#dee2e6", border: "none" }}
+                        <div>
+                          <Button
+                            sx={{
+                              textTransform: "capitalize",
+                              color: "#6d2ae6", backgroundColor: "#dee2e6", '&:hover': {
+                                backgroundColor: "#dee2e6",
+                              }
+                            }}
                             onClick={() => navigate('/resume')}
                           >
                             View Resume
-                          </button>
+                          </Button>
                         </div>
                       </div>
                     </div>
@@ -147,17 +154,26 @@ const About = () => {
                   </p>
 
                   <div>
-                    <button
-                      className='btn fw-bold'
-                      style={{ color: "#DFD8FD", backgroundColor: "#6d2ae6", border: "none" }}
-                      data-bs-toggle="collapse"
-                      data-bs-target="#readMore"
-                      aria-expanded="false"
-                      aria-controls="readMore"
+                    <Button
+                      onClick={() => setShowReadMore((prev) => !prev)}
+                      sx={{
+                        textTransform: "capitalize",
+                        backgroundColor: "#6d2ae2",
+                        color: "#dee2e6",
+                        '&:hover': {
+                          backgroundColor: "#6d2ae2",
+                        }
+                      }}
+                      endIcon={showReadMore ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                     >
-                      Read More
-                    </button>
-                    <ReadMore />
+                      {showReadMore ? "Read Less" : "Read More"}
+                    </Button>
+
+                    {
+                      showReadMore && (
+                        <ReadMore />
+                      )
+                    }
                   </div>
                 </div>
 
@@ -175,7 +191,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </ThemeProvider>
+      </ThemeProvider >
     </>
   )
 }
