@@ -1,0 +1,10 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    background-color: #6d2ae2 !important;
+    border-radius: 0px !important;
+    border: none !important;
+}
