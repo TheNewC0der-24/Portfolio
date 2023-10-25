@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
@@ -9,7 +9,7 @@ import underConstruction from '../../assets/Images/blog.svg'
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme } from '../../Components/Themes';
+import { lightTheme } from '../../Themes';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -27,7 +27,7 @@ const Blogs = () => {
             <ThemeProvider theme={lightTheme}>
                 <GlobalStyle />
                 <SocialLinks />
-                <div className="container">
+                {/* <div className="container bg-dark my-5">
                     <div className='p-4'>
                         <div className="alert alert-dismissible fade show" role="alert">
                             <h4 className="alert-heading fw-bold">No Blogs to read!!</h4>
@@ -48,6 +48,10 @@ const Blogs = () => {
                         </div>
                         <h3 className='fw-bold'>Construction</h3>
                     </div>
+                </div> */}
+
+                <div className='container p-5'>
+
                 </div>
             </ThemeProvider>
         </>

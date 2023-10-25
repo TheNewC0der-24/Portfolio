@@ -39,7 +39,7 @@ import { BsBootstrapFill } from 'react-icons/bs';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme } from '../../Components/Themes';
+import { lightTheme } from '../../Themes';
 
 const GlobalStyle = createGlobalStyle`
     body {

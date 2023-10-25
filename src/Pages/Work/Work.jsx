@@ -23,7 +23,7 @@ import { styled } from '@mui/material/styles';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { lightTheme } from '../../Components/Themes';
+import { lightTheme } from '../../Themes';
 
 import project from '../../Data/projectsData.json';
 
@@ -32,7 +32,7 @@ import { FaRegFolder } from 'react-icons/fa';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import { MdOutlineExpandMore } from 'react-icons/md';
 
-import { formatDate } from '../../Helpers/formatData';
+import { formatDate } from '../../Helpers/formatDate';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -114,7 +114,7 @@ const Project = () => {
                                 placeholder="Search topics..."
                                 sx={{
                                     width: '100%',
-                                    maxWidth: '300px',
+                                    maxWidth: { xs: '100%', sm: '100%', md: '300px' },
                                     '& .MuiOutlinedInput-root': {
                                         '& fieldset': {
                                             borderColor: '#6d2ae2',

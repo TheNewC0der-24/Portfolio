@@ -5,7 +5,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
 
 // Theme
-import { darkTheme } from '../../Components/Themes';
+import { darkTheme } from '../../Themes';
 
 import experience from '../../Data/experienceData.json';
 
