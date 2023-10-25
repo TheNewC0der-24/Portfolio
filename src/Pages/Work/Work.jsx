@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import {
@@ -16,6 +16,9 @@ import {
     Box,
     Button
 } from '@mui/material';
+
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 import { styled } from '@mui/material/styles';
 
@@ -82,6 +85,10 @@ const Project = () => {
     const title = "Bhavya Khurana | Work";
     document.title = title;
 
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
+
     const [searchTerm, setSearchTerm] = useState('');
     const [expanded, setExpanded] = useState({});
 
@@ -141,7 +148,7 @@ const Project = () => {
                                 ) :
                                     filteredProjects?.map((item) => (
                                         <Grid item xs={12} sm={12} md={6} lg={4} key={item.id}>
-                                            <Card sx={{ borderBottom: '5px solid #6d2ae2' }}>
+                                            <Card data-aos="fade-up" sx={{ borderBottom: '5px solid #6d2ae2' }}>
                                                 <CardHeader
                                                     avatar={
                                                         <Avatar sx={{ bgcolor: "#DFD8FD", color: "#6d2ae2" }}>
@@ -155,6 +162,7 @@ const Project = () => {
                                                     component="img"
                                                     image={item.image}
                                                     alt={item.name}
+                                                    loading="lazy"
                                                 />
                                                 <CardActions disableSpacing>
                                                     <IconButton href={item.html_url} target="_blank" rel="noreferrer">
