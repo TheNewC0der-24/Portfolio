@@ -11,7 +11,7 @@ import './App.css';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 import NotFound from './NotFound/404NotFound';
 
-const Navbar = lazy(() => import('./Components/Navbar/Navbar'));
+const Navbar = lazy(() => import('./Layout/Header'));
 const Home = lazy(() => import('./Pages/Home/Home'));
 const About = lazy(() => import('./Pages/About/About'));
 const Resume = lazy(() => import('./Components/DisplayResume/DisplayResume'));
@@ -48,7 +48,7 @@ function AppContent() {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [location]);
