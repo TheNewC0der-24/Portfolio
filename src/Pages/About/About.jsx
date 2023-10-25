@@ -171,7 +171,7 @@ const About = () => {
 
                     {
                       showReadMore && (
-                        <ReadMore />
+                        <ReadMore isVisible={showReadMore} />
                       )
                     }
                   </div>

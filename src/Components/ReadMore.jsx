@@ -1,8 +1,21 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
-const ReadMore = () => {
+const ReadMore = ({ isVisible }) => {
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    };
+
     return (
-        <div className="p-3 mt-3" style={{ border: "2px solid #6d2ae2", borderRadius: "0px" }}>
+        <motion.div
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+            variants={variants}
+            transition={{ duration: 1 }}
+            className="p-3 mt-3"
+            style={{ border: "2px solid #6d2ae2", borderRadius: "0px" }}
+        >
             <div className="fw-bold" style={{ color: "#6d2ae2" }}>
                 I am a creative and proficient Frontend Developer with over 1 year of experience, I have successfully
                 worked on various web projects for clients across different industries. My expertise lies in responsive
@@ -11,7 +24,7 @@ const ReadMore = () => {
                 commitment is to deliver high-quality solutions that not only meet user needs but also exceed client
                 expectations.
             </div>
-        </div>
+        </motion.div>
     )
 }
 
