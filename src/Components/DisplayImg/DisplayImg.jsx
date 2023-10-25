@@ -10,7 +10,7 @@ import {
     Button
 } from '@mui/material';
 
-import img1 from '../../assets/Images/MyImgs/portrait.svg';
+import img1 from '../../assets/Images/MyImgs/myPic.png';
 import img2 from '../../assets/Images/MyImgs/myDog.png';
 
 import { TiArrowForward } from 'react-icons/ti';
