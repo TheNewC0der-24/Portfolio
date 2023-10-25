@@ -9,6 +9,11 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background-color: #6d2ae2;
+  color: #dee2e6;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
