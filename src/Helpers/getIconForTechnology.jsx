@@ -1,5 +1,5 @@
 import { FaReact, FaAngular, FaHtml5, FaCss3Alt, FaSass, FaGitAlt } from 'react-icons/fa';
-import { SiRedux, SiJquery, SiMui, SiJavascript, SiTypescript, SiOpenai } from 'react-icons/si';
+import { SiRedux, SiJquery, SiMui, SiJavascript, SiTypescript, SiOpenai, SiRecoil } from 'react-icons/si';
 import { BsBootstrapFill } from 'react-icons/bs';
 
 export const getIconForTechnology = (technology) => {
@@ -26,10 +26,14 @@ export const getIconForTechnology = (technology) => {
             return <FaCss3Alt className='fs-5' />;
         case 'Material-UI':
             return <SiMui className='fs-5' />;
+        case 'MUI':
+            return <SiMui className='fs-5' />;
         case 'jQuery':
             return <SiJquery className='fs-5' />;
         case 'OpenAI':
             return <SiOpenai className='fs-5' />;
+        case 'Recoil':
+            return <SiRecoil className='fs-5' />;
         default:
             return null;
     }
