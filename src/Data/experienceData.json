@@ -1,5 +1,31 @@
 [
     {
+        "companyName": "Doeasily",
+        "logoSrc": "./ExperienceImg/doeasilyLogo.png",
+        "position": "Frontend Developer - INTERNSHIP",
+        "duration": "August 2023 - Present",
+        "location": "Bengaluru, Karnataka, India",
+        "projects": [
+            {
+                "name": "Doeasily, Business made easy",
+                "link": "http://13.127.180.216:3000/login",
+                "description": [
+                    "Implementing new features for customers to track their jewelry purchase and sale history.",
+                    "Enhancing the codebase and elevating the user interface to optimize user experience.",
+                    "Introducing table and tile views for ledger access, enabling customers to seamlessly review their purchase and sale records.",
+                    "Establishing an onboarding procedure to facilitate a smooth initiation for new customers when they embark on using the application.",
+                    "Implemented keyboard shortcuts for enhanced user interaction and efficiency."
+                ],
+                "technologiesUsed": [
+                    "React",
+                    "MUI",
+                    "Recoil",
+                    "Git"
+                ]
+            }
+        ]
+    },
+    {
         "companyName": "Bookee",
         "logoSrc": "./ExperienceImg/bookeeLogo.png",
         "position": "Software Developer Engineer (Frontend) - INTERNSHIP",
@@ -28,10 +54,10 @@
                 "name": "Embed",
                 "link": "https://halofitnessbrooklyn.weebly.com/reserve.html#/login",
                 "description": [
-                    "Make API calls.",
-                    "Fix UI bugs.",
-                    "Handling form errors.",
-                    "Implemented new functionalities."
+                    "Initiate REST APIs requests.",
+                    "Manage form validation errors.",
+                    "Resolve user interface anomalies.",
+                    "Integrate innovative features such as introducing a referral system and enabling the addition of digital signatures on forms."
                 ],
                 "technologiesUsed": [
                     "React",
@@ -112,7 +138,8 @@
                 "name": "CLOUD COACH",
                 "link": "https://sandbox.coachbots.com/login",
                 "description": [
-                    "Created the end-to-end User interface of the product, which is an AI bot for automatic assessment and feedback that can be used for interviews, training like sales or leadership, course testing, screening, job simulation etc."
+                    "Created a user interface with end-to-end functionality for an AI bot for automatic assessment and feedback that can be used for interviews, training like sales or leadership, course testing, screening, job simulation etc.",
+                    "Implementing Open AI feature to leverage the power of application to provide the AI capabilities."
                 ],
                 "technologiesUsed": [
                     "HTML5",
@@ -134,7 +161,7 @@
             {
                 "name": "Verzeo Web Development Course",
                 "description": [
-                    "It was a two-month online course focused on web development technologies, where I learned HTML5, CSS3, Bootstrap, JavaScript, DOM manipulation, AJAX, and jQuery"
+                    "I completed a comprehensive two-month online course centered on web development technologies, gaining proficiency in HTML5, CSS3, Bootstrap, JavaScript, DOM manipulation, AJAX, and jQuery."
                 ],
                 "technologiesUsed": [
                     "HTML5",
