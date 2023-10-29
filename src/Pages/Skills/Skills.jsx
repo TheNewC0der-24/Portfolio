@@ -1,46 +1,15 @@
 import React, { useState } from 'react';
-
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-import { Box, Typography, Tabs, Tab } from '@mui/material';
-import PropTypes from 'prop-types';
-
-// Icons
-import { FaSass, FaNpm, FaYarn, FaGitAlt, FaGithub, FaLinux, FaUbuntu, FaMarkdown } from 'react-icons/fa';
-import {
-    SiCplusplus,
-    SiPython,
-    SiJavascript,
-    SiTypescript,
-    SiHtml5,
-    SiCss3,
-    SiReact,
-    SiAngular,
-    SiMui,
-    SiTailwindcss,
-    SiAntdesign,
-    SiRedux,
-    SiJquery,
-    SiVite,
-    SiHeroku,
-    SiNetlify,
-    SiVercel,
-    SiGithubpages,
-    SiMysql,
-    SiPycharm,
-    SiAtom,
-    SiWindows11,
-    SiLatex,
-    SiVisualstudiocode
-} from 'react-icons/si';
-import { IoLogoJavascript } from 'react-icons/io';
-import { BsBootstrapFill } from 'react-icons/bs';
-
-// Social Links
-import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-
-// Theme
 import { lightTheme } from '../../Themes';
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
+import { Box, Typography, Tabs, Tab, Button, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
+import PropTypes from 'prop-types';
+import languages from '../../Data/Skills/languages.json';
+import fandl from '../../Data/Skills/fandl.json';
+import packages from '../../Data/Skills/packages.json';
+import hosting from '../../Data/Skills/hosting.json';
+import knowledge from '../../Data/Skills/knowledge.json';
+import { getIconForTechnology } from '../../Helpers/getIconForTechnology';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -109,9 +78,7 @@ function a11yProps(index) {
     };
 }
 
-
 const Skills = () => {
-
     const title = "Bhavya Khurana | Skills";
     document.title = title;
 
@@ -132,8 +99,8 @@ const Skills = () => {
                         <h6 className='sub-title fw-bold'>MY <span>LEARNINGS</span></h6>
                     </div>
                     <p className='text-center mx-auto w-75'>
-                        These are my skills and this contains all the web technologies, programming languages, databases, frameworks, libraries, tools and hosting platforms that I have learnt
-                        until now. I am constantly learning, therefore I may update this section more often.
+                        These are my current skills, encompassing a wide range of web technologies, programming languages, databases, frameworks, libraries,
+                        tools, and hosting platforms. I am committed to continuous learning and may update this section regularly.
                     </p>
 
                     <hr className="my-4 mx-5 line" />
@@ -169,154 +136,200 @@ const Skills = () => {
                                         }}
                                     >
                                         <Tab label="Languages" {...a11yProps(0)} />
-                                        <Tab label="ADHD" {...a11yProps(1)} />
-                                        <Tab label="OCD" {...a11yProps(2)} />
+                                        <Tab label="Frameworks & Libraries" {...a11yProps(1)} />
+                                        <Tab label="Packages" {...a11yProps(2)} />
+                                        <Tab label="Backend, Tools & Services" {...a11yProps(3)} />
+                                        <Tab label="Version Control & Collaboration" {...a11yProps(4)} />
+                                        <Tab label="Hosting & Deployment" {...a11yProps(5)} />
+                                        <Tab label="Integrated Development Environments (IDEs)" {...a11yProps(6)} />
+                                        <Tab label="Operating Systems" {...a11yProps(7)} />
+                                        <Tab label="Text Markup & Documentation" {...a11yProps(8)} />
+                                        <Tab label="Knowledge" {...a11yProps(9)} />
                                     </Tabs>
                                 </Box>
 
                                 <TabPanel value={value} index={0}>
-                                    <div className="card shadow">
-                                        <div className="card-body">
-                                            <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>LANGUAGES & WEB TECHNOLOGIES</Typography>
-                                            <div className='d-flex flex-wrap gap-4 mt-4'>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiCplusplus style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiPython style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiHtml5 style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiCss3 style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaSass style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiJavascript style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiTypescript style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiReact style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiAngular style={{ color: "#6d2ae2" }} /></span></h1>
-                                            </div>
-                                        </div>
+                                    <div className='d-flex align-items-center flex-wrap gap-4'>
+                                        {
+                                            languages.map((item, index) => (
+                                                <Button
+                                                    key={index}
+                                                    variant="outlined"
+                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                                    startIcon={getIconForTechnology(item.name)}>
+                                                    {item.name}
+                                                </Button>
+                                            ))
+                                        }
                                     </div>
                                 </TabPanel>
+
                                 <TabPanel value={value} index={1}>
-                                    <div className="card shadow mt-5">
-                                        <div className="card-body">
-                                            <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>FRAMEWORKS, PLATFORMS & LIBRARIES</Typography>
-                                            <div className='d-flex flex-wrap gap-4 mt-4'>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><BsBootstrapFill style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiMui style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiTailwindcss style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiAntdesign style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><IoLogoJavascript style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiRedux style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiJquery style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaNpm style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaYarn style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiVite style={{ color: "#6d2ae2" }} /></span></h1>
-                                            </div>
-                                        </div>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        {
+                                            fandl.map((item, index) => (
+                                                <Button
+                                                    key={index}
+                                                    variant="outlined"
+                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                                    startIcon={getIconForTechnology(item.name)}>
+                                                    {item.name}
+                                                </Button>
+                                            ))
+                                        }
                                     </div>
                                 </TabPanel>
+
                                 <TabPanel value={value} index={2}>
-                                    <div className="card shadow mt-5">
-                                        <div className="card-body">
-                                            <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>TOOLS & HOSTING</Typography>
-                                            <div className='d-flex flex-wrap gap-4 mt-4'>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaGitAlt style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaGithub style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiHeroku style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiNetlify style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiVercel style={{ color: "#6d2ae2" }} /></span></h1>
-                                                <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiGithubpages style={{ color: "#6d2ae2" }} /></span></h1>
-                                            </div>
-                                        </div>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        {
+                                            packages.map((item, index) => (
+                                                <Button
+                                                    key={index}
+                                                    variant="outlined"
+                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                                    startIcon={getIconForTechnology(item.name)}>
+                                                    {item.name}
+                                                </Button>
+                                            ))
+                                        }
                                     </div>
                                 </TabPanel>
-                                {/* <div className="card shadow">
-                                    <div className="card-body">
-                                        <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>LANGUAGES & WEB TECHNOLOGIES</Typography>
-                                        <div className='d-flex flex-wrap gap-4 mt-4'>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiCplusplus style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiPython style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiHtml5 style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiCss3 style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaSass style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiJavascript style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiTypescript style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiReact style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiAngular style={{ color: "#6d2ae2" }} /></span></h1>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div className="card shadow mt-5">
-                                    <div className="card-body">
-                                        <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>FRAMEWORKS, PLATFORMS & LIBRARIES</Typography>
-                                        <div className='d-flex flex-wrap gap-4 mt-4'>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><BsBootstrapFill style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiMui style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiTailwindcss style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiAntdesign style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><IoLogoJavascript style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiRedux style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiJquery style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaNpm style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaYarn style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiVite style={{ color: "#6d2ae2" }} /></span></h1>
-                                        </div>
+                                <TabPanel value={value} index={3}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("MongoDB")}>
+                                            MongoDB
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Firebase")}>
+                                            Firebase
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Postman")}>
+                                            Postman
+                                        </Button>
                                     </div>
-                                </div>
+                                </TabPanel>
 
-                                <div className="card shadow mt-5">
-                                    <div className="card-body">
-                                        <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>TOOLS & HOSTING</Typography>
-                                        <div className='d-flex flex-wrap gap-4 mt-4'>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaGitAlt style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaGithub style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiHeroku style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiNetlify style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiVercel style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiGithubpages style={{ color: "#6d2ae2" }} /></span></h1>
-                                        </div>
+                                <TabPanel value={value} index={4}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Git")}>
+                                            Git
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("GitHub")}>
+                                            GitHub
+                                        </Button>
                                     </div>
-                                </div>
+                                </TabPanel>
 
-                                <div className="card shadow mt-5">
-                                    <div className="card-body">
-                                        <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>DATABASE, IDES / EDITORS & OS</Typography>
-                                        <div className='d-flex flex-wrap gap-4 mt-4'>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiMysql style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiVisualstudiocode style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiPycharm style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiAtom style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiWindows11 style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaLinux style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaUbuntu style={{ color: "#6d2ae2" }} /></span></h1>
-                                        </div>
+                                <TabPanel value={value} index={5}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        {
+                                            hosting.map((item, index) => (
+                                                <Button
+                                                    key={index}
+                                                    variant="outlined"
+                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                                    startIcon={getIconForTechnology(item.name)}>
+                                                    {item.name}
+                                                </Button>
+                                            ))
+                                        }
                                     </div>
-                                </div>
+                                </TabPanel>
 
-                                <div className="card shadow mt-5">
-                                    <div className="card-body">
-                                        <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>OTHERS</Typography>
-                                        <div className='d-flex flex-wrap gap-4 mt-4'>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><FaMarkdown style={{ color: "#6d2ae2" }} /></span></h1>
-                                            <h1><span className="badge" style={{ border: "2px solid #6d2ae2" }}><SiLatex style={{ color: "#6d2ae2" }} /></span></h1>
-                                        </div>
+                                <TabPanel value={value} index={6}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("VS Code")}>
+                                            VS Code
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("PyCharm")}>
+                                            PyCharm
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Atom")}>
+                                            Atom
+                                        </Button>
                                     </div>
-                                </div>
+                                </TabPanel>
 
-                                <div className="card shadow mt-5">
-                                    <div className='card-body'>
-                                        <Typography variant='h5' sx={{ fontWeight: "bold" }} style={{ color: "#6d2ae2" }}>KNOWLEDGE</Typography>
-                                        <div className='d-flex flex-wrap gap-3 mt-4'>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Object Oriented Programming</span> </h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>REST APIs</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Error Handling</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Asynchronous Programming</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Responsive and Mobile Ready</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Agile Methodologies</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Version Control</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>Unit Testing</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>API Integration</span></h5>
-                                            <h5><span className="badge" style={{ border: "2px solid #6d2ae2", color: "#6d2ae2" }}>PWA (Progressive Web App)</span></h5>
-                                        </div>
+                                <TabPanel value={value} index={7}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Windows")}>
+                                            Windows
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Linux")}>
+                                            Linux
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Ubuntu")}>
+                                            Ubuntu
+                                        </Button>
                                     </div>
-                                </div> */}
+                                </TabPanel>
+
+                                <TabPanel value={value} index={8}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("Markdown")}>
+                                            Markdown
+                                        </Button>
+                                        <Button
+                                            variant="outlined"
+                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                            startIcon={getIconForTechnology("LaTeX")}>
+                                            LaTeX
+                                        </Button>
+                                    </div>
+                                </TabPanel>
+
+                                <TabPanel value={value} index={9}>
+                                    <div className='d-flex flex-wrap gap-4'>
+                                        {
+                                            knowledge.map((item, index) => (
+                                                <Button
+                                                    key={index}
+                                                    variant="outlined"
+                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
+                                                    startIcon={getIconForTechnology(item.name)}>
+                                                    {item.name}
+                                                </Button>
+                                            ))
+                                        }
+                                    </div>
+                                </TabPanel>
                             </div>
                         </div>
                     </div>
