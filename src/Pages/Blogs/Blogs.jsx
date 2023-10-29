@@ -6,7 +6,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import underConstruction from '../../assets/Images/blog.svg'
 
 // Social Links
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 
 // Theme
 import { lightTheme } from '../../Themes';
