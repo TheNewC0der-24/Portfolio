@@ -1,35 +1,27 @@
 import React, { useRef, useState } from 'react';
-import styles from './Contact.module.css';
-
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-// Email.js
-import emailjs from '@emailjs/browser';
-
-// Icon
+import { darkTheme } from '../../Themes';
+import {
+    Box,
+    Grid,
+    Typography,
+    TextField,
+    MenuItem,
+    Button,
+    Container,
+    Card,
+    CardContent
+} from '@mui/material';
+import { useFormik, FormikProvider, Form } from 'formik';
+import * as Yup from 'yup';
 import { RiFunctionLine } from 'react-icons/ri';
-
-// Image
-import chat from '../../assets/Images/Chat.svg';
-
-// Background Animation
-import BackgroundAnimation from '../../subComponents/BackgroundAnimate/BackgroundAnimate';
-
-// Themes
-import { lightTheme, darkTheme } from '../../Themes';
-
-// Alert
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-// Form Validation
-import { useFormik } from "formik";
-
-// Components
-import SelectSubject from '../../Components/SelectSubject';
+import chat from '../../assets/Images/contact.svg';
+import BackgroundAnimation from '../../SubComponents/BackgroundAnimate/BackgroundAnimate';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 const GlobalStyle = createGlobalStyle`
-    body {
+     body {
         background: ${props => props.theme.body};
         color: ${props => props.theme.text};
     }
@@ -37,39 +29,31 @@ const GlobalStyle = createGlobalStyle`
     .card {
         background: none !important;
         border-radius : 0px !important;
-        border : 2px solid #dee2e6 !important;
         backdrop-filter: blur(4px) !important;
+    }
+
+    input {
+        color: #dee2e6 !important;
+    }
+
+    input::placeholder {
+        color: #dee2e6 !important;
     }
 `;
 
 const Contact = () => {
+    const title = "Bhavya Khurana | Contact Me";
+    document.title = title;
 
-    // eslint-disable-next-line
-    const [isClearable, setIsClearable] = useState(true);
-    // eslint-disable-next-line
-    const [isSearchable, setIsSearchable] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const formRef = useRef();
 
-    const validate = values => {
-        const errors = {};
-        if (!values.name) {
-            errors.name = "*Name is required";
-        }
-
-        if (!values.email) {
-            errors.email = "*E-mail is required";
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = "*Invalid e-mail address";
-        }
-        if (!values.subject) {
-            errors.subject = "*Select Subject";
-        } else if (values.subject === "Select...") {
-            errors.subject = "*Choose correct option";
-        }
-        if (!values.message) {
-            errors.message = "*Message is required";
-        }
-        return errors;
-    }
+    const ContactSchema = Yup.object().shape({
+        name: Yup.string().required('Name is required'),
+        email: Yup.string().email('Invalid email').required('Email is required'),
+        subject: Yup.string().required('Select Subject'),
+        message: Yup.string().required('Message is required'),
+    });
 
     const formik = useFormik({
         initialValues: {
@@ -78,31 +62,28 @@ const Contact = () => {
             subject: "",
             message: "",
         },
-        validate,
-        onSubmit: () => {
-            emailjs.sendForm('service_oept3k5', 'template_1u8sgyc', form.current, 'J0p498TOPVXH53bfO')
-                .then((result) => {
-                    console.warn(result.text);
-                }, (error) => {
-                    console.error(error.text);
-                });
-
-            formik.resetForm();
-
-            toast.success('Message sent successfully!!', {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            })
+        validationSchema: ContactSchema,
+        onSubmit: async (values, { setErrors, resetForm }) => {
+            try {
+                setLoading(true);
+                emailjs.sendForm('service_oept3k5', 'template_1u8sgyc', formRef.current, 'J0p498TOPVXH53bfO')
+                    .then((result) => {
+                        console.warn(result.text);
+                    }, (error) => {
+                        console.error(error.text);
+                    });
+                toast.success('Message sent successfully!!')
+            } catch (error) {
+                setErrors({ afterSubmit: error.message });
+                toast.error('Something went wrong!!')
+            } finally {
+                setLoading(false);
+                resetForm({ values: '' });
+            }
         }
     });
 
-    const form = useRef();
+    const { errors, touched, values, handleSubmit, getFieldProps } = formik;
 
     const options = [
         { value: 'just chatting', label: 'Just chatting' },
@@ -113,168 +94,217 @@ const Contact = () => {
         { value: 'other', label: 'Other' },
     ];
 
-    const customStyles = {
-        control: (provided, state) => ({
-            ...provided,
-            width: "100%",
-            textDecoration: "none",
-            outline: 0,
-            boxShadow: "none",
-            borderRadius: 0,
-            backgroundColor: "none",
-            color: "#dee2e6",
-            borderColor: state.isFocused ? "#6d2ae2" : "#dee2e6" && formik.errors.subject ? "#dc3545" : "#dee2e6",
-            "&:hover": {
-                borderColor: "#dee2e6",
-            },
-        }),
-        option: (provided, state) => ({
-            ...provided,
-            color: state.isSelected ? '#dee2e6' : '#0e1313',
-            padding: 10,
-            width: "100%",
-            backgroundColor: state.isSelected ? '#6d2ae2' : '#dee2e6',
-        }),
-        singleValue: (provided, state) => {
-            const color = "#dee2e6";
-            const opacity = state.isDisabled ? 0.5 : 1;
-            const transition = 'opacity 300ms';
-            return { ...provided, opacity, transition, color };
-        }
-    }
-
-    const title = "Bhavya Khurana | Contact Me";
-    document.title = title;
-
     return (
         <>
             <ThemeProvider theme={darkTheme}>
                 <GlobalStyle />
                 <BackgroundAnimation />
-                <ToastContainer
-                    position="top-right"
-                    autoClose={2000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="colored"
-                />
-                <div className='container my-4'>
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-md-7 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
-                                    <h1 className={styles.getInTouch}>Get In Touch</h1>
-                                    <h5>Any question or remarks? Just write a message!</h5>
-                                    <form ref={form} autoComplete='off' onSubmit={formik.handleSubmit} className={`${styles.form} d-grid col-10 my-5`}>
-                                        <div className="mb-3">
-                                            <input
-                                                id="name"
-                                                name="name"
-                                                type="text"
-                                                className={`form-control ${formik.errors.name ? "border-danger" : ""}`}
-                                                placeholder="Enter your name"
-                                                onChange={formik.handleChange}
-                                                value={formik.values.name}
-                                            />
-                                            {formik.errors.name ? (<div className="form-text text-danger">
-                                                {formik.errors.name}
-                                            </div>
-                                            ) : null}
-                                        </div>
-                                        <div className="mb-3">
-                                            <input
-                                                id="email"
-                                                name="email"
-                                                className={`form-control ${formik.errors.email ? "border-danger" : ""}`}
-                                                type="email"
-                                                placeholder="Enter your e-mail address"
-                                                onChange={formik.handleChange}
-                                                value={formik.values.email}
-                                            />
-                                            {formik.errors.email ? (
-                                                <div className="form-text text-danger">
-                                                    {formik.errors.email}
-                                                </div>
-                                            ) : null}
-                                        </div>
-                                        <div className="mb-3">
-                                            <SelectSubject
-                                                id="subject"
-                                                name="subject"
-                                                customStyles={customStyles}
-                                                className={formik.errors.subject ? "border-danger" : ""}
-                                                options={options}
-                                                // defaultValue={options[0]}
-                                                onChange={value => formik.setFieldValue('subject', value.value)}
-                                                value={formik.values.subject}
-                                                isClearable={isClearable}
-                                                isSearchable={isSearchable}
-                                            />
-                                            {formik.errors.subject ? (
-                                                <div className="form-text text-danger">
-                                                    {formik.errors.subject}
-                                                </div>
-                                            ) : null}
-                                        </div>
 
-                                        <div className="mb-3">
-                                            <textarea
-                                                id="message"
-                                                name="message"
-                                                className={`form-control ${formik.errors.message ? "border-danger" : ""}`}
-                                                rows="5"
-                                                placeholder="Go ahead, I am listening..."
-                                                onChange={formik.handleChange}
-                                                value={formik.values.message}
-                                            />
-                                            {formik.errors.message ? (
-                                                <div className="form-text text-danger">
-                                                    {formik.errors.message}
-                                                </div>
-                                            ) : null}
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            className={styles.submitBtn}
-                                            id="submitBtn"
-                                        >
-                                            Send Message
-                                        </button>
-                                    </form>
-                                    {/* )} */}
-                                    {/* </Formik> */}
-                                </div>
-                                <div className="col-md-5 m-auto" theme={lightTheme} style={{ color: "#dee2e6" }}>
-                                    <img src={chat} alt="let's chat" width={400} className='img-fluid' />
-                                    <div className='my-5'>
-                                        <h5 className={styles.contact}><i className="fas fa-map-marker-alt"></i> Address</h5>
-                                        <p>5, Ambeshwar Colony, Opp. Shyam Nagar Metro Station, Jaipur, Rajasthan, India</p>
-                                    </div>
-                                    <div className='my-5'>
-                                        <h5 className={styles.contact}><i className="fas fa-phone"></i> Phone Number</h5>
-                                        <p>+91 9352-433995</p>
-                                    </div>
-                                    <div className='my-5'>
-                                        <h5 className={styles.contact}><i className="fas fa-envelope"></i> Email</h5>
-                                        <p>
-                                            <a href="mailto:khuranabhavya24@gmail.com" className={styles.mail}>khuranabhavya24@gmail.com</a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className='d-flex justify-content-center flex-wrap gap-4'>
+                <Box mb={3}>
+                    <Box sx={{ bgcolor: "#DFD8FD", display: "flex", alignItems: "center" }}>
+                        <img src={chat} alt="let's chat" width="15%" className='img-fluid' />
+                        <Box>
+                            <Typography variant="h4" fontFamily='Caveat' fontWeight="bold">
+                                Get In Touch
+                            </Typography>
+                            <Typography variant="h6" fontFamily='Caveat' fontWeight="bold">
+                                Any question or remarks? Just write a message!
+                            </Typography>
+                        </Box>
+                    </Box>
+
+                    <Container maxWidth="xl" sx={{ mt: 3 }}>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Card className='card'>
+                                    {loading && <Typography variant="h6" fontFamily='Caveat' fontWeight="bold" sx={{ textAlign: 'center' }}>Loading...</Typography>}
+                                    <CardContent>
+                                        <FormikProvider value={formik}>
+                                            <Form ref={formRef} autoComplete="off" noValidate onSubmit={handleSubmit}>
+                                                <Grid container spacing={2}>
+                                                    <Grid item xs={12} sm={12} md={6}>
+                                                        <TextField
+                                                            fullWidth
+                                                            label="Name"
+                                                            type='text'
+                                                            required
+                                                            sx={{
+                                                                '& label': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& label.Mui-focused': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& .MuiOutlinedInput-root': {
+                                                                    '& fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&:hover fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&.Mui-focused fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                },
+                                                            }}
+                                                            {...getFieldProps('name')}
+                                                            error={Boolean(touched.name && errors.name)}
+                                                            helperText={touched.name && errors.name}
+                                                        />
+
+                                                        <TextField
+                                                            fullWidth
+                                                            label="Email"
+                                                            required
+                                                            type='email'
+                                                            sx={{
+                                                                mt: 3,
+                                                                '& label': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& label.Mui-focused': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& .MuiOutlinedInput-root': {
+                                                                    '& fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&:hover fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&.Mui-focused fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                },
+                                                            }}
+                                                            {...getFieldProps('email')}
+                                                            error={Boolean(touched.email && errors.email)}
+                                                            helperText={touched.email && errors.email}
+                                                        />
+
+                                                        <TextField
+                                                            fullWidth
+                                                            label="Subject"
+                                                            select
+                                                            required
+                                                            sx={{
+                                                                mt: 3,
+                                                                '& .MuiSelect-select': {
+                                                                    color: '#dee2e6',
+                                                                },
+                                                                '& .MuiSelect-icon': {
+                                                                    color: '#dee2e6',
+                                                                },
+
+                                                                '& label': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& label.Mui-focused': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& .MuiOutlinedInput-root': {
+                                                                    '& fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&:hover fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&.Mui-focused fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                },
+                                                            }}
+                                                            {...getFieldProps('subject')}
+                                                            error={Boolean(touched.subject && errors.subject)}
+                                                            helperText={touched.subject && errors.subject}
+                                                        >
+                                                            {options.map((option) => (
+                                                                <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
+                                                            ))}
+                                                        </TextField>
+
+                                                    </Grid>
+
+                                                    <Grid item xs={12} sm={12} md={6}>
+                                                        <TextField
+                                                            fullWidth
+                                                            label="Message"
+                                                            required
+                                                            multiline
+                                                            rows={8}
+                                                            sx={{
+                                                                '& label': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& label.Mui-focused': {
+                                                                    color: '#6d2ae2',
+                                                                },
+                                                                '& .MuiOutlinedInput-root': {
+                                                                    '& fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&:hover fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                    '&.Mui-focused fieldset': {
+                                                                        borderColor: '#6d2ae2',
+                                                                    },
+                                                                },
+                                                            }}
+                                                            {...getFieldProps('message')}
+                                                            error={Boolean(touched.message && errors.message)}
+                                                            helperText={touched.message && errors.message}
+                                                        />
+                                                    </Grid>
+                                                </Grid>
+                                                <Button
+                                                    variant='contained'
+                                                    type='submit'
+                                                    size='large'
+                                                    fullWidth
+                                                    sx={{
+                                                        mt: 3,
+                                                        backgroundColor: '#6d2ae2',
+                                                        '&:hover': {
+                                                            backgroundColor: '#6d2ae2',
+                                                        },
+                                                        '&.Mui-disabled': {
+                                                            backgroundColor: '#dee2e6',
+                                                            color: '#000',
+                                                        }
+                                                    }}
+                                                    disabled={errors.email || errors.name || errors.subject || errors.message ? true : false}
+                                                >
+                                                    Send Message
+                                                </Button>
+                                            </Form>
+                                        </FormikProvider>
+                                    </CardContent>
+                                </Card>
+
+                            </Grid>
+
+
+                            <Grid item xs={12} sm={12} md={6}>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.235556106043!2d75.76865537515083!3d26.89601837665712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db467cd6dec99%3A0x4fb9c9e79e7fb618!2s5%2C%20Ambeshwar%20Colony%2C%20Shiv%20Puri%20Colony%2C%20Ramnagar%2C%20Jaipur%2C%20Rajasthan%20302007!5e0!3m2!1sen!2sin!4v1698606854285!5m2!1sen!2sin"
+                                    width="100%"
+                                    height="90%"
+                                    style={{ border: "0" }}
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+
+                                </iframe>
+                                <div className='d-flex justify-content-center flex-wrap gap-4 mt-2'>
                                     <RiFunctionLine />
                                     <RiFunctionLine />
                                     <RiFunctionLine />
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </Box>
             </ThemeProvider>
         </>
     )
