@@ -1,9 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
 import { darkTheme } from '../../Themes';
-
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import InterestCard from '../../Components/InterestCard';
 
 const GlobalStyle = createGlobalStyle`

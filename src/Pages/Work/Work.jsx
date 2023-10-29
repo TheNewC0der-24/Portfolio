@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
+import { lightTheme } from '../../Themes';
 import {
     TextField,
     Grid,
@@ -16,25 +16,13 @@ import {
     Box,
     Button
 } from '@mui/material';
-
-import Aos from 'aos';
-import "aos/dist/aos.css";
-
 import { styled } from '@mui/material/styles';
-
-// Social Links
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
-// Theme
-import { lightTheme } from '../../Themes';
-
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import project from '../../Data/projectsData.json';
-
-// Icons
 import { FaRegFolder } from 'react-icons/fa';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import { MdOutlineExpandMore } from 'react-icons/md';
-
+import Aos from 'aos';
 import { formatDate } from '../../Helpers/formatDate';
 
 const GlobalStyle = createGlobalStyle`

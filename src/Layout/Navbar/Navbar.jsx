@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import { Button } from '@mui/material';
 
-import SoundBar from '../../subComponents/SoundBar';
+import SoundBar from '../../SubComponents/SoundBar';
 
 import Profile from '../../assets/Images/MyImgs/portrait.png';
 import Sidebar from '../Sidebar/Sidebar';

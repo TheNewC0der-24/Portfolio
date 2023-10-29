@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-// Social Links
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
-// Theme
 import { darkTheme } from '../../Themes';
-
-import experience from '../../Data/experienceData.json';
-
 import {
     Accordion,
     AccordionDetails,
@@ -24,10 +16,10 @@ import {
     ListItemText,
     ListItemIcon,
 } from '@mui/material';
-
 import { FaPlus, FaMinus, FaExternalLinkAlt } from 'react-icons/fa';
 import { SiSitepoint } from 'react-icons/si';
-
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
+import experience from '../../Data/experienceData.json';
 import { getIconForTechnology } from '../../Helpers/getIconForTechnology';
 
 const GlobalStyle = createGlobalStyle`

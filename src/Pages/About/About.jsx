@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { darkTheme } from '../../Themes';
 import { Button } from '@mui/material';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
-
-import Aos from 'aos';
-import "aos/dist/aos.css";
-
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-// Social Links
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
-// Theme
-import { darkTheme } from '../../Themes';
-
-import ParticleBackgroundAnimate from '../../subComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
-
-import ReadMore from '../../Components/ReadMore';
 import bmac from '../../assets/Images/bmac.svg';
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
+import ParticleBackgroundAnimate from '../../SubComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
+import Aos from 'aos';
+import ReadMore from '../../Components/ReadMore';
 
 const GlobalStyle = createGlobalStyle`
   body {

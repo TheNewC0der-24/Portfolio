@@ -1,22 +1,11 @@
 import React from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-
-// Routing
 import { useNavigate } from 'react-router-dom';
-
-// Icon
-import { BsDot } from 'react-icons/bs';
-
-// Social Links
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
-// Theme
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { lightTheme, darkTheme } from '../../Themes';
-
-// Typewriter
+import { BsDot } from 'react-icons/bs';
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import { Typewriter } from "react-simple-typewriter";
 
-// Global Style
 const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${props => props.theme.body};
@@ -180,7 +169,6 @@ const Intro = styled.div`
     }`;
 
 const Home = () => {
-
     const navigate = useNavigate();
 
     const title = "Bhavya Khurana";

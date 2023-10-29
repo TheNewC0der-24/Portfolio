@@ -20,7 +20,7 @@
     left: 0;
     margin: 0;
     padding: 0;
-    background: #0e1313;
+    background: transparent;
     overflow: hidden;
     z-index: -1;
 }

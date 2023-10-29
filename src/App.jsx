@@ -1,15 +1,15 @@
+import './App.css';
 import React, { useState, lazy, Suspense, useEffect } from 'react';
 
-import {
-  BrowserRouter as Router, Routes, Route, useLocation
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from './ErrorBoundary';
-import './App.css';
 
 import LoadingScreen from './LoadingScreen/LoadingScreen';
 import NotFound from './NotFound/404NotFound';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = lazy(() => import('./Layout/Header'));
 const Home = lazy(() => import('./Pages/Home/Home'));
@@ -76,6 +76,18 @@ function AppContent() {
               <Route exact path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
           </React.Fragment>
         )
       }

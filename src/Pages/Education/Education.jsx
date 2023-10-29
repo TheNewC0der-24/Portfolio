@@ -1,19 +1,10 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import 'react-lazy-load-image-component/src/effects/blur.css';
-
-import { FaExternalLinkAlt } from 'react-icons/fa';
-
-import SocialLinks from '../../subComponents/SocialLinks/SocialLinks';
-
-import educationData from '../../Data/educationData.json';
-
-import Aos from 'aos';
-import "aos/dist/aos.css";
-
 import { lightTheme } from '../../Themes';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
+import educationData from '../../Data/educationData.json';
+import Aos from 'aos';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -43,7 +34,6 @@ const GlobalStyle = createGlobalStyle`
     box-shadow:  5px 5px 10px #abaeb1, -5px -5px 10px #ffffff;
  }
 `;
-
 
 const Education = () => {
 

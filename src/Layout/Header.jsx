@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
-import SoundBar from '../subComponents/SoundBar';
+import SoundBar from '../SubComponents/SoundBar';
 import Profile from '../assets/Images/MyImgs/myPic.png';
 import DisplayImg from '../Components/DisplayImg/DisplayImg';
 
