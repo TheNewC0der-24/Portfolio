@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Bootstrap"
+    },
+    {
+        "name": "MUI"
+    },
+    {
+        "name": "Tailwind CSS"
+    },
+    {
+        "name": "Ant Design"
+    },
+    {
+        "name": "Chakra UI"
+    },
+    {
+        "name": "React.js"
+    },
+    {
+        "name": "Angular"
+    },
+    {
+        "name": "Next.js"
+    },
+    {
+        "name": "Redux"
+    },
+    {
+        "name": "Recoil"
+    },
+    {
+        "name": "Docker"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Netlify"
+    },
+    {
+        "name": "Vercel"
+    },
+    {
+        "name": "Firebase"
+    },
+    {
+        "name": "Heroku"
+    },
+    {
+        "name": "gh Pages"
+    }
+]
