@@ -59,23 +59,11 @@ export const otherNavItems = [
         name: ".skills()", link: "/skills"
     },
     {
-        name: ".education()", link: "/education"
-    },
-    {
         name: ".interest()", link: "/interest"
-    },
-]
-
-export const otherNavItemsForBigScreens = [
-    {
-        name: ".skills()", link: "/skills"
     },
     {
         name: ".education()", link: "/education"
-    },
-    {
-        name: ".interest()", link: "/interest"
-    },
+    }
 ]
 
 function Navbar(props) {
