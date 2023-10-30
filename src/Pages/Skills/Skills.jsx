@@ -71,6 +71,44 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
+function SkillCategoryButtons({ items }) {
+    return (
+        <div className='d-flex flex-wrap gap-4'>
+            {items.map((item, index) => (
+                <Button
+                    key={index}
+                    variant="outlined"
+                    style={{
+                        color: "#6d2ae2",
+                        borderColor: "#6d2ae2",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                        border: "2px solid",
+                        height: "40px",
+                        borderRadius: "10px"
+                    }}
+                    startIcon={getIconForTechnology(item.name)}
+                >
+                    {item.name}
+                </Button>
+            ))}
+        </div>
+    );
+}
+
+const categories = [
+    { label: "Languages", data: languages },
+    { label: "Frameworks & Libraries", data: fandl },
+    { label: "Packages", data: packages },
+    { label: "Backend, Tools & Services", data: [{ name: "MongoDB" }, { name: "Firebase" }, { name: "Postman" }] },
+    { label: "Version Control & Collaboration", data: [{ name: "Git" }, { name: "GitHub" }] },
+    { label: "Hosting & Deployment", data: hosting },
+    { label: "Integrated Development Environments (IDEs)", data: [{ name: "VS Code" }, { name: "PyCharm" }, { name: "Atom" }] },
+    { label: "Operating Systems", data: [{ name: "Windows" }, { name: "Linux" }, { name: "Ubuntu" }] },
+    { label: "Text Markup & Documentation", data: [{ name: "Markdown" }, { name: "LaTeX" }] },
+    { label: "Knowledge", data: knowledge }
+];
+
 function a11yProps(index) {
     return {
         id: `simple-tab-${index}`,
@@ -132,204 +170,18 @@ const Skills = () => {
                                                     color: "#DFD8FD",
                                                 },
                                             },
-
                                         }}
                                     >
-                                        <Tab label="Languages" {...a11yProps(0)} />
-                                        <Tab label="Frameworks & Libraries" {...a11yProps(1)} />
-                                        <Tab label="Packages" {...a11yProps(2)} />
-                                        <Tab label="Backend, Tools & Services" {...a11yProps(3)} />
-                                        <Tab label="Version Control & Collaboration" {...a11yProps(4)} />
-                                        <Tab label="Hosting & Deployment" {...a11yProps(5)} />
-                                        <Tab label="Integrated Development Environments (IDEs)" {...a11yProps(6)} />
-                                        <Tab label="Operating Systems" {...a11yProps(7)} />
-                                        <Tab label="Text Markup & Documentation" {...a11yProps(8)} />
-                                        <Tab label="Knowledge" {...a11yProps(9)} />
+                                        {categories.map((category, index) => (
+                                            <Tab key={index} label={category.label} {...a11yProps(index)} />
+                                        ))}
                                     </Tabs>
                                 </Box>
-
-                                <TabPanel value={value} index={0}>
-                                    <div className='d-flex align-items-center flex-wrap gap-4'>
-                                        {
-                                            languages.map((item, index) => (
-                                                <Button
-                                                    key={index}
-                                                    variant="outlined"
-                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                                    startIcon={getIconForTechnology(item.name)}>
-                                                    {item.name}
-                                                </Button>
-                                            ))
-                                        }
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={1}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        {
-                                            fandl.map((item, index) => (
-                                                <Button
-                                                    key={index}
-                                                    variant="outlined"
-                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                                    startIcon={getIconForTechnology(item.name)}>
-                                                    {item.name}
-                                                </Button>
-                                            ))
-                                        }
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={2}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        {
-                                            packages.map((item, index) => (
-                                                <Button
-                                                    key={index}
-                                                    variant="outlined"
-                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                                    startIcon={getIconForTechnology(item.name)}>
-                                                    {item.name}
-                                                </Button>
-                                            ))
-                                        }
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={3}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("MongoDB")}>
-                                            MongoDB
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Firebase")}>
-                                            Firebase
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Postman")}>
-                                            Postman
-                                        </Button>
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={4}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Git")}>
-                                            Git
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("GitHub")}>
-                                            GitHub
-                                        </Button>
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={5}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        {
-                                            hosting.map((item, index) => (
-                                                <Button
-                                                    key={index}
-                                                    variant="outlined"
-                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                                    startIcon={getIconForTechnology(item.name)}>
-                                                    {item.name}
-                                                </Button>
-                                            ))
-                                        }
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={6}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("VS Code")}>
-                                            VS Code
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("PyCharm")}>
-                                            PyCharm
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Atom")}>
-                                            Atom
-                                        </Button>
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={7}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Windows")}>
-                                            Windows
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Linux")}>
-                                            Linux
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Ubuntu")}>
-                                            Ubuntu
-                                        </Button>
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={8}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("Markdown")}>
-                                            Markdown
-                                        </Button>
-                                        <Button
-                                            variant="outlined"
-                                            style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                            startIcon={getIconForTechnology("LaTeX")}>
-                                            LaTeX
-                                        </Button>
-                                    </div>
-                                </TabPanel>
-
-                                <TabPanel value={value} index={9}>
-                                    <div className='d-flex flex-wrap gap-4'>
-                                        {
-                                            knowledge.map((item, index) => (
-                                                <Button
-                                                    key={index}
-                                                    variant="outlined"
-                                                    style={{ color: "#6d2ae2", borderColor: "#6d2ae2", textTransform: "none", fontWeight: "bold", border: "2px solid", height: "40px", borderRadius: "10px" }}
-                                                    startIcon={getIconForTechnology(item.name)}>
-                                                    {item.name}
-                                                </Button>
-                                            ))
-                                        }
-                                    </div>
-                                </TabPanel>
+                                {categories.map((category, index) => (
+                                    <TabPanel key={index} value={value} index={index}>
+                                        <SkillCategoryButtons items={category.data} />
+                                    </TabPanel>
+                                ))}
                             </div>
                         </div>
                     </div>
