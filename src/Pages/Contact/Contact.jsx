@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import styles from './Contact.module.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { darkTheme } from '../../Themes';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -399,7 +400,7 @@ const Contact = () => {
                                     width="100%"
                                     height="100%"
                                     style={{ border: "0" }}
-                                    allowfullscreen=""
+                                    allowFullScreen={true}
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade">
 
