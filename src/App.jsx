@@ -21,6 +21,7 @@ const Skills = lazy(() => import('./Pages/Skills/Skills'));
 const Work = lazy(() => import('./Pages/Work/Work'));
 const Experience = lazy(() => import('./Pages/Experience/Experience'));
 const Blogs = lazy(() => import('./Pages/Blogs/Blogs'));
+const BlogPost = lazy(() => import('./Pages/Blogs/BlogPost'));
 const Contact = lazy(() => import('./Pages/Contact/Contact'));
 
 function App() {
@@ -70,6 +71,7 @@ function AppContent() {
               <Route exact path="/work" element={<Work />} />
               <Route exact path="/experience" element={<Experience />} />
               <Route exact path="/blogs" element={<Blogs />} />
+              <Route exact path="/blog/:slug" element={<BlogPost />} />
               <Route exact path="/education" element={<Education />} />
               <Route exact path="/interest" element={<Interest />} />
               <Route exact path="/skills" element={<Skills />} />
