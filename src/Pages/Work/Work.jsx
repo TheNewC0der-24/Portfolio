@@ -14,12 +14,13 @@ import {
     IconButton,
     Collapse,
     Box,
-    Button
+    Button,
+    Skeleton
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import project from '../../Data/projectsData.json';
-import { FaRegFolder } from 'react-icons/fa';
+import { GoProject } from 'react-icons/go';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import { MdOutlineExpandMore } from 'react-icons/md';
 import Aos from 'aos';
@@ -79,6 +80,7 @@ const Project = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [expanded, setExpanded] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     const filteredProjects = project.filter(project =>
         project.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -91,6 +93,13 @@ const Project = () => {
         }));
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <ThemeProvider theme={lightTheme}>
@@ -128,70 +137,108 @@ const Project = () => {
                         </Box>
 
                         <Grid container spacing={2} sx={{ mb: 5 }}>
-                            {
-                                filteredProjects?.length === 0 ? (
-                                    <Box sx={{ display: "flex", justifyContent: "center", margin: "auto", mt: 5 }}>
-                                        <Typography variant='h5'>No Work found with topic <span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{searchTerm}</span></Typography>
-                                    </Box>
-                                ) :
-                                    filteredProjects?.map((item) => (
-                                        <Grid item xs={12} sm={12} md={6} lg={4} key={item.id}>
-                                            <Card data-aos="fade-up" sx={{ borderBottom: '5px solid #6d2ae2' }}>
-                                                <CardHeader
-                                                    avatar={
-                                                        <Avatar sx={{ bgcolor: "#DFD8FD", color: "#6d2ae2" }}>
-                                                            <FaRegFolder />
-                                                        </Avatar>
-                                                    }
-                                                    title={item.name}
-                                                    subheader={formatDate(item.created_at)}
-                                                />
-                                                <CardMedia
-                                                    component="img"
-                                                    image={item.image}
-                                                    alt={item.name}
-                                                    loading="lazy"
-                                                />
-                                                <CardActions disableSpacing>
-                                                    <IconButton href={item.html_url} target="_blank" rel="noreferrer">
-                                                        <FiGithub className='links' />
-                                                    </IconButton>
-                                                    {
-                                                        item.homepage && (
-                                                            <IconButton href={item.homepage} target="_blank" rel="noreferrer">
-                                                                <FiExternalLink className='links' />
-                                                            </IconButton>
-                                                        )
-                                                    }
+                            {/* {isLoading ?
+                                Array.from({ length: 6 }).map((_, index) => (
+                                    <Grid item xs={12} sm={12} md={6} lg={4} key={index}>
+                                        <Card elevation={0} className='card'>
+                                            <CardHeader
+                                                avatar={
+                                                    <Skeleton animation="wave" variant="circular" width={40} height={40} />
+                                                }
+                                                title={
+                                                    <Skeleton
+                                                        animation="wave"
+                                                        height={10}
+                                                        width="80%"
+                                                        style={{ marginBottom: 6 }}
+                                                    />
+                                                }
+                                                subheader={
+                                                    <Skeleton animation="wave" height={10} width="40%" />
+                                                }
+                                            />
+                                            <Skeleton sx={{ height: 200 }} animation="wave" variant="rectangular" />
+                                            <CardContent>
+                                                <React.Fragment>
+                                                    <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
+                                                    <Skeleton animation="wave" height={10} width="80%" />
+                                                </React.Fragment>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                )) : (
+                                    <> */}
+                            {filteredProjects?.length === 0 ? (
+                                <Box sx={{ display: "flex", justifyContent: "center", margin: "auto", mt: 5 }}>
+                                    <Typography variant='h5'>No Work found with topic <span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{searchTerm}</span></Typography>
+                                </Box>
+                            ) :
+                                filteredProjects?.map((item) => (
+                                    <Grid item xs={12} sm={12} md={6} lg={4} key={item.id}>
+                                        <Card sx={{ borderBottom: '5px solid #6d2ae2' }}>
+                                            <CardHeader
+                                                avatar={
+                                                    <Avatar sx={{ bgcolor: "#DFD8FD", color: "#6d2ae2" }}>
+                                                        <GoProject />
+                                                    </Avatar>
+                                                }
+                                                title={item.name}
+                                                subheader={formatDate(item.created_at)}
+                                            />
+                                            {
+                                                isLoading ? (
+                                                    <Skeleton sx={{ height: 200 }} animation="wave" variant="rectangular" />
+                                                ) : (
+                                                    <CardMedia
+                                                        component="img"
+                                                        image={item.image}
+                                                        alt={item.name}
+                                                    />
+                                                )
+                                            }
+                                            <CardActions disableSpacing>
+                                                <IconButton href={item.html_url} target="_blank" rel="noreferrer">
+                                                    <FiGithub className='links' />
+                                                </IconButton>
+                                                {
+                                                    item.homepage && (
+                                                        <IconButton href={item.homepage} target="_blank" rel="noreferrer">
+                                                            <FiExternalLink className='links' />
+                                                        </IconButton>
+                                                    )
+                                                }
 
-                                                    <ExpandMore
-                                                        expand={expanded[item.id]}
-                                                        onClick={() => handleExpandClick(item.id)}
-                                                        aria-expanded={expanded[item.id]}
-                                                    >
-                                                        <MdOutlineExpandMore />
-                                                    </ExpandMore>
-                                                </CardActions>
-                                                <Collapse in={expanded[item.id]} timeout="auto" unmountOnExit>
-                                                    <CardContent>
-                                                        <Typography variant="body2" color="text.secondary">
-                                                            {item.description}
-                                                        </Typography>
-                                                        <div className='d-flex flex-wrap gap-2 mt-2'>
-                                                            {
-                                                                item.topics.map((topic) => {
-                                                                    return (
-                                                                        <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </div>
-                                                    </CardContent>
-                                                </Collapse>
-                                            </Card>
-                                        </Grid>
-                                    ))
+                                                <ExpandMore
+                                                    expand={expanded[item.id]}
+                                                    onClick={() => handleExpandClick(item.id)}
+                                                    aria-expanded={expanded[item.id]}
+                                                >
+                                                    <MdOutlineExpandMore />
+                                                </ExpandMore>
+                                            </CardActions>
+                                            <Collapse in={expanded[item.id]} timeout="auto" unmountOnExit>
+                                                <CardContent>
+                                                    <Typography variant="body2" color="text.secondary">
+                                                        {item.description}
+                                                    </Typography>
+                                                    <div className='d-flex flex-wrap gap-2 mt-2'>
+                                                        {
+                                                            item.topics.map((topic) => {
+                                                                return (
+                                                                    <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
+                                                                )
+                                                            })
+                                                        }
+                                                    </div>
+                                                </CardContent>
+                                            </Collapse>
+                                        </Card>
+                                    </Grid>
+                                ))
                             }
+                            {/* </>
+                                )
+                            } */}
 
                         </Grid>
 
