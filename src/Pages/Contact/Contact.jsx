@@ -380,7 +380,7 @@ const Contact = () => {
                                                         },
                                                         '&.Mui-disabled': {
                                                             backgroundColor: '#dee2e6',
-                                                            color: '#000',
+                                                            color: 'grey',
                                                         }
                                                     }}
                                                     disabled={errors.email || errors.name || errors.subject || errors.message ? true : false}
