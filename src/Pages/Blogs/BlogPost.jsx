@@ -125,11 +125,11 @@ const BlogPost = () => {
                     {post.contentMarkdown}
                 </ReactMarkdown>
 
-                <Box my={3}>
+                <Box my={3} sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
                     {post.tags && post.tags.map((tag, index) => (
                         <Chip
                             key={index}
-                            sx={{ mr: 2, border: "none", bgcolor: "#6d2ae2", color: "#DFD8FD" }}
+                            sx={{ border: "none", bgcolor: "#6d2ae2", color: "#DFD8FD" }}
                             label={tag.name}
                         />
                     ))}
@@ -144,7 +144,6 @@ const BlogPost = () => {
                             color: "#6d2ae2"
                         }
                     }}>
-
                         <BiCommentDetail className='fs-1' /> Leave a comment or react to the blog post on Hashnode.
                     </Link>
                 </Typography>
