@@ -99,7 +99,7 @@ const DisplayImg = ({ handleOpen, handleClose }) => {
                                     className={`slide ${index === currentSlide ? 'activeImg' : ''}`}
                                     style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                                 >
-                                    <img src={imageUrl} className='d-grid m-auto img-fluid rounded-circle w-75' alt={`Image ${index + 1}`} />
+                                    <img src={imageUrl} className='d-grid m-auto img-fluid rounded-circle w-75' alt={`Image ${index + 1}`} loading='lazy' />
                                 </div>
                             ))}
                         </div>
