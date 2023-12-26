@@ -29,7 +29,7 @@ function App() {
       <ErrorBoundary
         FallbackComponent={ErrorFallback}
         onReset={() => {
-          window.location.href = '/';
+          window.location.reload();
         }}
       >
         <AppContent />
