@@ -136,7 +136,7 @@ const GridView = ({ filteredProjects, searchTerm }) => {
                                 </motion.div>
                             </motion.div> */}
 
-                            <Card sx={{ borderBottom: '5px solid #6d2ae2' }}>
+                            <Card sx={{ borderTop: '5px solid #6d2ae2' }}>
                                 <CardHeader
                                     avatar={
                                         <Avatar sx={{ bgcolor: "#DFD8FD", color: "#6d2ae2" }}>
@@ -179,7 +179,7 @@ const GridView = ({ filteredProjects, searchTerm }) => {
                                     </ExpandMore>
                                 </CardActions>
                                 <Collapse in={expanded[item.id]} timeout="auto" unmountOnExit>
-                                    <CardContent>
+                                    <CardContent sx={{ borderTop: "1px solid #6d2ae2" }}>
                                         <Typography variant="body2" color="text.secondary">
                                             {item.description}
                                         </Typography>
