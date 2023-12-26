@@ -7,8 +7,8 @@ import {
 
 export default function ListView({ filteredProjects, searchTerm }) {
     return (
-        <Box sx={{ p: { md: 8, lg: 4 } }}>
-            <Box sx={{ marginX: "auto", maxWidth: "1024px" }}>
+        <Box sx={{ p: { sm: 0, md: 4 } }}>
+            <Box sx={{ marginX: "auto", width: '100%', maxWidth: { sm: "100%", md: "80%" } }}>
                 {filteredProjects?.length === 0 ? (
                     <Box sx={{ display: "flex", justifyContent: "center", margin: "auto", mt: 5 }}>
                         <Typography variant='h5'>No Work found with topic <span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{searchTerm}</span></Typography>

@@ -87,134 +87,138 @@ const Work = () => {
         <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
             <SocialLinks />
-            <div className="container px-5">
-                <h1 className="mt-3 text-center">.work()</h1>
-                <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
+            <div className="container">
+                <div className="container">
+                    <div className="container">
+                        <h1 className="mt-3 text-center">.work()</h1>
+                        <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
 
-                <Box sx={{ display: "flex", justifyContent: "end", mt: 3, mb: 3 }}>
-                    <ButtonGroup sx={{ borderColor: '#6d2ae2' }}>
-                        <Button
-                            onClick={() => setView('list')}
-                            size='large'
-                            variant={view === 'list' ? 'contained' : 'outlined'}
-                            sx={{
-                                backgroundColor: view === 'list' ? '#6d2ae2' : 'transparent',
-                                borderColor: '#6d2ae2',
-                                color: view === 'list' ? "#fff" : '#6d2ae2',
-                                '&:hover': {
-                                    backgroundColor: '#6d2ae2',
-                                    color: '#fff'
-                                }
-                            }}
-                            title='List View'
-                            disableElevation
-                        >
-                            <FaBars />
-                        </Button>
-                        <Button
-                            onClick={() => setView('grid')}
-                            variant={view === 'grid' ? 'contained' : 'outlined'}
-                            size='large'
-                            sx={{
-                                backgroundColor: view === 'grid' ? '#6d2ae2' : 'transparent',
-                                borderColor: '#6d2ae2',
-                                color: view === 'grid' ? "#fff" : '#6d2ae2',
-                                '&:hover': {
-                                    backgroundColor: '#6d2ae2',
-                                    color: '#fff'
-                                }
-                            }}
-                            title='Grid View'
-                            disableElevation
-                        >
-                            <IoGrid />
-                        </Button>
-                    </ButtonGroup>
-                </Box>
+                        <Box sx={{ display: "flex", justifyContent: "end", mt: 3, mb: 3 }}>
+                            <ButtonGroup sx={{ borderColor: '#6d2ae2' }}>
+                                <Button
+                                    onClick={() => setView('list')}
+                                    size='large'
+                                    variant={view === 'list' ? 'contained' : 'outlined'}
+                                    sx={{
+                                        backgroundColor: view === 'list' ? '#6d2ae2' : 'transparent',
+                                        borderColor: '#6d2ae2',
+                                        color: view === 'list' ? "#fff" : '#6d2ae2',
+                                        '&:hover': {
+                                            backgroundColor: '#6d2ae2',
+                                            color: '#fff'
+                                        }
+                                    }}
+                                    title='List View'
+                                    disableElevation
+                                >
+                                    <FaBars />
+                                </Button>
+                                <Button
+                                    onClick={() => setView('grid')}
+                                    variant={view === 'grid' ? 'contained' : 'outlined'}
+                                    size='large'
+                                    sx={{
+                                        backgroundColor: view === 'grid' ? '#6d2ae2' : 'transparent',
+                                        borderColor: '#6d2ae2',
+                                        color: view === 'grid' ? "#fff" : '#6d2ae2',
+                                        '&:hover': {
+                                            backgroundColor: '#6d2ae2',
+                                            color: '#fff'
+                                        }
+                                    }}
+                                    title='Grid View'
+                                    disableElevation
+                                >
+                                    <IoGrid />
+                                </Button>
+                            </ButtonGroup>
+                        </Box>
 
-                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: '1rem', gap: "1rem", flexWrap: "wrap" }}>
-                    <TextField
-                        fullWidth
-                        size='small'
-                        placeholder="Search topics..."
-                        sx={{
-                            width: '300px',
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                    borderColor: '#6d2ae2',
-                                },
-                                '&:hover fieldset': {
-                                    borderColor: '#6d2ae2',
-                                },
-                                '&.Mui-focused fieldset': {
-                                    borderColor: '#6d2ae2',
-                                },
-                            },
-                        }}
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
+                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: '1rem', gap: "1rem", flexWrap: "wrap" }}>
+                            <TextField
+                                fullWidth
+                                size='small'
+                                placeholder="Search topics..."
+                                sx={{
+                                    width: { xs: "100%", md: '300px' },
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                    },
+                                }}
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
 
-                    <Box sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                        <Tooltip title="Reverse sort direction" placement="bottom">
-                            <IconButton
+                            <Box sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                                <Tooltip title="Reverse sort direction" placement="bottom">
+                                    <IconButton
+                                        size="large"
+                                        onClick={toggleSortOrder}
+                                        sx={{ ml: 2 }}
+                                    >
+                                        {isAscending ? <FaSortAmountUp /> : <FaSortAmountDownAlt />}
+                                    </IconButton>
+                                </Tooltip>
+
+                                <FormControl size="small" sx={{
+                                    width: '150px',
+                                    '& .MuiOutlinedInput-root': {
+                                        '& fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                        '&:hover fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                        '&.Mui-focused fieldset': {
+                                            borderColor: '#6d2ae2',
+                                        },
+                                    },
+                                }}>
+                                    <Select
+                                        value={sortField}
+                                        onChange={(e) => setSortField(e.target.value)}
+                                    >
+                                        <MenuItem value="name">Name</MenuItem>
+                                        <MenuItem value="createdAt">Date Created</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                        </Box>
+
+                        <Divider sx={{ border: "1px solid #0e1313" }} />
+
+                        {view === 'list' && <ListView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
+                        {view === 'grid' && <GridView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
+
+                        <Box sx={{ display: "flex", justifyContent: "center", mt: 3, mb: 5 }}>
+                            <Button
+                                variant="outlined"
                                 size="large"
-                                onClick={toggleSortOrder}
-                                sx={{ ml: 2 }}
+                                sx={{
+                                    borderColor: '#6d2ae2',
+                                    color: '#6d2ae2',
+                                    '&:hover': {
+                                        backgroundColor: '#6d2ae2',
+                                        color: '#fff'
+                                    }
+                                }}
+                                href="https://github.com/TheNewC0der-24"
+                                target="_blank"
+                                rel="noreferrer"
                             >
-                                {isAscending ? <FaSortAmountUp /> : <FaSortAmountDownAlt />}
-                            </IconButton>
-                        </Tooltip>
-
-                        <FormControl size="small" sx={{
-                            width: '150px',
-                            '& .MuiOutlinedInput-root': {
-                                '& fieldset': {
-                                    borderColor: '#6d2ae2',
-                                },
-                                '&:hover fieldset': {
-                                    borderColor: '#6d2ae2',
-                                },
-                                '&.Mui-focused fieldset': {
-                                    borderColor: '#6d2ae2',
-                                },
-                            },
-                        }}>
-                            <Select
-                                value={sortField}
-                                onChange={(e) => setSortField(e.target.value)}
-                            >
-                                <MenuItem value="name">Name</MenuItem>
-                                <MenuItem value="createdAt">Date Created</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
-                </Box>
-
-                <Divider sx={{ border: "1px solid #0e1313" }} />
-
-                {view === 'list' && <ListView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
-                {view === 'grid' && <GridView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
-
-                <Box sx={{ display: "flex", justifyContent: "center", mb: 5 }}>
-                    <Button
-                        variant="outlined"
-                        size="large"
-                        sx={{
-                            borderColor: '#6d2ae2',
-                            color: '#6d2ae2',
-                            '&:hover': {
-                                backgroundColor: '#6d2ae2',
-                                color: '#fff'
-                            }
-                        }}
-                        href="https://github.com/TheNewC0der-24"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        View More On Github
-                    </Button>
-                </Box>
+                                View More On Github
+                            </Button>
+                        </Box>
+                    </div>
+                </div>
             </div>
         </ThemeProvider>
     )
