@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { lightTheme } from '../../Themes';
 import {
-    TextField,
-    Grid,
-    Card,
-    CardMedia,
-    CardContent,
-    CardHeader,
-    Avatar,
-    Typography,
-    CardActions,
-    IconButton,
-    Collapse,
     Box,
+    TextField,
+    ButtonGroup,
     Button,
-    Skeleton
+    Select,
+    MenuItem,
+    IconButton,
+    Tooltip,
+    Divider,
+    FormControl
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { IoGrid } from "react-icons/io5";
+import { FaSortAmountUp, FaSortAmountDownAlt } from "react-icons/fa";
+import { FaBars } from "react-icons/fa6";
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import project from '../../Data/projectsData.json';
-import { GoProject } from 'react-icons/go';
-import { FiGithub, FiExternalLink } from 'react-icons/fi';
-import { MdOutlineExpandMore } from 'react-icons/md';
-import Aos from 'aos';
-import { formatDate } from '../../Helpers/formatDate';
+import GridView from './GridView';
+import ListView from './ListView';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -58,214 +53,171 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-    }),
-}));
-
-const Project = () => {
+const Work = () => {
 
     const title = "Bhavya Khurana | Work";
     document.title = title;
 
-    useEffect(() => {
-        Aos.init({ duration: 2000 });
-    }, []);
-
     const [searchTerm, setSearchTerm] = useState('');
-    const [expanded, setExpanded] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    const [view, setView] = useState('list');
+    const [sortField, setSortField] = useState('name');
+    const [isAscending, setIsAscending] = useState(true);
 
-    const filteredProjects = project.filter(project =>
+    const sortedProjects = project.sort((a, b) => {
+        if (sortField === 'name') {
+            return isAscending
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name);
+        } else {
+            return isAscending
+                ? new Date(a.created_at) - new Date(b.created_at)
+                : new Date(b.created_at) - new Date(a.created_at);
+        }
+    });
+
+    const filteredProjects = sortedProjects.filter(project =>
         project.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()))
     );
 
-    const handleExpandClick = (projectId) => {
-        setExpanded((prevExpanded) => ({
-            ...prevExpanded,
-            [projectId]: !prevExpanded[projectId],
-        }));
+    const toggleSortOrder = () => {
+        setIsAscending(!isAscending);
     };
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-
-        return () => clearTimeout(timer);
-    }, []);
 
     return (
         <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
             <SocialLinks />
-            <div className="container">
-                <div className="container">
-                    <div className="container">
-                        <h1 className="mt-3 text-center">.work()</h1>
-                        <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
+            <div className="container px-5">
+                <h1 className="mt-3 text-center">.work()</h1>
+                <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
 
-                        <Box sx={{ display: "flex", justifyContent: "end", marginBottom: '1rem', }}>
-                            <TextField
-                                fullWidth
-                                size='small'
-                                placeholder="Search topics..."
-                                sx={{
-                                    width: '100%',
-                                    maxWidth: { xs: '100%', sm: '100%', md: '300px' },
-                                    '& .MuiOutlinedInput-root': {
-                                        '& fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                        '&:hover fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                        '&.Mui-focused fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                    },
-                                }}
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                        </Box>
+                <Box sx={{ display: "flex", justifyContent: "end", mt: 3, mb: 3 }}>
+                    <ButtonGroup sx={{ borderColor: '#6d2ae2' }}>
+                        <Button
+                            onClick={() => setView('list')}
+                            size='large'
+                            variant={view === 'list' ? 'contained' : 'outlined'}
+                            sx={{
+                                backgroundColor: view === 'list' ? '#6d2ae2' : 'transparent',
+                                borderColor: '#6d2ae2',
+                                color: view === 'list' ? "#fff" : '#6d2ae2',
+                                '&:hover': {
+                                    backgroundColor: '#6d2ae2',
+                                    color: '#fff'
+                                }
+                            }}
+                            title='List View'
+                            disableElevation
+                        >
+                            <FaBars />
+                        </Button>
+                        <Button
+                            onClick={() => setView('grid')}
+                            variant={view === 'grid' ? 'contained' : 'outlined'}
+                            size='large'
+                            sx={{
+                                backgroundColor: view === 'grid' ? '#6d2ae2' : 'transparent',
+                                borderColor: '#6d2ae2',
+                                color: view === 'grid' ? "#fff" : '#6d2ae2',
+                                '&:hover': {
+                                    backgroundColor: '#6d2ae2',
+                                    color: '#fff'
+                                }
+                            }}
+                            title='Grid View'
+                            disableElevation
+                        >
+                            <IoGrid />
+                        </Button>
+                    </ButtonGroup>
+                </Box>
 
-                        <Grid container spacing={2} sx={{ mb: 5 }}>
-                            {/* {isLoading ?
-                                Array.from({ length: 6 }).map((_, index) => (
-                                    <Grid item xs={12} sm={12} md={6} lg={4} key={index}>
-                                        <Card elevation={0} className='card'>
-                                            <CardHeader
-                                                avatar={
-                                                    <Skeleton animation="wave" variant="circular" width={40} height={40} />
-                                                }
-                                                title={
-                                                    <Skeleton
-                                                        animation="wave"
-                                                        height={10}
-                                                        width="80%"
-                                                        style={{ marginBottom: 6 }}
-                                                    />
-                                                }
-                                                subheader={
-                                                    <Skeleton animation="wave" height={10} width="40%" />
-                                                }
-                                            />
-                                            <Skeleton sx={{ height: 200 }} animation="wave" variant="rectangular" />
-                                            <CardContent>
-                                                <React.Fragment>
-                                                    <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
-                                                    <Skeleton animation="wave" height={10} width="80%" />
-                                                </React.Fragment>
-                                            </CardContent>
-                                        </Card>
-                                    </Grid>
-                                )) : (
-                                    <> */}
-                            {filteredProjects?.length === 0 ? (
-                                <Box sx={{ display: "flex", justifyContent: "center", margin: "auto", mt: 5 }}>
-                                    <Typography variant='h5'>No Work found with topic <span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{searchTerm}</span></Typography>
-                                </Box>
-                            ) :
-                                filteredProjects?.map((item) => (
-                                    <Grid item xs={12} sm={12} md={6} lg={4} key={item.id}>
-                                        <Card sx={{ borderBottom: '5px solid #6d2ae2' }}>
-                                            <CardHeader
-                                                avatar={
-                                                    <Avatar sx={{ bgcolor: "#DFD8FD", color: "#6d2ae2" }}>
-                                                        <GoProject />
-                                                    </Avatar>
-                                                }
-                                                title={item.name}
-                                                subheader={formatDate(item.created_at)}
-                                            />
-                                            {
-                                                isLoading ? (
-                                                    <Skeleton sx={{ height: 200 }} animation="wave" variant="rectangular" />
-                                                ) : (
-                                                    <CardMedia
-                                                        component="img"
-                                                        image={item.image}
-                                                        alt={item.name}
-                                                    />
-                                                )
-                                            }
-                                            <CardActions disableSpacing>
-                                                <IconButton href={item.html_url} target="_blank" rel="noreferrer">
-                                                    <FiGithub className='links' />
-                                                </IconButton>
-                                                {
-                                                    item.homepage && (
-                                                        <IconButton href={item.homepage} target="_blank" rel="noreferrer">
-                                                            <FiExternalLink className='links' />
-                                                        </IconButton>
-                                                    )
-                                                }
-
-                                                <ExpandMore
-                                                    expand={expanded[item.id]}
-                                                    onClick={() => handleExpandClick(item.id)}
-                                                    aria-expanded={expanded[item.id]}
-                                                >
-                                                    <MdOutlineExpandMore />
-                                                </ExpandMore>
-                                            </CardActions>
-                                            <Collapse in={expanded[item.id]} timeout="auto" unmountOnExit>
-                                                <CardContent>
-                                                    <Typography variant="body2" color="text.secondary">
-                                                        {item.description}
-                                                    </Typography>
-                                                    <div className='d-flex flex-wrap gap-2 mt-2'>
-                                                        {
-                                                            item.topics.map((topic) => {
-                                                                return (
-                                                                    <span key={topic} className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{topic}</span>
-                                                                )
-                                                            })
-                                                        }
-                                                    </div>
-                                                </CardContent>
-                                            </Collapse>
-                                        </Card>
-                                    </Grid>
-                                ))
-                            }
-                            {/* </>
-                                )
-                            } */}
-
-                        </Grid>
-
-                        <Box sx={{ display: "flex", justifyContent: "center", mb: 5 }}>
-                            <Button
-                                variant="outlined"
-                                size="large"
-                                sx={{
+                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: '1rem', gap: "1rem", flexWrap: "wrap" }}>
+                    <TextField
+                        fullWidth
+                        size='small'
+                        placeholder="Search topics..."
+                        sx={{
+                            width: '300px',
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
                                     borderColor: '#6d2ae2',
-                                    color: '#6d2ae2',
-                                    '&:hover': {
-                                        backgroundColor: '#6d2ae2',
-                                        color: '#fff'
-                                    }
-                                }}
-                                href="https://github.com/TheNewC0der-24"
-                                target="_blank"
-                                rel="noreferrer"
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#6d2ae2',
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#6d2ae2',
+                                },
+                            },
+                        }}
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+
+                    <Box sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                        <Tooltip title="Reverse sort direction" placement="bottom">
+                            <IconButton
+                                size="large"
+                                onClick={toggleSortOrder}
+                                sx={{ ml: 2 }}
                             >
-                                View More On Github
-                            </Button>
-                        </Box>
-                    </div>
-                </div>
+                                {isAscending ? <FaSortAmountUp /> : <FaSortAmountDownAlt />}
+                            </IconButton>
+                        </Tooltip>
+
+                        <FormControl size="small" sx={{
+                            width: '150px',
+                            '& .MuiOutlinedInput-root': {
+                                '& fieldset': {
+                                    borderColor: '#6d2ae2',
+                                },
+                                '&:hover fieldset': {
+                                    borderColor: '#6d2ae2',
+                                },
+                                '&.Mui-focused fieldset': {
+                                    borderColor: '#6d2ae2',
+                                },
+                            },
+                        }}>
+                            <Select
+                                value={sortField}
+                                onChange={(e) => setSortField(e.target.value)}
+                            >
+                                <MenuItem value="name">Name</MenuItem>
+                                <MenuItem value="createdAt">Date Created</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                </Box>
+
+                <Divider sx={{ border: "1px solid #0e1313" }} />
+
+                {view === 'list' && <ListView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
+                {view === 'grid' && <GridView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
+
+                <Box sx={{ display: "flex", justifyContent: "center", mb: 5 }}>
+                    <Button
+                        variant="outlined"
+                        size="large"
+                        sx={{
+                            borderColor: '#6d2ae2',
+                            color: '#6d2ae2',
+                            '&:hover': {
+                                backgroundColor: '#6d2ae2',
+                                color: '#fff'
+                            }
+                        }}
+                        href="https://github.com/TheNewC0der-24"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        View More On Github
+                    </Button>
+                </Box>
             </div>
         </ThemeProvider>
     )
 }
 
-export default Project;
+export default Work
