@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import styles from './SocialLinks.module.css';
 
-import { SiHashnode, SiMedium } from 'react-icons/si';
-import { FaFacebookSquare, FaGithub, FaInstagram, FaLinkedin, FaStackOverflow, FaTwitter } from 'react-icons/fa';
+import { SiHashnode, SiMedium, SiBento } from 'react-icons/si';
+import { FaFacebookSquare, FaGithub, FaInstagram, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 import { motion } from 'framer-motion';
 
@@ -17,6 +18,16 @@ const SocialLinks = () => {
     return (
         <>
             <div className={styles.icons}>
+                <motion.div
+                    initial={{ transform: "scale(0)" }}
+                    animate={{ scale: [0, 1, 1.5, 1] }}
+                    transition={{ type: 'spring', duration: 1, delay: 0.8 }}
+                >
+                    <a href="https://bento.me/bhavya-khurana" rel="noreferrer" target="_blank">
+                        <SiBento className={`${styles.socialIcon} mb-3 fs-4`} />
+                    </a>
+                </motion.div>
+
                 <motion.div
                     initial={{ transform: "scale(0)" }}
                     animate={{ scale: [0, 1, 1.5, 1] }}
@@ -82,7 +93,7 @@ const SocialLinks = () => {
                     animate={{ scale: [0, 1, 1.5, 1] }}
                     transition={{ type: 'spring', duration: 1, delay: 2.2 }}
                 >
-                    <a href="https://stackoverflow.com/users/16262496/bhavya-khurana" rel="noreferrer" target="_blank">
+                    <a href="https://stackoverflow.com/users/23147565/bhavya-khurana" rel="noreferrer" target="_blank">
                         <FaStackOverflow className={`${styles.socialIcon} mb-3 fs-4`} />
                     </a>
                 </motion.div>
@@ -93,7 +104,7 @@ const SocialLinks = () => {
                     transition={{ type: 'spring', duration: 1, delay: 2.4 }}
                 >
                     <a href="https://twitter.com/Cynophilist_B" rel="noreferrer" target="_blank">
-                        <FaTwitter className={`${styles.socialIcon} mb-3 fs-4`} />
+                        <FaXTwitter className={`${styles.socialIcon} mb-3 fs-4`} />
                     </a>
                 </motion.div>
 
