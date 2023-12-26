@@ -8,7 +8,7 @@
         "projects": [
             {
                 "name": "Doeasily, Business made easy",
-                "link": "http://13.127.180.216:3000/login",
+                "link": "https://doeasily.in/login",
                 "description": [
                     "Implementing new features for customers to track their jewelry purchase and sale history.",
                     "Enhancing the codebase and elevating the user interface to optimize user experience.",
@@ -36,10 +36,10 @@
                 "name": "Bookee CRM",
                 "link": "https://crm.bookeeapp.com/",
                 "description": [
-                    "Developed responsive user interfaces using Angular framework for a CRM application, ensuring seamless user experience across multiple devices and browsers.",
-                    "Collaborated with backend developers and designers to integrate frontend components with backend APIs, ensuring smooth data flow and system functionality.",
-                    "Implemented complex UI features such as dynamic form validations, and data filtering to enhance the usability and effectiveness of the CRM application.",
-                    "Designed and implemented a modular and scalable code structure, allowing for easy maintenance and future enhancements of the CRM application.",
+                    "Utilized Angular framework to create responsive user interfaces for a CRM application, guaranteeing seamless user experience across variousdevices and browsers.",
+                    "Worked together with backend developers and designers to fuse frontend components with backend REST APIs, ensuring smooth dataflow and system functionality.",
+                    "Enhanced UI features, such as dynamic form validations and datafiltering.",
+                    "Handling STRIPE payment and integrate innovative features such as introducing a referral system and enabling the addition of digital signatures on forms. - React.js",
                     "Actively participated in agile development processes, attending daily stand-ups, sprint planning, and retrospectives to effectively deliver features within project timelines."
                 ],
                 "technologiesUsed": [
