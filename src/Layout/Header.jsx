@@ -26,7 +26,7 @@ import {
     Menu,
     MenuItem,
     Avatar,
-    Collapse
+    Collapse,
 } from '@mui/material';
 
 import { FaBars } from 'react-icons/fa';
@@ -49,9 +49,6 @@ export const navItems = [
     {
         name: ".blogs()", link: "/blogs"
     },
-    {
-        name: ".contact Me()", link: "/contact"
-    }
 ]
 
 export const otherNavItems = [
@@ -122,7 +119,8 @@ function Navbar(props) {
                 {navItems.map((item) => (
                     <ListItem key={item.name} disablePadding>
                         <ListItemButton
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.stopPropagation();
                                 navigate(`${item.link}`);
                                 setMobileOpen(false);
                             }}
@@ -138,7 +136,27 @@ function Navbar(props) {
                         </ListItemButton>
                     </ListItem>
                 ))}
+
+                <ListItem disablePadding>
+                    <ListItemButton
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            navigate('/contact');
+                            setMobileOpen(false);
+                        }}
+                        sx={{
+                            borderRight: location.pathname === '/contact' ? '5px solid #6d2ae2' : 'none',
+                            bgcolor: location.pathname === '/contact' && '#DFD8FD',
+                            '&:hover': {
+                                bgcolor: location.pathname === '/contact' ? '#DFD8FD' : '#6d2ae2',
+                            },
+                            color: location.pathname === '/contact' ? '#0e1313' : '#dee2e6',
+                        }}>
+                        <ListItemText primary={'.contact Me()'} />
+                    </ListItemButton>
+                </ListItem>
             </List>
+
             <List component="nav">
                 <ListItemButton onClick={handleClickOthers} sx={{
                     color: '#0e1313',
@@ -156,7 +174,8 @@ function Navbar(props) {
                         {otherNavItems.map((item) => (
                             <ListItem key={item.name} disablePadding>
                                 <ListItemButton
-                                    onClick={() => {
+                                    onClick={(e) => {
+                                        e.stopPropagation();
                                         navigate(`${item.link}`);
                                         setMobileOpen(false);
                                     }}
@@ -225,6 +244,23 @@ function Navbar(props) {
                                     {item.name}
                                 </Button>
                             ))}
+
+                            <Button
+                                variant='contained'
+                                sx={{
+                                    ml: 1,
+                                    backgroundColor: "#DFD8FD",
+                                    color: '#6d2ae2',
+                                    fontWeight: 'bold',
+                                    textTransform: "lowercase",
+                                    '&:hover': {
+                                        backgroundColor: "#DFD8FD",
+                                    }
+                                }}
+                                onClick={() => navigate('/contact')}
+                            >
+                                .contact Me()
+                            </Button>
                             <Button
                                 variant='contained'
                                 aria-controls={openMenu ? 'basic-menu' : undefined}
