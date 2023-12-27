@@ -53,6 +53,10 @@ const GlobalStyle = createGlobalStyle`
         text-align: center !important;
     }
 
+    .resume-card {
+      justify-content: center !important;
+    }
+
     .tag{
       display: none !important;
     }
@@ -110,7 +114,7 @@ const About = () => {
 
                   <div className='card border-0 note my-4'>
                     <div className="card-body">
-                      <div className="d-flex gap-2 justify-content-between flex-wrap align-items-center">
+                      <div className="d-flex gap-2 justify-content-between flex-wrap align-items-center resume-card">
                         <h4 style={{ color: "#dee2e6" }}>
                           I'm obsessed with making things and even more obsessed with making things better.
                         </h4>
