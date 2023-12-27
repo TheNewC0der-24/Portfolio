@@ -333,7 +333,7 @@
     },
     {
         "id": 22,
-        "name": "Rick an dMorty - Wiki",
+        "name": "Rick and Morty - Wiki",
         "image": "./ProjectImg/rickandmorty.png",
         "html_url": "https://github.com/TheNewC0der-24/RickandMorty-Wiki",
         "description": "I Like Rick & Morty so created this Wiki. This project was bootstrapped with Create React App.",
