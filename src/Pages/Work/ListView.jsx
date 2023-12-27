@@ -22,7 +22,7 @@ export default function ListView({ filteredProjects, searchTerm }) {
                                 heading={item.name}
                                 subheading={item.description}
                                 imgSrc={item.image}
-                                href={item.homepage}
+                                href={item.homepage ? item.homepage : item.html_url}
                                 topics={item.topics}
                             />
                         ))
