@@ -49,7 +49,7 @@ const WorkList = ({ heading, imgSrc, subheading, href, topics }) => {
                 borderBottom: "2px solid #0e1313",
                 textDecoration: "none",
             }}
-            className='pt-4 pb-5'
+            className='pt-4 pb-5 animated-link'
         >
             <div>
                 <motion.span
@@ -70,6 +70,7 @@ const WorkList = ({ heading, imgSrc, subheading, href, topics }) => {
                         fontWeight: "bold",
                         color: "#0e1313",
                     }}
+                    className='animated-link-heading'
                 >
                     {heading.split("").map((l, i) => (
                         <motion.span
@@ -96,7 +97,7 @@ const WorkList = ({ heading, imgSrc, subheading, href, topics }) => {
                     {subheading}
                 </span>
 
-                <div className='d-flex flex-wrap gap-2 mt-2'>
+                <div className='d-flex flex-wrap gap-2 mt-2 animated-link-topics'>
                     {
                         topics.map((item, index) => (
                             <span key={index} className='badge mr-2' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{item}</span>

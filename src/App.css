@@ -66,3 +66,19 @@ select:focus,
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
 }
+
+@media (max-width: 600px) {
+  .animated-link {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .animated-link-heading {
+    font-size: 1.5rem !important;
+  }
+
+  .animated-link-topics {
+    justify-content: center;
+  }
+}
