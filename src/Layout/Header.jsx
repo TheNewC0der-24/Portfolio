@@ -3,13 +3,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import styles from './Navbar/Navbar.module.css';
 import PropTypes from 'prop-types';
-
-import { FaPlus, FaMinus } from 'react-icons/fa';
-
-import SoundBar from '../SubComponents/SoundBar';
-import Profile from '../assets/Images/MyImgs/myPic.png';
-import DisplayImg from '../Components/DisplayImg/DisplayImg';
-
 import {
     AppBar,
     Box,
@@ -28,8 +21,12 @@ import {
     Avatar,
     Collapse,
 } from '@mui/material';
+import { FaPlus, FaMinus } from 'react-icons/fa';
+import { HiBars3BottomRight } from "react-icons/hi2";
 
-import { FaBars } from 'react-icons/fa';
+import SoundBar from '../SubComponents/SoundBar';
+import Profile from '../assets/Images/MyImgs/myPic.png';
+import DisplayImg from '../Components/DisplayImg/DisplayImg';
 
 const drawerWidth = 240;
 
@@ -209,14 +206,6 @@ function Navbar(props) {
                             src={Profile}
                             onClick={handleDisplayImg}
                         />
-                        <IconButton
-                            aria-label="open drawer"
-                            edge="start"
-                            onClick={handleDrawerToggle}
-                            sx={{ mr: 2, display: { md: 'none' } }}
-                        >
-                            <FaBars style={{ color: "#dee2e6" }} />
-                        </IconButton>
                         <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", gap: "2rem" }}>
                             <Typography
                                 variant="h6"
@@ -316,6 +305,14 @@ function Navbar(props) {
                                 }
                             </Menu>
                         </Box>
+                        <IconButton
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2, display: { md: 'none' } }}
+                        >
+                            <HiBars3BottomRight size={40} style={{ color: "#dee2e6" }} />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 <nav>
