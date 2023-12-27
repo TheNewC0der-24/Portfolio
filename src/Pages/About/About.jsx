@@ -61,11 +61,6 @@ const GlobalStyle = createGlobalStyle`
       display: none !important;
     }
 
-    // .view-resume-btn {
-    //   display: grid !important;
-    //   margin: auto !important;
-    // }
-
     .bmac-div {
       justify-content: center !important;
     }
