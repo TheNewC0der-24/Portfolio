@@ -14,7 +14,7 @@ const WorkList = ({ heading, imgSrc, subheading, href, topics }) => {
     const mouseYSpring = useSpring(y);
 
     const top = useTransform(mouseYSpring, [0.5, -0.5], ["10%", "10%"]);
-    const left = useTransform(mouseXSpring, [0.5, -0.5], ["40%", "50%"]);
+    const left = useTransform(mouseXSpring, [0.5, -0.5], ["10%", "10%"]);
 
     const handleMouseMove = (e) => {
         const rect = ref.current.getBoundingClientRect();
@@ -112,10 +112,12 @@ const WorkList = ({ heading, imgSrc, subheading, href, topics }) => {
                     transform: "translate(-50%, -50%)",
                     position: "absolute",
                     zIndex: 99,
-                    height: "150px",
+                    width: "300px",
+                    // height: "150px",
                     borderRadius: "0.5rem",
                     objectFit: "cover",
                 }}
+                className='img-fluid'
                 variants={{
                     initial: { scale: 0, rotate: "-12.5deg" },
                     whileHover: { scale: 1, rotate: "12.5deg" },
