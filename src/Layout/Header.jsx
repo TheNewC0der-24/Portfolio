@@ -244,6 +244,9 @@ function Navbar(props) {
                                         fontWeight: location.pathname === item.link ? 'bold' : 'normal',
                                         textTransform: "lowercase",
                                         borderBottom: location.pathname === item.link ? '2px solid #6d2ae2' : 'none',
+                                        '&:hover': {
+                                            bgcolor: '#0e1313',
+                                        },
                                     }}
                                     onClick={() => navigate(`${item.link}`)}
                                 >
