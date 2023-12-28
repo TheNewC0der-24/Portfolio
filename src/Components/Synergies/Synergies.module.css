@@ -1,0 +1,30 @@
+.title {
+    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
+    background-clip: text !important;
+    -moz-background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -moz-text-fill-color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.btn .btnIcon {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover .btnIcon {
+    transform: translateX(3px);
+}
+
+.icon {
+    margin: auto;
+}
+
+@media (max-width: 767.5px) {
+    .textAlign {
+        text-align: center !important;
+    }
+
+    .icon {
+        margin: 20px 0 0 0;
+    }
+}

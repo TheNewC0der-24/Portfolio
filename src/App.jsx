@@ -22,6 +22,7 @@ import Experience from './Pages/Experience/Experience';
 import Blogs from './Pages/Blogs/Blogs';
 import BlogPost from './Pages/Blogs/BlogPost';
 import Contact from './Pages/Contact/Contact';
+import Synergy from './Pages/Synergy/Synergy';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function AppContent() {
         <Route exact path="/interest" element={<Interest />} />
         <Route exact path="/skills" element={<Skills />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/synergies" element={<Synergy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer
