@@ -187,6 +187,23 @@ function Navbar(props) {
                                 </ListItemButton>
                             </ListItem>
                         ))}
+                        <ListItem disablePadding>
+                            <ListItemButton
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    navigate('/synergies');
+                                    setMobileOpen(false);
+                                }}
+                                sx={{
+                                    pl: 4,
+                                    '&:hover': {
+                                        bgcolor: location.pathname === '/synergies' ? '#DFD8FD' : '#6d2ae2',
+                                    },
+                                    color: location.pathname === '/synergies' ? '#6d2ae2' : '#dee2e6',
+                                }}>
+                                <ListItemText primary='.synergies()' />
+                            </ListItemButton>
+                        </ListItem>
                     </List>
                 </Collapse>
             </List>
@@ -269,7 +286,7 @@ function Navbar(props) {
                             <Menu
                                 sx={{
                                     display: { xs: 'none', sm: 'none', md: 'block' },
-                                    '& .MuiPaper-root': { bgcolor: "#dee2e6", color: "#6d2ae2" },
+                                    '& .MuiPaper-root': { bgcolor: "#dee2e6", color: "#6d2ae2", width: '150px', borderBottom: "5px solid" },
                                 }}
                                 anchorEl={anchorEl}
                                 open={openMenu}
@@ -303,6 +320,23 @@ function Navbar(props) {
                                         </MenuItem>
                                     ))
                                 }
+                                <Divider sx={{ bgcolor: "#6d2ae2" }} />
+
+                                <MenuItem onClick={() => {
+                                    handleCloseMenu();
+                                    navigate('/synergies');
+                                }}
+                                    sx={{
+                                        bgcolor: location.pathname === '/synergies' ? '#DFD8FD' : 'none',
+                                        '&:hover': {
+                                            bgcolor: location.pathname === '/synergies' ? '#DFD8FD' : '#6d2ae2',
+                                            color: location.pathname === '/synergies' ? '#6d2ae2' : '#dee2e6',
+                                        },
+                                        color: location.pathname === '/synergies' ? '#6d2ae2' : '#0e1313',
+                                    }}
+                                >
+                                    .synergies()
+                                </MenuItem>
                             </Menu>
                         </Box>
                         <IconButton

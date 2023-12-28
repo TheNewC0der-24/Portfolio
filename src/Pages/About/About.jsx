@@ -181,7 +181,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </ThemeProvider >
+      </ThemeProvider>
     </>
   )
 }

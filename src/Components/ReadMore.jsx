@@ -14,9 +14,9 @@ const ReadMore = ({ isVisible }) => {
             variants={variants}
             transition={{ duration: 1 }}
             className="p-3 mt-3"
-            style={{ border: "2px solid #6d2ae2", borderRadius: "0px" }}
+            style={{ backgroundColor: "#6d2ae2" }}
         >
-            <div className="fw-bold" style={{ color: "#6d2ae2" }}>
+            <div className="fw-bold" style={{ color: "#DFD8FD" }}>
                 I am a creative and proficient Frontend Developer with over 1 year of experience, I have successfully
                 worked on various web projects for clients across different industries. My expertise lies in responsive
                 design, accessibility, and website optimization. Additionally, I have completed several online certification
