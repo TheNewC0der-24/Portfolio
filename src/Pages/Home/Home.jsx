@@ -2,10 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { lightTheme, darkTheme } from '../../Themes';
-import { Box, Button, Divider, Typography } from '@mui/material';
 import { BsDot } from 'react-icons/bs';
-import { IoCall } from "react-icons/io5";
-import { FaLongArrowAltRight } from "react-icons/fa";
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import { Typewriter } from "react-simple-typewriter";
 
@@ -177,36 +174,6 @@ const Home = () => {
     const title = "Bhavya Khurana";
     document.title = title;
 
-    const benefitsOne = [
-        {
-            id: 1,
-            title: "Customized Designs Tailored to Your Needs",
-            description: "I understand the importance of creating a unique and memorable brand identity. By collaborating closely with you, I ensure that your website reflects your brand's personality, values, and objectives. The result is a customized design that sets you apart from the competition and resonates with your target audience."
-        },
-        {
-            id: 2,
-            title: "Creative Excellence that Captivates Visitors",
-            description: "With a keen eye for aesthetics and a passion for creativity, I excel in designing visually stunning and engaging websites. By combining beautiful visuals, captivating typography, and strategic use of color, I create an immersive and impactful user experience. Your website will leave a lasting impression on visitors, enhancing your brand's credibility and professionalism."
-        }
-    ];
-    const benefitsTwo = [
-        {
-            id: 1,
-            title: "User-Centric Approach for Optimal Experience",
-            description: "I prioritize user experience (UX) design, placing your visitors at the center of the design process. By conducting in-depth research and employing user testing techniques, I ensure that your website is intuitive, easy to navigate, and seamlessly guides users towards their goals. The result is a satisfying user journey that increases engagement and conversions."
-        },
-        {
-            id: 2,
-            title: "Mobile-First Design for Broad Accessibility",
-            description: "In today's mobile-dominated landscape, having a responsive website is crucial. I specialize in creating mobile-friendly user-interfaces that adapt flawlessly across different devices and screen sizes. Your website will look and perform beautifully, whether accessed from a desktop, smartphone, or tablet, ensuring that you reach and engage your audience effectively."
-        },
-        {
-            id: 3,
-            title: "Expertise in Cutting-Edge Technologies",
-            description: "With a strong command in HTML, CSS, JavaScript, and other front-end technologies, I possess the technical skills to bring your design concepts to life. From seamless animations to interactive elements, I leverage the latest web techs to enhance user engagement and create a dynamic user experience."
-        }
-    ];
-
     return (
         <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
@@ -279,81 +246,6 @@ const Home = () => {
                                 </div>
                             </div>
                         </Intro>
-
-                        <Box sx={{ mt: { sm: 5, md: 5, lg: 12 }, mb: 3 }}>
-                            <Typography variant="h4" fontWeight="bold" textAlign="center">
-                                Benefits
-                            </Typography>
-                            <Typography variant="subtitle1" textAlign="center" color="text.secondary">
-                                Partnering with me for your web development needs means not only receiving a high-quality product but also benefiting
-                            </Typography>
-                            <div className="row g-4 mt-3">
-                                {benefitsOne.map((benefit) => (
-                                    <div className="col-md-6" key={benefit.id}>
-                                        <div className="card h-100 border-0">
-                                            <div className="card-body">
-                                                <Typography variant="h6" fontWeight="bold" mb={2}>
-                                                    {benefit.title}
-                                                </Typography>
-                                                <Divider sx={{ border: "2px solid #ccc", mb: 2, display: { xs: "block", sm: "block", md: "none" } }} />
-                                                <Typography variant="body1" color="text.secondary" paragraph>
-                                                    {benefit.description}
-                                                </Typography>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-
-                                {benefitsTwo.map((benefit) => (
-                                    <div className="col-md-4" key={benefit.id}>
-                                        <div className="card h-100 border-0">
-                                            <div className="card-body">
-                                                <Typography variant="h6" fontWeight="bold" mb={2}>
-                                                    {benefit.title}
-                                                </Typography>
-                                                <Divider sx={{ border: "2px solid #ccc", mb: 2, display: { xs: "block", sm: "block", md: "none" } }} />
-                                                <Typography variant="body1" color="text.secondary" paragraph>
-                                                    {benefit.description}
-                                                </Typography>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </Box>
-                        <Box className="d-flex justify-content-center align-items-center flex-wrap gap-3 my-3">
-                            <a href="https://calendly.com/khuranabhavya24/30min" target="_blank" rel="noopener noreferrer">
-                                <Button
-                                    variant="contained"
-                                    startIcon={<IoCall />}
-                                    sx={{
-                                        textTransform: "none",
-                                        backgroundColor: "#6d2ae2",
-                                        color: "#fff",
-                                        "&:hover": {
-                                            backgroundColor: "#6d2ae2",
-                                            color: "#fff",
-                                        },
-                                    }}
-                                >
-                                    Book a Call
-                                </Button>
-                            </a>
-                            <Button
-                                variant="text"
-                                endIcon={<FaLongArrowAltRight />}
-                                sx={{
-                                    textTransform: "none",
-                                    color: "#6d2ae2",
-                                    "&:hover": {
-                                        color: "#6d2ae2",
-                                    },
-                                }}
-                                onClick={() => navigate("/work")}
-                            >
-                                View Portfolio
-                            </Button>
-                        </Box>
                     </div>
                 </div>
             </div>
