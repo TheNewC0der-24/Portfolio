@@ -137,36 +137,87 @@ const Intro = styled.div`
         font-family: 'Caveat', cursive;
     }
 
-    .know-more-btn {
-        border: 1px solid #0e1313;
-        color: #dee2e6;
-        text-decoration: none;
-        font-weight: bold;
+    button {
+        --color: #6d2ae2;
+        font-family: inherit;
+        display: inline-block;
+        // width: 8em;
+        // height: 2.6em;
+        padding: 0.5em 1em;
+        // line-height: 2.5em;
+        // margin: 20px;
         position: relative;
-        font-weight: 600;
-        padding: 12px 20px;
-        outline: none;
-        background-color: transparent;
-        border-radius: 5px;
+        overflow: hidden;
+        border: 2px solid var(--color);
+        transition: color .5s;
+        z-index: 1;
+        font-size: 17px;
+        border-radius: 6px;
+        font-weight: 500;
+        color: var(--color);
     }
 
-    .know-more-btn:after {
+    button:before {
         content: "";
         position: absolute;
-        width: 100%;
-        top: 7px;
-        left: 7px;
-        height: 100%;
-        background-color: rgba(109, 42, 226, 0.5);
         z-index: -1;
-        transition: all 0.35s;
-        border-radius: inherit;
+        background: var(--color);
+        height: 150px;
+        width: 300px;
+        border-radius: 50%;
     }
 
-    .know-more-btn:hover:after {
-        top: 0px;
-        left: 0px;
-    }`;
+    button:hover {
+        color: #fff;
+    }
+
+    button:before {
+        top: 100%;
+        left: 100%;
+        transition: all .7s;
+    }
+
+    button:hover:before {
+        top: -30px;
+        left: -30px;
+    }
+
+    button:active:before {
+        background: #6d2ae2;
+        transition: background 0s;
+    }
+
+    // .know-more-btn {
+    //     border: 1px solid #0e1313;
+    //     color: #dee2e6;
+    //     text-decoration: none;
+    //     font-weight: bold;
+    //     position: relative;
+    //     font-weight: 600;
+    //     padding: 12px 20px;
+    //     outline: none;
+    //     background-color: transparent;
+    //     border-radius: 5px;
+    // }
+
+    // .know-more-btn:after {
+    //     content: "";
+    //     position: absolute;
+    //     width: 100%;
+    //     top: 7px;
+    //     left: 7px;
+    //     height: 100%;
+    //     background-color: rgba(109, 42, 226, 0.5);
+    //     z-index: -1;
+    //     transition: all 0.35s;
+    //     border-radius: inherit;
+    // }
+
+    // .know-more-btn:hover:after {
+    //     top: 0px;
+    //     left: 0px;
+    // }
+    `;
 
 const Home = () => {
     const navigate = useNavigate();

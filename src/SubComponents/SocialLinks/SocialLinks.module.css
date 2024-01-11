@@ -12,6 +12,11 @@
     color: #6d2ae2;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.socialIcon:hover {
+    transform: scale(1.3);
 }
 
 .sayHi {
