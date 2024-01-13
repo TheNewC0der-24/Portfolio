@@ -82,3 +82,37 @@ select:focus,
     justify-content: center;
   }
 }
+
+.skill-avatar {
+  width: 50px !important;
+  height: 50px !important;
+  background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
+  color: #dee2e6 !important;
+}
+
+.skill-avatar svg {
+  font-size: 30px !important;
+}
+
+/* .marquee {
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+.marquee-box {
+  background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #dee2e6;
+  text-align: center;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+} */
