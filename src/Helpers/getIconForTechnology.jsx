@@ -6,7 +6,8 @@ import {
     FaSass,
     FaNpm,
     FaYarn,
-    FaGitAlt,
+    FaFigma,
+    FaGit,
     FaGithub,
     FaLinux,
     FaUbuntu,
@@ -57,7 +58,7 @@ export const getIconForTechnology = (technology) => {
         case 'TypeScript':
             return <SiTypescript className='fs-5' />;
         case 'Git':
-            return <FaGitAlt className='fs-5' />;
+            return <FaGit className='fs-5' />;
         case 'React':
             return <FaReact className='fs-5' />;
         case 'React.js':
@@ -152,6 +153,8 @@ export const getIconForTechnology = (technology) => {
             return <FaNode className='fs-5' />;
         case 'Postman':
             return <SiPostman className='fs-5' />;
+        case 'Figma':
+            return <FaFigma className='fs-5' />;
         default:
             return null;
     }

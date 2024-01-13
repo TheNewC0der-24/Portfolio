@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { lightTheme } from '../../Themes';
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-import { Box, Typography, Tabs, Tab, Button, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
-import PropTypes from 'prop-types';
 import languages from '../../Data/Skills/languages.json';
 import fandl from '../../Data/Skills/fandl.json';
 import packages from '../../Data/Skills/packages.json';
 import hosting from '../../Data/Skills/hosting.json';
+import tools from '../../Data/Skills/tools.json';
 import knowledge from '../../Data/Skills/knowledge.json';
-import { getIconForTechnology } from '../../Helpers/getIconForTechnology';
+import SkillData from '../../Components/SkillData';
+import { Button } from '@mui/material';
+
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -45,86 +46,9 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <Box
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box sx={{ p: 3, border: "1px solid #6d2ae2" }}>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </Box>
-    );
-}
-
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-};
-
-function SkillCategoryButtons({ items }) {
-    return (
-        <div className='d-flex flex-wrap gap-4'>
-            {items.map((item, index) => (
-                <Button
-                    key={index}
-                    variant="outlined"
-                    style={{
-                        color: "#6d2ae2",
-                        borderColor: "#6d2ae2",
-                        textTransform: "none",
-                        fontWeight: "bold",
-                        border: "2px solid",
-                        height: "40px",
-                        borderRadius: "10px"
-                    }}
-                    startIcon={getIconForTechnology(item.name)}
-                >
-                    {item.name}
-                </Button>
-            ))}
-        </div>
-    );
-}
-
-const categories = [
-    { label: "Languages", data: languages },
-    { label: "Frameworks & Libraries", data: fandl },
-    { label: "Packages", data: packages },
-    { label: "Backend, Tools & Services", data: [{ name: "MongoDB" }, { name: "Firebase" }, { name: "Postman" }] },
-    { label: "Version Control & Collaboration", data: [{ name: "Git" }, { name: "GitHub" }] },
-    { label: "Hosting & Deployment", data: hosting },
-    { label: "Integrated Development Environments (IDEs)", data: [{ name: "VS Code" }, { name: "PyCharm" }, { name: "Atom" }] },
-    { label: "Operating Systems", data: [{ name: "Windows" }, { name: "Linux" }, { name: "Ubuntu" }] },
-    { label: "Text Markup & Documentation", data: [{ name: "Markdown" }, { name: "LaTeX" }] },
-    { label: "Knowledge", data: knowledge }
-];
-
-function a11yProps(index) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
-
 const Skills = () => {
     const title = "Bhavya Khurana | Skills";
     document.title = title;
-
-    const [value, setValue] = useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
     return (
         <>
@@ -132,7 +56,7 @@ const Skills = () => {
                 <GlobalStyle />
                 <SocialLinks />
                 <div className='container my-3'>
-                    <div className='text-center mb-5'>
+                    <div className='text-center mb-4'>
                         <h1>.skills()</h1>
                         <h6 className='sub-title fw-bold'>MY <span>LEARNINGS</span></h6>
                     </div>
@@ -143,50 +67,51 @@ const Skills = () => {
 
                     <hr className="my-4 mx-5 line" />
 
-                    <div className="container mt-5">
+                    <div className="container mt-3">
                         <div className="container">
                             <div className="container">
-                                <Box sx={{ width: '100%' }}>
-                                    <Tabs
-                                        value={value}
-                                        onChange={handleChange}
-                                        variant="scrollable"
-                                        scrollButtons="auto"
-                                        sx={{
-                                            backgroundColor: "#6d2ae2",
-                                            color: "#DFD8FD",
-                                            "&:hover": {
-                                                backgroundColor: "#6d2ae2",
-                                            },
-                                            "& .MuiTabs-indicator": {
-                                                backgroundColor: "#DFD8FD",
-                                                height: "3px"
-                                            },
-                                            "& .MuiTab-root": {
-                                                textTransform: "none",
-                                                fontWeight: "bold",
-                                                color: "#DFD8FD !important",
-                                                "&:hover": {
-                                                    color: "#DFD8FD",
-                                                },
-                                            },
-                                        }}
-                                    >
-                                        {categories.map((category, index) => (
-                                            <Tab key={index} label={category.label} {...a11yProps(index)} />
+                                {/* <div className='mb-3'>
+                                    <div className='d-flex align-items-center justify-content-center flex-wrap gap-3'>
+                                        {knowledge.map((item, index) => (
+                                            <div className='d-flex align-items-center justify-content-between gap-3 marquee-box' key={index}>
+                                                {item.name}
+                                            </div>
                                         ))}
-                                    </Tabs>
-                                </Box>
-                                {categories.map((category, index) => (
-                                    <TabPanel key={index} value={value} index={index}>
-                                        <SkillCategoryButtons items={category.data} />
-                                    </TabPanel>
-                                ))}
+                                    </div>
+                                </div> */}
+
+                                <section id='skills' className='d-flex flex-column align-items-center justify-content-center gap-2 h-100 position-relative' style={{ overflow: "hidden", transform: "scale(0.9)" }}>
+                                    <div className="d-flex flex-row justify-content-around flex-wrap gap-5 align-items-center">
+                                        {languages.map((item, index) => (
+                                            <SkillData key={index} icon={item.name} index={index} />
+                                        ))}
+                                    </div>
+                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
+                                        {fandl.map((item, index) => (
+                                            <SkillData key={index} icon={item.name} index={index} />
+                                        ))}
+                                    </div>
+                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
+                                        {hosting.map((item, index) => (
+                                            <SkillData key={index} icon={item.name} index={index} />
+                                        ))}
+                                    </div>
+                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
+                                        {packages.map((item, index) => (
+                                            <SkillData key={index} icon={item.name} index={index} />
+                                        ))}
+                                    </div>
+                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
+                                        {tools.map((item, index) => (
+                                            <SkillData key={index} icon={item.name} index={index} />
+                                        ))}
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
-                </div>
-            </ThemeProvider>
+                </div >
+            </ThemeProvider >
         </>
     )
 }
