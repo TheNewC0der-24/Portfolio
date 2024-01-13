@@ -140,20 +140,16 @@ const Intro = styled.div`
     button {
         --color: #6d2ae2;
         font-family: inherit;
+        background: transparent;
         display: inline-block;
-        // width: 8em;
-        // height: 2.6em;
-        padding: 0.5em 1em;
-        // line-height: 2.5em;
-        // margin: 20px;
+        padding: 8px 16px;
         position: relative;
         overflow: hidden;
         border: 2px solid var(--color);
         transition: color .5s;
+        font-weight: 600;
         z-index: 1;
-        font-size: 17px;
         border-radius: 6px;
-        font-weight: 500;
         color: var(--color);
     }
 
@@ -168,7 +164,7 @@ const Intro = styled.div`
     }
 
     button:hover {
-        color: #fff;
+        color: #dee2e6;
     }
 
     button:before {
