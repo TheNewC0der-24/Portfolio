@@ -15,8 +15,10 @@ import {
     CardActions,
     Button,
     Skeleton,
+    IconButton
 } from "@mui/material";
 import { TfiWrite } from 'react-icons/tfi'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { formatDate } from '../../Helpers/formatDate';
 import { gql, request } from 'graphql-request';
 
@@ -100,13 +102,20 @@ const Blogs = () => {
             }   
         `;
 
-        const res = await request(API_URL, query, API_HEADERS);
-        const blogs_data = res?.publication.posts.edges;
-        const hasNextPage = res?.publication.posts.pageInfo.hasNextPage;
-        setPosts(blogs_data);
-        setEndCursor(res?.publication.posts.pageInfo.endCursor);
-        setHasNextPage(hasNextPage);
-        setLoading(false);
+        try {
+            const res = await request(API_URL, query, API_HEADERS);
+            const blogs_data = res?.publication.posts.edges;
+            const hasNextPage = res?.publication.posts.pageInfo.hasNextPage;
+            setPosts(blogs_data);
+            setEndCursor(res?.publication.posts.pageInfo.endCursor);
+            setHasNextPage(hasNextPage);
+        } catch (error) {
+            console.log("error", error);
+        } finally {
+            setLoading(false);
+        }
+
+
     }
 
     const handleNextPage = () => {
@@ -230,42 +239,25 @@ const Blogs = () => {
                                     </Grid>
                                 )}
 
-                                <Box my={5} sx={{ display: "flex", justifyContent: "end", alignItems: "center", gap: "0.5rem" }}>
-                                    <Button
-                                        variant='contained'
-                                        sx={{
-                                            textTransform: "capitalize",
-                                            backgroundColor: "#6d2ae2",
-                                            color: "#dee2e6",
-                                            "&:hover": {
-                                                backgroundColor: "#6d2ae2",
-                                            },
-                                        }}
-                                        onClick={handlePrevPage}
-                                        disabled={currentPage === 1}
-                                    >
-                                        Previous
-                                    </Button>
-                                    <Avatar variant='rounded' sx={{ bgcolor: "transparent", color: "#6d2ae2", border: "1px solid #6d2ae2" }}>
-                                        {currentPage}
-                                    </Avatar>
-                                    <Button
-                                        variant='contained'
-                                        sx={{
-                                            textTransform: "capitalize",
-                                            backgroundColor: "#6d2ae2",
-                                            color: "#dee2e6",
-                                            "&:hover": {
-                                                backgroundColor: "#6d2ae2",
-                                            },
-                                        }}
-                                        onClick={handleNextPage}
-                                        disabled={!hasNextPage}
-                                    >
-                                        Next
-                                    </Button>
-                                </Box>
-
+                                {!loading && (
+                                    <Box my={5} sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.5rem" }}>
+                                        <IconButton
+                                            onClick={handlePrevPage}
+                                            disabled={currentPage === 1}
+                                        >
+                                            <MdKeyboardArrowLeft />
+                                        </IconButton>
+                                        <Avatar sx={{ bgcolor: "#6d2ae2", color: "#dee2e6" }}>
+                                            {currentPage}
+                                        </Avatar>
+                                        <IconButton
+                                            onClick={handleNextPage}
+                                            disabled={!hasNextPage}
+                                        >
+                                            <MdKeyboardArrowRight />
+                                        </IconButton>
+                                    </Box>
+                                )}
                             </div>
                         </div>
                     </div>

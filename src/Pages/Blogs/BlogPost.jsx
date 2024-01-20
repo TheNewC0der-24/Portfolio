@@ -8,6 +8,8 @@ import { FaHeart } from 'react-icons/fa';
 import { CiViewTimeline } from 'react-icons/ci';
 import { BiCommentDetail } from 'react-icons/bi';
 import { HiOutlineUserAdd } from 'react-icons/hi';
+import { TfiHeadphone } from "react-icons/tfi";
+import { gql, request } from 'graphql-request';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -28,45 +30,57 @@ const GlobalStyle = createGlobalStyle`
 const BlogPost = () => {
     const { slug } = useParams();
 
-    const [post, setPost] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [post, setPost] = useState();
+    const [loading, setLoading] = useState(true);
 
     const APIKey = import.meta.env.VITE_HASHNODE_API_KEY;
+    const API_URL = "https://gql.hashnode.com";
+    const API_HEADERS = {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${APIKey}`,
+    }
 
     useEffect(() => {
         fetchPost();
     }, []);
 
     const fetchPost = async () => {
-        const query = `
+        const query = gql`
                 query {
-                    post(slug: "${slug}", hostname: "cynophilist.hashnode.dev") {
-                        slug
-                        title
-                        contentMarkdown
-                        readTime
-                        totalReactions
-                        popularity
-                        views
-                        tags {
-                            name
-                        } 
+                    publication(host: "cynophilist.hashnode.dev") {
+                        post(slug: "${slug}") {
+                            coverImage {
+                                url
+                            }
+                            title
+                            subtitle
+                            slug
+                            reactionCount
+                            views
+                            readTimeInMinutes
+                            audioUrls {
+                                male
+                            }
+                            content {
+                                markdown
+                            }
+                            tags {
+                                name
+                            }
+                            author {
+                                name
+                                bio {
+                                    markdown
+                                }
+                            }
+                        }
                     }
                 }`;
 
         try {
-            setLoading(true);
-            const response = await fetch("https://api.hashnode.com", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": `Bearer ${APIKey}`
-                },
-                body: JSON.stringify({ query }),
-            });
-
-            const data = await response.json();
-            setPost(data.data.post);
+            const response = await request(API_URL, query, API_HEADERS);
+            const data = response;
+            setPost(data.publication.post);
         } catch (error) {
             console.log("error", error);
         } finally {
@@ -93,27 +107,37 @@ const BlogPost = () => {
     return (
         <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
-            <Container maxWidth="lg" sx={{ my: 5 }}>
-                <Typography variant="h3" gutterBottom>{post.title}</Typography>
-                <Divider sx={{ mb: 3, bgcolor: "#000" }} />
+            <Container maxWidth="md" sx={{ my: 5 }}>
+                <div className="d-flex justify-content-center mb-3">
+                    <img src={post.coverImage.url} alt={post.title} className='rounded img-fluid' />
+                </div>
+                <Typography variant="h4" textAlign="center" gutterBottom>{post.title}</Typography>
+                <Typography variant="h5" textAlign="center" gutterBottom>{post.subtitle}</Typography>
+
+                <Box p={3} mt={3} mb={3} sx={{ border: "1px solid #ccc", borderRadius: "0.5rem" }}>
+                    <Typography variant="subtitle1" textAlign="center" mb={3} gutterBottom>
+                        <TfiHeadphone className='fs-5' /> PLAY THIS ARTICLE
+                    </Typography>
+                    <audio controls style={{ width: "100%" }}>
+                        <source src={post.audioUrls.male} />
+                    </audio>
+                </Box>
+
+                {/* <Divider sx={{ mb: 3, bgcolor: "#000" }} /> */}
                 <Box sx={{ display: "flex", justifyContent: { xs: "start", sm: "space-between" }, alignItems: "center", flexWrap: "wrap", gap: "2rem" }}>
                     <Link href={`https://cynophilist.hashnode.dev/${slug}`} underline="hover" target='_blank' sx={{
                         color: "#0e1313", '&:hover': {
                             color: "#6d2ae2"
                         }
                     }}>
-                        <CountUp end={post.totalReactions} /> Reactions <FaHeart />
+                        <CountUp end={post.reactionCount} /> Reactions <FaHeart />
                     </Link>
-
-                    <Typography variant="body1">
-                        <CountUp end={post.popularity} /> Popularity
-                    </Typography>
 
                     <Typography variant="body1">
                         <CiViewTimeline className='fs-4' /> <CountUp end={post.views} /> views
                     </Typography>
                     <Typography variant="body1">
-                        <BsBook /> {post.readTime} min read
+                        <BsBook /> {post.readTimeInMinutes} min read
                     </Typography>
                 </Box>
                 <Divider sx={{ my: 3, bgcolor: "#000" }} />
@@ -122,7 +146,7 @@ const BlogPost = () => {
                     remarkPlugins={[remarkGfm]}
                     rehypePlugins={[rehypeRaw]}
                 >
-                    {post.contentMarkdown}
+                    {post.content.markdown}
                 </ReactMarkdown>
 
                 <Box my={3} sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
@@ -159,27 +183,18 @@ const BlogPost = () => {
                     <Grid item xs={12} sm={2}>
                         <img src={author} alt="Bhavya Khurana" className='img-fluid' width={150} />
                     </Grid>
-                    <Grid item xs={12} sm={7}>
+                    <Grid item xs={12} sm={8}>
                         <Typography variant="h5" gutterBottom>
-                            Bhavya Khurana
+                            {post.author.name}
                         </Typography>
-                        <Typography variant="body1" mb={2}>
-                            👋 Hi there! I'm Bhavya Khurana, a frontend developer with a passion for crafting delightful user experiences.
-                        </Typography>
-                        <Typography variant="body1" mb={2}>
-                            🔧 With expertise in HTML, CSS, and JavaScript, I specialize in building responsive and interactive web applications. I love diving into the intricacies of frontend frameworks such as React and Angular, harnessing their power to create dynamic and engaging user interfaces.
-                        </Typography>
-                        <Typography variant="body1" mb={2}>
-                            📚 I'm also adept at managing documentation, ensuring that projects are well-documented and easy to understand for both developers and stakeholders. Clear and concise documentation is crucial for efficient collaboration and future maintainability.
-                        </Typography>
-                        <Typography variant="body1" mb={2}>
-                            🌟 Passionate about staying up-to-date with the latest trends and best practices in frontend development, I constantly seek opportunities to expand my knowledge and skill set. I'm an avid learner and enjoy sharing my expertise with others through mentoring.
-                        </Typography>
-                        <Typography variant="body1" mb={2}>
-                            🚀 If you're looking for a dedicated frontend developer who can bring your vision to life, or if you're interested in exploring the world of frontend development through mentoring, feel free to reach out! Let's collaborate and create remarkable digital experiences together.
-                        </Typography>
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeRaw]}
+                        >
+                            {post.author.bio.markdown}
+                        </ReactMarkdown>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={2}>
                         <Button
                             variant="outlined"
                             sx={{
@@ -201,7 +216,7 @@ const BlogPost = () => {
                     </Grid>
                 </Grid>
             </Container>
-        </ThemeProvider >
+        </ThemeProvider>
     )
 }
 
