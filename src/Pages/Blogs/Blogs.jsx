@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import { TfiWrite } from 'react-icons/tfi'
 import { formatDate } from '../../Helpers/formatDate';
+import { gql, request } from 'graphql-request';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -51,72 +52,72 @@ const Blogs = () => {
     const title = "Bhavya Khurana | Blogs";
     document.title = title;
 
-    const [loading, setLoading] = useState(false);
-    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [posts, setPosts] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    const [endCursor, setEndCursor] = useState("");
+    const [hasNextPage, setHasNextPage] = useState(true);
 
     const postsPerPage = 6;
 
     const APIKey = import.meta.env.VITE_HASHNODE_API_KEY;
+    const API_URL = "https://gql.hashnode.com";
+    const API_HEADERS = {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${APIKey}`,
+    }
 
     useEffect(() => {
-        fetchPosts(currentPage);
-    }, [currentPage]);
+        fetch();
+    }, []);
 
-    const fetchPosts = async (page) => {
-        const query = `
-                query {
-                    user(username: "BhavyaKhurana") {
-                      publication {
-                        posts(page: ${page - 1}) {
-                          slug
-                          title
-                          brief
-                          coverImage
-                          dateAdded
-                          cuid
-                          _id
+    const fetch = async () => {
+        const cursor = currentPage === 1 ? endCursor : null;
+
+        const query = gql`
+            query {
+                publication(host: "cynophilist.hashnode.dev") {
+                    posts(first: ${postsPerPage}, ${cursor ? `after: "${cursor}"` : ''}) {
+                        edges {
+                            node {
+                                id
+                                title
+                                brief
+                                url
+                                coverImage{
+                                    url
+                                }
+                                slug
+                                publishedAt
+                            }
                         }
-                      }
+                        pageInfo {
+                            hasNextPage
+                            endCursor
+                        }
                     }
-                }`;
+                }
+            }   
+        `;
 
-        try {
-            setLoading(true);
-            const response = await fetch("https://api.hashnode.com", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": `Bearer ${APIKey}`
-                },
-                body: JSON.stringify({ query }),
-            });
-
-            const data = await response.json();
-            setPosts(data.data.user.publication.posts);
-            setLoading(false);
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
+        const res = await request(API_URL, query, API_HEADERS);
+        const blogs_data = res?.publication.posts.edges;
+        const hasNextPage = res?.publication.posts.pageInfo.hasNextPage;
+        setPosts(blogs_data);
+        setEndCursor(res?.publication.posts.pageInfo.endCursor);
+        setHasNextPage(hasNextPage);
+        setLoading(false);
+    }
 
     const handleNextPage = () => {
-        if (posts.length === postsPerPage) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
+        setCurrentPage(currentPage + 1);
+        fetch();
+    }
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+    const handlePrevPage = () => {
+        setCurrentPage(currentPage - 1);
+        fetch();
+    }
 
     return (
         <>
@@ -139,97 +140,95 @@ const Blogs = () => {
                     <div className="container mt-5">
                         <div className="container">
                             <div className="container">
-                                {
-                                    loading ? (
-                                        <Grid container spacing={2}>
-                                            {Array.from(new Array(6)).map((index) => (
-                                                <Grid key={index} item xs={12} sm={12} md={6} lg={4}>
-                                                    <Card elevation={0} className='card'>
-                                                        <CardHeader
-                                                            avatar={
-                                                                <Skeleton animation="wave" variant="circular" width={40} height={40} />
-                                                            }
-                                                            title={
-                                                                <Skeleton
-                                                                    animation="wave"
-                                                                    height={10}
-                                                                    width="80%"
-                                                                    style={{ marginBottom: 6 }}
-                                                                />
-                                                            }
-                                                            subheader={
-                                                                <Skeleton animation="wave" height={10} width="40%" />
-                                                            }
-                                                        />
-                                                        <Skeleton sx={{ height: 200 }} animation="wave" variant="rectangular" />
-                                                        <CardContent>
-                                                            <React.Fragment>
-                                                                <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
-                                                                <Skeleton animation="wave" height={10} width="80%" />
-                                                            </React.Fragment>
-                                                        </CardContent>
-                                                    </Card>
-                                                </Grid>
-                                            ))}
-                                        </Grid>
-                                    ) : (
-                                        <Grid container spacing={2}>
-                                            {currentPosts.map((post) => (
-                                                <Grid key={post._id} item xs={12} sm={12} md={6} lg={4}>
-                                                    <Card elevation={0} className='card' sx={{ height: "100%" }}>
-                                                        <CardHeader
-                                                            avatar={
-                                                                <Avatar sx={{ bgcolor: "#6d2ae2", color: "#DFD8FD" }}>
-                                                                    <TfiWrite />
-                                                                </Avatar>
-                                                            }
-                                                            title={post.title}
-                                                            subheader={formatDate(post.dateAdded)}
-                                                        />
+                                {loading ? (
+                                    <Grid container spacing={2}>
+                                        {Array.from(new Array(6)).map((index) => (
+                                            <Grid key={index} item xs={12} sm={12} md={6} lg={4}>
+                                                <Card elevation={0} className='card'>
+                                                    <CardHeader
+                                                        avatar={
+                                                            <Skeleton animation="wave" variant="circular" width={40} height={40} />
+                                                        }
+                                                        title={
+                                                            <Skeleton
+                                                                animation="wave"
+                                                                height={10}
+                                                                width="80%"
+                                                                style={{ marginBottom: 6 }}
+                                                            />
+                                                        }
+                                                        subheader={
+                                                            <Skeleton animation="wave" height={10} width="40%" />
+                                                        }
+                                                    />
+                                                    <Skeleton sx={{ height: 200 }} animation="wave" variant="rectangular" />
+                                                    <CardContent>
+                                                        <React.Fragment>
+                                                            <Skeleton animation="wave" height={10} style={{ marginBottom: 6 }} />
+                                                            <Skeleton animation="wave" height={10} width="80%" />
+                                                        </React.Fragment>
+                                                    </CardContent>
+                                                </Card>
+                                            </Grid>
+                                        ))}
+                                    </Grid>
+                                ) : (
+                                    <Grid container spacing={2}>
+                                        {posts?.map((post) => (
+                                            <Grid key={post.node.id} item xs={12} sm={12} md={6} lg={4}>
+                                                <Card elevation={0} className='card' sx={{ height: "100%" }}>
+                                                    <CardHeader
+                                                        avatar={
+                                                            <Avatar sx={{ bgcolor: "#6d2ae2", color: "#DFD8FD" }}>
+                                                                <TfiWrite />
+                                                            </Avatar>
+                                                        }
+                                                        title={post.node.title}
+                                                        subheader={formatDate(post.node.publishedAt)}
+                                                    />
 
-                                                        <CardMedia
-                                                            component="img"
-                                                            image={post.coverImage}
-                                                            alt={post.title}
-                                                        />
+                                                    <CardMedia
+                                                        component="img"
+                                                        image={post.node.coverImage.url}
+                                                        alt={post.node.title}
+                                                    />
 
-                                                        <CardContent>
-                                                            <Typography variant="body2" color="text.secondary" component="p">
-                                                                {post.brief}
-                                                            </Typography>
-                                                        </CardContent>
-                                                        <CardActions>
-                                                            <Button size="small" variant='contained'
-                                                                sx={{
-                                                                    textTransform: "capitalize",
+                                                    <CardContent>
+                                                        <Typography variant="body2" color="text.secondary" component="p">
+                                                            {post.node.brief}
+                                                        </Typography>
+                                                    </CardContent>
+                                                    <CardActions>
+                                                        <Button size="small" variant='contained'
+                                                            sx={{
+                                                                textTransform: "capitalize",
+                                                                backgroundColor: "#6d2ae2",
+                                                                color: "#dee2e6",
+                                                                "&:hover": {
                                                                     backgroundColor: "#6d2ae2",
-                                                                    color: "#dee2e6",
-                                                                    "&:hover": {
-                                                                        backgroundColor: "#6d2ae2",
-                                                                    },
-                                                                }}>
-                                                                <Link to={`/blog/${post.slug}`}>Read More</Link>
-                                                            </Button>
-                                                            <Button size="small" variant='contained'
-                                                                sx={{
-                                                                    textTransform: "capitalize",
+                                                                },
+                                                            }}>
+                                                            <Link to={`/blog/${post.node.slug}`}>Read More</Link>
+                                                        </Button>
+                                                        <Button size="small" variant='contained'
+                                                            sx={{
+                                                                textTransform: "capitalize",
+                                                                backgroundColor: "#6d2ae2",
+                                                                color: "#dee2e6",
+                                                                "&:hover": {
                                                                     backgroundColor: "#6d2ae2",
-                                                                    color: "#dee2e6",
-                                                                    "&:hover": {
-                                                                        backgroundColor: "#6d2ae2",
-                                                                    },
-                                                                }}>
-                                                                <a href={`https://cynophilist.hashnode.dev/${post.slug}`} target="_blank" rel="noreferrer">
-                                                                    Read On Hashnode
-                                                                </a>
-                                                            </Button>
-                                                        </CardActions>
-                                                    </Card>
-                                                </Grid>
-                                            ))}
-                                        </Grid>
-                                    )
-                                }
+                                                                },
+                                                            }}>
+                                                            <a href={post.node.url} target="_blank" rel="noreferrer">
+                                                                Read On Hashnode
+                                                            </a>
+                                                        </Button>
+                                                    </CardActions>
+                                                </Card>
+                                            </Grid>
+                                        ))}
+                                    </Grid>
+                                )}
 
                                 <Box my={5} sx={{ display: "flex", justifyContent: "end", alignItems: "center", gap: "0.5rem" }}>
                                     <Button
@@ -261,7 +260,7 @@ const Blogs = () => {
                                             },
                                         }}
                                         onClick={handleNextPage}
-                                        disabled={currentPosts.length < postsPerPage}
+                                        disabled={!hasNextPage}
                                     >
                                         Next
                                     </Button>
@@ -271,7 +270,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-            </ThemeProvider >
+            </ThemeProvider>
         </>
     )
 }
