@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { darkTheme } from '../../Themes';
@@ -7,7 +7,6 @@ import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import bmac from '../../assets/Images/bmac.svg';
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import ParticleBackgroundAnimate from '../../SubComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
-import Aos from 'aos';
 import ReadMore from '../../Components/ReadMore';
 
 const GlobalStyle = createGlobalStyle`
@@ -72,10 +71,6 @@ const About = () => {
   const navigate = useNavigate();
   const [showReadMore, setShowReadMore] = useState(false);
 
-  useEffect(() => {
-    Aos.init({ duration: 2000 });
-  }, []);
-
   const title = "Bhavya Khurana | About Me";
   document.title = title;
 
@@ -136,7 +131,7 @@ const About = () => {
                   </p>
                 </div>
 
-                <div className='card card-body border-0' data-aos="zoom-in" style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', borderRadius: "0px" }}>
+                <div className='card card-body border-0' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', borderRadius: "0px" }}>
                   <p className='fw-bold'>
                     Feel free to explore my work and writing samples to get a taste of my work. If you have any frontend development or content
                     writing projects in mind, or simply want to chat about dogs, I'd love to connect with you! Let's collaborate and create something pawsome
