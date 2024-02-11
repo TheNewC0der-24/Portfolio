@@ -20,17 +20,20 @@ const Benefits = () => {
         {
             id: 1,
             title: "User-Centric Approach for Optimal Experience",
-            description: "Centrally focused on user experience (UX) design, I prioritize your visitors throughout the entire design process. Through thorough research and the application of user testing techniques, I guarantee that your website is not only intuitive but also effortlessly navigable, seamlessly guiding users towards their objectives. The outcome is a gratifying user journey that significantly enhances engagement and boosts conversion rates."
+            description: "Centrally focused on user experience (UX) design, I prioritize your visitors throughout the entire design process. Through thorough research and the application of user testing techniques, I guarantee that your website is not only intuitive but also effortlessly navigable, seamlessly guiding users towards their objectives. The outcome is a gratifying user journey that significantly enhances engagement and boosts conversion rates.",
+            className: "col-lg-4 col-md-6 col-sm-12"
         },
         {
             id: 2,
             title: "Mobile-First Design for Broad Accessibility",
-            description: "In the current mobile-centric environment, the significance of a responsive website cannot be overstated. My expertise lies in crafting user interfaces that are seamlessly compatible with various devices and screen dimensions. Regardless of whether your audience accesses your website from a desktop, smartphone, or tablet, the design will remain visually appealing and function smoothly. This ensures effective outreach and engagement with your audience across diverse platforms."
+            description: "In the current mobile-centric environment, the significance of a responsive website cannot be overstated. My expertise lies in crafting user interfaces that are seamlessly compatible with various devices and screen dimensions. Regardless of whether your audience accesses your website from a desktop, smartphone, or tablet, the design will remain visually appealing and function smoothly. This ensures effective outreach and engagement with your audience across diverse platforms.",
+            className: "col-lg-4 col-md-6 col-sm-12"
         },
         {
             id: 3,
             title: "Expertise in Cutting-Edge Technologies",
-            description: "Armed with proficiency in HTML, CSS, JavaScript, and other front-end technologies, I have the technical acumen to transform your design concepts into reality. Utilizing the latest web technologies, I integrate seamless animations and interactive elements to elevate user engagement and deliver a dynamic user experience."
+            description: "Armed with proficiency in HTML, CSS, JavaScript, and other front-end technologies, I have the technical acumen to transform your design concepts into reality. Utilizing the latest web technologies, I integrate seamless animations and interactive elements to elevate user engagement and deliver a dynamic user experience.",
+            className: "col-lg-4 col-md-12 col-sm-12"
         }
     ];
 
@@ -45,7 +48,7 @@ const Benefits = () => {
                 </Typography>
                 <div className="row g-4 mt-3">
                     {benefitsOne.map((benefit) => (
-                        <div className="col-md-6" key={benefit.id}>
+                        <div className="col-lg-6 col-md-12" key={benefit.id}>
                             <div className="card h-100 border-0">
                                 <div className="card-body">
                                     <Typography variant="h6" sx={{ textAlign: { xs: "center", sm: "center", md: "start" } }} fontWeight="bold" mb={2}>
@@ -61,7 +64,7 @@ const Benefits = () => {
                     ))}
 
                     {benefitsTwo.map((benefit) => (
-                        <div className="col-md-4" key={benefit.id}>
+                        <div className={benefit.className} key={benefit.id}>
                             <div className="card h-100 border-0">
                                 <div className="card-body">
                                     <Typography variant="h6" sx={{ textAlign: { xs: "center", sm: "center", md: "start" } }} fontWeight="bold" mb={2}>

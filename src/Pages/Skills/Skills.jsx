@@ -9,8 +9,7 @@ import hosting from '../../Data/Skills/hosting.json';
 import tools from '../../Data/Skills/tools.json';
 import knowledge from '../../Data/Skills/knowledge.json';
 import SkillData from '../../Components/SkillData';
-import { Button } from '@mui/material';
-
+import { motion } from 'framer-motion';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -70,14 +69,14 @@ const Skills = () => {
                     <div className="container mt-3">
                         <div className="container">
                             <div className="container">
-                                {/* <div className='mb-3'>
-                                    <div className='d-flex align-items-center justify-content-center flex-wrap gap-3'>
+                                {/* <div className='mb-3 overflow-hidden'>
+                                    <motion.div initial={{ x: 0 }} animate={{ x: "-100%" }} transition={{ ease: "linear", duration: 10, repeat: Infinity }} className='d-flex align-items-center justify-content-center marquee'>
                                         {knowledge.map((item, index) => (
-                                            <div className='d-flex align-items-center justify-content-between gap-3 marquee-box' key={index}>
+                                            <div className='marquee-box' style={{ marginRight: "5rem" }} key={index}>
                                                 {item.name}
                                             </div>
                                         ))}
-                                    </div>
+                                    </motion.div>
                                 </div> */}
 
                                 <section id='skills' className='d-flex flex-column align-items-center justify-content-center gap-2 h-100 position-relative' style={{ overflow: "hidden", transform: "scale(0.9)" }}>

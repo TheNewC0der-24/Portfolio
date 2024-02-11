@@ -115,7 +115,6 @@ const Blogs = () => {
             setLoading(false);
         }
 
-
     }
 
     const handleNextPage = () => {
@@ -247,7 +246,7 @@ const Blogs = () => {
                                         >
                                             <MdKeyboardArrowLeft />
                                         </IconButton>
-                                        <Avatar sx={{ bgcolor: "#6d2ae2", color: "#dee2e6" }}>
+                                        <Avatar sx={{ bgcolor: "#6d2ae2", color: "#dee2e6", width: "35px", height: "35px", fontSize: "16px" }}>
                                             {currentPage}
                                         </Avatar>
                                         <IconButton

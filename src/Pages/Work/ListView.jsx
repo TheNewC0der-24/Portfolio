@@ -14,7 +14,7 @@ export default function ListView({ filteredProjects, searchTerm }) {
                     <Typography variant='h5'>No Work found with topic <span className='badge' style={{ backgroundColor: "#DFD8FD", color: "#6d2ae2" }}>{searchTerm}</span></Typography>
                 </Box>
             ) :
-                <Box>
+                <Box className="d-flex flex-column justify-content-center mx-auto" sx={{ maxWidth: "992px", width: "100%" }}>
                     {
                         filteredProjects.map((item) => (
                             <WorkList

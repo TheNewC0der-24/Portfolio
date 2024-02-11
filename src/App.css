@@ -94,9 +94,14 @@ select:focus,
   font-size: 30px !important;
 }
 
+@media (max-width : 600.5px) {
+  .arrow-right {
+    display: none;
+  }
+}
+
 /* .marquee {
   white-space: nowrap;
-  animation: marquee 10s linear infinite;
 }
 
 .marquee-box {

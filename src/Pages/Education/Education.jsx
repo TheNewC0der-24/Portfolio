@@ -64,22 +64,24 @@ const Education = () => {
                                 educationData.map((data) => (
                                     <div key={data.id} className={data.className}>
                                         <div className="card border-0 h-100" data-aos="zoom-in" style={{ backgroundColor: `${data.bgColor}`, color: `${data.color}` }}>
-                                            <div className="card-body">
+                                            <div className="card-body d-flex flex-column justify-content-between">
                                                 <h5 className='card-title my-3'>{data.duration}</h5>
                                                 <h4 className='fw-bold'>{data.institutionName}</h4>
                                                 <h5 className='card-title my-3'>{data.degreeName}</h5>
                                                 <div className='my-3'>
                                                     <span className='fw-bold me-1 badge bg-light text-dark'>{data.grade}</span>
                                                 </div>
-                                                <button
-                                                    href={data.link}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                    className='d-flex gap-2 align-items-center btn btn-dark fw-bold'
-                                                    style={{ border: "none", backgroundColor: '#6d2ae2', color: "#dee2e6" }}
-                                                >
-                                                    Visit <FaExternalLinkAlt />
-                                                </button>
+                                                <div className='d-flex'>
+                                                    <button
+                                                        href={data.link}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className='d-flex gap-2 align-items-center btn btn-dark fw-bold'
+                                                        style={{ border: "none", backgroundColor: '#6d2ae2', color: "#dee2e6" }}
+                                                    >
+                                                        Visit <FaExternalLinkAlt />
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

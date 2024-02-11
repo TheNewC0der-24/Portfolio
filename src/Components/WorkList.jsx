@@ -145,7 +145,7 @@ const WorkList = ({ heading, imgSrc, subheading, href, topics }) => {
                     zIndex: 10,
                     padding: "1rem",
                 }}
-                className="p-4"
+                className="p-4 arrow-right"
             >
                 <FaArrowRight style={{ fontSize: "2.5rem", color: "#0e1313" }} />
             </motion.div>
