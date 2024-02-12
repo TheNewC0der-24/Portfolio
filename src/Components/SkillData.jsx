@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { getIconForTechnology } from '../Helpers/getIconForTechnology';
-import { Avatar, Button } from '@mui/material';
+import { Avatar } from '@mui/material';
 
 const SkillData = ({ icon, index }) => {
     const [ref, inView] = useInView({

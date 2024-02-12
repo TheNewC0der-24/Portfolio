@@ -102,7 +102,7 @@ select:focus,
 
 /* .marquee {
   white-space: nowrap;
-}
+} */
 
 .marquee-box {
   background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
@@ -110,9 +110,10 @@ select:focus,
   padding: 4px 8px;
   color: #dee2e6;
   text-align: center;
+  cursor: default;
 }
 
-@keyframes marquee {
+/* @keyframes marquee {
   from {
     transform: translateX(0%);
   }
