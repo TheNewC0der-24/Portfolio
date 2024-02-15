@@ -114,14 +114,16 @@ const BlogPost = () => {
                 <Typography variant="h4" textAlign="center" gutterBottom>{post.title}</Typography>
                 <Typography variant="h5" textAlign="center" gutterBottom>{post.subtitle}</Typography>
 
-                <Box p={3} mt={3} mb={3} sx={{ border: "1px solid #ccc", borderRadius: "0.5rem" }}>
-                    <Typography variant="subtitle1" textAlign="center" mb={3} gutterBottom>
-                        <TfiHeadphone className='fs-5' /> PLAY THIS ARTICLE
-                    </Typography>
-                    <audio controls style={{ width: "100%" }}>
-                        <source src={post.audioUrls.male} />
-                    </audio>
-                </Box>
+                {post.audioUrls && (
+                    <Box p={3} mt={3} mb={3} sx={{ border: "1px solid #ccc", borderRadius: "0.5rem" }}>
+                        <Typography variant="subtitle1" textAlign="center" mb={3} gutterBottom>
+                            <TfiHeadphone className='fs-5' /> PLAY THIS ARTICLE
+                        </Typography>
+                        <audio controls style={{ width: "100%" }}>
+                            <source src={post.audioUrls.male} />
+                        </audio>
+                    </Box>
+                )}
 
                 {/* <Divider sx={{ mb: 3, bgcolor: "#000" }} /> */}
                 <Box sx={{ display: "flex", justifyContent: { xs: "start", sm: "space-between" }, alignItems: "center", flexWrap: "wrap", gap: "2rem" }}>
