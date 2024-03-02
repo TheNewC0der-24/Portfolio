@@ -3,7 +3,7 @@
         "companyName": "Doeasily",
         "logoSrc": "./ExperienceImg/doeasilyLogo.png",
         "position": "Frontend Developer - INTERNSHIP",
-        "duration": "August 2023 - Present",
+        "duration": "August 2023 - October 2023",
         "location": "Bengaluru, Karnataka, India",
         "projects": [
             {
@@ -70,80 +70,27 @@
         ]
     },
     {
-        "companyName": "Evren Global Solutions Pvt. Ltd.",
-        "logoSrc": "./ExperienceImg/egsLogo.png",
-        "position": "Frontend Developer - INTERNSHIP",
-        "duration": "July 2022 - Feb 2023",
-        "location": "Delhi, India",
-        "projects": [
-            {
-                "name": "InJOBS",
-                "link": "https://injobs.careers/",
-                "description": [
-                    "Created landing page for InJOBS.",
-                    "Created the InJOBS portal, a platform where jobseekers can discover job opportunities, research projects, freelance gigs, and internships. Additionally, MSMEs (Micro, Small, and Medium Enterprises) and working professionals can post their own opportunities on the platform.",
-                    "Created an admin panel for InJOBS portal - Admin can see the statistics and can see which candidates are under which Mentor."
-                ],
-                "technologiesUsed": [
-                    "HTML5",
-                    "CSS3",
-                    "Bootstrap",
-                    "jQuery",
-                    "React",
-                    "Git"
-                ]
-            },
-            {
-                "name": "Acu 1st Insurance",
-                "link": "https://www.acu1stchoice.com/",
-                "description": [
-                    "Implemented responsive designs and mobile-first development principles, resulting in improved accessibility across devices.",
-                    "Developed a robust CRM application for managing insurance policies, claims, and customer data using React, Redux, and Material-UI.",
-                    "Implemented form validation and error handling to ensure accurate data entry and improve data integrity.",
-                    "Integrated with RESTful APIs to fetch and update data from external systems, including underwriting systems and payment gateways."
-                ],
-                "technologiesUsed": [
-                    "React",
-                    "Material-UI",
-                    "Redux",
-                    "Git"
-                ]
-            },
-            {
-                "name": "BOI Matrimony",
-                "link": "https://matrimonial.boindia.org/",
-                "description": [
-                    "Created the landing page.",
-                    "Created the web portal for Brahmin Organization of India.",
-                    "Implemented the chat feature.",
-                    "Implemented secure user sign up and login."
-                ],
-                "technologiesUsed": [
-                    "React",
-                    "Redux",
-                    "Material-UI",
-                    "Git"
-                ]
-            }
-        ]
-    },
-    {
         "companyName": "Talent Sumo",
         "logoSrc": "./ExperienceImg/tsLogo.png",
         "position": "Frontend Developer - INTERNSHIP",
-        "duration": "June 2022 - July 2022",
+        "duration": "June 2022 - Feb 2023",
         "location": "Nagpur, Maharashtra, India",
         "projects": [
             {
                 "name": "CLOUD COACH",
                 "link": "https://sandbox.coachbots.com/login",
                 "description": [
-                    "Created a user interface with end-to-end functionality for an AI bot for automatic assessment and feedback that can be used for interviews, training like sales or leadership, course testing, screening, job simulation etc.",
-                    "Implementing Open AI feature to leverage the power of application to provide the AI capabilities."
+                    "Designed and developed a comprehensive user interface facilitating end-to-end functionality for an AI bot specialized in automatic assessment and feedback. Application areas include interview preparation, sales and leadership training, course testing, job screening, and simulations.",
+                    "Implementing Open AI feature to leverage the power of application to provide the AI capabilities.",
+                    "Crafted a user-friendly UX (User Experience) to enhance accessibility and ease of interaction.",
+                    "Engineered a highly responsive user interface adaptable to various devices, ensuring seamless user experiences across platforms.",
+                    "Implemented robust features for video and audio recording within the application, enhancing its versatility and effectiveness for users.",
+                    "Integrated secure login and signup functionality to manage user authentication and access control effectively."
                 ],
                 "technologiesUsed": [
                     "HTML5",
                     "CSS3",
+                    "Bootstrap",
                     "Material-UI",
                     "React",
                     "OpenAI"
