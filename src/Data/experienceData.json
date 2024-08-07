@@ -1,5 +1,56 @@
 [
     {
+        "companyName": "Ernst & Young",
+        "logoSrc": "./ExperienceImg/eyLogo.png",
+        "position": "Senior Analyst",
+        "duration": "May 2024 - Present",
+        "location": "Delhi, India",
+        "projects": [
+            {
+                "name": "PMO Project",
+                "link": "https://master-meity.digifootprint.gov.in/",
+                "description": [
+                    "Developed a responsive and DBIM compliance UI for the PMO project, ensuring compatibility across all devices, and worked on ministry websites like MeitY, MSDE, Agriculture, and Rural, utilizing the DBIM UX Kit.",
+                    "Integrated Bhashni Language Translation.",
+                    "Integrated dynamic data feeds, enhancing data accuracy by 12%.",
+                    "Implemented accessibility features, including theming, filters, and text size adjustments.",
+                    "Created Figma designs for the ICS 2.0 (Immigration Control System) for Seaport and Airport, focusing on user experience and functionality."
+                ],
+                "technologiesUsed": [
+                    "Next.js",
+                    "Bootstrap",
+                    "Sass",
+                    "Git",
+                    "Figma"
+                ]
+            }
+        ]
+    },
+    {
+        "companyName": "Ooumph - EY Vendor",
+        "logoSrc": "./ExperienceImg/ooumphLogo.jpeg",
+        "position": "Software Engineer (Contract)",
+        "duration": "January 2024 - April 2024",
+        "location": "Noida, U.P., India",
+        "projects": [
+            {
+                "name": "PMO Project",
+                "link": "https://master-meity.digifootprint.gov.in/",
+                "description": [
+                    "Developed a responsive UI for the PMO project, compatible with all devices.",
+                    "Integrated dynamic data feeds, improving data accuracy by 12%.",
+                    "Added accessibility features, including theming, filters, and text size adjustments in a single click."
+                ],
+                "technologiesUsed": [
+                    "Next.js",
+                    "Bootstrap",
+                    "Sass",
+                    "Git"
+                ]
+            }
+        ]
+    },
+    {
         "companyName": "Doeasily",
         "logoSrc": "./ExperienceImg/doeasilyLogo.png",
         "position": "Frontend Developer - Freelance",
