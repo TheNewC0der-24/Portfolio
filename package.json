@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.13.3",
     "aos": "^2.3.4",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "formik": "^2.4.0",
     "framer-motion": "^6.4.3",
     "graphql-request": "^6.1.0",
