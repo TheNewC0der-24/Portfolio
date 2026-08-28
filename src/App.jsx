@@ -1,15 +1,11 @@
 import './App.css';
 import React from 'react';
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorFallback from './ErrorBoundary';
-
 import NotFound from './NotFound/404NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import Navbar from './Layout/Header';
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About';
@@ -40,6 +36,7 @@ function App() {
 }
 
 function AppContent() {
+  const location = useLocation()
 
   const isResumeRoute = location.pathname === '/resume';
 

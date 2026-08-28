@@ -1,11 +1,8 @@
-import React from 'react';
 import styled from 'styled-components';
 import styles from './SocialLinks.module.css';
-
-import { SiHashnode, SiMedium, SiBento } from 'react-icons/si';
-import { FaFacebookSquare, FaGithub, FaInstagram, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
+import { SiHashnode } from 'react-icons/si';
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-
 import { motion } from 'framer-motion';
 
 const Line = styled(motion.span)`
@@ -23,26 +20,6 @@ const SocialLinks = () => {
                     animate={{ scale: [0, 1, 1.5, 1] }}
                     transition={{ type: 'spring', duration: 1, delay: 0.8 }}
                 >
-                    <a href="https://bento.me/bhavya-khurana" rel="noreferrer" target="_blank">
-                        <SiBento className={`${styles.socialIcon} mb-3 fs-4`} />
-                    </a>
-                </motion.div>
-
-                <motion.div
-                    initial={{ transform: "scale(0)" }}
-                    animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 1 }}
-                >
-                    <a href="https://www.facebook.com/bhavya.khurana.399/" rel="noreferrer" target="_blank">
-                        <FaFacebookSquare className={`${styles.socialIcon} mb-3 fs-4`} />
-                    </a>
-                </motion.div>
-
-                <motion.div
-                    initial={{ transform: "scale(0)" }}
-                    animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 1.2 }}
-                >
                     <a href="https://github.com/TheNewC0der-24" rel="noreferrer" target="_blank">
                         <FaGithub className={`${styles.socialIcon} mb-3 fs-4`} />
                     </a>
@@ -51,7 +28,7 @@ const SocialLinks = () => {
                 <motion.div
                     initial={{ transform: "scale(0)" }}
                     animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 1.4 }}
+                    transition={{ type: 'spring', duration: 1, delay: 1 }}
                 >
                     <a href="https://hashnode.com/@BhavyaKhurana" rel="noreferrer" target="_blank">
                         <SiHashnode className={`${styles.socialIcon} mb-3 fs-4`} />
@@ -61,7 +38,7 @@ const SocialLinks = () => {
                 <motion.div
                     initial={{ transform: "scale(0)" }}
                     animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 1.6 }}
+                    transition={{ type: 'spring', duration: 1, delay: 1.2 }}
                 >
                     <a href="https://www.instagram.com/__cynophilist__._/" rel="noreferrer" target="_blank">
                         <FaInstagram className={`${styles.socialIcon} mb-3 fs-4`} />
@@ -71,7 +48,7 @@ const SocialLinks = () => {
                 <motion.div
                     initial={{ transform: "scale(0)" }}
                     animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 1.8 }}
+                    transition={{ type: 'spring', duration: 1, delay: 1.4 }}
                 >
                     <a href="https://www.linkedin.com/in/bhavya-khurana/" rel="noreferrer" target="_blank">
                         <FaLinkedin className={`${styles.socialIcon} mb-3 fs-4`} />
@@ -81,27 +58,7 @@ const SocialLinks = () => {
                 <motion.div
                     initial={{ transform: "scale(0)" }}
                     animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 2 }}
-                >
-                    <a href="https://medium.com/@bhavyakhurana24" rel="noreferrer" target="_blank">
-                        <SiMedium className={`${styles.socialIcon} mb-3 fs-4`} />
-                    </a>
-                </motion.div>
-
-                <motion.div
-                    initial={{ transform: "scale(0)" }}
-                    animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 2.2 }}
-                >
-                    <a href="https://stackoverflow.com/users/23147565/bhavya-khurana" rel="noreferrer" target="_blank">
-                        <FaStackOverflow className={`${styles.socialIcon} mb-3 fs-4`} />
-                    </a>
-                </motion.div>
-
-                <motion.div
-                    initial={{ transform: "scale(0)" }}
-                    animate={{ scale: [0, 1, 1.5, 1] }}
-                    transition={{ type: 'spring', duration: 1, delay: 2.4 }}
+                    transition={{ type: 'spring', duration: 1, delay: 1.6 }}
                 >
                     <a href="https://twitter.com/Cynophilist_B" rel="noreferrer" target="_blank">
                         <FaXTwitter className={`${styles.socialIcon} mb-3 fs-4`} />
