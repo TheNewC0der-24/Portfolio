@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { darkTheme } from '../../Themes';
@@ -98,15 +98,31 @@ const About = () => {
                   </p>
 
                   <p className='card-text'>
-                    In the tech world, I'm well-versed in HTML, CSS, JavaScript and, TypeScript, constantly exploring new frameworks and tools to enhance user
-                    experiences. I enjoy the challenge of optimizing websites for performance and responsiveness across different devices.
+                    I have 3+ years of experience building enterprise and government web applications, with a strong focus on
+                    React.js, Next.js, TypeScript, JavaScript, HTML, and CSS. I've worked on large-scale platforms used by
+                    thousands of users, where performance, reliability, accessibility, security, and maintainability aren't
+                    just nice-to-haves — they're essential.
+                  </p>
+
+                  <p className="card-text">
+                    I'm particularly interested in building <b>scalable frontend architectures</b>, optimizing application performance,
+                    designing reusable components, integrating REST APIs, and creating responsive experiences that work
+                    seamlessly across devices. I've also worked with technologies and tools across the modern frontend ecosystem,
+                    including <b>Redux, Zustand, React Query, Material UI, Vite, Firebase, Keycloak, Docker, and PostgreSQL</b>.
+                  </p>
+
+                  <p className="card-text">
+                    Beyond traditional frontend development, I'm exploring the intersection of <b>frontend engineering and AI</b> —
+                    including <b>AI integrations, Microsoft Copilot, Copilot Studio, RAG, LLM-powered applications, and AI-driven
+                      experiences</b>. I enjoy learning how emerging technologies can be turned into practical products rather than
+                    simply following trends.
                   </p>
 
                   <div className='card border-0 note my-4'>
                     <div className="card-body">
                       <div className="d-flex gap-2 justify-content-between flex-wrap align-items-center resume-card">
                         <h4 style={{ color: "#dee2e6" }}>
-                          I'm obsessed with making things and even more obsessed with making things better.
+                          I'm obsessed with making things — and even more obsessed with making them better.
                         </h4>
                         <div>
                           <Button
@@ -126,40 +142,28 @@ const About = () => {
                   </div>
 
                   <p className='card-text'>
-                    But that's not all—I'm also a dedicated dog enthusiast. Whether it's going on long walks, playing fetch at the park, or cuddling up with
-                    my furry friends, I find immense joy and relaxation in the company of canines.
+                    That mindset drives how I approach development. Whether it's improving a slow component, simplifying a
+                    complicated piece of code, designing a better API interaction layer, or building a more intuitive user
+                    experience, I believe there's almost always a better way to do it.
+                  </p>
+
+                  <p className='card-text'>
+                    When I'm away from my laptop, I'm usually spending time with dogs 🐶, exploring new ideas, writing, or
+                    learning something new. I'm also passionate about content writing and enjoy using words to explain ideas,
+                    tell stories, and connect with people.
+                  </p>
+
+                  <p className="card-text">
+                    I'm always interested in building meaningful products, solving interesting problems, and collaborating with
+                    people who care about what they create.
                   </p>
                 </div>
 
                 <div className='card card-body border-0' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', borderRadius: "0px" }}>
-                  <p className='fw-bold'>
-                    Feel free to explore my work and writing samples to get a taste of my work. If you have any frontend development or content
-                    writing projects in mind, or simply want to chat about dogs, I'd love to connect with you! Let's collaborate and create something pawsome
-                    together 🐾
+                  <p className='fw-bold mb-0'>
+                    Explore my work, check out my projects, and feel free to connect. Whether you want to talk frontend
+                    engineering, AI, building products, writing — or just dogs — I'm always up for a conversation. 🐾
                   </p>
-
-                  <div>
-                    <Button
-                      onClick={() => setShowReadMore((prev) => !prev)}
-                      sx={{
-                        textTransform: "capitalize",
-                        backgroundColor: "#6d2ae2",
-                        color: "#dee2e6",
-                        '&:hover': {
-                          backgroundColor: "#6d2ae2",
-                        }
-                      }}
-                      endIcon={showReadMore ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
-                    >
-                      {showReadMore ? "Read Less" : "Read More"}
-                    </Button>
-
-                    {
-                      showReadMore && (
-                        <ReadMore isVisible={showReadMore} />
-                      )
-                    }
-                  </div>
                 </div>
 
                 <div className='d-flex align-items-center gap-2 fw-bold mt-3 bmac-div'>
