@@ -1,13 +1,12 @@
-import { useState } from 'react';
+/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/no-unescaped-entities */
 import { useNavigate } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { darkTheme } from '../../Themes';
 import { Button } from '@mui/material';
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 import bmac from '../../assets/Images/bmac.svg';
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
 import ParticleBackgroundAnimate from '../../SubComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
-import ReadMore from '../../Components/ReadMore';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -67,9 +66,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const About = () => {
-
   const navigate = useNavigate();
-  const [showReadMore, setShowReadMore] = useState(false);
 
   const title = "Bhavya Khurana | About Me";
   document.title = title;

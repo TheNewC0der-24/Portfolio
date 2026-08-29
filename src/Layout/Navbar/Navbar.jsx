@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 import { NavLink } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import { Button } from '@mui/material';
+import { Button, Link } from '@mui/material';
 
 import SoundBar from '../../SubComponents/SoundBar';
 
@@ -62,7 +62,7 @@ const Navbar = () => {
                                 <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/experience">.experience()</NavLink>
                             </li>
                             <li className={`${styles.navItem} nav-item`}>
-                                <NavLink onClick={handleClick} className={`${styles.navLink} nav-link`} to="/blogs">.blogs()</NavLink>
+                                <Link onClick={handleClick} className={`${styles.navLink} nav-link`} to="https://cynophilist.hashnode.dev/" target='_blank' rel="noopener noreferrer">.blogs()</Link>
                             </li>
 
                             <li className={`${styles.navItem} nav-item`}>

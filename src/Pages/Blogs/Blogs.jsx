@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';

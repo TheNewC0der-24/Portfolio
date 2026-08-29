@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { lightTheme } from '../../Themes';

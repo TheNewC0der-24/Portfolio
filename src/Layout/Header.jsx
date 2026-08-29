@@ -1,36 +1,18 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+/* eslint-disable react-refresh/only-export-components */
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
 import styles from './Navbar/Navbar.module.css';
-import PropTypes from 'prop-types';
-import {
-    AppBar,
-    Box,
-    Divider,
-    Drawer,
-    IconButton,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-    Toolbar,
-    Typography,
-    Button,
-    Menu,
-    MenuItem,
-    Avatar,
-    Collapse,
-} from '@mui/material';
+import { AppBar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button, Menu, MenuItem, Avatar, Collapse } from '@mui/material';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { HiBars3BottomRight } from "react-icons/hi2";
-
 import SoundBar from '../SubComponents/SoundBar';
 import Profile from '../assets/Images/MyImgs/myPic.png';
 import DisplayImg from '../Components/DisplayImg/DisplayImg';
 
 const drawerWidth = 240;
 
-export const navItems = [
+const navItems = [
     {
         name: '.is()', link: '/'
     },
@@ -44,11 +26,11 @@ export const navItems = [
         name: ".experience()", link: "/experience"
     },
     {
-        name: ".blogs()", link: "/blogs"
+        name: ".blogs()", link: "https://cynophilist.hashnode.dev/"
     },
 ]
 
-export const otherNavItems = [
+const otherNavItems = [
     {
         name: ".skills()", link: "/skills"
     },
@@ -118,7 +100,12 @@ function Navbar(props) {
                         <ListItemButton
                             onClick={(e) => {
                                 e.stopPropagation();
-                                navigate(`${item.link}`);
+                                // navigate(`${item.link}`);
+                                if (item.name === '.blogs()') {
+                                    globalThis.open(item.link, '_blank', 'noopener,noreferrer');
+                                } else {
+                                    navigate(item.link);
+                                }
                                 setMobileOpen(false);
                             }}
                             sx={{
@@ -248,7 +235,14 @@ function Navbar(props) {
                                             bgcolor: '#0e1313',
                                         },
                                     }}
-                                    onClick={() => navigate(`${item.link}`)}
+                                    onClick={() => {
+                                        if (item.name === '.blogs()') {
+                                            globalThis.open(item.link, '_blank', 'noopener,noreferrer');
+                                        } else {
+                                            navigate(item.link);
+                                        }
+                                    }}
+                                // onClick={() => navigate(`${item.link}`)}
                                 >
                                     {item.name}
                                 </Button>
@@ -304,25 +298,23 @@ function Navbar(props) {
                                 }}
 
                             >
-                                {
-                                    otherNavItems.map((item) => (
-                                        <MenuItem key={item.name} onClick={() => {
-                                            handleCloseMenu();
-                                            navigate(`${item.link}`);
+                                {otherNavItems.map((item) => (
+                                    <MenuItem key={item.name} onClick={() => {
+                                        handleCloseMenu();
+                                        navigate(`${item.link}`);
+                                    }}
+                                        sx={{
+                                            bgcolor: location.pathname === item.link ? '#DFD8FD' : 'none',
+                                            '&:hover': {
+                                                bgcolor: location.pathname === item.link ? '#DFD8FD' : '#6d2ae2',
+                                                color: location.pathname === item.link ? '#6d2ae2' : '#dee2e6',
+                                            },
+                                            color: location.pathname === item.link ? '#6d2ae2' : '#0e1313',
                                         }}
-                                            sx={{
-                                                bgcolor: location.pathname === item.link ? '#DFD8FD' : 'none',
-                                                '&:hover': {
-                                                    bgcolor: location.pathname === item.link ? '#DFD8FD' : '#6d2ae2',
-                                                    color: location.pathname === item.link ? '#6d2ae2' : '#dee2e6',
-                                                },
-                                                color: location.pathname === item.link ? '#6d2ae2' : '#0e1313',
-                                            }}
-                                        >
-                                            {item.name}
-                                        </MenuItem>
-                                    ))
-                                }
+                                    >
+                                        {item.name}
+                                    </MenuItem>
+                                ))}
                                 <Divider sx={{ bgcolor: "#6d2ae2" }} />
 
                                 <MenuItem onClick={() => {
@@ -378,9 +370,5 @@ function Navbar(props) {
         </>
     );
 }
-
-Navbar.propTypes = {
-    window: PropTypes.func,
-};
 
 export default Navbar;
