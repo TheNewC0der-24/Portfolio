@@ -1,0 +1,180 @@
+.tech-stack {
+    position: relative;
+
+    padding: 50px 0 100px;
+
+    overflow: hidden;
+
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+
+    background: rgba(255, 255, 255, 0.01);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.tech-stack__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+}
+
+.tech-stack__header p {
+    max-width: 420px;
+
+    color: var(--color-text-muted);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   MARQUEE
+========================================= */
+
+.tech-stack__marquee-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Fade edges */
+
+.tech-stack__marquee-wrapper::before,
+.tech-stack__marquee-wrapper::after {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    width: 140px;
+
+    content: "";
+
+    pointer-events: none;
+}
+
+.tech-stack__marquee-wrapper::before {
+    left: 0;
+
+    background: linear-gradient(to right,
+            var(--color-bg),
+            transparent);
+}
+
+.tech-stack__marquee-wrapper::after {
+    right: 0;
+
+    background: linear-gradient(to left,
+            var(--color-bg),
+            transparent);
+}
+
+.tech-stack__marquee {
+    display: flex;
+
+    width: max-content;
+
+    gap: 14px;
+
+    will-change: transform;
+}
+
+/* =========================================
+   TECHNOLOGY ITEM
+========================================= */
+
+.tech-stack__item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 150px;
+
+    padding: 14px 18px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-full);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: var(--color-text-secondary);
+
+    font-family: var(--font-mono);
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    transition:
+        border-color 200ms ease,
+        background 200ms ease,
+        color 200ms ease,
+        transform 200ms ease;
+}
+
+.tech-stack__item:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(167, 139, 250, 0.35);
+
+    background: rgba(139, 92, 246, 0.08);
+
+    color: var(--color-accent-light);
+}
+
+.tech-stack__item svg {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+    .tech-stack {
+        padding: 40px 0 70px;
+    }
+
+    .tech-stack__header {
+        display: block;
+
+        margin-bottom: 30px;
+    }
+
+    .tech-stack__header p {
+        margin-top: 14px;
+
+        font-size: 13px;
+    }
+
+    .tech-stack__item {
+        min-width: 135px;
+
+        padding: 12px 15px;
+
+        font-size: 11px;
+    }
+
+    .tech-stack__item svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .tech-stack__marquee-wrapper::before,
+    .tech-stack__marquee-wrapper::after {
+        width: 60px;
+    }
+}

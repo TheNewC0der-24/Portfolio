@@ -1,0 +1,28 @@
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 64px;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 18px;
+}
+
+.section-heading__description {
+    max-width: 600px;
+    margin-top: 20px;
+
+    color: var(--color-text-secondary);
+
+    font-size: var(--text-lg);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .section-heading {
+        margin-bottom: 42px;
+    }
+
+    .section-heading__description {
+        font-size: var(--text-base);
+    }
+}

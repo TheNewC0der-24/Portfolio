@@ -1,0 +1,497 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: fixed;
+
+    top: 16px;
+    left: 16px;
+    right: 16px;
+
+    z-index: 1000;
+
+    width: auto;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+
+    background: rgba(8, 9, 11, 0.78);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+
+    min-height: 62px;
+
+    padding: 0 8px 0 10px;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.navbar__logo {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--color-text);
+    color: var(--color-bg);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+
+    transition:
+        transform 200ms ease,
+        background 200ms ease;
+}
+
+.navbar__logo:hover {
+    transform: rotate(-8deg) scale(1.05);
+    background: var(--color-accent-light);
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.navbar__desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+
+    gap: 2px;
+
+    margin: 0 12px;
+}
+
+.navbar__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 12px;
+
+    border-radius: 999px;
+
+    color: var(--color-text-secondary);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition:
+        color 200ms ease,
+        background 200ms ease;
+}
+
+.navbar__link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-text);
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.navbar__cta {
+    flex: 0 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 10px 16px;
+
+    border-radius: 999px;
+
+    background: var(--color-text);
+    color: var(--color-bg);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        transform 200ms ease,
+        background 200ms ease;
+}
+
+.navbar__cta:hover {
+    transform: translateY(-1px);
+    background: var(--color-accent-light);
+}
+
+.navbar__cta svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* =========================================
+   MOBILE BUTTON
+========================================= */
+
+.navbar__menu {
+    display: none;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   HAMBURGER
+========================================= */
+
+.navbar__hamburger {
+    position: relative;
+    display: flex;
+    width: 20px;
+    height: 16px;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.navbar__hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transform-origin: center;
+    transition:
+        transform 300ms cubic-bezier(0.22,
+            1,
+            0.36,
+            1),
+        opacity 200ms ease,
+        width 300ms ease;
+}
+
+/* =========================================
+   HAMBURGER → X
+========================================= */
+
+.navbar__menu--open .navbar__hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__menu--open .navbar__hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.navbar__menu--open .navbar__hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+    position: fixed;
+
+    top: 86px;
+    left: 16px;
+    right: 16px;
+
+    z-index: 999;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: 22px;
+
+    background: rgba(13, 15, 18, 0.97);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+}
+
+.mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px 20px;
+}
+
+.mobile-menu nav a {
+    display: grid;
+
+    grid-template-columns: 35px 1fr auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-height: 62px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    color: var(--color-text);
+
+    transition:
+        color 200ms ease,
+        padding 200ms ease;
+}
+
+.mobile-menu nav a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu nav a:hover {
+    padding-left: 5px;
+    color: var(--color-accent-light);
+}
+
+.mobile-menu__number {
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+}
+
+.mobile-menu__label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mobile-menu nav a>svg {
+    color: var(--color-text-muted);
+    font-size: 18px;
+}
+
+/* =========================================
+   MOBILE FOOTER
+========================================= */
+
+.mobile-menu__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 20px;
+
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-family: var(--font-mono);
+    font-size: 10px;
+}
+
+.mobile-menu__footer a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--color-text-secondary);
+}
+
+.mobile-menu__footer a:hover {
+    color: var(--color-text);
+}
+
+/* =========================================
+   BACKDROP
+========================================= */
+
+.mobile-backdrop {
+    position: fixed;
+    inset: 0;
+
+    z-index: 998;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+/*
+   Important:
+   Switch to mobile navigation BEFORE the
+   desktop navigation becomes cramped.
+*/
+
+/* @media (max-width: 1024px) {
+
+    .navbar__desktop,
+    .navbar__cta {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: flex;
+    }
+} */
+
+/* =========================================
+   COMPACT DESKTOP
+========================================= */
+
+@media (max-width: 1100px) and (min-width: 961px) {
+    .navbar__desktop {
+        gap: 0;
+        margin-inline: 6px;
+    }
+
+    .navbar__link {
+        padding-inline: 9px;
+        font-size: 12px;
+    }
+
+    .navbar__cta {
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+}
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+/* @media (max-width: 991.5px) {
+
+    .navbar__desktop,
+    .navbar__cta {
+        display: none;
+    }
+
+    .navbar__mobile {
+        position: absolute;
+        right: 10px;
+    }
+
+    .navbar__menu {
+        display: flex;
+    }
+} */
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768.5px) {
+    .navbar {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        border-radius: 18px;
+    }
+
+
+    .navbar__inner {
+        min-height: 58px;
+        padding: 0 7px 0 8px;
+    }
+
+    .navbar__desktop,
+    .navbar__cta {
+        display: none;
+    }
+
+    .navbar__mobile {
+        /* display: block; */
+        position: absolute;
+        right: 10px;
+    }
+
+    .navbar__menu {
+        display: flex;
+    }
+
+    .navbar__logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobile-menu {
+        top: 78px;
+        left: 10px;
+        right: 10px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+    .navbar {
+        top: 8px;
+        left: 8px;
+        right: 8px;
+    }
+
+    .mobile-menu {
+        top: 76px;
+
+        left: 8px;
+        right: 8px;
+    }
+
+    .mobile-menu__label {
+        font-size: 17px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .navbar,
+    .navbar *,
+    .mobile-menu,
+    .mobile-menu * {
+        transition: none !important;
+        animation: none !important;
+    }
+}

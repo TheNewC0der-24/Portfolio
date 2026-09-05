@@ -1,4 +1,3 @@
-import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { lightTheme } from '../../Themes';
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
@@ -9,7 +8,6 @@ import hosting from '../../Data/Skills/hosting.json';
 import tools from '../../Data/Skills/tools.json';
 import knowledge from '../../Data/Skills/knowledge.json';
 import SkillData from '../../Components/SkillData';
-import { motion } from 'framer-motion';
 import Marquee from "react-fast-marquee";
 
 const GlobalStyle = createGlobalStyle`
