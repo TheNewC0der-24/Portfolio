@@ -1,12 +1,9 @@
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 import { fadeUp } from "../../animations/variants";
 import "./SectionHeading.css";
 
-const SectionHeading = ({
-    eyebrow,
-    title,
-    description,
-}) => {
+const SectionHeading = ({ eyebrow, title, description }) => {
     return (
         <motion.div
             className="section-heading"

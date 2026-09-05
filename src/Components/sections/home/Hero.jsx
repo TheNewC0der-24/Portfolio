@@ -1,10 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
 import { FiArrowDown, FiArrowUpRight, FiGithub } from "react-icons/fi";
-import {
-    fadeUp,
-    staggerContainer,
-    scaleIn,
-} from "../../../animations/variants";
+import { fadeUp, staggerContainer, scaleIn } from "../../../animations/variants";
+import { Link } from "react-router-dom";
+import TechOrbit from "../../../assets/hero-image.svg";
 import "./Hero.css";
 
 const technologies = [
@@ -85,23 +84,23 @@ const Hero = () => {
                         className="hero__actions"
                         variants={fadeUp}
                     >
-                        <a
-                            href="/work"
+                        <Link
+                            to="/work"
                             className="hero__button hero__button--primary"
                         >
                             Explore my work
                             <FiArrowUpRight />
-                        </a>
+                        </Link>
 
-                        <a
-                            href="https://github.com/TheNewC0der-24"
+                        <Link
+                            to="https://github.com/TheNewC0der-24"
                             target="_blank"
                             rel="noreferrer"
                             className="hero__button hero__button--secondary"
                         >
                             <FiGithub />
                             GitHub
-                        </a>
+                        </Link>
                     </motion.div>
                 </motion.div>
 
@@ -111,29 +110,7 @@ const Hero = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    <div className="hero__orb">
-                        <div className="hero__orb-inner">
-                            <span>&lt;/&gt;</span>
-                        </div>
-
-                        <div className="hero__orbit hero__orbit--one">
-                            <span className="hero__floating-tech">
-                                React
-                            </span>
-                        </div>
-
-                        <div className="hero__orbit hero__orbit--two">
-                            <span className="hero__floating-tech">
-                                Next.js
-                            </span>
-                        </div>
-
-                        <div className="hero__orbit hero__orbit--three">
-                            <span className="hero__floating-tech">
-                                AI
-                            </span>
-                        </div>
-                    </div>
+                    <img src={TechOrbit} alt="Hero Visual" />
                 </motion.div>
             </div>
 

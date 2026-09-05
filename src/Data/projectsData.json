@@ -32,6 +32,26 @@
     },
     {
         "id": 3,
+        "name": "CataList",
+        "image": "./ProjectImg/CataList.png",
+        "html_url": "https://github.com/TheNewC0der-24/CataList",
+        "description": "CataList is a markdown notes application that allows users to create, edit, and delete notes with support for markdown formatting. Users can also organize their notes using tags and filter notes based on titles or tags. All data is stored in the local storage of the user's browser, ensuring a seamless and personalized experience.",
+        "homepage": "https://cata-list.netlify.app/",
+        "created_at": "2023-08-25T20:45:10Z",
+        "topics": [
+            "react-bootstrap",
+            "react-markdown",
+            "react-router-dom",
+            "reactjs",
+            "rehype-raw",
+            "remark-gfm",
+            "typescript",
+            "uuid"
+        ],
+        "featured": true
+    },
+    {
+        "id": 4,
         "name": "CodePen Clone",
         "image": "./ProjectImg/CodePenClone.png",
         "html_url": "https://github.com/TheNewC0der-24/CodePen-Clone",
@@ -106,7 +126,8 @@
             "git-cheatsheet",
             "html",
             "javascript"
-        ]
+        ],
+        "featured": true
     },
     {
         "id": 9,
@@ -123,7 +144,8 @@
             "pwa",
             "react",
             "react-icons"
-        ]
+        ],
+        "featured": true
     },
     {
         "id": 10,
@@ -152,7 +174,8 @@
             "google-keep-clone",
             "material-ui",
             "react"
-        ]
+        ],
+        "featured": true
     },
     {
         "id": 12,
@@ -247,7 +270,8 @@
             "bootstrap",
             "html-css-javascript",
             "postman"
-        ]
+        ],
+        "featured": true
     },
     {
         "id": 19,
@@ -383,5 +407,22 @@
             "react-router-dom",
             "reactjs"
         ]
+    },
+    {
+        "id": 27,
+        "name": "Wacky Workspace",
+        "image": "./ProjectImg/WackyWorkspace.png",
+        "html_url": "https://github.com/TheNewC0der-24/Wacky-Workspace",
+        "description": "Welcome to Wacky Workspace - your versatile and user-friendly file management solution.",
+        "homepage": "https://wacky-workspace.netlify.app/",
+        "created_at": "2023-09-01T22:50:37Z",
+        "topics": [
+            "antd",
+            "firebase",
+            "material-ui",
+            "netlify",
+            "reactjs"
+        ],
+        "featured": true
     }
 ]

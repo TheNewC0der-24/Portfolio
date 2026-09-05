@@ -1,16 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    FiArrowUpRight,
-    FiGithub,
-} from "react-icons/fi";
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const navigation = [
     { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
     { label: "Work", href: "/work" },
     { label: "Experience", href: "/experience" },
-    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
 ];
 
@@ -45,6 +44,8 @@ const Navbar = () => {
         setIsOpen(false);
     };
 
+    const MotionLink = motion(Link);
+
     return (
         <>
             <motion.header
@@ -58,47 +59,38 @@ const Navbar = () => {
             >
                 <div className="navbar__inner">
 
-                    {/* Logo */}
-                    <a
-                        href="/"
+                    <Link
+                        to="/"
                         className="navbar__logo"
                         onClick={closeMenu}
                         aria-label="Bhavya Khurana - Home"
                     >
                         BK
-                    </a>
+                    </Link>
 
                     {/* Desktop navigation */}
-                    <nav
-                        className="navbar__desktop"
-                        aria-label="Primary navigation"
-                    >
+                    <nav className="navbar__desktop" aria-label="Primary navigation">
                         {navigation.map((item) => (
-                            <a
+                            <Link
                                 key={item.href}
-                                href={item.href}
+                                to={item.href}
                                 className="navbar__link"
                             >
                                 {item.label}
-                            </a>
+                            </Link>
                         ))}
                     </nav>
 
-                    {/* Desktop CTA */}
-                    <a
-                        href="/contact"
-                        className="navbar__cta"
-                    >
+                    <Link to="/contact" className="navbar__cta">
                         Let's talk
                         <FiArrowUpRight />
-                    </a>
+                    </Link>
 
                     {/* Mobile menu button */}
                     <div className="navbar__mobile">
                         <button
                             type="button"
-                            className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""
-                                }`}
+                            className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""}`}
                             onClick={() => setIsOpen((prev) => !prev)}
                             aria-label={
                                 isOpen
@@ -122,39 +114,20 @@ const Navbar = () => {
                 {isOpen && (
                     <motion.div
                         className="mobile-menu"
-                        initial={{
-                            opacity: 0,
-                            y: -15,
-                        }}
-                        animate={{
-                            opacity: 1,
-                            y: 0,
-                        }}
-                        exit={{
-                            opacity: 0,
-                            y: -15,
-                        }}
-                        transition={{
-                            duration: 0.25,
-                        }}
+                        initial={{ opacity: 0, y: -15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -15 }}
+                        transition={{ duration: 0.25 }}
                     >
                         <nav aria-label="Mobile navigation">
                             {navigation.map((item, index) => (
-                                <motion.a
+                                <MotionLink
                                     key={item.href}
-                                    href={item.href}
+                                    to={item.href}
                                     onClick={closeMenu}
-                                    initial={{
-                                        opacity: 0,
-                                        x: -20,
-                                    }}
-                                    animate={{
-                                        opacity: 1,
-                                        x: 0,
-                                    }}
-                                    transition={{
-                                        delay: index * 0.05,
-                                    }}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: index * 0.05 }}
                                 >
                                     <span className="mobile-menu__number">
                                         0{index + 1}
@@ -165,7 +138,7 @@ const Navbar = () => {
                                     </span>
 
                                     <FiArrowUpRight />
-                                </motion.a>
+                                </MotionLink>
                             ))}
                         </nav>
 
@@ -174,21 +147,21 @@ const Navbar = () => {
                                 Software Engineer
                             </span>
 
-                            <a
+                            <Link
                                 href="https://github.com/TheNewC0der-24"
                                 target="_blank"
                                 rel="noreferrer"
                             >
                                 <FiGithub />
                                 GitHub
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence >
 
             {/* Mobile backdrop */}
-            <AnimatePresence>
+            <AnimatePresence AnimatePresence >
                 {isOpen && (
                     <motion.div
                         className="mobile-backdrop"
@@ -197,8 +170,9 @@ const Navbar = () => {
                         exit={{ opacity: 0 }}
                         onClick={closeMenu}
                     />
-                )}
-            </AnimatePresence>
+                )
+                }
+            </AnimatePresence >
         </>
     );
 };

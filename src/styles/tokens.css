@@ -5,7 +5,7 @@
     --color-surface: #111318;
     --color-surface-hover: #171a21;
 
-    --color-text: #f5f7fa;
+    --color-text: #dee2e6;
     --color-text-secondary: #a5aab5;
     --color-text-muted: #686e7a;
 
@@ -14,7 +14,7 @@
 
     --color-accent: #8b5cf6;
     --color-accent-light: #a78bfa;
-    --color-accent-dark: #6d28d9;
+    --color-accent-dark: #6d2ae2;
 
     /* Typography */
     --font-sans:

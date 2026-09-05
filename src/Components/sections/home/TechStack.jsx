@@ -1,17 +1,5 @@
 import { motion } from "framer-motion";
-import {
-    SiReact,
-    SiTypescript,
-    SiNextdotjs,
-    SiJavascript,
-    SiAngular,
-    SiNodedotjs,
-    SiPython,
-    SiDocker,
-    SiGit,
-    SiPostgresql,
-} from "react-icons/si";
-
+import { SiReact, SiTypescript, SiNextdotjs, SiJavascript, SiAngular, SiNodedotjs, SiPython, SiDocker, SiGit, SiPostgresql } from "react-icons/si";
 import "./TechStack.css";
 
 const technologies = [
@@ -61,7 +49,6 @@ const TechStack = () => {
     return (
         <section className="tech-stack">
             <div className="container">
-
                 <div className="tech-stack__header">
                     <span className="eyebrow">
                         Technologies
@@ -71,11 +58,9 @@ const TechStack = () => {
                         Tools I use to turn ideas into production-ready applications.
                     </p>
                 </div>
-
             </div>
 
             <div className="tech-stack__marquee-wrapper">
-
                 <motion.div
                     className="tech-stack__marquee"
                     animate={{

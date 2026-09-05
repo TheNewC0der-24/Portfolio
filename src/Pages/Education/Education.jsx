@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .img {
-    box-shadow:  5px 5px 10px #abaeb1, -5px -5px 10px #ffffff;
+    box-shadow:  5px 5px 10px #abaeb1, -5px -5px 10px #dee2e6;
  }
 `;
 

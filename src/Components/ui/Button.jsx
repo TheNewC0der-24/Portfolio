@@ -1,13 +1,9 @@
+/* eslint-disable react/prop-types */
 import { FiArrowUpRight } from "react-icons/fi";
 import { motion } from "framer-motion";
 import "./Button.css";
 
-const Button = ({
-    children,
-    href,
-    variant = "primary",
-    icon = true,
-}) => {
+const Button = ({ children, href, variant = "primary", icon = true }) => {
     const Component = href ? motion.a : motion.button;
 
     return (

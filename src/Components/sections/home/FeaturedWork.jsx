@@ -1,35 +1,24 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-import {
-    FiArrowUpRight,
-    FiGithub,
-} from "react-icons/fi";
-
-import {
-    fadeUp,
-    staggerContainer,
-} from "../../../animations/variants";
-
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
+import { fadeUp, staggerContainer } from "../../../animations/variants";
 import "./FeaturedWork.css";
 
 const projects = [
     {
         number: "01",
         category: "Enterprise Platform",
-
         title: "Airport Immigration Platform",
-
         description:
             "A large-scale government platform designed to support airport immigration workflows, passenger processing, and operational management.",
-
         technologies: [
             "React",
             "TypeScript",
             "MUI",
             "REST APIs",
         ],
-
         accent: "purple",
-
         href: "#",
         github: "#",
     },
@@ -79,12 +68,8 @@ const projects = [
 
 const FeaturedWork = () => {
     return (
-        <section
-            id="work"
-            className="featured-work section"
-        >
+        <section id="work" className="featured-work section">
             <div className="container">
-
                 <motion.div
                     className="featured-work__heading"
                     variants={fadeUp}
@@ -141,13 +126,9 @@ const ProjectCard = ({ project }) => {
             variants={fadeUp}
         >
             {/* Preview */}
-
             <div className="project-card__preview">
-
                 <div className="project-card__window">
-
                     <div className="project-card__window-header">
-
                         <div className="project-card__dots">
                             <span />
                             <span />
@@ -157,15 +138,11 @@ const ProjectCard = ({ project }) => {
                         <span>
                             {project.category}
                         </span>
-
                     </div>
 
                     <div className="project-card__mockup">
-
                         <div className="project-card__mockup-line" />
-
                         <div className="project-card__mockup-content">
-
                             <div className="project-card__mockup-sidebar">
                                 <span />
                                 <span />
@@ -174,43 +151,29 @@ const ProjectCard = ({ project }) => {
                             </div>
 
                             <div className="project-card__mockup-main">
-
                                 <div className="project-card__mockup-title" />
-
                                 <div className="project-card__mockup-cards">
-
                                     <span />
                                     <span />
                                     <span />
-
                                 </div>
-
                                 <div className="project-card__mockup-chart" />
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
 
                 <span className="project-card__number">
                     {project.number}
                 </span>
-
             </div>
 
             {/* Content */}
-
             <div className="project-card__content">
-
                 <div>
-
                     <span className="project-card__category">
                         {project.category}
                     </span>
-
                     <h3>
                         {project.title}
                     </h3>
@@ -228,11 +191,9 @@ const ProjectCard = ({ project }) => {
                             )
                         )}
                     </div>
-
                 </div>
 
                 <div className="project-card__links">
-
                     <a
                         href={project.href}
                         aria-label={`View ${project.title}`}
@@ -247,9 +208,7 @@ const ProjectCard = ({ project }) => {
                     >
                         <FiGithub />
                     </a>
-
                 </div>
-
             </div>
         </motion.article>
     );
