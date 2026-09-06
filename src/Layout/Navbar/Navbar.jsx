@@ -74,7 +74,7 @@ const Navbar = () => {
                                 variant="contained"
                                 size="small"
                                 sx={{
-                                    color: '#fff',
+                                    color: '#dee2e6',
                                     backgroundColor: '#6d2ae2',
                                     '&:hover': {
                                         backgroundColor: '#6d2ae2',

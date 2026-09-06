@@ -25,15 +25,10 @@
     font-weight: 900;
     line-height: 0.8;
     letter-spacing: -0.08em;
-
-    background: linear-gradient(135deg,
-            #ffffff 20%,
-            #6d2ae2 80%);
-
+    background: linear-gradient(135deg, #dee2e6 20%, #6d2ae2 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-
     opacity: 0.9;
 }
 

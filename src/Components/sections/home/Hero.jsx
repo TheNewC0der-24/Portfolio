@@ -4,6 +4,7 @@ import { FiArrowDown, FiArrowUpRight, FiGithub } from "react-icons/fi";
 import { fadeUp, staggerContainer, scaleIn } from "../../../animations/variants";
 import { Link } from "react-router-dom";
 import TechOrbit from "../../../assets/hero-image.svg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./Hero.css";
 
 const technologies = [
@@ -28,7 +29,7 @@ const Hero = () => {
             <div className="hero__glow hero__glow--one" />
             <div className="hero__glow hero__glow--two" />
 
-            <div className="container hero__container">
+            <div className="app-container hero__container">
                 <motion.div
                     className="hero__content"
                     variants={staggerContainer}
@@ -110,7 +111,11 @@ const Hero = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    <img src={TechOrbit} alt="Hero Visual" />
+                    <LazyLoadImage
+                        src={TechOrbit}
+                        alt="Hero Visual"
+                        effect="blur"
+                    />
                 </motion.div>
             </div>
 

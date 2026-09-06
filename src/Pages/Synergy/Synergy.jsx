@@ -76,10 +76,10 @@ const Synergy = () => {
                                     sx={{
                                         textTransform: "none",
                                         backgroundColor: "#6d2ae2",
-                                        color: "#fff",
+                                        color: "#dee2e6",
                                         "&:hover": {
                                             backgroundColor: "#6d2ae2",
-                                            color: "#fff",
+                                            color: "#dee2e6",
                                         },
                                     }}
                                 >

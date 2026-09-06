@@ -102,10 +102,10 @@ const Work = () => {
                                     sx={{
                                         backgroundColor: view === 'list' ? '#6d2ae2' : 'transparent',
                                         borderColor: '#6d2ae2',
-                                        color: view === 'list' ? "#fff" : '#6d2ae2',
+                                        color: view === 'list' ? "#dee2e6" : '#6d2ae2',
                                         '&:hover': {
                                             backgroundColor: '#6d2ae2',
-                                            color: '#fff'
+                                            color: '#dee2e6'
                                         }
                                     }}
                                     title='List View'
@@ -120,10 +120,10 @@ const Work = () => {
                                     sx={{
                                         backgroundColor: view === 'grid' ? '#6d2ae2' : 'transparent',
                                         borderColor: '#6d2ae2',
-                                        color: view === 'grid' ? "#fff" : '#6d2ae2',
+                                        color: view === 'grid' ? "#dee2e6" : '#6d2ae2',
                                         '&:hover': {
                                             backgroundColor: '#6d2ae2',
-                                            color: '#fff'
+                                            color: '#dee2e6'
                                         }
                                     }}
                                     title='Grid View'
@@ -207,7 +207,7 @@ const Work = () => {
                                     color: '#6d2ae2',
                                     '&:hover': {
                                         backgroundColor: '#6d2ae2',
-                                        color: '#fff'
+                                        color: '#dee2e6'
                                     }
                                 }}
                                 href="https://github.com/TheNewC0der-24"

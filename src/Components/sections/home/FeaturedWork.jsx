@@ -5,12 +5,13 @@ import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import { fadeUp, staggerContainer } from "../../../animations/variants";
 import projects from '../../../Data/projects.json';
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./FeaturedWork.css";
 
 const FeaturedWork = () => {
     return (
         <section id="work" className="featured-work section">
-            <div className="container">
+            <div className="app-container">
                 <motion.div
                     className="featured-work__heading"
                     variants={fadeUp}
@@ -54,8 +55,6 @@ const FeaturedWork = () => {
 };
 
 const ProjectCard = ({ index, project }) => {
-    console.log(index);
-
     return (
         <motion.article
             className={`project-card project-card--purple`}
@@ -78,7 +77,11 @@ const ProjectCard = ({ index, project }) => {
 
                     <div className="project-card__mockup">
                         <div className="project-card__mockup-content">
-                            <img src={project.featured_image} alt={project.name} />
+                            <LazyLoadImage
+                                src={project.featured_image}
+                                alt={project.name}
+                                effect="blur"
+                            />
                         </div>
                     </div>
                 </div>

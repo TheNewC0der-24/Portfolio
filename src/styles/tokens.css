@@ -2,19 +2,22 @@
     /* Colors */
     --color-bg: #08090b;
     --color-bg-soft: #0d0f12;
+    --color-bg-hard: #060606;
     --color-surface: #111318;
     --color-surface-hover: #171a21;
 
     --color-text: #dee2e6;
     --color-text-secondary: #a5aab5;
     --color-text-muted: #686e7a;
+    --color-text-muted-dark: #555;
 
     --color-border: rgba(255, 255, 255, 0.09);
     --color-border-hover: rgba(255, 255, 255, 0.16);
 
     --color-accent: #8b5cf6;
     --color-accent-light: #a78bfa;
-    --color-accent-dark: #6d2ae2;
+
+    --color-light-accent: #6d2ae2;
 
     /* Typography */
     --font-sans:

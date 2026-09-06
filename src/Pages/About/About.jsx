@@ -1,185 +1,278 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable react/no-unescaped-entities */
-import { useNavigate } from 'react-router-dom';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { darkTheme } from '../../Themes';
-import { Button } from '@mui/material';
-import bmac from '../../assets/Images/bmac.svg';
-import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-import ParticleBackgroundAnimate from '../../SubComponents/ParticleBackgroundAnimate/ParticleBackgroundAnimate';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme.body};
-  }
-
-  .title, .sub-title {
-    color: #dee2e6;
-  }
-
-  .sub-title span {
-    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
-    background-clip: text !important;
-    -moz-background-clip: text !important;
-    -webkit-background-clip: text !important;
-    -moz-text-fill-color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
-    }
-
-  .about-card {
-    background: none !important;
-    backdrop-filter: blur(4px) !important;
-  }
-
-  .note {
-    background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
-    border-radius: 0px !important;
-  }
-
-  .tag {
-    font-family: 'Caveat', cursive;
-    color: #6d2ae2;
-  }
-
-  .bmac {
-    color: #ffdd00;
-    border-bottom: 1px solid #ffdd00;
-  }
-
-  @media (max-width: 767.5px) {
-    .text {
-        text-align: center !important;
-    }
-
-    .resume-card {
-      justify-content: center !important;
-    }
-
-    .tag{
-      display: none !important;
-    }
-
-    .bmac-div {
-      justify-content: center !important;
-    }
-}
-`;
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { expertise, principles } from "../../Data/about";
+import "./About.css";
 
 const About = () => {
-  const navigate = useNavigate();
-
-  const title = "Bhavya Khurana | About Me";
-  document.title = title;
+  useEffect(() => {
+    document.title = "Bhavya Khurana | About";
+  }, []);
 
   return (
-    <>
-      <ThemeProvider theme={darkTheme}>
-        <GlobalStyle />
-        <SocialLinks />
-        <ParticleBackgroundAnimate />
-        <div className="container mt-4">
-          <h1 className="title text-center">.about Me()</h1>
-          <h6 className='sub-title text-center fw-bold' style={{ color: "#dee2e6" }}>BEYOND <span style={{ color: "#6d2ae2" }}>THE SURFACE</span></h6>
+    <main className="about-page">
+      {/* Background */}
+      <div className="about-page__grid" />
+      <div className="about-page__glow about-page__glow--one" />
+      <div className="about-page__glow about-page__glow--two" />
 
-          <div className="container text my-5">
-            <div className="card about-card">
-              <div className="card-body">
-                <h5 className="card-title tag fw-bold">//about</h5>
-                <div className='mb-4' style={{ color: "#dee2e6" }}>
-                  <p className='card-text'>
-                    👋 Hey there! I'm <span className='badge' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2' }}>Bhavya Khurana</span>, a
-                    passionate <span className='fw-bold' style={{ color: '#6d2ae2' }}>frontend developer</span> and <span className='fw-bold' style={{ color: '#6d2ae2' }}>content writer</span> with
-                    a soft spot for dogs 🐶. I spend my days crafting user-friendly interfaces and bringing creative designs to life. When I'm not
-                    coding, you'll often find me typing away, weaving engaging content for various platforms. I believe in the power of words to inspire
-                    and connect people.
-                  </p>
+      {/* Hero */}
+      <section className="about-hero">
+        <div className="about-container">
+          <motion.div
+            className="about-hero__eyebrow"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span />
+            About me
+          </motion.div>
 
-                  <p className='card-text'>
-                    I have 3+ years of experience building enterprise and government web applications, with a strong focus on
-                    React.js, Next.js, TypeScript, JavaScript, HTML, and CSS. I've worked on large-scale platforms used by
-                    thousands of users, where performance, reliability, accessibility, security, and maintainability aren't
-                    just nice-to-haves — they're essential.
-                  </p>
+          <div className="about-hero__layout">
+            <motion.div
+              className="about-hero__heading"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.1,
+              }}
+            >
+              <h1>
+                Building things that are
+                <span> useful.</span>
+              </h1>
+            </motion.div>
 
-                  <p className="card-text">
-                    I'm particularly interested in building <b>scalable frontend architectures</b>, optimizing application performance,
-                    designing reusable components, integrating REST APIs, and creating responsive experiences that work
-                    seamlessly across devices. I've also worked with technologies and tools across the modern frontend ecosystem,
-                    including <b>Redux, Zustand, React Query, Material UI, Vite, Firebase, Keycloak, Docker, and PostgreSQL</b>.
-                  </p>
+            <motion.div
+              className="about-hero__intro"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.7,
+                delay: 0.2,
+              }}
+            >
+              <p className="about-hero__lead">
+                I'm Bhavya Khurana, a Software Engineer
+                who enjoys turning complex problems into
+                simple, reliable digital experiences.
+              </p>
 
-                  <p className="card-text">
-                    Beyond traditional frontend development, I'm exploring the intersection of <b>frontend engineering and AI</b> —
-                    including <b>AI integrations, Microsoft Copilot, Copilot Studio, RAG, LLM-powered applications, and AI-driven
-                      experiences</b>. I enjoy learning how emerging technologies can be turned into practical products rather than
-                    simply following trends.
-                  </p>
+              <p>
+                My work sits at the intersection of
+                engineering, product thinking, and user
+                experience. I build applications using
+                modern web technologies while continuously
+                exploring better ways to solve real-world
+                problems.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-                  <div className='card border-0 note my-4'>
-                    <div className="card-body">
-                      <div className="d-flex gap-2 justify-content-between flex-wrap align-items-center resume-card">
-                        <h4 style={{ color: "#dee2e6" }}>
-                          I'm obsessed with making things — and even more obsessed with making them better.
-                        </h4>
-                        <div>
-                          <Button
-                            sx={{
-                              textTransform: "capitalize",
-                              color: "#6d2ae6", backgroundColor: "#dee2e6", '&:hover': {
-                                backgroundColor: "#dee2e6",
-                              }
-                            }}
-                            onClick={() => navigate('/resume')}
-                          >
-                            View Resume
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+      {/* Story */}
+      <section className="about-story">
+        <div className="about-container">
+          <div className="about-section-label">
+            <span>01</span>
+            A little context
+          </div>
 
-                  <p className='card-text'>
-                    That mindset drives how I approach development. Whether it's improving a slow component, simplifying a
-                    complicated piece of code, designing a better API interaction layer, or building a more intuitive user
-                    experience, I believe there's almost always a better way to do it.
-                  </p>
+          <div className="about-story__grid">
+            <motion.div
+              className="about-story__title"
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2>
+                More than
+                <br />
+                <span>just code.</span>
+              </h2>
+            </motion.div>
 
-                  <p className='card-text'>
-                    When I'm away from my laptop, I'm usually spending time with dogs 🐶, exploring new ideas, writing, or
-                    learning something new. I'm also passionate about content writing and enjoy using words to explain ideas,
-                    tell stories, and connect with people.
-                  </p>
+            <motion.div
+              className="about-story__content"
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p>
+                I like solving problems where technology
+                meets people. Whether I'm building an
+                application, integrating an API, improving
+                an interface, or experimenting with a new
+                idea, I try to understand the bigger
+                picture before reaching for a solution.
+              </p>
 
-                  <p className="card-text">
-                    I'm always interested in building meaningful products, solving interesting problems, and collaborating with
-                    people who care about what they create.
-                  </p>
+              <p>
+                Over time, that mindset has shaped how I
+                approach development — focusing not only
+                on whether something works, but also on
+                whether it is understandable, maintainable,
+                and genuinely useful.
+              </p>
+
+              <p>
+                I'm particularly interested in modern
+                frontend engineering, application
+                architecture, performance, and the
+                possibilities of AI-powered products.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="about-expertise">
+        <div className="about-container">
+          <div className="about-section-label">
+            <span>02</span>
+            What I do
+          </div>
+
+          <div className="about-expertise__header">
+            <h2>
+              Things I like
+              <br />
+              <span>working on.</span>
+            </h2>
+
+            <p>
+              A few areas where I spend most of my
+              time building, learning, and experimenting.
+            </p>
+          </div>
+
+          <div className="about-expertise__grid">
+            {expertise.map((item, index) => (
+              <motion.article
+                className="about-expertise__card"
+                key={item.number}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+              >
+                <div className="about-expertise__top">
+                  <span className="about-expertise__number">
+                    {item.number}
+                  </span>
+
+                  <span className="about-expertise__icon">
+                    <item.icon />
+                  </span>
                 </div>
 
-                <div className='card card-body border-0' style={{ backgroundColor: '#DFD8FD', color: '#6d2ae2', borderRadius: "0px" }}>
-                  <p className='fw-bold mb-0'>
-                    Explore my work, check out my projects, and feel free to connect. Whether you want to talk frontend
-                    engineering, AI, building products, writing — or just dogs — I'm always up for a conversation. 🐾
-                  </p>
-                </div>
+                <h3>{item.title}</h3>
 
-                <div className='d-flex align-items-center gap-2 fw-bold mt-3 bmac-div'>
-                  <span style={{ color: "#dee2e6" }}>You can also</span>
-                  <img src={bmac} alt="bmac" />
-                  <a className='bmac text-decoration-none' href="https://www.buymeacoffee.com/bhavyakhurana"
-                    target="_blank" rel="noreferrer"
-                  >
-                    buy me a coffee
-                  </a>
-                </div>
+                <p>{item.description}</p>
 
-              </div>
+                <div className="about-expertise__tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Principles */}
+      <section className="about-principles">
+        <div className="about-container">
+          <div className="about-section-label">
+            <span>03</span>
+            How I work
+          </div>
+
+          <div className="about-principles__grid">
+            <h2>
+              A few things
+              <br />
+              I believe in.
+            </h2>
+
+            <div className="about-principles__list">
+              {principles.map((principle, index) => (
+                <motion.div
+                  className="about-principle"
+                  key={principle}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <span>
+                    0{index + 1}
+                  </span>
+
+                  <p>{principle}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
-      </ThemeProvider>
-    </>
-  )
-}
+      </section>
+
+      {/* CTA */}
+      <section className="about-cta">
+        <div className="about-container">
+          <motion.div
+            className="about-cta__card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span>What's next?</span>
+
+            <h2>
+              Let's create something
+              <br />
+              <em>worth building.</em>
+            </h2>
+
+            <p>
+              Take a look at some of the things I've
+              built or get in touch if you'd like to
+              work together.
+            </p>
+
+            <div className="about-cta__actions">
+              <Link
+                to="/work"
+                className="about-cta__button about-cta__button--primary"
+              >
+                View my work
+                <FiArrowUpRight />
+              </Link>
+
+              <Link
+                to="/contact"
+                className="about-cta__button about-cta__button--secondary"
+              >
+                Get in touch
+                <FiArrowUpRight />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+};
 
 export default About;

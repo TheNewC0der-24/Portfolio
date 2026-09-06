@@ -62,10 +62,9 @@ ol {
 
 /* ---------- Layout ---------- */
 
-.container {
-    width: min(calc(100% - 48px),
-            var(--container-width));
-    margin-inline: auto;
+.app-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
 }
 
 .section {
@@ -90,15 +89,6 @@ ol {
     letter-spacing: 0.12em;
     text-transform: uppercase;
 }
-
-/* .eyebrow::before {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    content: "";
-    box-shadow: 0 0 14px var(--color-accent);
-} */
 
 .heading-xl {
     font-size: clamp(3rem, 8vw, var(--text-6xl));

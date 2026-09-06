@@ -66,7 +66,7 @@ const CollaborativeExpertise = () => {
                                     <div className={`col-md-5 d-flex align-items-center justify-content-center ${styles.icon}`}>
                                         <div className='p-2 rounded-circle' style={{ border: '2px solid #6d2ae2' }}>
                                             <div className='p-2 bg-dark rounded-circle'>
-                                                <Avatar sx={{ width: 50, height: 50, bgcolor: "#6d2ae2", color: "#fff", }}>
+                                                <Avatar sx={{ width: 50, height: 50, bgcolor: "#6d2ae2", color: "#dee2e6", }}>
                                                     {item.icon}
                                                 </Avatar>
                                             </div>

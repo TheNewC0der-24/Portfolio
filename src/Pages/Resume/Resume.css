@@ -1,0 +1,397 @@
+.resume-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 0px 80px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 15%,
+            rgba(109, 42, 226, 0.14),
+            transparent 28%),
+        radial-gradient(circle at 85% 65%,
+            rgba(160, 32, 240, 0.1),
+            transparent 30%),
+        var(--color-bg);
+    color: var(--color-text);
+}
+
+/* Subtle grid */
+.resume-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* Glows */
+.resume-page__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.resume-page__glow--one {
+    width: 300px;
+    height: 300px;
+    top: 100px;
+    left: -150px;
+    background: rgba(109, 42, 226, 0.12);
+}
+
+.resume-page__glow--two {
+    width: 350px;
+    height: 350px;
+    right: -180px;
+    bottom: 100px;
+    background: rgba(160, 32, 240, 0.1);
+}
+
+.resume-container {
+    position: relative;
+    z-index: 1;
+    /* width: min(1180px, 100%);
+    margin: 0 auto; */
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.resume-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 42px;
+}
+
+.resume-heading {
+    max-width: 650px;
+}
+
+.resume-heading__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    color: var(--color-accent-light);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.resume-heading__eyebrow svg {
+    font-size: 0.7rem;
+}
+
+.resume-heading h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    font-weight: 700;
+    letter-spacing: -0.022em;
+}
+
+.resume-heading h1 span {
+    background: linear-gradient(120deg,
+            var(--color-accent),
+            #a020f0,
+            #c084fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.resume-heading p {
+    max-width: 560px;
+    margin: 22px 0 0;
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.resume-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.resume-btn {
+    min-height: 44px !important;
+    padding: 0 18px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+}
+
+.resume-btn--back {
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: rgba(255, 255, 255, 0.72) !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+}
+
+.resume-btn--back:hover {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+}
+
+.resume-btn--download {
+    background: var(--color-accent) !important;
+    color: var(--color-text) !important;
+    border: 1px solid var(--color-accent-accent) !important;
+}
+
+.resume-btn--download:hover {
+    background: var(--color-accent-light) !important;
+}
+
+.resume-btn--download.is-downloaded {
+    background: #198754 !important;
+    border-color: #198754 !important;
+}
+
+/* =========================================
+   RESUME VIEWER
+========================================= */
+
+.resume-viewer {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.015);
+    backdrop-filter: blur(16px);
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+
+/* Browser/PDF top bar */
+
+.resume-viewer__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.resume-viewer__dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100px;
+}
+
+.resume-viewer__dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.resume-viewer__label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.resume-viewer__format {
+    width: 100px;
+    text-align: right;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+/* Resume itself */
+
+.resume-viewer__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 42px 24px;
+    background:
+        radial-gradient(circle at center,
+            rgba(109, 42, 226, 0.06),
+            transparent 45%),
+        var(--color-surface);
+}
+
+.resume-image {
+    display: block;
+    margin: auto;
+    width: min(900px, 100%);
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-border);
+    transition: transform 300ms ease;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.resume-image:hover {
+    transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+}
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.resume-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 80px;
+    padding: 36px 0 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.resume-footer span {
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 0.8rem;
+}
+
+.resume-footer h2 {
+    margin: 8px 0 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.resume-footer h2 em {
+    color: var(--color-accent-light);
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+
+.resume-contact-btn {
+    min-height: 44px !important;
+    padding: 0 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 10px !important;
+
+    color: rgba(255, 255, 255, 0.8) !important;
+
+    font-family: inherit !important;
+    font-size: 0.85rem !important;
+    text-transform: none !important;
+}
+
+.resume-contact-btn:hover {
+    border-color: #6d2ae2 !important;
+    background: rgba(109, 42, 226, 0.08) !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+    .resume-page {
+        padding: 100px 20px 60px;
+    }
+
+    .resume-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .resume-actions {
+        width: 100%;
+    }
+
+    .resume-btn {
+        flex: 1;
+    }
+
+    .resume-viewer__content {
+        padding: 25px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .resume-page {
+        padding: 90px 14px 50px;
+    }
+
+    .resume-heading h1 {
+        font-size: clamp(2.8rem, 15vw, 4rem);
+    }
+
+    .resume-heading p {
+        margin-top: 16px;
+        font-size: 0.9rem;
+    }
+
+    .resume-actions {
+        flex-direction: column;
+    }
+
+    .resume-btn {
+        width: 100%;
+    }
+
+    .resume-viewer {
+        border-radius: 12px;
+    }
+
+    .resume-viewer__top {
+        padding: 0 12px;
+    }
+
+    .resume-viewer__dots {
+        width: auto;
+    }
+
+    .resume-viewer__label {
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .resume-viewer__format {
+        display: none;
+    }
+
+    .resume-viewer__content {
+        padding: 15px 8px;
+    }
+
+    .resume-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 55px;
+    }
+
+    .resume-contact-btn {
+        width: 100%;
+    }
+}

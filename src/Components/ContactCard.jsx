@@ -149,7 +149,7 @@ const ContactCard = () => {
                             color: "#6d2ae2", borderColor: "#6d2ae2",
                             '&:hover': {
                                 backgroundColor: "#6d2ae2",
-                                color: "#fff",
+                                color: "#dee2e6",
                             }
                         }}
                     >Close</Button>

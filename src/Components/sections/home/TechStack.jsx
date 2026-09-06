@@ -48,7 +48,7 @@ const technologies = [
 const TechStack = () => {
     return (
         <section className="tech-stack">
-            <div className="container">
+            <div className="app-container">
                 <div className="tech-stack__header">
                     <span className="eyebrow">
                         Technologies
@@ -63,14 +63,8 @@ const TechStack = () => {
             <div className="tech-stack__marquee-wrapper">
                 <motion.div
                     className="tech-stack__marquee"
-                    animate={{
-                        x: ["0%", "-50%"],
-                    }}
-                    transition={{
-                        duration: 30,
-                        repeat: Infinity,
-                        ease: "linear",
-                    }}
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
                     {[...technologies, ...technologies].map(
                         ({ name, icon: Icon }, index) => (
