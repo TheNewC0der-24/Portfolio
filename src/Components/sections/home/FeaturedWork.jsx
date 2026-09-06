@@ -3,68 +3,9 @@
 import { motion } from "framer-motion";
 import { FiArrowUpRight, FiGithub } from "react-icons/fi";
 import { fadeUp, staggerContainer } from "../../../animations/variants";
+import projects from '../../../Data/projects.json';
+import { Link } from "react-router-dom";
 import "./FeaturedWork.css";
-
-const projects = [
-    {
-        number: "01",
-        category: "Enterprise Platform",
-        title: "Airport Immigration Platform",
-        description:
-            "A large-scale government platform designed to support airport immigration workflows, passenger processing, and operational management.",
-        technologies: [
-            "React",
-            "TypeScript",
-            "MUI",
-            "REST APIs",
-        ],
-        accent: "purple",
-        href: "#",
-        github: "#",
-    },
-
-    {
-        number: "02",
-        category: "Web Application",
-
-        title: "Project Two",
-
-        description:
-            "A modern web application focused on delivering a fast, intuitive and scalable user experience.",
-
-        technologies: [
-            "React",
-            "JavaScript",
-            "API",
-        ],
-
-        accent: "blue",
-
-        href: "#",
-        github: "#",
-    },
-
-    {
-        number: "03",
-        category: "AI / Engineering",
-
-        title: "AI-Powered Application",
-
-        description:
-            "An application integrating modern AI capabilities into a practical workflow to improve productivity and user experience.",
-
-        technologies: [
-            "React",
-            "TypeScript",
-            "AI",
-        ],
-
-        accent: "violet",
-
-        href: "#",
-        github: "#",
-    },
-];
 
 const FeaturedWork = () => {
     return (
@@ -75,10 +16,7 @@ const FeaturedWork = () => {
                     variants={fadeUp}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{
-                        once: true,
-                        amount: 0.2,
-                    }}
+                    viewport={{ once: true, amount: 0.2 }}
                 >
                     <div>
                         <span className="eyebrow">
@@ -91,8 +29,7 @@ const FeaturedWork = () => {
                     </div>
 
                     <p>
-                        A selection of products, platforms and
-                        engineering work I've contributed to.
+                        A selection of products, platforms and engineering work I've contributed to.
                     </p>
                 </motion.div>
 
@@ -101,28 +38,27 @@ const FeaturedWork = () => {
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{
-                        once: true,
-                        amount: 0.1,
-                    }}
+                    viewport={{ once: true, amount: 0.1 }}
                 >
-                    {projects.map((project) => (
+                    {projects.filter((project) => project.featured).map((project, index) => (
                         <ProjectCard
-                            key={project.number}
+                            key={index}
+                            index={index}
                             project={project}
                         />
                     ))}
                 </motion.div>
-
             </div>
         </section>
     );
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ index, project }) => {
+    console.log(index);
+
     return (
         <motion.article
-            className={`project-card project-card--${project.accent}`}
+            className={`project-card project-card--purple`}
             variants={fadeUp}
         >
             {/* Preview */}
@@ -136,35 +72,19 @@ const ProjectCard = ({ project }) => {
                         </div>
 
                         <span>
-                            {project.category}
+                            𝐇𝐞𝐥𝐥𝐨 𝐭𝐡𝐞𝐫𝐞, 𝐟𝐞𝐥𝐥𝐨𝐰  <em>&lt;𝚍𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛𝚜 /&gt;</em>!
                         </span>
                     </div>
 
                     <div className="project-card__mockup">
-                        <div className="project-card__mockup-line" />
                         <div className="project-card__mockup-content">
-                            <div className="project-card__mockup-sidebar">
-                                <span />
-                                <span />
-                                <span />
-                                <span />
-                            </div>
-
-                            <div className="project-card__mockup-main">
-                                <div className="project-card__mockup-title" />
-                                <div className="project-card__mockup-cards">
-                                    <span />
-                                    <span />
-                                    <span />
-                                </div>
-                                <div className="project-card__mockup-chart" />
-                            </div>
+                            <img src={project.featured_image} alt={project.name} />
                         </div>
                     </div>
                 </div>
 
                 <span className="project-card__number">
-                    {project.number}
+                    {`0${index + 1}`}
                 </span>
             </div>
 
@@ -172,10 +92,10 @@ const ProjectCard = ({ project }) => {
             <div className="project-card__content">
                 <div>
                     <span className="project-card__category">
-                        {project.category}
+                        Made with ❤️ and Code
                     </span>
                     <h3>
-                        {project.title}
+                        {project.name}
                     </h3>
 
                     <p>
@@ -183,10 +103,10 @@ const ProjectCard = ({ project }) => {
                     </p>
 
                     <div className="project-card__technologies">
-                        {project.technologies.map(
-                            (technology) => (
-                                <span key={technology}>
-                                    {technology}
+                        {project.topics.map(
+                            (topic) => (
+                                <span key={topic}>
+                                    {topic}
                                 </span>
                             )
                         )}
@@ -194,20 +114,24 @@ const ProjectCard = ({ project }) => {
                 </div>
 
                 <div className="project-card__links">
-                    <a
-                        href={project.href}
-                        aria-label={`View ${project.title}`}
+                    <Link
+                        to={project.homepage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.name}`}
                     >
                         View project
                         <FiArrowUpRight />
-                    </a>
+                    </Link>
 
-                    <a
-                        href={project.github}
-                        aria-label={`View ${project.title} on GitHub`}
+                    <Link
+                        to={project.html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`View ${project.name} on GitHub`}
                     >
                         <FiGithub />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </motion.article>

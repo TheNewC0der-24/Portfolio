@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { lightTheme } from '../../Themes';
 import {
@@ -17,7 +17,7 @@ import { IoGrid } from "react-icons/io5";
 import { FaSortAmountUp, FaSortAmountDownAlt } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
 import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-import project from '../../Data/projectsData.json';
+import project from '../../Data/projects.json';
 import GridView from './GridView';
 import ListView from './ListView';
 
