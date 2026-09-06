@@ -52,6 +52,19 @@
         "featured": true
     },
     {
+        "id": 513378127,
+        "name": "CLI Calculator",
+        "image": "./ProjectImg/CLICalculator.png",
+        "html_url": "https://github.com/TheNewC0der-24/CLI-Calculator",
+        "description": "Command-Line Calculator provides the most fluid interface, especially if we are performing chained calculations i.e., multiple calculations that rely on the results of previous calculations.",
+        "created_at": "2022-07-13T04:21:19Z",
+        "topics": [
+            "javascript",
+            "readline-sync",
+            "typescript"
+        ]
+    },
+    {
         "id": 4,
         "name": "CodePen Clone",
         "image": "./ProjectImg/CodePenClone.png",
