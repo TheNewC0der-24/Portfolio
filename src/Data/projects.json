@@ -3,6 +3,7 @@
         "id": 1,
         "name": "AI Genie",
         "image": "./ProjectImg/AIGenie.png",
+        "imageFit": "contain",
         "html_url": "https://github.com/TheNewC0der-24/AI-Genie",
         "description": "AI-Genie is a web application that leverages the power of the OpenAI API to provide advanced AI capabilities.",
         "homepage": "https://ai-genie.netlify.app/",
