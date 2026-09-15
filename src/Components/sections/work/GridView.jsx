@@ -36,7 +36,7 @@ const GridView = ({ filteredProjects, searchTerm }) => {
 
                 return (
                     <motion.article
-                        className="project-card"
+                        className="work-project-card"
                         key={project.id}
                         initial={{ opacity: 0, y: 25 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -84,8 +84,7 @@ const GridView = ({ filteredProjects, searchTerm }) => {
 
                                 <button
                                     type="button"
-                                    className={`project-card__expand ${isExpanded ? "active" : ""
-                                        }`}
+                                    className={`project-card__expand ${isExpanded ? "active" : ""}`}
                                     onClick={() => toggleExpand(project.id)}
                                     aria-label="Show project details"
                                     aria-expanded={isExpanded}

@@ -1,24 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { FiArrowUpRight, FiGithub, FiSearch, FiSliders, FiExternalLink } from "react-icons/fi";
+import { FiArrowUpRight, FiGithub, FiSearch, FiExternalLink } from "react-icons/fi";
 import { FaBars, FaSortAlphaDown, FaSortAlphaUp, FaThLarge } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import projects from "../../Data/projects.json";
 import GridView from "../../components/sections/work/GridView";
 import ListView from "../../components/sections/work/ListView";
 import "./Work.css";
-
-const categories = [
-    "All",
-    "Web Application",
-    "Developer Tools",
-    "Productivity",
-    "API Integration",
-    "Utility",
-    "UI Development",
-    "AI",
-];
 
 const Work = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -42,11 +31,7 @@ const Work = () => {
                     topic.toLowerCase().includes(search)
                 );
 
-            const matchesCategory = category === "All" ||
-                project.categories?.includes(category) ||
-                project.category?.includes(category);
-
-            return matchesSearch && matchesCategory;
+            return matchesSearch;
         });
 
         return [...result].sort((a, b) => {
@@ -60,7 +45,7 @@ const Work = () => {
 
             return isAscending ? dateA - dateB : dateB - dateA;
         });
-    }, [searchTerm, category, sortField, isAscending]);
+    }, [searchTerm, sortField, isAscending]);
 
     const featuredProjects = useMemo(
         () => projects.filter((project) => project.featured).slice(0, 3),
@@ -157,8 +142,8 @@ const Work = () => {
                                     </div>
 
                                     {/* Visual */}
-                                    <a
-                                        href={project.homepage || project.html_url}
+                                    <Link
+                                        to={project.homepage || project.html_url}
                                         target="_blank"
                                         rel="noreferrer"
                                         className="featured-project__visual"
@@ -173,7 +158,7 @@ const Work = () => {
                                             View project
                                             <FiArrowUpRight />
                                         </span>
-                                    </a>
+                                    </Link>
 
                                     {/* Content */}
                                     <div className="featured-project__content">
@@ -192,24 +177,16 @@ const Work = () => {
                                         </div>
 
                                         <div className="featured-project__actions">
-                                            <a
-                                                href={project.html_url}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
+                                            <Link to={project.html_url} target="_blank" rel="noreferrer">
                                                 <FiGithub />
                                                 Source
-                                            </a>
+                                            </Link>
 
                                             {project.homepage && (
-                                                <a
-                                                    href={project.homepage}
-                                                    target="_blank"
-                                                    rel="noreferrer"
-                                                >
+                                                <Link to={project.homepage} target="_blank" rel="noreferrer">
                                                     Live
                                                     <FiExternalLink />
-                                                </a>
+                                                </Link>
                                             )}
                                         </div>
                                     </div>
@@ -261,23 +238,6 @@ const Work = () => {
                         </div>
 
                         <div className="work-toolbar__right">
-                            {/* Category */}
-                            <div className="category-filter">
-                                <FiSliders />
-
-                                <select
-                                    value={category}
-                                    onChange={(event) => setCategory(event.target.value)}
-                                    aria-label="Filter projects by category"
-                                >
-                                    {categories.map((item) => (
-                                        <option key={item} value={item}>
-                                            {item}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-
                             {/* Sort */}
                             <div className="sort-control">
                                 <select
@@ -382,15 +342,10 @@ const Work = () => {
                         </h2>
                     </div>
 
-                    <a
-                        href="https://github.com/TheNewC0der-24"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="work-github__button"
-                    >
+                    <Link to="https://github.com/TheNewC0der-24" target="_blank" rel="noreferrer" className="work-github__button">
                         Visit GitHub
                         <FiArrowUpRight />
-                    </a>
+                    </Link>
                 </section>
 
                 {/* Bottom navigation */}

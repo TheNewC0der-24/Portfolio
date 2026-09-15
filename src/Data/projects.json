@@ -262,21 +262,6 @@
         ]
     },
     {
-        "id": 17,
-        "name": "Pixabay Image Finder",
-        "image": "./ProjectImg/Pixabay.png",
-        "html_url": "https://github.com/TheNewC0der-24/Pixabay-Image-Finder",
-        "description": "An image finder application that uses the PixaBay API to fetch images based on a query string.",
-        "homepage": "https://image-finder-xi.vercel.app/",
-        "created_at": "2022-05-04T10:56:53Z",
-        "topics": [
-            "material-ui",
-            "pixabay",
-            "reactjs",
-            "vercel-deployment"
-        ]
-    },
-    {
         "id": 18,
         "name": "Postman Clone",
         "image": "./ProjectImg/PostmanClone.png",
