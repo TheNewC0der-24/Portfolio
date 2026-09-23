@@ -1,15 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-    FiArrowUpRight,
-    FiChevronDown,
-    FiAward,
-    FiBookOpen,
-    FiHeart,
-    FiLayers,
-    FiCode,
-} from "react-icons/fi";
+import { FiArrowUpRight, FiChevronDown, FiAward, FiBookOpen, FiHeart, FiLayers, FiCode } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
@@ -32,7 +24,7 @@ const mainNavigation = [
     },
     {
         label: "Blogs",
-        href: "https://bhavyakhurana.hashnode.dev/",
+        href: "https://cynophilist.hashnode.dev/",
         external: true,
     },
 ];

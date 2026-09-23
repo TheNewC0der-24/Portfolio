@@ -643,7 +643,6 @@
 
 .project-card__image {
     position: relative;
-    min-height: 330px;
     overflow: hidden;
     background: var(--color-bg-soft);
 }
@@ -774,6 +773,7 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 15px;
+    margin-bottom: 22px;
 }
 
 .project-card__type {
@@ -837,7 +837,7 @@
 
 /* Description */
 
-.project-card__description {
+/* .project-card__description {
     margin: 22px 0 20px;
     color: rgba(255, 255, 255, 0.48);
     font-size: 0.82rem;
@@ -847,7 +847,7 @@
     -webkit-box-orient: vertical;
     line-clamp: 3;
     -webkit-line-clamp: 3;
-}
+} */
 
 
 /* Topics */

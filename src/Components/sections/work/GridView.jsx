@@ -93,9 +93,9 @@ const GridView = ({ filteredProjects, searchTerm }) => {
                                 </button>
                             </div>
 
-                            <p className="project-card__description">
+                            {/* <p className="project-card__description">
                                 {project.description}
-                            </p>
+                            </p> */}
 
                             <div className="project-topics">
                                 {project.topics?.slice(0, 5).map((topic) => (
