@@ -1,6 +1,7 @@
 .about-page {
     position: relative;
     min-height: 100vh;
+    padding: 120px 24px 80px;
     overflow: hidden;
     background: #080808;
     color: var(--color-text);
@@ -9,7 +10,6 @@
 .about-container {
     position: relative;
     z-index: 2;
-    width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
 }
 
@@ -57,10 +57,6 @@
 /* ========================================
    Hero
 ======================================== */
-
-.about-hero {
-    padding: 150px 0 120px;
-}
 
 .about-hero__eyebrow,
 .about-section-label {
@@ -427,9 +423,6 @@
 ======================================== */
 
 @media (max-width: 900px) {
-    .about-hero {
-        padding: 120px 0 90px;
-    }
 
     .about-hero__layout,
     .about-story__grid,
@@ -475,10 +468,6 @@
 @media (max-width: 600px) {
     .container {
         width: min(100% - 30px, 1180px);
-    }
-
-    .about-hero {
-        padding: 105px 0 70px;
     }
 
     .about-hero__heading h1 {

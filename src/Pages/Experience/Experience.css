@@ -6,7 +6,7 @@
     position: relative;
     min-height: 100vh;
     overflow: hidden;
-    padding: 0 6vw 120px;
+    padding: 120px 24px 80px;
     background:
         radial-gradient(circle at 15% 15%,
             rgba(109, 42, 226, 0.1),
@@ -68,13 +68,12 @@
 .experience-hero {
     position: relative;
     z-index: 1;
-    min-height: 78vh;
     max-width: 1180px;
     margin: 0 auto;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 150px 0 100px;
+    padding: 0 0 100px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -95,9 +94,11 @@
 }
 
 .experience-eyebrow__line {
-    width: 30px;
-    height: 1px;
-    background: var(--color-accent);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-accent-light);
+    box-shadow: 0 0 14px rgba(139, 92, 246, 0.7);
 }
 
 .experience-hero h1 {
@@ -109,7 +110,7 @@
 }
 
 .experience-hero h1 em {
-    color: var(--color-accent);
+    color: var(--color-accent-light);
     font-family: Georgia, "Times New Roman", serif;
     font-weight: 400;
 }
@@ -574,14 +575,6 @@
 ========================================================= */
 
 @media (max-width: 1000px) {
-    .experience-page {
-        padding: 0 5vw 90px;
-    }
-
-    .experience-hero {
-        min-height: 70vh;
-    }
-
     .experience-entry {
         grid-template-columns: 55px 210px minmax(0, 1fr);
     }
@@ -593,14 +586,9 @@
 
 
 @media (max-width: 800px) {
-    .experience-page {
-        padding: 0 24px 80px;
-    }
-
     .experience-hero {
         min-height: auto;
         display: block;
-        padding: 140px 0 80px;
     }
 
     .experience-hero h1 {
@@ -668,14 +656,6 @@
 
 
 @media (max-width: 520px) {
-    .experience-page {
-        padding: 0 18px 70px;
-    }
-
-    .experience-hero {
-        padding-top: 120px;
-    }
-
     .experience-hero h1 {
         font-size: 62px;
     }

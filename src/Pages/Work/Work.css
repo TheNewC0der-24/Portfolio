@@ -89,7 +89,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: var(--color-accent-light);
     box-shadow: 0 0 14px rgba(139, 92, 246, 0.7);
 }
 
@@ -1184,10 +1184,6 @@
 ===================================== */
 
 @media (max-width: 1000px) {
-    .work-page {
-        padding-top: 100px;
-    }
-
     .work-hero {
         min-height: auto;
         padding-bottom: 70px;
@@ -1228,10 +1224,6 @@
 }
 
 @media (max-width: 760px) {
-    .work-page {
-        padding: 90px 16px 60px;
-    }
-
     .work-hero {
         flex-direction: column;
         align-items: flex-start;
@@ -1387,11 +1379,6 @@
 }
 
 @media (max-width: 480px) {
-    .work-page {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
     .project-card__body {
         padding: 16px;
     }
