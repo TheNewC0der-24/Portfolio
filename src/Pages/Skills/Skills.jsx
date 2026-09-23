@@ -123,7 +123,7 @@ const Skills = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <span className="skills-hero__eyebrow-dot" />
+                        <span className="skills-hero__line" />
                         <span>Skills &amp; technologies</span>
                     </motion.div>
 
@@ -139,7 +139,7 @@ const Skills = () => {
                     >
                         What I
                         <br />
-                        <em>work with.</em>
+                        <span>work with.</span>
                     </motion.h1>
 
                     <motion.div

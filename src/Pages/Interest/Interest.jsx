@@ -1,89 +1,188 @@
-import React from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { darkTheme } from '../../Themes';
-import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-import InterestCard from '../../Components/InterestCard';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: #0e1313;
-    color : #dee2e6;
-  }
-
-  .intro {
-    background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
-    background-clip: text !important;
-    -moz-background-clip: text !important;
-    -webkit-background-clip: text !important;
-    -moz-text-fill-color: transparent !important;
-    -webkit-text-fill-color: transparent !important;
-  }
-
-  .card {
-    background: none !important;
-    border-radius : 0px !important;
-    box-shadow:  5px 5px 10px #060808,
-             -5px -5px 10px #161e1e;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .card:hover {
-    box-shadow: inset 5px 5px 10px #060808,
-            inset -5px -5px 10px #161e1e !important;
-    transform: translateY(2px);
-  }
-
- .card-title {
-    color : #6d2ae2 !important;
-    font-family: 'Caveat', cursive;
-  }
-
-  .icons{
-    margin: 0 auto 20px auto;
-    padding: 15px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 10px;
-    width: 75px;
-    height: 75px;
-    background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
-    font-size: 36px;
-    line-height: 1;
-    color: #dee2e6;
-}
-`;
-
-const Quote = styled.div`
-    font-family: 'Special Elite', cursive;
-    color: #6d2ae2;
-`;
+/* eslint-disable react/no-unescaped-entities */
+import { motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
+import "./Interest.css";
+import { interests } from "../../Data/interestData";
 
 const Interest = () => {
-
-  const title = "Bhavya Khurana | Interests";
-  document.title = title;
+  document.title = "Bhavya Khurana | Interests";
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <GlobalStyle />
-      <SocialLinks />
-      <div className="container text-center my-5">
-        <div>
-          <h1>.interest()</h1>
-          <h6 className='fw-bold'>THINGS <span className='intro'>I LOVE</span></h6>
+    <main className="interest-page">
+      <section className="interest-hero">
+        <div className="interest-container">
+          <motion.div
+            className="interest-hero__eyebrow"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="interest-hero__line" />
+            <span>Beyond code</span>
+          </motion.div>
+
+          <motion.h1
+            className="interest-hero__title"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              delay: 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            Things
+            <br />
+            <span>I enjoy.</span>
+          </motion.h1>
+
+          <motion.div
+            className="interest-hero__bottom"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.2,
+            }}
+          >
+            <p>
+              A few things that keep me curious, creative and
+              grounded outside of everyday engineering work.
+            </p>
+
+            <div className="interest-hero__meta">
+              <span>01</span>
+              <span>Personal interests</span>
+            </div>
+          </motion.div>
         </div>
-        <Quote className='my-5 mx-4'>
-          <blockquote className="blockquote mb-0">
-            <p><span>PASSION</span> IS NOT ABOUT DOING SOMETHING <span>BIG PASSION</span> IS DOING SMALL THINGS WITH 100%</p>
-          </blockquote>
-        </Quote>
-        <div className="container d-flex justify-content-center mx-auto">
-          <InterestCard />
+      </section>
+
+      {/* QUOTE */}
+      <section className="interest-quote">
+        <div className="interest-container">
+          <motion.div
+            className="interest-quote__content"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="interest-quote__mark">“</span>
+
+            <blockquote>
+              Passion isn't always about doing something big.
+              Sometimes it's about doing small things with
+              intention.
+            </blockquote>
+
+            <span className="interest-quote__caption">
+              Curiosity over routine.
+            </span>
+          </motion.div>
         </div>
-      </div>
-    </ThemeProvider>
-  )
-}
+      </section>
+
+      <section className="interest-content">
+        <div className="interest-container">
+          <div className="interest-section-heading">
+            <span>02</span>
+
+            <div>
+              <p>What keeps me curious</p>
+              <h2>A little more about me.</h2>
+            </div>
+          </div>
+
+          <div className="interest-list">
+            {interests.map((interest, index) => {
+              const Icon = interest.icon;
+
+              return (
+                <motion.article
+                  className="interest-item"
+                  key={interest.number}
+                  initial={{
+                    opacity: 0,
+                    y: 25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.15,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.05,
+                  }}
+                >
+                  <div className="interest-item__number">
+                    {interest.number}
+                  </div>
+
+                  <div className="interest-item__icon">
+                    <Icon />
+                  </div>
+
+                  <div className="interest-item__content">
+                    <h3>{interest.title}</h3>
+
+                    <p>{interest.description}</p>
+
+                    <div className="interest-item__tags">
+                      {interest.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="interest-item__arrow">
+                    <FiArrowUpRight />
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* CLOSING */}
+      <section className="interest-closing">
+        <div className="interest-container">
+          <motion.div
+            className="interest-closing__content"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{
+              once: true,
+              amount: 0.25,
+            }}
+            transition={{ duration: 0.6 }}
+          >
+            <span>03 / Keep exploring</span>
+
+            <h2>
+              Curiosity makes
+              <br />
+              <em>better builders.</em>
+            </h2>
+
+            <p>
+              The things I explore outside of work often find
+              their way back into how I think, create and solve
+              problems.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+};
 
 export default Interest;

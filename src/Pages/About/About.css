@@ -158,7 +158,7 @@
 
 .about-story__title h2 span,
 .about-expertise__header h2 span {
-    color: var(--color-text-muted);
+    color: var(--color-text-muted-dark);
 }
 
 .about-story__content {
@@ -343,7 +343,7 @@
 }
 
 .about-cta__card>span {
-    color: var(--color-accent-light);
+    color: var(--color-light-accent);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -358,7 +358,7 @@
 }
 
 .about-cta__card h2 em {
-    color: var(--color-accent-light);
+    color: var(--color-light-accent);
 }
 
 .about-cta__card em {
@@ -400,12 +400,12 @@
 }
 
 .about-cta__button--primary {
-    background: var(--color-accent);
+    background: var(--color-light-accent);
     color: var(--color-text);
 }
 
 .about-cta__button--primary:hover {
-    background: var(--color-accent-light);
+    background: var(--color-accent);
 }
 
 .about-cta__button--secondary {

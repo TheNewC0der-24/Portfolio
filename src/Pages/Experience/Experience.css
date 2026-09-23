@@ -541,7 +541,7 @@
 }
 
 .experience-cta>span {
-    color: var(--color-accent);
+    color: var(--color-light-accent);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.18em;
@@ -556,7 +556,7 @@
 }
 
 .experience-cta h2 em {
-    color: var(--color-accent);
+    color: var(--color-light-accent);
     font-family: Georgia, "Times New Roman", serif;
     font-weight: 400;
 }

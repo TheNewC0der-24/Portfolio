@@ -1103,7 +1103,7 @@
     place-items: center;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-md);
-    color: var(--color-accent-light);
+    color: var(--color-light-accent);
     font-size: 1.5rem;
     -webkit-border-radius: var(--radius-md);
     -moz-border-radius: var(--radius-md);
@@ -1123,7 +1123,7 @@
 }
 
 .work-github h2 em {
-    color: var(--color-accent-light);
+    color: var(--color-light-accent);
     font-family: Georgia, serif;
     font-weight: 400;
 }

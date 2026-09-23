@@ -27,19 +27,17 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 38px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-secondary);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
 }
 
-.skills-hero__eyebrow-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-accent-light);
-    box-shadow: 0 0 14px rgba(139, 92, 246, 0.7);
+.skills-hero__line {
+    width: 32px;
+    height: 1px;
+    background: #8d5cff;
 }
 
 .skills-hero__title {
@@ -51,10 +49,8 @@
     letter-spacing: -0.065em;
 }
 
-.skills-hero__title em {
-    color: var(--color-accent-light);
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 400;
+.skills-hero__title span {
+    color: var(--color-text-muted-dark);
 }
 
 .skills-hero__bottom {

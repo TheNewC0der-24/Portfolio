@@ -1,41 +1,44 @@
-import { FaCode, FaLaptopCode, FaHiking, FaMicroblog, FaGamepad } from 'react-icons/fa';
-import { LuBookCopy } from 'react-icons/lu';
+import { FiBookOpen, FiCode, FiHeart, FiMusic, FiPenTool } from "react-icons/fi";
 
-export const interestData = [
+export const interests = [
     {
-        id: 1,
-        title: "COMPETITIVE PROGRAMMING",
-        content: "Engaging in problem-solving activities on various Competitive Coding platforms during my free time.",
-        icon: FaCode
+        number: "01",
+        title: "Technology",
+        description:
+            "Exploring new technologies, experimenting with ideas and understanding how things work under the hood.",
+        icon: FiCode,
+        tags: ["Web", "AI", "Open Source"],
     },
     {
-        id: 2,
-        title: "CONTINUOUS LEARNING",
-        content: "I believe in constantly expanding my knowledge by learning new things and implementing them in practical ways.",
-        icon: LuBookCopy
+        number: "02",
+        title: "Writing",
+        description:
+            "Writing is another way I think, learn and communicate ideas beyond code.",
+        icon: FiPenTool,
+        tags: ["Content", "Ideas", "Storytelling"],
     },
     {
-        id: 3,
-        title: "FRONTEND DEVELOPMENT",
-        content: "Passionate about creating visually appealing websites and web applications using React.js, Angular HTML, CSS, JavaScript and TypeScript.",
-        icon: FaLaptopCode
+        number: "03",
+        title: "Learning",
+        description:
+            "I enjoy continuously learning new concepts, tools and perspectives that help me grow as an engineer.",
+        icon: FiBookOpen,
+        tags: ["Books", "Research", "Experimenting"],
     },
     {
-        id: 4,
-        title: "GAMING ENTHUSIAST",
-        content: "When I'm not coding, you'll likely find me immersed in the world of gaming, exploring virtual realms and conquering epic quests.",
-        icon: FaGamepad
+        number: "04",
+        title: "Music",
+        description:
+            "A good playlist is part of the process — especially when working on something that requires focus.",
+        icon: FiMusic,
+        tags: ["Playlists", "Focus", "Discovering"],
     },
     {
-        id: 5,
-        title: "ADVENTURE SEEKER",
-        content: "I have a taste for adventure! Whether it's hiking, rock climbing, or skydiving, I love pushing my limits and experiencing thrilling escapades.",
-        icon: FaHiking
+        number: "05",
+        title: "Dogs",
+        description:
+            "I have a soft spot for dogs. They have a pretty good way of making even an ordinary day better.",
+        icon: FiHeart,
+        tags: ["Dogs", "Companionship", "Joy"],
     },
-    {
-        id: 6,
-        title: "CODE STORYTELLER",
-        content: "I write concise frontend content that simplifies complex concepts, tutorials, and best practices, empowering developers with insightful articles and bridging the gap between code and communication.",
-        icon: FaMicroblog
-    }
-]
+];
