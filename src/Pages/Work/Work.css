@@ -78,7 +78,7 @@
     align-items: center;
     gap: 9px;
     margin-bottom: 24px;
-    color: var(--color-accent-light);
+    color: var(--color-text-secondary);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -131,7 +131,7 @@
 }
 
 .work-hero__count-label {
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
     font-size: 0.7rem;
     line-height: 1.5;
     text-transform: uppercase;
@@ -191,7 +191,7 @@
 .section-heading__result {
     margin-left: auto;
     padding-bottom: 7px;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
     font-size: 0.75rem;
 }
 
@@ -461,7 +461,7 @@
     width: 100%;
     max-width: 440px;
     padding: 0 10px;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
 }
 
 .work-search svg {
@@ -487,7 +487,7 @@
 .work-search button {
     border: 0;
     background: none;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
     cursor: pointer;
     font-size: 1.1rem;
 }
@@ -1112,7 +1112,7 @@
 }
 
 .work-github span {
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
     font-size: 0.7rem;
 }
 

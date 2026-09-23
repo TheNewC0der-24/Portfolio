@@ -63,7 +63,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.12em;

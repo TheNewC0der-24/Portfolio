@@ -1,117 +1,346 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { lightTheme } from '../../Themes';
-import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-import languages from '../../Data/Skills/languages.json';
-import fandl from '../../Data/Skills/fandl.json';
-import packages from '../../Data/Skills/packages.json';
-import hosting from '../../Data/Skills/hosting.json';
-import tools from '../../Data/Skills/tools.json';
-import knowledge from '../../Data/Skills/knowledge.json';
-import SkillData from '../../Components/SkillData';
+import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
+import { FiCode, FiCpu, FiLayers, FiPackage, FiServer, FiTool, FiBookOpen } from "react-icons/fi";
+import languages from "../../Data/Skills/languages.json";
+import fandl from "../../Data/Skills/fandl.json";
+import ai from "../../Data/Skills/ai.json";
+import packages from "../../Data/Skills/packages.json";
+import hosting from "../../Data/Skills/hosting.json";
+import tools from "../../Data/Skills/tools.json";
+import knowledge from "../../Data/Skills/knowledge.json";
+import { getIconForTechnology } from "../../Helpers/getIconForTechnology";
+import "./Skills.css";
 
-const GlobalStyle = createGlobalStyle`
-    body {
-        background-color: ${props => props.theme.body};
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.08
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: {
+        opacity: 0,
+        y: 20
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1]
+        },
+    },
+};
+
+const skillGroups = [
+    {
+        id: "languages",
+        number: "01",
+        title: "Core Languages",
+        description:
+            "The languages I use to build interfaces, applications and reliable frontend systems.",
+        icon: FiCode,
+        items: languages,
+    },
+    {
+        id: "frameworks",
+        number: "02",
+        title: "Frameworks & Libraries",
+        description:
+            "Frameworks and libraries I use to structure scalable applications and reusable interfaces.",
+        icon: FiLayers,
+        items: fandl,
+    },
+    {
+        id: "ai",
+        number: "03",
+        title: "AI & Automation",
+        description:
+            "Enterprise AI and automation technologies I've worked with to build intelligent and workflow-driven experiences.",
+        icon: FiCpu,
+        items: ai,
+    },
+    {
+        id: "packages",
+        number: "04",
+        title: "Packages & Ecosystem",
+        description:
+            "Libraries and ecosystem tools that help me solve application-level problems efficiently.",
+        icon: FiPackage,
+        items: packages,
+    },
+    {
+        id: "hosting",
+        number: "05",
+        title: "Hosting & Platforms",
+        description:
+            "Platforms and services used to deploy, host and support production applications.",
+        icon: FiServer,
+        items: hosting,
+    },
+    {
+        id: "tools",
+        number: "06",
+        title: "Tools",
+        description:
+            "The development and collaboration tools I use throughout the engineering lifecycle.",
+        icon: FiTool,
+        items: tools,
+    },
+];
+
+const marqueeItems = [
+    ...languages,
+    ...fandl,
+    ...ai,
+    ...packages,
+    ...hosting,
+    ...tools,
+];
+
+const getSkillName = (skill) => {
+    if (typeof skill === "string") {
+        return skill;
     }
 
-    .sub-title span {
-        background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
-        background-clip: text !important;
-        -moz-background-clip: text !important;
-        -webkit-background-clip: text !important;
-        -moz-text-fill-color: transparent !important;
-        -webkit-text-fill-color: transparent !important;
-    }
-
-    .card {
-        background-color: #DFD8FD;
-        border-left: 5px solid #6d2ae2;
-        border-right: 5px solid #6d2ae2;
-        border-color: #6d2ae2;
-    }
-
-    .icon {
-        font-size: 2.5rem;
-        color: ${props => props.theme.body};
-        background: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3);
-        border-radius: 50%;
-        padding: 5px;
-    }
-
-    .line {
-        border: 2px solid #6d2ae2;
-    }
-`;
+    return skill?.name || skill?.title || skill?.label || "";
+};
 
 const Skills = () => {
     const title = "Bhavya Khurana | Skills";
     document.title = title;
 
     return (
-        <>
-            <ThemeProvider theme={lightTheme}>
-                <GlobalStyle />
-                <SocialLinks />
-                <div className='container my-3'>
-                    <div className='text-center mb-4'>
-                        <h1>.skills()</h1>
-                        <h6 className='sub-title fw-bold'>MY <span>LEARNINGS</span></h6>
-                    </div>
-                    <p className='text-center mx-auto w-75'>
-                        These are my current skills, encompassing a wide range of web technologies, programming languages, databases, frameworks, libraries,
-                        tools, and hosting platforms. I am committed to continuous learning and may update this section regularly.
-                    </p>
+        <main className="skills-page">
+            <section className="skills-hero">
+                <div className="skills-container">
+                    <motion.div
+                        className="skills-hero__eyebrow"
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <span className="skills-hero__eyebrow-dot" />
+                        <span>Skills &amp; technologies</span>
+                    </motion.div>
 
-                    <hr className="my-4 mx-5 line" />
+                    <motion.h1
+                        className="skills-hero__title"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.7,
+                            delay: 0.08,
+                            ease: [0.22, 1, 0.36, 1]
+                        }}
+                    >
+                        What I
+                        <br />
+                        <em>work with.</em>
+                    </motion.h1>
 
-                    <div className="container mt-3">
-                        <div className="container">
-                            <div className="container">
-                                <div className='mb-3 overflow-hidden'>
-                                    <Marquee pauseOnHover={true} speed={50} direction='right' className='d-flex align-items-center justify-content-center'>
-                                        {knowledge.map((item, index) => (
-                                            <div className='marquee-box' style={{ marginRight: "5rem" }} key={index}>
-                                                {item.name}
+                    <motion.div
+                        className="skills-hero__bottom"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.6,
+                            delay: 0.2
+                        }}
+                    >
+                        <p className="skills-hero__description">
+                            A practical toolkit shaped by production systems,
+                            enterprise applications, AI-powered solutions,
+                            personal projects and continuous learning.
+                        </p>
+
+                        <div className="skills-hero__meta">
+                            <span>01</span>
+                            <span>Engineering toolkit</span>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className="skills-marquee-section">
+                <Marquee
+                    speed={38}
+                    gradient={true}
+                    gradientWidth={100}
+                    pauseOnHover
+                >
+                    {marqueeItems.map((skill, index) => (
+                        <div
+                            className="skills-marquee__item"
+                            key={`${getSkillName(skill)}-${index}`}
+                        >
+                            <span>{getSkillName(skill)}</span>
+                            <span className="skills-marquee__dot">✦</span>
+                        </div>
+                    ))}
+                </Marquee>
+            </section>
+
+            <section className="skills-content">
+                <div className="skills-container">
+                    <motion.div
+                        className="skills-groups"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{
+                            once: true,
+                            amount: 0.08
+                        }}
+                    >
+                        {skillGroups.map((group) => {
+                            const Icon = group.icon;
+
+                            return (
+                                <motion.article
+                                    key={group.id}
+                                    variants={itemVariants}
+                                    className={`skill-group ${group.id === "ai" ? "skill-group--ai" : ""}`}
+                                >
+                                    <div className="skill-group__number">
+                                        {group.number}
+                                    </div>
+
+                                    <div className="skill-group__main">
+                                        <div className="skill-group__heading">
+                                            <div className="skill-group__icon">
+                                                <Icon />
                                             </div>
-                                        ))}
-                                    </Marquee>
-                                </div>
 
-                                <section id='skills' className='d-flex flex-column align-items-center justify-content-center gap-2 h-100 position-relative' style={{ overflow: "hidden", transform: "scale(0.9)" }}>
-                                    <div className="d-flex flex-row justify-content-around flex-wrap gap-5 align-items-center">
-                                        {languages.map((item, index) => (
-                                            <SkillData key={index} icon={item.name} index={index} />
-                                        ))}
+                                            <div>
+                                                <h2>{group.title}</h2>
+
+                                                <p>
+                                                    {group.description}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="skill-group__items">
+                                            {group.items?.map((skill, index) => (
+                                                <span
+                                                    className="skill-item"
+                                                    key={`${group.id}-${getSkillName(skill)}-${index}`}
+                                                >
+                                                    {getIconForTechnology(getSkillName(skill))}
+
+                                                    {getSkillName(skill)}
+                                                </span>
+                                            )
+                                            )}
+                                        </div>
                                     </div>
-                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
-                                        {fandl.map((item, index) => (
-                                            <SkillData key={index} icon={item.name} index={index} />
-                                        ))}
-                                    </div>
-                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
-                                        {hosting.map((item, index) => (
-                                            <SkillData key={index} icon={item.name} index={index} />
-                                        ))}
-                                    </div>
-                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
-                                        {packages.map((item, index) => (
-                                            <SkillData key={index} icon={item.name} index={index} />
-                                        ))}
-                                    </div>
-                                    <div className="d-flex flex-row justify-content-around flex-wrap mt-4 gap-5 align-items-center">
-                                        {tools.map((item, index) => (
-                                            <SkillData key={index} icon={item.name} index={index} />
-                                        ))}
-                                    </div>
-                                </section>
+                                </motion.article>
+                            );
+                        })}
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className="skills-knowledge">
+                <div className="skills-container">
+                    <motion.div
+                        className="skills-knowledge__header"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{
+                            once: true,
+                            amount: 0.2
+                        }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <div className="skills-knowledge__eyebrow">
+                            <span>07</span>
+                            <span>Knowledge</span>
+                        </div>
+
+                        <div className="skills-knowledge__heading">
+                            <div className="skills-group-icon">
+                                <FiBookOpen />
+                            </div>
+
+                            <div>
+                                <h2>Beyond the tools.</h2>
+
+                                <p>
+                                    Concepts and engineering practices that
+                                    influence how I approach problems, design
+                                    systems and build products.
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </div >
-            </ThemeProvider >
-        </>
-    )
-}
+                    </motion.div>
+
+                    <motion.div
+                        className="skills-knowledge__items"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{
+                            once: true,
+                            amount: 0.1
+                        }}
+                        variants={containerVariants}
+                    >
+                        {knowledge?.map((item, index) => (
+                            <motion.div
+                                className="knowledge-item"
+                                variants={itemVariants}
+                                key={`knowledge-${index}`}
+                            >
+                                <span className="knowledge-item__index">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+
+                                <span className="knowledge-item__name">
+                                    {getSkillName(item)}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+
+            <section className="skills-cta">
+                <div className="skills-container">
+                    <motion.div
+                        className="skills-cta__content"
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{
+                            once: true,
+                            amount: 0.2
+                        }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="skills-cta__eyebrow">
+                            Always learning
+                        </span>
+
+                        <h2>
+                            The stack keeps
+                            <br />
+                            <span>evolving.</span>
+                        </h2>
+
+                        <p>
+                            Technology changes quickly. I focus on
+                            understanding the fundamentals, learning new
+                            tools and applying them where they create real
+                            value.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+        </main>
+    );
+};
 
 export default Skills;
