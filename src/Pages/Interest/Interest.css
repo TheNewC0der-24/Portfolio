@@ -19,7 +19,7 @@
 ========================================= */
 
 .interest-hero {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .interest-hero__eyebrow {
@@ -27,7 +27,7 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 38px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-text-secondary);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.16em;
@@ -37,7 +37,7 @@
 .interest-hero__line {
     width: 32px;
     height: 1px;
-    background: #8d5cff;
+    background: var(--color-accent);
 }
 
 .interest-hero__title {
@@ -50,7 +50,7 @@
 }
 
 .interest-hero__title span {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--color-text-muted-dark);
 }
 
 .interest-hero__bottom {
@@ -64,7 +64,7 @@
 .interest-hero__bottom p {
     max-width: 520px;
     margin: 0;
-    color: rgba(255, 255, 255, 0.52);
+    color: var(--color-text-secondary);
     font-size: 17px;
     line-height: 1.7;
 }
@@ -73,7 +73,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    color: rgba(255, 255, 255, 0.35);
+    color: var(--color-text-muted);
     font-size: 11px;
     letter-spacing: 0.13em;
     text-transform: uppercase;
@@ -81,7 +81,7 @@
 }
 
 .interest-hero__meta span:first-child {
-    color: #8d5cff;
+    color: var(--color-accent);
 }
 
 /* =========================================
@@ -90,26 +90,20 @@
 
 .interest-quote {
     padding: 110px 0;
-
-    background: #0c0c0c;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--color-bg-hard);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .interest-quote__content {
     max-width: 900px;
     margin: 0 auto;
-
     text-align: center;
 }
 
 .interest-quote__mark {
     display: block;
-
     height: 55px;
-
-    color: #8d5cff;
-
+    color: var(--color-accent);
     font-family: Georgia, serif;
     font-size: 90px;
     line-height: 0.8;
@@ -117,9 +111,7 @@
 
 .interest-quote blockquote {
     margin: 35px 0 25px;
-
-    color: rgba(255, 255, 255, 0.78);
-
+    color: var(--color-text);
     font-size: clamp(28px, 4vw, 46px);
     line-height: 1.25;
     font-weight: 400;
@@ -127,8 +119,7 @@
 }
 
 .interest-quote__caption {
-    color: rgba(255, 255, 255, 0.3);
-
+    color: var(--color-text-muted-dark);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -147,15 +138,12 @@
     display: grid;
     grid-template-columns: 90px minmax(0, 1fr);
     gap: 45px;
-
     margin-bottom: 65px;
 }
 
 .interest-section-heading>span {
     padding-top: 7px;
-
-    color: #8d5cff;
-
+    color: var(--color-accent);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -163,9 +151,7 @@
 
 .interest-section-heading p {
     margin: 0 0 8px;
-
-    color: rgba(255, 255, 255, 0.35);
-
+    color: var(--color-text-muted);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.13em;
@@ -174,7 +160,6 @@
 
 .interest-section-heading h2 {
     margin: 0;
-
     font-size: clamp(34px, 4vw, 52px);
     line-height: 1;
     font-weight: 500;
@@ -186,38 +171,33 @@
 ========================================= */
 
 .interest-list {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--color-border-hover);
 }
 
 .interest-item {
     position: relative;
-
     display: grid;
     grid-template-columns: 70px 60px minmax(0, 1fr) 40px;
     align-items: start;
     gap: 25px;
-
     padding: 42px 0;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-    transition:
-        padding 350ms cubic-bezier(0.22, 1, 0.36, 1),
-        background 300ms ease;
+    border-bottom: 1px solid var(--color-border-hover);
+    transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
+    -webkit-transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
+    -moz-transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
+    -ms-transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
+    -o-transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
 }
 
 .interest-item:hover {
     padding-left: 15px;
     padding-right: 15px;
-
     background: rgba(255, 255, 255, 0.015);
 }
 
 .interest-item__number {
     padding-top: 10px;
-
     color: rgba(255, 255, 255, 0.25);
-
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -227,28 +207,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 48px;
     height: 48px;
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    color: #8d5cff;
-
+    border: 1px solid var(--color-border-hover);
+    color: var(--color-accent);
     font-size: 19px;
-
-    transition:
-        background 250ms ease,
-        border-color 250ms ease,
-        transform 250ms ease;
+    transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+    -webkit-transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+    -moz-transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+    -ms-transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
+    -o-transition: background 250ms ease, border-color 250ms ease, transform 250ms ease;
 }
 
 .interest-item:hover .interest-item__icon {
     background: rgba(141, 92, 255, 0.08);
-
     border-color: rgba(141, 92, 255, 0.35);
-
     transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
 }
 
 .interest-item__content {
@@ -257,7 +235,6 @@
 
 .interest-item__content h3 {
     margin: 0 0 10px;
-
     font-size: clamp(25px, 3vw, 34px);
     line-height: 1;
     font-weight: 500;
@@ -267,9 +244,7 @@
 .interest-item__content p {
     max-width: 650px;
     margin: 0;
-
-    color: rgba(255, 255, 255, 0.43);
-
+    color: var(--color-text-secondary);
     font-size: 14px;
     line-height: 1.75;
 }
@@ -278,17 +253,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
     margin-top: 20px;
 }
 
 .interest-item__tags span {
     padding: 7px 11px;
-
-    border: 1px solid rgba(255, 255, 255, 0.09);
-
-    color: rgba(255, 255, 255, 0.38);
-
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
     font-size: 10px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -298,23 +269,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 32px;
     height: 32px;
-
     color: rgba(255, 255, 255, 0.2);
-
     font-size: 18px;
-
-    transition:
-        color 250ms ease,
-        transform 250ms ease;
+    transition: color 250ms ease, transform 250ms ease;
+    -webkit-transition: color 250ms ease, transform 250ms ease;
+    -moz-transition: color 250ms ease, transform 250ms ease;
+    -ms-transition: color 250ms ease, transform 250ms ease;
+    -o-transition: color 250ms ease, transform 250ms ease;
 }
 
 .interest-item:hover .interest-item__arrow {
-    color: #8d5cff;
-
+    color: var(--color-accent);
     transform: translate(3px, -3px);
+    -webkit-transform: translate(3px, -3px);
+    -moz-transform: translate(3px, -3px);
+    -ms-transform: translate(3px, -3px);
+    -o-transform: translate(3px, -3px);
 }
 
 /* =========================================
@@ -323,7 +295,6 @@
 
 .interest-closing {
     padding: 150px 0;
-
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -333,11 +304,8 @@
 
 .interest-closing__content>span {
     display: inline-block;
-
     margin-bottom: 28px;
-
-    color: #8d5cff;
-
+    color: var(--color-accent);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -346,7 +314,6 @@
 
 .interest-closing h2 {
     margin: 0;
-
     font-size: clamp(52px, 7vw, 100px);
     line-height: 0.95;
     font-weight: 500;
@@ -355,17 +322,13 @@
 
 .interest-closing h2 em {
     color: rgba(255, 255, 255, 0.25);
-
     font-style: normal;
 }
 
 .interest-closing p {
     max-width: 540px;
-
     margin: 38px 0 0;
-
-    color: rgba(255, 255, 255, 0.42);
-
+    color: var(--color-text-secondary);
     font-size: 16px;
     line-height: 1.8;
 }
@@ -375,19 +338,10 @@
 ========================================= */
 
 @media (max-width: 960px) {
-    .interest-container {
-        width: min(100% - 48px, 760px);
-    }
-
-    .interest-hero {
-        padding: 120px 0 80px;
-    }
-
     .interest-hero__bottom {
         align-items: flex-start;
         flex-direction: column;
         gap: 25px;
-
         margin-top: 55px;
     }
 
@@ -415,14 +369,6 @@
 ========================================= */
 
 @media (max-width: 700px) {
-    .interest-container {
-        width: calc(100% - 36px);
-    }
-
-    .interest-hero {
-        padding: 100px 0 65px;
-    }
-
     .interest-hero__eyebrow {
         margin-bottom: 28px;
     }
@@ -475,9 +421,7 @@
 
     .interest-item {
         grid-template-columns: 40px 48px minmax(0, 1fr);
-
         gap: 15px;
-
         padding: 35px 0;
     }
 
@@ -493,7 +437,6 @@
     .interest-item__icon {
         width: 42px;
         height: 42px;
-
         font-size: 17px;
     }
 
@@ -527,7 +470,6 @@
 
     .interest-closing p {
         margin-top: 28px;
-
         font-size: 14px;
     }
 }
@@ -537,14 +479,6 @@
 ========================================= */
 
 @media (max-width: 420px) {
-    .interest-container {
-        width: calc(100% - 28px);
-    }
-
-    .interest-hero {
-        padding-top: 90px;
-    }
-
     .interest-hero__title {
         font-size: 52px;
     }
@@ -557,7 +491,6 @@
     .interest-item__icon {
         width: 38px;
         height: 38px;
-
         font-size: 15px;
     }
 

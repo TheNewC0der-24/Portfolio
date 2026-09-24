@@ -1,6 +1,12 @@
 [
     {
-        "name": "Python"
+        "name": "React"
+    },
+    {
+        "name": "Next.js"
+    },
+    {
+        "name": "Angular"
     },
     {
         "name": "JavaScript"

@@ -37,7 +37,7 @@
 .skills-hero__line {
     width: 32px;
     height: 1px;
-    background: #8d5cff;
+    background: var(--color-accent);
 }
 
 .skills-hero__title {

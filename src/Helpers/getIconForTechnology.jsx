@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
     FaReact,
     FaAngular,
@@ -13,8 +14,9 @@ import {
     FaUbuntu,
     FaMarkdown,
     FaDocker,
-    FaNode
+    FaNode,
 } from 'react-icons/fa';
+import { FaGitlab } from "react-icons/fa6";
 import {
     SiCplusplus,
     SiPython,
@@ -42,7 +44,8 @@ import {
     SiFirebase,
     SiMongodb,
     SiExpress,
-    SiPostman
+    SiPostman,
+    SiAuth0
 } from 'react-icons/si';
 import { TbBrandNextjs } from 'react-icons/tb';
 import { BsBootstrapFill } from 'react-icons/bs';
@@ -137,6 +140,8 @@ export const getIconForTechnology = (technology) => {
             return <FaYarn className='fs-5' />;
         case 'GitHub':
             return <FaGithub className='fs-5' />;
+        case 'GitLab':
+            return <FaGitlab className='fs-5' />;
         case 'Chakra UI':
             return <SiChakraui className='fs-5' />;
         case 'Firebase':
@@ -155,6 +160,8 @@ export const getIconForTechnology = (technology) => {
             return <SiPostman className='fs-5' />;
         case 'Figma':
             return <FaFigma className='fs-5' />;
+        case 'OAuth 2.0':
+            return <SiAuth0 className='fs-5' />;
         default:
             return null;
     }

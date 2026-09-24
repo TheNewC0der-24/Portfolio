@@ -1,17 +1,20 @@
 [
     {
+        "name": "Docker"
+    },
+    {
         "name": "Git"
     },
     {
         "name": "GitHub"
     },
     {
+        "name": "GitLab"
+    },
+    {
         "name": "Postman"
     },
     {
         "name": "Figma"
-    },
-    {
-        "name": "Markdown"
     }
 ]

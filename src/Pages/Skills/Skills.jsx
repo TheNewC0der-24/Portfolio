@@ -1,12 +1,26 @@
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
-import { FiCode, FiCpu, FiLayers, FiPackage, FiServer, FiTool, FiBookOpen } from "react-icons/fi";
-import languages from "../../Data/Skills/languages.json";
-import fandl from "../../Data/Skills/fandl.json";
+import {
+    FiCode,
+    FiLayers,
+    FiDatabase,
+    FiShield,
+    FiCpu,
+    FiServer,
+    FiTool,
+    FiPackage,
+    FiCloud,
+    FiBookOpen
+} from "react-icons/fi";
+import frontend from "../../Data/Skills/frontend.json";
+import ui from "../../Data/Skills/ui.json";
+import sm from "../../Data/Skills/sm.json";
+import auth from "../../Data/Skills/auth.json";
 import ai from "../../Data/Skills/ai.json";
+import backend from "../../Data/Skills/backend.json";
+import tools from "../../Data/Skills/tools.json";
 import packages from "../../Data/Skills/packages.json";
 import hosting from "../../Data/Skills/hosting.json";
-import tools from "../../Data/Skills/tools.json";
 import knowledge from "../../Data/Skills/knowledge.json";
 import { getIconForTechnology } from "../../Helpers/getIconForTechnology";
 import "./Skills.css";
@@ -37,26 +51,44 @@ const itemVariants = {
 
 const skillGroups = [
     {
-        id: "languages",
+        id: "frontend",
         number: "01",
-        title: "Core Languages",
+        title: "Frontend Engineering",
         description:
-            "The languages I use to build interfaces, applications and reliable frontend systems.",
+            "Core technologies I use to build responsive, accessible and maintainable web applications.",
         icon: FiCode,
-        items: languages,
+        items: frontend,
     },
     {
-        id: "frameworks",
+        id: "ui",
         number: "02",
-        title: "Frameworks & Libraries",
+        title: "UI Engineering & Design Systems",
         description:
-            "Frameworks and libraries I use to structure scalable applications and reusable interfaces.",
+            "UI libraries and design-system technologies I use to create consistent, scalable and polished interfaces.",
         icon: FiLayers,
-        items: fandl,
+        items: ui,
+    },
+    {
+        id: "state",
+        number: "03",
+        title: "State & Data Management",
+        description:
+            "Tools and patterns I use to manage application state, server data and API communication.",
+        icon: FiDatabase,
+        items: sm,
+    },
+    {
+        id: "auth",
+        number: "04",
+        title: "Authentication & Integration",
+        description:
+            "Authentication technologies and integration tools used to connect applications with secure services and APIs.",
+        icon: FiShield,
+        items: auth,
     },
     {
         id: "ai",
-        number: "03",
+        number: "05",
         title: "AI & Automation",
         description:
             "Enterprise AI and automation technologies I've worked with to build intelligent and workflow-driven experiences.",
@@ -64,41 +96,51 @@ const skillGroups = [
         items: ai,
     },
     {
+        id: "backend",
+        number: "06",
+        title: "Backend & Data",
+        description:
+            "Backend and database technologies I use to work with application services, structured data and APIs.",
+        icon: FiServer,
+        items: backend,
+    },
+    {
+        id: "tools",
+        number: "07",
+        title: "DevOps & Tools",
+        description:
+            "Development, version control, API testing and collaboration tools used throughout the engineering lifecycle.",
+        icon: FiTool,
+        items: tools,
+    },
+    {
         id: "packages",
-        number: "04",
+        number: "08",
         title: "Packages & Ecosystem",
         description:
-            "Libraries and ecosystem tools that help me solve application-level problems efficiently.",
+            "Libraries and ecosystem packages that help me solve application-level problems and extend product capabilities.",
         icon: FiPackage,
         items: packages,
     },
     {
         id: "hosting",
-        number: "05",
+        number: "09",
         title: "Hosting & Platforms",
         description:
-            "Platforms and services used to deploy, host and support production applications.",
-        icon: FiServer,
+            "Platforms and services used to deploy, host and support applications across development and production environments.",
+        icon: FiCloud,
         items: hosting,
-    },
-    {
-        id: "tools",
-        number: "06",
-        title: "Tools",
-        description:
-            "The development and collaboration tools I use throughout the engineering lifecycle.",
-        icon: FiTool,
-        items: tools,
     },
 ];
 
 const marqueeItems = [
-    ...languages,
-    ...fandl,
+    ...frontend,
+    ...ui,
     ...ai,
+    ...backend,
+    ...tools,
     ...packages,
     ...hosting,
-    ...tools,
 ];
 
 const getSkillName = (skill) => {
@@ -258,7 +300,7 @@ const Skills = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <div className="skills-knowledge__eyebrow">
-                            <span>07</span>
+                            <span>10</span>
                             <span>Knowledge</span>
                         </div>
 
