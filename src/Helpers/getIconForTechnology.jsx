@@ -36,14 +36,19 @@ import {
     SiLatex,
     SiRecoil,
     SiChakraui,
-    SiFirebase,
     SiMongodb,
     SiExpress,
     SiPostman,
-    SiAuth0
+    SiAuth0,
+    SiKeycloak,
+    SiAxios,
+    SiShadcnui
 } from 'react-icons/si';
 import { TbBrandNextjs } from 'react-icons/tb';
 import { BsBootstrapFill } from 'react-icons/bs';
+import { GrHeroku } from "react-icons/gr";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { RiFirebaseFill } from "react-icons/ri";
 
 export const getIconForTechnology = (technology) => {
     switch (technology) {
@@ -93,6 +98,8 @@ export const getIconForTechnology = (technology) => {
             return <SiNetlify className='fs-5' />;
         case 'Vercel':
             return <SiVercel className='fs-5' />;
+        case 'Heroku':
+            return <GrHeroku className='fs-5' />;
         case 'GitHub Pages':
             return <SiGithubpages className='fs-1' />;
         case 'gh Pages':
@@ -124,7 +131,7 @@ export const getIconForTechnology = (technology) => {
         case 'Chakra UI':
             return <SiChakraui className='fs-5' />;
         case 'Firebase':
-            return <SiFirebase className='fs-5' />;
+            return <RiFirebaseFill className='fs-5' />;
         case 'Next.js':
             return <TbBrandNextjs className='fs-5' />;
         case 'Docker':
@@ -141,6 +148,14 @@ export const getIconForTechnology = (technology) => {
             return <FaFigma className='fs-5' />;
         case 'OAuth 2.0':
             return <SiAuth0 className='fs-5' />;
+        case 'PostgreSQL':
+            return <BiLogoPostgresql className='fs-5' />;
+        case 'Keycloak':
+            return <SiKeycloak className='fs-5' />;
+        case 'Axios':
+            return <SiAxios className='fs-5' />;
+        case 'Shadcn/UI':
+            return <SiShadcnui className='fs-5' />;
         default:
             return null;
     }
