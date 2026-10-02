@@ -1,7 +1,7 @@
 export const experiences = [
     {
         companyName: "Ernst & Young (EY)",
-        position: "Associate Consultant",
+        position: "Consultant",
         duration: "May 2024 — Present",
         location: "Delhi, India",
         logoSrc: "./ExperienceImg/eyLogo.png",
