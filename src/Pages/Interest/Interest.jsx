@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
 import "./Interest.css";
 import { interests } from "../../Data/interestData";
 
@@ -140,10 +139,6 @@ const Interest = () => {
                         <span key={tag}>{tag}</span>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="interest-item__arrow">
-                    <FiArrowUpRight />
                   </div>
                 </motion.article>
               );

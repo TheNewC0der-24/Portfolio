@@ -5,21 +5,17 @@
         "institutionName": "Jaypee University Of Engineering And Technology",
         "degreeName": "B. Tech. (CSE)",
         "grade": "7.1 CGPA",
-        "link": "https://www.juet.ac.in/",
-        "bgColor": "#6d2ae2",
-        "color": "#dee2e6",
-        "className": "col-md-6 col-lg-6 col-xl-4 mb-5"
+        "location": "Guna, Madhya Pradesh",
+        "link": "https://www.juet.ac.in/"
     },
     {
         "id": 2,
         "duration": "2018 - 2019",
         "institutionName": "St. Anselm's Sr. Sec. School, Mansarovar, Jaipur",
-        "degreeName": "Higher Secondary",
+        "degreeName": "Higher Secondary (PCM)",
         "grade": "61.2%",
-        "link": "https://stanselmsmns.ac.in/",
-        "bgColor": "#9F8FEF",
-        "color": "#0e1313",
-        "className": "col-md-6 col-lg-6 col-xl-4 mb-5"
+        "location": "Jaipur, Rajasthan",
+        "link": "https://stanselmsmns.ac.in/"
     },
     {
         "id": 3,
@@ -27,9 +23,7 @@
         "institutionName": "St. Anselm's Sr. Sec. School, Mansarovar, Jaipur",
         "degreeName": "Secondary",
         "grade": "78.2%",
-        "link": "https://stanselmsmns.ac.in/",
-        "bgColor": "#DFD8FD",
-        "color": "#0e1313",
-        "className": "col-md-12 col-lg-12 col-xl-4 mb-5"
+        "location": "Jaipur, Rajasthan",
+        "link": "https://stanselmsmns.ac.in/"
     }
 ]
