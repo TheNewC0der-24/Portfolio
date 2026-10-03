@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "title": "Certificate Name",
+        "issuer": "Issuing Organization",
+        "date": "2026",
+        "category": "Technology",
+        "description": "Short description of what this certification represents.",
+        "skills": [
+            "React",
+            "JavaScript"
+        ],
+        "link": "https://example.com/certificate"
+    }
+]

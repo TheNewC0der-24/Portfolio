@@ -16,6 +16,7 @@ import Skills from "./Pages/Skills/Skills";
 import Education from "./Pages/Education/Education";
 import Interest from "./Pages/Interest/Interest";
 import Synergy from "./Pages/Synergy/Synergy";
+import Certificates from "./Pages/Certificates/Certificates";
 import NotFound from "./NotFound/NotFound";
 import Footer from "./components/layout/Footer";
 import ViewResume from "./Pages/Resume/Resume";
@@ -44,6 +45,7 @@ const AppRoutes = () => {
     "/education",
     "/interest",
     "/synergies",
+    "/certificates",
     "/resume",
   ].includes(pathname);
 
@@ -68,6 +70,7 @@ const AppRoutes = () => {
           <Route path="/education" element={<Education />} />
           <Route path="/interest" element={<Interest />} />
           <Route path="/synergies" element={<Synergy />} />
+          <Route path="/certificates" element={<Certificates />} />
           <Route path="/resume" element={<ViewResume />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
