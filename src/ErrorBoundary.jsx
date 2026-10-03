@@ -1,9 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiRefreshCw, FiAlertTriangle } from "react-icons/fi";
+import { IoIosArrowBack } from "react-icons/io";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
+    const navigate = useNavigate();
+
+    const handleGoHome = () => {
+        navigate("/");
+        resetErrorBoundary();
+    }
+
     return (
         <main className="error-page">
             <div className="error-page__glow error-page__glow--one" />
@@ -55,11 +64,20 @@ function ErrorFallback({ error, resetErrorBoundary }) {
                 >
                     <button
                         type="button"
-                        className="error-page__button error-page__button--primary"
+                        className="error-page__button error-page__button--secondary"
                         onClick={resetErrorBoundary}
                     >
                         <FiRefreshCw />
                         <span>Try again</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        className="error-page__button error-page__button--primary"
+                        onClick={handleGoHome}
+                    >
+                        <IoIosArrowBack />
+                        <span>Go to Home</span>
                     </button>
                 </motion.div>
 
@@ -73,7 +91,7 @@ function ErrorFallback({ error, resetErrorBoundary }) {
             </motion.div>
 
             <p className="error-page__footer">
-                Something went wrong, but we're on it.
+                Something went wrong, but I'm on it.
             </p>
         </main>
     );
