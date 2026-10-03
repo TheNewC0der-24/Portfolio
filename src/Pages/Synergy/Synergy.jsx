@@ -1,146 +1,198 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { createGlobalStyle } from 'styled-components';
-import { Box, Button } from '@mui/material';
-import { IoCall } from "react-icons/io5";
-import { FaLongArrowAltRight } from "react-icons/fa";
-import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks'
-import Benefits from '../../Components/Synergies/Benefits'
-import CollaborativeExpertise from '../../Components/Synergies/CollaborativeExpertise';
+import { benefits, collaborativeExpertise } from "../../Data/synergies";
+import Button from "../../components/ui/Button";
+import "./Synergy.css";
 
-const GlobalStyle = createGlobalStyle`
-    body {
-        background: linear-gradient(90deg, #dee2e6 50%, #0e1313 50%);
-    }
-
-    .text-purple {
-        color: #6d2ae2 !important;
-    }
-
-    .slate-bg:hover {
-        background: #dee2e6;
-    }
-    
-    .btn .btn-icon {
-        transition: all 0.3s ease-in-out;
-    }
-
-    .btn:hover .btn-icon {
-        transform  translateX(5px);
-    }
-`;
-
-const tabs = ["Benefits", "Collaborative Expertise",];
+const tabs = ["Benefits", "Collaborative Expertise"];
 
 const Synergy = () => {
-    const navigate = useNavigate();
-
     const [selected, setSelected] = useState(tabs[0]);
 
+    const activeItems = selected === "Benefits" ? benefits : collaborativeExpertise;
+
     return (
-        <>
-            <GlobalStyle />
-            <SocialLinks />
-            <div className="container">
-                <div className="container">
-                    <div className="container">
-                        <Box className="px-5 py-5" sx={{
-                            display: 'flex',
-                            justifyContent: { xs: 'center', 'sm': 'center', 'md': 'flex-start' },
-                            alignItems: 'center',
-                            flexWrap: 'wrap',
-                            gap: '1rem',
-                            background: 'linear-gradient(90deg, #0e1313 50%, #dee2e6 50%)',
-                            borderBottomLeftRadius: "50px",
-                            borderBottomRightRadius: "50px"
-                        }}>
-                            {tabs.map((tab) => (
-                                <Chip
-                                    text={tab}
-                                    selected={selected === tab}
-                                    setSelected={setSelected}
-                                    key={tab}
-                                />
-                            ))}
-                        </Box>
+        <main className="synergy-page">
+            <section className="synergy-hero">
+                <div className="synergy-container">
+                    <motion.div
+                        className="synergy-hero__eyebrow"
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        <span className="synergy-hero__line" />
+                        <span>How I work</span>
+                    </motion.div>
 
-                        {selected === "Benefits" && <Benefits />}
-                        {selected === "Collaborative Expertise" && <CollaborativeExpertise />}
+                    <motion.h1
+                        className="synergy-hero__title"
+                        initial={{ opacity: 0, y: 25 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.7,
+                            delay: 0.08,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                    >
+                        Beyond
+                        <br />
+                        <span>the stack.</span>
+                    </motion.h1>
 
-                        <Box className="d-flex justify-content-center align-items-center flex-wrap gap-3 my-3">
-                            <a href="https://calendly.com/khuranabhavya24/30min" target="_blank" rel="noopener noreferrer">
-                                <Button
-                                    variant="contained"
-                                    startIcon={<IoCall />}
-                                    sx={{
-                                        textTransform: "none",
-                                        backgroundColor: "#6d2ae2",
-                                        color: "#dee2e6",
-                                        "&:hover": {
-                                            backgroundColor: "#6d2ae2",
-                                            color: "#dee2e6",
-                                        },
-                                    }}
-                                >
-                                    Book a Call
-                                </Button>
-                            </a>
-                            <Button
-                                variant="text"
-                                className='btn'
-                                endIcon={<FaLongArrowAltRight className='btn-icon' />}
-                                sx={{
-                                    textTransform: "none",
-                                    color: "#6d2ae2",
-                                    "&:hover": {
-                                        color: "#6d2ae2",
-                                    },
-                                }}
-                                onClick={() => navigate("/work")}
+                    <motion.div
+                        className="synergy-hero__bottom"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        <p>
+                            Good products are rarely built by technology
+                            alone. They come from understanding problems,
+                            collaborating with people and finding the right
+                            way to turn ideas into useful experiences.
+                        </p>
+
+                        <div className="synergy-hero__meta">
+                            <span>01</span>
+                            <span>Synergies</span>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* TABS */}
+            <section className="synergy-tabs-section">
+                <div className="synergy-container">
+                    <div className="synergy-tabs">
+                        {tabs.map((tab) => (
+                            <button
+                                type="button"
+                                key={tab}
+                                className={`synergy-tab ${selected === tab
+                                    ? "synergy-tab--active"
+                                    : ""
+                                    }`}
+                                onClick={() => setSelected(tab)}
                             >
-                                View Portfolio
-                            </Button>
-                        </Box>
+                                <span>{tab}</span>
+
+                                {selected === tab && (
+                                    <motion.span
+                                        layoutId="synergy-tab-indicator"
+                                        className="synergy-tab__indicator"
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 400,
+                                            damping: 30,
+                                        }}
+                                    />
+                                )}
+                            </button>
+                        ))}
                     </div>
                 </div>
-            </div>
-        </>
-    )
-}
+            </section>
 
-const Chip = ({
-    text,
-    selected,
-    setSelected,
-}) => {
-    return (
-        <Button
-            onClick={() => setSelected(text)}
-            size="large"
-            sx={{ position: 'relative', textTransform: "none", borderRadius: "4px" }}
-            className={`${selected ? "text-white fs-5" : `text-purple fw-bold fs-5 slate-bg`}`}
-        >
-            <span style={{ position: "relative", zIndex: 10 }}>{text}</span>
-            {selected && (
-                <motion.span
-                    layoutId="pill-tab"
-                    transition={{ type: "spring", duration: 0.5 }}
-                    style={{
-                        position: 'absolute',
-                        inset: 0,
-                        top: 0,
-                        right: 0,
-                        bottom: 0,
-                        left: 0,
-                        zIndex: 0,
-                        background: 'linear-gradient(to right, #7C3AED, #4F46E5)',
-                        borderRadius: '4px'
-                    }}
-                ></motion.span>
-            )}
-        </Button>
+            {/* CONTENT */}
+            <section className="synergy-content">
+                <div className="synergy-container">
+                    <motion.div
+                        key={selected}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.4,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
+                    >
+                        <div className="synergy-section-heading">
+                            <span>02</span>
+
+                            <div>
+                                <p>
+                                    {selected === "Benefits" ? "Working together" : "Working with people"}
+                                </p>
+
+                                <h2>
+                                    {selected === "Benefits" ? "What I bring to the table." : "How I collaborate."}
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div className="synergy-list">
+                            {activeItems.map((item, index) => {
+                                const Icon = item.icon;
+
+                                return (
+                                    <motion.article
+                                        className="synergy-item"
+                                        key={item.id}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.45, delay: index * 0.06 }}
+                                    >
+                                        <div className="synergy-item__number">
+                                            {item.id}
+                                        </div>
+
+                                        <div className="synergy-item__icon">
+                                            <Icon />
+                                        </div>
+
+                                        <div className="synergy-item__content">
+                                            <h3>{item.title}</h3>
+
+                                            <p>{item.description}</p>
+                                        </div>
+                                    </motion.article>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="synergy-cta">
+                <div className="synergy-container">
+                    <motion.div
+                        className="synergy-cta__content"
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.25 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span>03 / Let's build</span>
+
+                        <h2>
+                            Good work
+                            <br />
+                            <em>starts together.</em>
+                        </h2>
+
+                        <p>
+                            Whether it's a product idea, a technical
+                            challenge or simply an interesting problem, I'm
+                            always interested in building something meaningful.
+                        </p>
+
+                        <div className="synergy-cta__link">
+                            <Button
+                                href="https://calendly.com/khuranabhavya24/30min"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                variant="dark"
+                            >
+                                Book a call
+                            </Button>
+                        </div>
+                    </motion.div>
+                </div>
+            </section>
+        </main>
     );
 };
 
-export default Synergy
+export default Synergy;
