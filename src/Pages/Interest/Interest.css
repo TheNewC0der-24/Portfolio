@@ -19,6 +19,7 @@
 ========================================= */
 
 .interest-hero {
+    padding: 0 0 100px;
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -314,6 +315,11 @@
 ========================================= */
 
 @media (max-width: 960px) {
+    .interest-hero {
+        padding: 0 0 80px;
+        border-bottom: 1px solid var(--color-border);
+    }
+
     .interest-hero__bottom {
         align-items: flex-start;
         flex-direction: column;
@@ -345,6 +351,10 @@
 ========================================= */
 
 @media (max-width: 700px) {
+    .interest-hero {
+        padding: 0 0 65px;
+    }
+
     .interest-hero__eyebrow {
         margin-bottom: 28px;
     }

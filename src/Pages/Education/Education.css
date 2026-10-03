@@ -19,6 +19,7 @@
 ========================================= */
 
 .education-hero {
+    padding: 0 0 100px;
     border-bottom: 1px solid var(--color-border);
 }
 
@@ -309,6 +310,10 @@
 ========================================= */
 
 @media (max-width: 960px) {
+    .education-hero {
+        padding: 0 0 80px;
+    }
+
     .education-hero__bottom {
         align-items: flex-start;
         flex-direction: column;
@@ -340,6 +345,10 @@
 ========================================= */
 
 @media (max-width: 700px) {
+    .education-hero {
+        padding: 0 0 65px;
+    }
+
     .education-hero__eyebrow {
         margin-bottom: 28px;
     }
