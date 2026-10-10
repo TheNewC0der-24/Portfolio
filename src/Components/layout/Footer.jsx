@@ -2,6 +2,7 @@ import { FiArrowUp, FiArrowUpRight, FiDownload } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import { primaryNavigation, exploreNavigation, socialLinks } from "../../Data/footer";
 import bmac from "../../assets/Images/bmac.png";
+import { FaReact } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
@@ -31,8 +32,6 @@ const Footer = () => {
     return (
         <footer className="site-footer">
             <div className="footer-main">
-
-                {/* Brand */}
                 <div className="footer-brand">
                     <Link to="/" className="footer-brand__logo">
                         BK
@@ -50,7 +49,6 @@ const Footer = () => {
                 </div>
 
 
-                {/* Primary Navigation */}
                 <div className="footer-column">
                     <span className="footer-column__title">
                         Navigate
@@ -86,8 +84,6 @@ const Footer = () => {
                     </nav>
                 </div>
 
-
-                {/* Explore */}
                 <div className="footer-column footer-column--explore">
                     <span className="footer-column__title">
                         Explore
@@ -119,8 +115,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-
-                {/* Connect */}
                 <div className="footer-column">
                     <span className="footer-column__title">
                         Connect
@@ -186,8 +180,10 @@ const Footer = () => {
                         •
                     </span>
 
-                    <span>
-                        Built with React
+                    <span className="footer-bottom__built-with">
+                        <span>Built with</span>
+                        <span><FaReact /></span>
+                        <strong>React</strong>
                     </span>
                 </div>
 

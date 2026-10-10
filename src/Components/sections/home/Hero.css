@@ -307,7 +307,7 @@
 
     .hero__description {
         margin-top: 24px;
-        font-size: 1rem;
+        font-size: var(--text-base);
     }
 
     .hero__actions {

@@ -95,7 +95,7 @@
 .not-found__links-title {
     margin-bottom: 15px !important;
     color: var(--color-text-secondary) !important;
-    font-size: 0.75rem !important;
+    font-size: var(--text-xs) !important;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }

@@ -186,7 +186,7 @@
     gap: 25px;
     padding: 45px 0;
     border-bottom: 1px solid var(--color-border-hover);
-    transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background 300ms ease;
+    transition: padding 350ms cubic-bezier(0.22, 1, 0.36, 1), background var(--transition-normal);
 }
 
 .synergy-item:hover {

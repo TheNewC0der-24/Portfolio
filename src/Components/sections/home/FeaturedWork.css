@@ -47,15 +47,15 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     background: var(--color-surface);
-    transition: border-color 300ms ease, transform 300ms ease;
+    transition: border-color var(--transition-normal), transform var(--transition-normal);
     -webkit-border-radius: var(--radius-xl);
     -moz-border-radius: var(--radius-xl);
     -ms-border-radius: var(--radius-xl);
     -o-border-radius: var(--radius-xl);
-    -webkit-transition: border-color 300ms ease, transform 300ms ease;
-    -moz-transition: border-color 300ms ease, transform 300ms ease;
-    -ms-transition: border-color 300ms ease, transform 300ms ease;
-    -o-transition: border-color 300ms ease, transform 300ms ease;
+    -webkit-transition: border-color var(--transition-normal), transform var(--transition-normal);
+    -moz-transition: border-color var(--transition-normal), transform var(--transition-normal);
+    -ms-transition: border-color var(--transition-normal), transform var(--transition-normal);
+    -o-transition: border-color var(--transition-normal), transform var(--transition-normal);
 }
 
 .project-card:hover {
@@ -155,11 +155,11 @@
 }
 
 .project-card__mockup-content img {
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    border-radius: var(--radius-sm);
+    -webkit-border-radius: var(--radius-sm);
+    -moz-border-radius: var(--radius-sm);
+    -ms-border-radius: var(--radius-sm);
+    -o-border-radius: var(--radius-sm);
 }
 
 /* =========================================
@@ -362,7 +362,7 @@
     }
 
     .project-card__content h3 {
-        font-size: 2rem;
+        font-size: var(--text-3xl);
     }
 
     .project-card__content p {
