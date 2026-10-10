@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import ErrorFallback from "./ErrorBoundary";
 import Navbar from "./components/layout/Navbar";
 import { ErrorBoundary } from "react-error-boundary";
+import SiteLoader from "./Loader/Loader";
 import "./App.css";
 
 // Pages
@@ -57,6 +58,7 @@ const AppRoutes = () => {
     <div className="app">
       <div className="page-background" />
 
+      <SiteLoader />
       {showNavbarAndFooter && <Navbar />}
 
       <main>
