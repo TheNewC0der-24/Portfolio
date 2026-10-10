@@ -1,8 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
-import { FiArrowUpRight, FiAward, FiExternalLink, FiShield } from "react-icons/fi";
+import { FiAward, FiExternalLink, FiShield } from "react-icons/fi";
 import certificatesData from "../../Data/certificatesData.json";
 import "./Certificates.css";
+import { Link } from "react-router-dom";
 
 const Certificates = () => {
     document.title = "Bhavya Khurana | Certificates";
@@ -96,12 +97,6 @@ const Certificates = () => {
                                                 {certificate.date}
                                             </span>
                                         )}
-
-                                        {certificate.category && (
-                                            <span className="certificate-item__category">
-                                                {certificate.category}
-                                            </span>
-                                        )}
                                     </div>
 
                                     <h3>{certificate.title}</h3>
@@ -127,20 +122,16 @@ const Certificates = () => {
                                     )}
 
                                     {certificate.link && (
-                                        <a
-                                            href={certificate.link}
+                                        <Link
+                                            to={certificate.link}
                                             target="_blank"
                                             rel="noreferrer"
                                             className="certificate-item__link"
                                         >
-                                            <span>View certificate</span>
+                                            <span>Show credential</span>
                                             <FiExternalLink />
-                                        </a>
+                                        </Link>
                                     )}
-                                </div>
-
-                                <div className="certificate-item__arrow">
-                                    <FiArrowUpRight />
                                 </div>
                             </motion.article>
                         ))}
@@ -181,7 +172,7 @@ const Certificates = () => {
                     </motion.div>
                 </div>
             </section>
-        </main>
+        </main >
     );
 };
 

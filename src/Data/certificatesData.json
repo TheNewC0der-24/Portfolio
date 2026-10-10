@@ -1,15 +1,37 @@
 [
     {
         "id": 1,
-        "title": "Certificate Name",
-        "issuer": "Issuing Organization",
-        "date": "2026",
-        "category": "Technology",
-        "description": "Short description of what this certification represents.",
+        "title": "Microsoft Power BI Desktop for Business Intelligence",
+        "issuer": "Udemy",
+        "date": "Issued Apr 2026",
+        "description": "Completed a comprehensive Power BI course covering data modeling, DAX, data visualization, and business intelligence reporting. Built interactive dashboards and gained hands-on experience in transforming raw data into actionable insights.",
         "skills": [
-            "React",
-            "JavaScript"
+            "Microsoft Power BI",
+            "Data Modeling",
+            "DAX",
+            "Data Visualization",
+            "Business Intelligence"
         ],
-        "link": "https://example.com/certificate"
+        "link": "https://www.udemy.com/certificate/UC-4add414a-3ff8-44b7-b0d9-8945514add39/"
+    },
+    {
+        "id": 2,
+        "title": "Docker for the Absolute Beginner - Hands On - DevOps",
+        "issuer": "Udemy",
+        "date": "Issued Aug 2025",
+        "skills": [
+            "Docker",
+            "Containerization"
+        ],
+        "link": "https://www.udemy.com/certificate/UC-97776731-90d1-450d-a518-25fa552ba872/"
+    },
+    {
+        "id": 3,
+        "title": "Fundamentals of Digital Marketing",
+        "issuer": "Google Certified Digital Marketing Course",
+        "date": "Issued Feb 2021",
+        "skills": [
+            "Digital Marketing"
+        ]
     }
 ]
