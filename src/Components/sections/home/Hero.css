@@ -301,7 +301,6 @@
 
     .hero__title {
         font-size: clamp(2.8rem, 14vw, 4rem);
-
         letter-spacing: -0.055em;
     }
 
