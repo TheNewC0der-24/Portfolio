@@ -318,11 +318,14 @@
     font-size: 12px;
 }
 
+.footer-bottom__built-with .react-icon {
+    transform: translateY(4px);
+}
+
 .footer-bottom__built-with svg {
     width: 24px;
     height: 24px;
     color: var(--color-light-accent);
-    transform: translateY(-1px);
     animation: spin 2s linear infinite;
 }
 

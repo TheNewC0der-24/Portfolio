@@ -182,7 +182,7 @@ const Footer = () => {
 
                     <span className="footer-bottom__built-with">
                         <span>Built with</span>
-                        <span><FaReact /></span>
+                        <span className="react-icon"><FaReact /></span>
                         <strong>React</strong>
                     </span>
                 </div>
