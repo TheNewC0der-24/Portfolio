@@ -1,176 +1,134 @@
-import React, { useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
+/* eslint-disable react/prop-types */
+import { AnimatePresence, motion } from 'framer-motion';
+import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import MyImage from "../../assets/Images/MyPic.png";
+import MyDog from "../../assets/Images/MyDog.png";
+import './DisplayImg.css';
 
-import {
-    Box,
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-    Button
-} from '@mui/material';
+const gallerySlides = [
+    {
+        image: MyImage,
+        label: "That's me",
+        description: "The person behind the code.",
+    },
+    {
+        image: MyDog,
+        label: "That's my dog",
+        description: "My favourite four-legged companion.",
+    },
+];
 
-import img1 from '../../assets/Images/MyImgs/myPic.png';
-import img2 from '../../assets/Images/MyImgs/myDog.png';
-
-import { TiArrowForward } from 'react-icons/ti';
-
-const GlobalStyle = createGlobalStyle`
-.carousel-container {
-  width: 100%;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-box {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.slide {
-  flex: 0 0 100%;
-}
-
-.dotts {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.dott {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ccc;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.dott.activeImg {
-  background-color: #333;
-}
-
-.me {
-    color: #6d2ae2;
-    font-family: 'Caveat', cursive;
-    transform: rotate(-5deg);
-}
-
-.icon {
-    transform: rotate(50deg);
-}`;
-
-const DisplayImg = ({ handleOpen, handleClose }) => {
-
-    const images = [
-        img1,
-        img2
-    ];
-
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const goToSlide = (slideIndex) => {
-        setCurrentSlide(slideIndex);
+const DisplayImg = ({ isGalleryOpen, closeGallery, activeSlide, setActiveSlide }) => {
+    const showNextSlide = () => {
+        setActiveSlide((prev) => (prev + 1) % gallerySlides.length);
     };
 
-    const goToPrevSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide - 1 + images.length) % images.length);
-    };
-
-    const goToNextSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+    const showPreviousSlide = () => {
+        setActiveSlide((prev) => (prev - 1 + gallerySlides.length) % gallerySlides.length);
     };
 
     return (
-        <React.Fragment>
-            <GlobalStyle />
-            <Dialog open={handleOpen} onClose={handleClose} maxWidth="sm" fullWidth>
-                <DialogTitle>
-                    <Box className="me" sx={{ mb: 5 }}>
-                        That's {img2 === images[currentSlide] ? 'my dog' : 'me'} <TiArrowForward className="icon fs-4" />
-                    </Box>
-                </DialogTitle>
-                <DialogContent dividers>
-                    <div className="carousel-container">
-                        <div className="carousel-box">
-                            {images.map((imageUrl, index) => (
-                                <div
-                                    key={index}
-                                    className={`slide ${index === currentSlide ? 'activeImg' : ''}`}
-                                    style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                                >
-                                    <img src={imageUrl} className='d-grid m-auto img-fluid rounded-circle w-75' alt={`Image ${index + 1}`} loading='lazy' />
-                                </div>
-                            ))}
-                        </div>
-                        <div className="dotts">
-                            {images.map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`dott ${index === currentSlide ? 'activeImg' : ''}`}
-                                    onClick={() => goToSlide(index)}
-                                ></span>
-                            ))}
-                        </div>
-                    </div>
-                </DialogContent>
-                <DialogActions sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                }}>
-                    <Button
-                        variant="outlined"
-                        onClick={handleClose}
-                        sx={{
-                            borderColor: "#6d2ae2",
-                            color: "#6d2ae2",
-                            "&:hover": {
-                                borderColor: "#6d2ae2",
-                            },
-                        }}
+        <AnimatePresence>
+            {isGalleryOpen && (
+                <motion.div
+                    className="gallery-overlay"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={closeGallery}
+                >
+                    <motion.div
+                        className="gallery-modal"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Personal photo gallery"
+                        initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 16, scale: 0.97 }}
+                        transition={{ duration: 0.25 }}
+                        onClick={(event) => event.stopPropagation()}
                     >
-                        Close
-                    </Button>
+                        <div className="gallery-header">
+                            <div>
+                                <span className="gallery-eyebrow">A LITTLE ABOUT ME</span>
+                                <h2>Life beyond the code.</h2>
+                            </div>
 
-                    <Box sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        gap: "0.5rem",
-                    }}>
-                        <Button
-                            variant="outlined"
-                            onClick={goToPrevSlide}
-                            disabled={currentSlide === 0}
-                            sx={{
-                                borderColor: "#6d2ae2",
-                                color: "#6d2ae2",
-                                "&:hover": {
-                                    borderColor: "#6d2ae2",
-                                },
-                            }}
-                        >
-                            Prev
-                        </Button>
-                        <Button
-                            variant="contained"
-                            onClick={goToNextSlide}
-                            sx={{
-                                backgroundColor: "#6d2ae2",
-                                "&:hover": {
-                                    backgroundColor: "#6d2ae2",
-                                },
-                            }}
-                            disabled={currentSlide === images.length - 1}
-                        >
-                            Next
-                        </Button>
-                    </Box>
-                </DialogActions>
-            </Dialog>
-        </React.Fragment>
+                            <button
+                                type="button"
+                                className="gallery-close"
+                                onClick={closeGallery}
+                                aria-label="Close gallery"
+                            >
+                                <FiX />
+                            </button>
+                        </div>
+
+                        <div className="gallery-image-wrap">
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={activeSlide}
+                                    src={gallerySlides[activeSlide].image}
+                                    alt={gallerySlides[activeSlide].label}
+                                    className="gallery-image"
+                                    initial={{ opacity: 0, x: 18 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -18 }}
+                                    transition={{ duration: 0.22 }}
+                                />
+                            </AnimatePresence>
+
+                            <button
+                                type="button"
+                                className="gallery-arrow gallery-arrow-left"
+                                onClick={showPreviousSlide}
+                                aria-label="Previous photo"
+                            >
+                                <FiChevronLeft />
+                            </button>
+
+                            <button
+                                type="button"
+                                className="gallery-arrow gallery-arrow-right"
+                                onClick={showNextSlide}
+                                aria-label="Next photo"
+                            >
+                                <FiChevronRight />
+                            </button>
+                        </div>
+
+                        <div className="gallery-caption">
+                            <div>
+                                <span className="gallery-eyebrow">
+                                    0{activeSlide + 1} / 02
+                                </span>
+
+                                <h3>{gallerySlides[activeSlide].label}</h3>
+
+                                <p>{gallerySlides[activeSlide].description}</p>
+                            </div>
+
+                            <div className="gallery-indicators">
+                                {gallerySlides.map((slide, index) => (
+                                    <button
+                                        key={slide.label}
+                                        type="button"
+                                        className={`gallery-indicator ${activeSlide === index ? "gallery-indicator-active" : ""
+                                            }`}
+                                        onClick={() => setActiveSlide(index)}
+                                        aria-label={`Show ${slide.label}`}
+                                        aria-current={activeSlide === index ? "true" : undefined}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     )
 }
 
 export default DisplayImg;
+
+

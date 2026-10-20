@@ -47,17 +47,22 @@
 }
 
 .navbar__logo-mark {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-    background: var(--color-text);
-    color: #08080b;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: -0.04em;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar__logo-mark:hover {
+    color: var(--color-light-accent);
+    transform: translateY(-1px);
 }
 
 .navbar__logo-name {
@@ -112,7 +117,7 @@
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    background: #8d5cff;
+    background: var(--color-accent);
     transform: translateX(-50%);
 }
 
@@ -184,7 +189,7 @@
 
 .more-menu__header>span {
     display: block;
-    color: #8d5cff;
+    color: var(--color-accent);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -263,7 +268,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 9px;
     background: rgba(255, 255, 255, 0.025);
-    color: #8d5cff;
+    color: var(--color-accent);
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
     -ms-border-radius: 9px;
@@ -306,7 +311,7 @@
 }
 
 .more-menu__item:hover .more-menu__arrow {
-    color: #8d5cff;
+    color: var(--color-accent);
     transform: translate(2px, -2px);
     -webkit-transform: translate(2px, -2px);
     -moz-transform: translate(2px, -2px);
@@ -500,7 +505,7 @@
 .mobile-menu__link svg {
     width: 16px;
     height: 16px;
-    color: #8d5cff;
+    color: var(--color-accent);
 }
 
 
@@ -513,7 +518,7 @@
 .mobile-menu__label {
     display: block;
     margin-bottom: 18px;
-    color: #8d5cff;
+    color: var(--color-accent);
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -557,7 +562,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.03);
-    color: #8d5cff;
+    color: var(--color-accent);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
@@ -663,12 +668,11 @@
     }
 
     .mobile-menu {
-        top: 82px;
+        top: 95px;
         left: 12px;
         right: 12px;
     }
 }
-
 
 @media (max-width: 520px) {
     .navbar {
@@ -692,10 +696,9 @@
     }
 
     .mobile-menu {
-        top: 74px;
+        top: 80px;
         left: 10px;
         right: 10px;
-
         max-height: calc(100vh - 90px);
     }
 

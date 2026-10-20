@@ -1,87 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiArrowUpRight, FiChevronDown, FiAward, FiBookOpen, FiHeart, FiLayers, FiCode } from "react-icons/fi";
+import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
+import DisplayImg from "../DisplayImg/DisplayImg";
 import "./Navbar.css";
-
-const mainNavigation = [
-    {
-        label: "Home",
-        path: "/",
-    },
-    {
-        label: "About",
-        path: "/about",
-    },
-    {
-        label: "Work",
-        path: "/work",
-    },
-    {
-        label: "Experience",
-        path: "/experience",
-    },
-    {
-        label: "Blogs",
-        href: "https://cynophilist.hashnode.dev/",
-        external: true,
-    },
-];
-
-const moreNavigation = [
-    {
-        title: "Engineering",
-        items: [
-            {
-                label: "Skills",
-                path: "/skills",
-                description: "Technologies & tools I work with",
-                icon: FiCode,
-            },
-            {
-                label: "Education",
-                path: "/education",
-                description: "Academic background",
-                icon: FiBookOpen,
-            },
-        ],
-    },
-    {
-        title: "Beyond Code",
-        items: [
-            {
-                label: "Interests",
-                path: "/interest",
-                description: "Things I enjoy beyond engineering",
-                icon: FiHeart,
-            },
-            {
-                label: "Synergies",
-                path: "/synergies",
-                description: "Where ideas, technology & creativity meet",
-                icon: FiLayers,
-            },
-        ],
-    },
-    {
-        title: "Credentials",
-        items: [
-            {
-                label: "Certificates",
-                path: "/certificates",
-                description: "Certifications & credentials",
-                icon: FiAward,
-            },
-        ],
-    },
-];
+import { mainNavigation, moreNavigation } from "../../Data/navbarData";
 
 const Navbar = () => {
     const location = useLocation();
 
     const [isOpen, setIsOpen] = useState(false);
     const [isMoreOpen, setIsMoreOpen] = useState(false);
+    const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+    const [activeSlide, setActiveSlide] = useState(0);
 
     const moreRef = useRef(null);
 
@@ -145,9 +77,10 @@ const Navbar = () => {
         setIsMoreOpen(false);
     };
 
+    const closeGallery = () => setIsGalleryOpen(false);
+
     return (
         <>
-            {/* Backdrop */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -160,25 +93,26 @@ const Navbar = () => {
                 )}
             </AnimatePresence>
 
-            {/* Navbar */}
             <header className="navbar">
                 <div className="navbar__inner">
 
-                    {/* Logo */}
-                    <Link
-                        to="/"
-                        className="navbar__logo"
-                        onClick={closeMobileMenu}
-                        aria-label="Bhavya Khurana home"
-                    >
-                        <span className="navbar__logo-mark">
+                    <div className="navbar__logo">
+                        <button
+                            type="button"
+                            className="navbar__logo-mark"
+                            onClick={() => {
+                                setActiveSlide(0);
+                                setIsGalleryOpen(true);
+                            }}
+                            aria-label="Open personal photo gallery"
+                        >
                             BK
-                        </span>
+                        </button>
 
                         <span className="navbar__logo-name">
                             Bhavya Khurana
                         </span>
-                    </Link>
+                    </div>
 
                     {/* Desktop Navigation */}
                     <nav className="navbar__desktop">
@@ -213,10 +147,7 @@ const Navbar = () => {
                         })}
 
                         {/* More */}
-                        <div
-                            className="navbar__more"
-                            ref={moreRef}
-                        >
+                        <div className="navbar__more" ref={moreRef}>
                             <button
                                 type="button"
                                 className={`navbar__link navbar__more-trigger ${isMoreActive
@@ -269,10 +200,7 @@ const Navbar = () => {
 
                                         <div className="more-menu__sections">
                                             {moreNavigation.map((section) => (
-                                                <div
-                                                    className="more-menu__section"
-                                                    key={section.title}
-                                                >
+                                                <div className="more-menu__section" key={section.title}>
                                                     <span className="more-menu__section-title">
                                                         {section.title}
                                                     </span>
@@ -317,11 +245,7 @@ const Navbar = () => {
                             </AnimatePresence>
                         </div>
 
-                        {/* Let's Talk */}
-                        <Link
-                            to="/contact"
-                            className="navbar__cta"
-                        >
+                        <Link to="/contact" className="navbar__cta">
                             Let's Talk
                             <FiArrowUpRight />
                         </Link>
@@ -330,15 +254,13 @@ const Navbar = () => {
                     {/* Mobile Menu Button */}
                     <button
                         type="button"
-                        className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""
-                            }`}
+                        className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""}`}
                         onClick={() =>
                             setIsOpen((prev) => !prev)
                         }
-                        aria-label={
-                            isOpen
-                                ? "Close navigation"
-                                : "Open navigation"
+                        aria-label={isOpen
+                            ? "Close navigation"
+                            : "Open navigation"
                         }
                         aria-expanded={isOpen}
                     >
@@ -355,32 +277,19 @@ const Navbar = () => {
                     {isOpen && (
                         <motion.div
                             className="mobile-menu"
-                            initial={{
-                                opacity: 0,
-                                y: -10,
-                            }}
-                            animate={{
-                                opacity: 1,
-                                y: 0,
-                            }}
-                            exit={{
-                                opacity: 0,
-                                y: -10,
-                            }}
-                            transition={{
-                                duration: 0.25,
-                            }}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.25 }}
                         >
                             <div className="mobile-menu__inner">
-
-                                {/* Main links */}
                                 <div className="mobile-menu__main">
                                     {mainNavigation.map((item, index) => {
                                         if (item.external) {
                                             return (
-                                                <a
+                                                <Link
                                                     key={item.label}
-                                                    href={item.href}
+                                                    to={item.href}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="mobile-menu__link"
@@ -393,7 +302,7 @@ const Navbar = () => {
                                                     {item.label}
 
                                                     <FiArrowUpRight />
-                                                </a>
+                                                </Link>
                                             );
                                         }
 
@@ -417,17 +326,13 @@ const Navbar = () => {
                                     })}
                                 </div>
 
-                                {/* More */}
                                 <div className="mobile-menu__more">
                                     <span className="mobile-menu__label">
                                         More
                                     </span>
 
                                     {moreNavigation.map((section) => (
-                                        <div
-                                            className="mobile-menu__section"
-                                            key={section.title}
-                                        >
+                                        <div className="mobile-menu__section" key={section.title}>
                                             <span className="mobile-menu__section-title">
                                                 {section.title}
                                             </span>
@@ -467,7 +372,6 @@ const Navbar = () => {
                                     ))}
                                 </div>
 
-                                {/* CTA */}
                                 <Link
                                     to="/contact"
                                     className="mobile-menu__cta"
@@ -481,6 +385,13 @@ const Navbar = () => {
                     )}
                 </AnimatePresence>
             </header>
+
+            <DisplayImg
+                isGalleryOpen={isGalleryOpen}
+                closeGallery={closeGallery}
+                activeSlide={activeSlide}
+                setActiveSlide={setActiveSlide}
+            />
         </>
     );
 };
