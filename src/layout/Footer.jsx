@@ -1,7 +1,7 @@
 import { FiArrowUp, FiArrowUpRight, FiDownload } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import { primaryNavigation, exploreNavigation, socialLinks } from "../../Data/footer";
-import bmac from "../../assets/Images/bmac.png";
+import { primaryNavigation, exploreNavigation, socialLinks } from "../Data/footer";
+import bmac from "../assets/Images/bmac.png";
 import { FaReact } from "react-icons/fa";
 import "./Footer.css";
 

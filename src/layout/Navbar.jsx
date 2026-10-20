@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiArrowUpRight, FiChevronDown } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
-import DisplayImg from "../DisplayImg/DisplayImg";
+import DisplayImg from "../components/DisplayImg/DisplayImg";
+import { mainNavigation, moreNavigation } from "../Data/navbarData";
 import "./Navbar.css";
-import { mainNavigation, moreNavigation } from "../../Data/navbarData";
 
 const Navbar = () => {
     const location = useLocation();

@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import ErrorFallback from "./ErrorBoundary";
-import Navbar from "./components/layout/Navbar";
 import { ErrorBoundary } from "react-error-boundary";
 import SiteLoader from "./Loader/Loader";
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
 import "./App.css";
 
 // Pages
@@ -19,7 +20,6 @@ import Interest from "./Pages/Interest/Interest";
 import Synergy from "./Pages/Synergy/Synergy";
 import Certificates from "./Pages/Certificates/Certificates";
 import NotFound from "./NotFound/NotFound";
-import Footer from "./components/layout/Footer";
 import ViewResume from "./Pages/Resume/Resume";
 
 const App = () => {
