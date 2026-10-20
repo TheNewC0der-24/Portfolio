@@ -1,227 +1,379 @@
-import React, { useState } from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { lightTheme } from '../../Themes';
-import {
-    Box,
-    TextField,
-    ButtonGroup,
-    Button,
-    Select,
-    MenuItem,
-    IconButton,
-    Tooltip,
-    Divider,
-    FormControl
-} from '@mui/material';
-import { IoGrid } from "react-icons/io5";
-import { FaSortAmountUp, FaSortAmountDownAlt } from "react-icons/fa";
-import { FaBars } from "react-icons/fa6";
-import SocialLinks from '../../SubComponents/SocialLinks/SocialLinks';
-import project from '../../Data/projectsData.json';
-import GridView from './GridView';
-import ListView from './ListView';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${props => props.theme.body};
-  }
-
-  .sub-title span {
-        background-image: linear-gradient(to right top, #6610f2, #6d2ae2, #a020f0, #b24bf3) !important;
-        background-clip: text !important;
-        -moz-background-clip: text !important;
-        -webkit-background-clip: text !important;
-        -moz-text-fill-color: transparent !important;
-        -webkit-text-fill-color: transparent !important;
-    }
-
-    input {
-        color: #6d2ae2 !important;
-    }
-
-    input::placeholder {
-        color: #000 !important;
-    }
-
-    .links {
-        color: ${props => props.theme.text};
-        transition: 0.3s ease-in-out;
-    }
-
-    .links:hover {
-        color: #6d2ae2;
-    }
-`;
+/* eslint-disable react/no-unescaped-entities */
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
+import { FiArrowUpRight, FiGithub, FiSearch, FiExternalLink } from "react-icons/fi";
+import { FaBars, FaSortAlphaDown, FaSortAlphaUp, FaThLarge } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import projects from "../../Data/projects.json";
+import GridView from "../../components/sections/work/GridView";
+import ListView from "../../components/sections/work/ListView";
+import "./Work.css";
+import { Helmet } from "react-helmet-async";
 
 const Work = () => {
-
-    const title = "Bhavya Khurana | Work";
-    document.title = title;
-
-    const [searchTerm, setSearchTerm] = useState('');
-    const [view, setView] = useState('list');
-    const [sortField, setSortField] = useState('name');
+    const [searchTerm, setSearchTerm] = useState("");
+    const [view, setView] = useState("grid");
+    const [sortField, setSortField] = useState("name");
     const [isAscending, setIsAscending] = useState(true);
+    const [category, setCategory] = useState("All");
 
-    const sortedProjects = project.sort((a, b) => {
-        if (sortField === 'name') {
-            return isAscending
-                ? a.name.localeCompare(b.name)
-                : b.name.localeCompare(a.name);
-        } else {
-            return isAscending
-                ? new Date(a.created_at) - new Date(b.created_at)
-                : new Date(b.created_at) - new Date(a.created_at);
-        }
-    });
+    const filteredProjects = useMemo(() => {
+        const search = searchTerm.trim().toLowerCase();
 
-    const filteredProjects = sortedProjects.filter(project =>
-        project.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()))
+        const result = projects.filter((project) => {
+            const matchesSearch = !search ||
+                project.name?.toLowerCase().includes(search) ||
+                project.description?.toLowerCase().includes(search) ||
+                project.topics?.some((topic) =>
+                    topic.toLowerCase().includes(search)
+                );
+
+            return matchesSearch;
+        });
+
+        return [...result].sort((a, b) => {
+            if (sortField === "name") {
+                const comparison = a.name.localeCompare(b.name);
+                return isAscending ? comparison : -comparison;
+            }
+
+            const dateA = new Date(a.created_at || 0);
+            const dateB = new Date(b.created_at || 0);
+
+            return isAscending ? dateA - dateB : dateB - dateA;
+        });
+    }, [searchTerm, sortField, isAscending]);
+
+    const featuredProjects = useMemo(
+        () => projects.filter((project) => project.featured).slice(0, 3),
+        []
     );
 
     const toggleSortOrder = () => {
-        setIsAscending(!isAscending);
+        setIsAscending((previous) => !previous);
     };
 
     return (
-        <ThemeProvider theme={lightTheme}>
-            <GlobalStyle />
-            <SocialLinks />
-            <div className="container">
-                <div className="container">
-                    <div className="container">
-                        <h1 className="mt-3 text-center">.work()</h1>
-                        <h6 className='sub-title text-center fw-bold mb-4'>MY <span>PROJECTS</span></h6>
+        <>
+            <Helmet>
+                <title>Bhavya Khurana | Work</title>
+                <meta name="description" content="Explore Bhavya Khurana's software development projects, technical implementations, and portfolio of engineering work." />
+                <link rel="canonical" href="https://bhavya-khurana.vercel.app/work" />
+                <meta property="og:title" content="Bhavya Khurana | Work" />
+                <meta property="og:description" content="Explore software projects and development work by Bhavya Khurana." />
+                <meta property="og:url" content="https://bhavya-khurana.vercel.app/work" />
+                <meta property="og:type" content="website" />
+            </Helmet>
 
-                        <Box sx={{ display: "flex", justifyContent: "end", mt: 3, mb: 3 }}>
-                            <ButtonGroup sx={{ borderColor: '#6d2ae2' }}>
-                                <Button
-                                    onClick={() => setView('list')}
-                                    size='large'
-                                    variant={view === 'list' ? 'contained' : 'outlined'}
-                                    sx={{
-                                        backgroundColor: view === 'list' ? '#6d2ae2' : 'transparent',
-                                        borderColor: '#6d2ae2',
-                                        color: view === 'list' ? "#fff" : '#6d2ae2',
-                                        '&:hover': {
-                                            backgroundColor: '#6d2ae2',
-                                            color: '#fff'
-                                        }
-                                    }}
-                                    title='List View'
-                                    disableElevation
-                                >
-                                    <FaBars />
-                                </Button>
-                                <Button
-                                    onClick={() => setView('grid')}
-                                    variant={view === 'grid' ? 'contained' : 'outlined'}
-                                    size='large'
-                                    sx={{
-                                        backgroundColor: view === 'grid' ? '#6d2ae2' : 'transparent',
-                                        borderColor: '#6d2ae2',
-                                        color: view === 'grid' ? "#fff" : '#6d2ae2',
-                                        '&:hover': {
-                                            backgroundColor: '#6d2ae2',
-                                            color: '#fff'
-                                        }
-                                    }}
-                                    title='Grid View'
-                                    disableElevation
-                                >
-                                    <IoGrid />
-                                </Button>
-                            </ButtonGroup>
-                        </Box>
+            <main className="work-page">
+                <div className="work-page__glow work-page__glow--one" />
+                <div className="work-page__glow work-page__glow--two" />
 
-                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: '1rem', gap: "1rem", flexWrap: "wrap" }}>
-                            <TextField
-                                fullWidth
-                                size='small'
-                                placeholder="Search topics..."
-                                sx={{
-                                    width: { xs: "100%", md: '300px' },
-                                    '& .MuiOutlinedInput-root': {
-                                        '& fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                        '&:hover fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                        '&.Mui-focused fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                    },
-                                }}
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
+                <div className="work-container">
+                    {/* Hero */}
+                    <section className="work-hero">
+                        <motion.div
+                            className="work-hero__content"
+                            initial={{ opacity: 0, y: 25 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <span className="work-hero__eyebrow">
+                                <span className="work-hero__eyebrow-dot" />
+                                Selected work
+                            </span>
 
-                            <Box sx={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                                <Tooltip title="Reverse sort direction" placement="bottom">
-                                    <IconButton
-                                        size="large"
-                                        onClick={toggleSortOrder}
-                                        sx={{ ml: 2 }}
+                            <h1>
+                                Things I've
+                                <br />
+                                <em>built.</em>
+                            </h1>
+
+                            <p>
+                                A collection of applications, developer tools and experiments
+                                I've built while exploring the web, software engineering and
+                                emerging technologies.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            className="work-hero__meta"
+                            initial={{ opacity: 0, y: 25 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.15 }}
+                        >
+                            <span className="work-hero__count">
+                                {projects.length.toString().padStart(2, "0")}
+                            </span>
+
+                            <span className="work-hero__count-label">
+                                Projects
+                                <br />
+                                & experiments
+                            </span>
+                        </motion.div>
+                    </section>
+
+                    {/* Featured */}
+                    {featuredProjects.length > 0 && (
+                        <section className="featured-work">
+                            <div className="section-heading">
+                                <div>
+                                    <span className="section-heading__eyebrow">
+                                        01 / Highlights
+                                    </span>
+
+                                    <h2>
+                                        Featured <em>work.</em>
+                                    </h2>
+                                </div>
+
+                                <span className="section-heading__line" />
+                            </div>
+
+                            <div className="featured-projects">
+                                {featuredProjects.map((project, index) => (
+                                    <motion.article
+                                        className="featured-project"
+                                        key={project.id}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.2 }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: index * 0.1,
+                                        }}
                                     >
-                                        {isAscending ? <FaSortAmountUp /> : <FaSortAmountDownAlt />}
-                                    </IconButton>
-                                </Tooltip>
+                                        {/* Project number */}
+                                        <div className="featured-project__index">
+                                            <span>{String(index + 1).padStart(2, "0")}</span>
+                                        </div>
 
-                                <FormControl size="small" sx={{
-                                    width: '150px',
-                                    '& .MuiOutlinedInput-root': {
-                                        '& fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                        '&:hover fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                        '&.Mui-focused fieldset': {
-                                            borderColor: '#6d2ae2',
-                                        },
-                                    },
-                                }}>
-                                    <Select
+                                        {/* Visual */}
+                                        <Link
+                                            to={project.homepage || project.html_url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="featured-project__visual"
+                                        >
+                                            <img
+                                                src={project.image}
+                                                alt={project.name}
+                                                loading="lazy"
+                                            />
+
+                                            <span className="featured-project__visit">
+                                                View project
+                                                <FiArrowUpRight />
+                                            </span>
+                                        </Link>
+
+                                        {/* Content */}
+                                        <div className="featured-project__content">
+                                            <span className="featured-project__eyebrow">
+                                                Featured project
+                                            </span>
+
+                                            <h3>{project.name}</h3>
+
+                                            <p>{project.description}</p>
+
+                                            <div className="featured-project__topics">
+                                                {project.topics?.map((topic) => (
+                                                    <span key={topic}>{topic}</span>
+                                                ))}
+                                            </div>
+
+                                            <div className="featured-project__actions">
+                                                <Link to={project.html_url} target="_blank" rel="noreferrer">
+                                                    <FiGithub />
+                                                    Source
+                                                </Link>
+
+                                                {project.homepage && (
+                                                    <Link to={project.homepage} target="_blank" rel="noreferrer">
+                                                        Live
+                                                        <FiExternalLink />
+                                                    </Link>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </motion.article>
+                                ))}
+                            </div>
+                        </section>
+                    )}
+
+                    {/* All projects */}
+                    <section className="all-work">
+                        <div className="section-heading section-heading--projects">
+                            <div>
+                                <span className="section-heading__eyebrow">
+                                    02 / Project archive
+                                </span>
+
+                                <h2>
+                                    All <em>projects.</em>
+                                </h2>
+                            </div>
+
+                            <span className="section-heading__result">
+                                {filteredProjects.length} results
+                            </span>
+                        </div>
+
+                        {/* Toolbar */}
+                        <div className="work-toolbar">
+                            <div className="work-search">
+                                <FiSearch />
+
+                                <input
+                                    type="text"
+                                    placeholder="Search projects or technologies..."
+                                    value={searchTerm}
+                                    onChange={(event) => setSearchTerm(event.target.value)}
+                                />
+
+                                {searchTerm && (
+                                    <button
+                                        type="button"
+                                        onClick={() => setSearchTerm("")}
+                                        aria-label="Clear search"
+                                    >
+                                        ×
+                                    </button>
+                                )}
+                            </div>
+
+                            <div className="work-toolbar__right">
+                                {/* Sort */}
+                                <div className="sort-control">
+                                    <select
                                         value={sortField}
-                                        onChange={(e) => setSortField(e.target.value)}
+                                        onChange={(event) => setSortField(event.target.value)}
+                                        aria-label="Sort projects"
                                     >
-                                        <MenuItem value="name">Name</MenuItem>
-                                        <MenuItem value="createdAt">Date Created</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                        </Box>
+                                        <option value="name">Name</option>
+                                        <option value="createdAt">Date</option>
+                                    </select>
 
-                        <Divider sx={{ border: "1px solid #0e1313" }} />
+                                    <button
+                                        type="button"
+                                        onClick={toggleSortOrder}
+                                        aria-label="Toggle sort direction"
+                                        title="Toggle sort direction"
+                                    >
+                                        {sortField === "name" ? (
+                                            isAscending ? (
+                                                <FaSortAlphaDown />
+                                            ) : (
+                                                <FaSortAlphaUp />
+                                            )
+                                        ) : isAscending ? (
+                                            "↑"
+                                        ) : (
+                                            "↓"
+                                        )}
+                                    </button>
+                                </div>
 
-                        {view === 'list' && <ListView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
-                        {view === 'grid' && <GridView filteredProjects={filteredProjects} searchTerm={searchTerm} />}
+                                {/* View */}
+                                <div className="view-switcher">
+                                    <button
+                                        type="button"
+                                        className={view === "grid" ? "active" : ""}
+                                        onClick={() => setView("grid")}
+                                        aria-label="Grid view"
+                                    >
+                                        <FaThLarge />
+                                    </button>
 
-                        <Box sx={{ display: "flex", justifyContent: "center", mt: 3, mb: 5 }}>
-                            <Button
-                                variant="outlined"
-                                size="large"
-                                sx={{
-                                    borderColor: '#6d2ae2',
-                                    color: '#6d2ae2',
-                                    '&:hover': {
-                                        backgroundColor: '#6d2ae2',
-                                        color: '#fff'
-                                    }
-                                }}
-                                href="https://github.com/TheNewC0der-24"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                View More On Github
-                            </Button>
-                        </Box>
+                                    <button
+                                        type="button"
+                                        className={view === "list" ? "active" : ""}
+                                        onClick={() => setView("list")}
+                                        aria-label="List view"
+                                    >
+                                        <FaBars />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Active filter */}
+                        {(searchTerm || category !== "All") && (
+                            <div className="active-filter">
+                                <span>Showing results for</span>
+
+                                {searchTerm && (
+                                    <button type="button" onClick={() => setSearchTerm("")}>
+                                        “{searchTerm}” ×
+                                    </button>
+                                )}
+
+                                {category !== "All" && (
+                                    <button type="button" onClick={() => setCategory("All")}>
+                                        {category} ×
+                                    </button>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Projects */}
+                        <div className="work-results">
+                            {view === "grid" ? (
+                                <GridView
+                                    filteredProjects={filteredProjects}
+                                    searchTerm={searchTerm}
+                                />
+                            ) : (
+                                <ListView
+                                    filteredProjects={filteredProjects}
+                                    searchTerm={searchTerm}
+                                />
+                            )}
+                        </div>
+                    </section>
+
+                    {/* GitHub CTA */}
+                    <section className="work-github">
+                        <div className="work-github__icon">
+                            <FiGithub />
+                        </div>
+
+                        <div>
+                            <span>More experiments & repositories</span>
+
+                            <h2>
+                                Explore my
+                                <em> GitHub.</em>
+                            </h2>
+                        </div>
+
+                        <Link to="https://github.com/TheNewC0der-24" target="_blank" rel="noreferrer" className="work-github__button">
+                            Visit GitHub
+                            <FiArrowUpRight />
+                        </Link>
+                    </section>
+
+                    {/* Bottom navigation */}
+                    <div className="work-bottom-nav">
+                        <span>Want to know more?</span>
+
+                        <Link to="/about">
+                            About me
+                            <FiArrowUpRight />
+                        </Link>
+
+                        <Link to="/contact">
+                            Get in touch
+                            <FiArrowUpRight />
+                        </Link>
                     </div>
                 </div>
-            </div>
-        </ThemeProvider>
-    )
-}
+            </main>
+        </>
+    );
+};
 
-export default Work
+export default Work;

@@ -1,77 +1,96 @@
-import './App.css';
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { ErrorBoundary } from 'react-error-boundary';
-import ErrorFallback from './ErrorBoundary';
-import NotFound from './NotFound/404NotFound';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Navbar from './Layout/Header';
-import Home from './Pages/Home/Home';
-import About from './Pages/About/About';
-import Resume from './Components/DisplayResume/DisplayResume';
-import Education from './Pages/Education/Education';
-import Interest from './Pages/Interest/Interest';
-import Skills from './Pages/Skills/Skills';
-import Work from './Pages/Work/Work';
-import Experience from './Pages/Experience/Experience';
-import Blogs from './Pages/Blogs/Blogs';
-import BlogPost from './Pages/Blogs/BlogPost';
-import Contact from './Pages/Contact/Contact';
-import Synergy from './Pages/Synergy/Synergy';
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import ErrorFallback from "./ErrorBoundary";
+import Navbar from "./components/layout/Navbar";
+import { ErrorBoundary } from "react-error-boundary";
+import SiteLoader from "./Loader/Loader";
+import "./App.css";
 
-function App() {
+// Pages
+import Home from "./Pages/Home";
+import About from "./Pages/About/About";
+import Work from "./Pages/Work/Work";
+import Experience from "./Pages/Experience/Experience";
+import Contact from "./Pages/Contact/Contact";
+import Skills from "./Pages/Skills/Skills";
+import Education from "./Pages/Education/Education";
+import Interest from "./Pages/Interest/Interest";
+import Synergy from "./Pages/Synergy/Synergy";
+import Certificates from "./Pages/Certificates/Certificates";
+import NotFound from "./NotFound/NotFound";
+import Footer from "./components/layout/Footer";
+import ViewResume from "./Pages/Resume/Resume";
+
+const App = () => {
   return (
-    <Router>
-      <ErrorBoundary
-        FallbackComponent={ErrorFallback}
-        onReset={() => {
-          window.location.reload();
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <AppRoutes />
+    </ErrorBoundary>
+  );
+};
+
+const AppRoutes = () => {
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const showNavbarAndFooter = [
+    "/",
+    "/about",
+    "/work",
+    "/experience",
+    "/contact",
+    "/skills",
+    "/education",
+    "/interest",
+    "/synergies",
+    "/certificates",
+    "/resume",
+  ].includes(pathname);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return (
+    <div className="app">
+      <div className="page-background" />
+
+      <SiteLoader />
+      {showNavbarAndFooter && <Navbar />}
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/interest" element={<Interest />} />
+          <Route path="/synergies" element={<Synergy />} />
+          <Route path="/certificates" element={<Certificates />} />
+          <Route path="/resume" element={<ViewResume />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+
+      {showNavbarAndFooter && <Footer />}
+
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#111318",
+            color: "#f5f7fa",
+            border: "1px solid rgba(255,255,255,0.09)",
+          },
         }}
-      >
-        <AppContent />
-      </ErrorBoundary>
-    </Router>
-  );
-}
-
-function AppContent() {
-  const location = useLocation()
-
-  const isResumeRoute = location.pathname === '/resume';
-
-  return (
-    <React.Fragment>
-      {!isResumeRoute && <Navbar />}
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/resume" element={<Resume />} />
-        <Route exact path="/work" element={<Work />} />
-        <Route exact path="/experience" element={<Experience />} />
-        <Route exact path="/blogs" element={<Blogs />} />
-        <Route exact path="/blog/:slug" element={<BlogPost />} />
-        <Route exact path="/education" element={<Education />} />
-        <Route exact path="/interest" element={<Interest />} />
-        <Route exact path="/skills" element={<Skills />} />
-        <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/synergies" element={<Synergy />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
       />
-    </React.Fragment>
-  );
+    </div>
+  )
 }
 
 export default App;
