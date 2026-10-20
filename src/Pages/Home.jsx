@@ -1,14 +1,9 @@
-import { useEffect } from "react";
 import Hero from "../components/sections/home/Hero";
 import TechStack from "../components/sections/home/TechStack";
 import FeaturedWork from "../components/sections/home/FeaturedWork";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {
-    useEffect(() => {
-        document.title = "Bhavya Khurana | Software Engineer";
-    }, []);
-
     return (
         <>
             <Helmet>
