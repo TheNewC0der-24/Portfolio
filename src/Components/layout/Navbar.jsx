@@ -109,9 +109,9 @@ const Navbar = () => {
                             BK
                         </button>
 
-                        <span className="navbar__logo-name">
+                        <Link to="/" className="navbar__logo-name">
                             Bhavya Khurana
-                        </span>
+                        </Link>
                     </div>
 
                     {/* Desktop Navigation */}
