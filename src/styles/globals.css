@@ -13,7 +13,9 @@ body,
     min-width: 320px;
     margin: 0;
     background: var(--color-bg);
+    color: var(--color-text);
     scroll-behavior: smooth;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 html {
@@ -30,7 +32,7 @@ body {
 }
 
 body::selection {
-    background: rgba(139, 92, 246, 0.35);
+    background: rgba(var(--color-accent-rgb, 139, 92, 246), 0.28);
     color: var(--color-text);
 }
 
@@ -122,4 +124,16 @@ textarea::-webkit-scrollbar-thumb {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Keep native form controls and page surfaces in sync with the selected theme. */
+:root {
+    color-scheme: dark;
+}
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+::selection {
+    background: rgba(var(--color-accent-rgb, 139, 92, 246), 0.28);
+    color: var(--color-text);
 }

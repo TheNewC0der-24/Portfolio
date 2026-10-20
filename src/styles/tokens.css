@@ -59,3 +59,56 @@
     --transition-normal: 300ms ease;
     --transition-slow: 500ms ease;
 }
+
+/* Light theme */
+:root[data-theme="light"] {
+    color-scheme: light;
+    --color-bg: #f7f7fb;
+    --color-bg-soft: #f0eff6;
+    --color-bg-hard: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-hover: #f0edf8;
+
+    --color-text: #1c1b25;
+    --color-text-secondary: #565366;
+    --color-text-muted: #777387;
+    --color-text-muted-dark: #1c1b2540;
+
+    --color-border: rgba(35, 25, 55, 0.12);
+    --color-border-hover: rgba(35, 25, 55, 0.22);
+
+    --shadow-sm: 0 4px 20px rgba(38, 24, 66, 0.08);
+    --shadow-lg: 0 20px 60px rgba(38, 24, 66, 0.14);
+}
+
+/* Accent palettes */
+:root[data-accent="purple"] {
+    --color-accent: #8b5cf6;
+    --color-accent-light: #a78bfa;
+    --color-light-accent: #6d2ae2;
+    --color-accent-rgb: 139, 92, 246;
+}
+:root[data-accent="blue"] {
+    --color-accent: #3b82f6;
+    --color-accent-light: #60a5fa;
+    --color-light-accent: #1d4ed8;
+    --color-accent-rgb: 59, 130, 246;
+}
+:root[data-accent="green"] {
+    --color-accent: #10b981;
+    --color-accent-light: #34d399;
+    --color-light-accent: #047857;
+    --color-accent-rgb: 16, 185, 129;
+}
+:root[data-accent="pink"] {
+    --color-accent: #ec4899;
+    --color-accent-light: #f472b6;
+    --color-light-accent: #be185d;
+    --color-accent-rgb: 236, 72, 153;
+}
+:root[data-accent="orange"] {
+    --color-accent: #f97316;
+    --color-accent-light: #fb923c;
+    --color-light-accent: #c2410c;
+    --color-accent-rgb: 249, 115, 22;
+}

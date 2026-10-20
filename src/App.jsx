@@ -4,7 +4,8 @@ import { Toaster } from "react-hot-toast";
 import ErrorFallback from "./ErrorBoundary";
 import { ErrorBoundary } from "react-error-boundary";
 import SiteLoader from "./Loader/Loader";
-import Navbar from "./layout/Navbar";
+// import Navbar from "./layout/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./layout/Footer";
 import "./App.css";
 
