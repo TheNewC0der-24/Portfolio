@@ -68,12 +68,8 @@ const TechStack = () => {
                 >
                     {[...technologies, ...technologies].map(
                         ({ name, icon: Icon }, index) => (
-                            <div
-                                className="tech-stack__item"
-                                key={`${name}-${index}`}
-                            >
+                            <div className="tech-stack__item" key={`${name}-${index}`}>
                                 <Icon />
-
                                 <span>{name}</span>
                             </div>
                         )
