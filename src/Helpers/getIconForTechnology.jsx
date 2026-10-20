@@ -26,17 +26,12 @@ import {
     SiRedux,
     SiJquery,
     SiVite,
-    SiHeroku,
     SiNetlify,
     SiVercel,
     SiGithubpages,
     SiMysql,
     SiPycharm,
-    SiAtom,
-    SiWindows11,
     SiLatex,
-    SiVisualstudiocode,
-    SiOpenai,
     SiRecoil,
     SiChakraui,
     SiFirebase,
@@ -81,8 +76,6 @@ export const getIconForTechnology = (technology) => {
             return <SiMui className='fs-5' />;
         case 'jQuery':
             return <SiJquery className='fs-5' />;
-        case 'OpenAI':
-            return <SiOpenai className='fs-5' />;
         case 'Recoil':
             return <SiRecoil className='fs-5' />;
         case 'TailwindCSS':
@@ -93,8 +86,6 @@ export const getIconForTechnology = (technology) => {
             return <SiAntdesign className='fs-5' />;
         case 'Vite':
             return <SiVite className='fs-5' />;
-        case 'Heroku':
-            return <SiHeroku className='fs-5' />;
         case 'Netlify':
             return <SiNetlify className='fs-5' />;
         case 'Vercel':
@@ -107,10 +98,6 @@ export const getIconForTechnology = (technology) => {
             return <SiMysql className='fs-5' />;
         case 'PyCharm':
             return <SiPycharm className='fs-5' />;
-        case 'Atom':
-            return <SiAtom className='fs-5' />;
-        case 'Windows':
-            return <SiWindows11 className='fs-5' />;
         case 'Linux':
             return <FaLinux className='fs-5' />;
         case 'Ubuntu':
@@ -123,14 +110,6 @@ export const getIconForTechnology = (technology) => {
             return <SiPython className='fs-5' />;
         case 'C++':
             return <SiCplusplus className='fs-5' />;
-        case 'Visual Studio Code':
-            return <SiVisualstudiocode className='fs-5' />;
-        case 'Visual Studio':
-            return <SiVisualstudiocode className='fs-5' />;
-        case 'VS Code':
-            return <SiVisualstudiocode className='fs-5' />;
-        case 'VSCode':
-            return <SiVisualstudiocode className='fs-5' />;
         case 'NPM':
             return <FaNpm className='fs-5' />;
         case 'Yarn':
