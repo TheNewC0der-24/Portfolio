@@ -1,12 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
-import {
-    FiArrowUpRight,
-    FiMapPin,
-    FiExternalLink,
-} from "react-icons/fi";
-
-import "./Experience.css";
+import { FiArrowUpRight, FiMapPin } from "react-icons/fi";
 import { experiences } from "../../Data/experienceData";
+import { Helmet } from "react-helmet-async";
+import "./Experience.css";
 
 const fadeUp = {
     hidden: {
@@ -25,217 +22,229 @@ const fadeUp = {
 
 const Experience = () => {
     return (
-        <main className="experience-page">
-            {/* Background */}
-            <div className="experience-page__grid" />
-            <div className="experience-page__glow experience-page__glow--one" />
-            <div className="experience-page__glow experience-page__glow--two" />
+        <>
+            <Helmet>
+                <title>Bhavya Khurana | Experience</title>
+                <meta name="description" content="Explore Bhavya Khurana's professional experience, engineering responsibilities, and career journey in software development." />
+                <link rel="canonical" href="https://bhavya-khurana.vercel.app/experience" />
+                <meta property="og:title" content="Bhavya Khurana | Experience" />
+                <meta property="og:description" content="Learn about Bhavya Khurana's professional experience and software development career." />
+                <meta property="og:url" content="https://bhavya-khurana.vercel.app/experience" />
+                <meta property="og:type" content="website" />
+            </Helmet>
 
-            {/* Hero */}
-            <section className="experience-hero">
-                <motion.div
-                    className="experience-hero__content"
-                    initial="hidden"
-                    animate="visible"
-                    variants={fadeUp}
-                >
-                    <span className="experience-eyebrow">
-                        <span className="experience-eyebrow__line" />
-                        Experience
-                    </span>
+            <main className="experience-page">
+                {/* Background */}
+                <div className="experience-page__grid" />
+                <div className="experience-page__glow experience-page__glow--one" />
+                <div className="experience-page__glow experience-page__glow--two" />
 
-                    <h1>
-                        How I got
-                        <br />
-                        <em>here.</em>
-                    </h1>
-
-                    <p>
-                        From building web applications early in my career to working on
-                        enterprise AI and large-scale government platforms.
-                    </p>
-                </motion.div>
-
-                <motion.div
-                    className="experience-hero__meta"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25, duration: 0.6 }}
-                >
-                    <span>Career timeline</span>
-                    <strong>2020 — Present</strong>
-                </motion.div>
-            </section>
-
-            {/* Timeline */}
-            <section className="experience-timeline">
-                {experiences.map((experience, index) => (
-                    <motion.article
-                        className={`experience-entry ${index === 0 ? "experience-entry--current" : ""
-                            }`}
-                        key={`${experience.companyName}-${experience.position}`}
+                {/* Hero */}
+                <section className="experience-hero">
+                    <motion.div
+                        className="experience-hero__content"
                         initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.12 }}
+                        animate="visible"
                         variants={fadeUp}
                     >
-                        {/* Timeline marker */}
-                        <div className="experience-entry__marker">
-                            <span>{String(index + 1).padStart(2, "0")}</span>
-                        </div>
+                        <span className="experience-eyebrow">
+                            <span className="experience-eyebrow__line" />
+                            Experience
+                        </span>
 
-                        {/* Company meta */}
-                        <div className="experience-entry__company">
-                            <div className="experience-company__logo">
-                                <img
-                                    src={experience.logoSrc}
-                                    alt={`${experience.companyName} logo`}
-                                    onError={(event) => {
-                                        event.currentTarget.style.display = "none";
-                                    }}
-                                />
+                        <h1>
+                            How I got
+                            <br />
+                            <em>here.</em>
+                        </h1>
+
+                        <p>
+                            From building web applications early in my career to working on
+                            enterprise AI and large-scale government platforms.
+                        </p>
+                    </motion.div>
+
+                    <motion.div
+                        className="experience-hero__meta"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.25, duration: 0.6 }}
+                    >
+                        <span>Career timeline</span>
+                        <strong>2020 — Present</strong>
+                    </motion.div>
+                </section>
+
+                {/* Timeline */}
+                <section className="experience-timeline">
+                    {experiences.map((experience, index) => (
+                        <motion.article
+                            className={`experience-entry ${index === 0 ? "experience-entry--current" : ""
+                                }`}
+                            key={`${experience.companyName}-${experience.position}`}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.12 }}
+                            variants={fadeUp}
+                        >
+                            {/* Timeline marker */}
+                            <div className="experience-entry__marker">
+                                <span>{String(index + 1).padStart(2, "0")}</span>
                             </div>
 
-                            <div>
-                                <span className="experience-entry__duration">
-                                    {experience.duration}
-                                </span>
-
-                                <h2>{experience.companyName}</h2>
-
-                                <div className="experience-entry__location">
-                                    <FiMapPin />
-                                    {experience.location}
+                            {/* Company meta */}
+                            <div className="experience-entry__company">
+                                <div className="experience-company__logo">
+                                    <img
+                                        src={experience.logoSrc}
+                                        alt={`${experience.companyName} logo`}
+                                        onError={(event) => {
+                                            event.currentTarget.style.display = "none";
+                                        }}
+                                    />
                                 </div>
-                            </div>
-                        </div>
 
-                        {/* Main content */}
-                        <div className="experience-entry__content">
-                            <div className="experience-entry__heading">
                                 <div>
-                                    <span className="experience-entry__label">
-                                        {index === 0 ? "Current role" : "Role"}
+                                    <span className="experience-entry__duration">
+                                        {experience.duration}
                                     </span>
 
-                                    <h3>{experience.position}</h3>
+                                    <h2>{experience.companyName}</h2>
+
+                                    <div className="experience-entry__location">
+                                        <FiMapPin />
+                                        {experience.location}
+                                    </div>
                                 </div>
                             </div>
 
-                            <p className="experience-entry__intro">
-                                {experience.intro}
-                            </p>
+                            {/* Main content */}
+                            <div className="experience-entry__content">
+                                <div className="experience-entry__heading">
+                                    <div>
+                                        <span className="experience-entry__label">
+                                            {index === 0 ? "Current role" : "Role"}
+                                        </span>
 
-                            {/* What I worked on */}
-                            <div className="experience-section">
-                                <span className="experience-section__title">
-                                    What I worked on
-                                </span>
+                                        <h3>{experience.position}</h3>
+                                    </div>
+                                </div>
 
-                                <div className="experience-focus">
-                                    {experience.focus.map((item) => (
-                                        <div className="experience-focus__item" key={item.number}>
-                                            <span className="experience-focus__number">
-                                                {item.number}
-                                            </span>
+                                <p className="experience-entry__intro">
+                                    {experience.intro}
+                                </p>
 
-                                            <div>
-                                                <h4>{item.title}</h4>
-                                                <p>{item.technologies}</p>
+                                {/* What I worked on */}
+                                <div className="experience-section">
+                                    <span className="experience-section__title">
+                                        What I worked on
+                                    </span>
+
+                                    <div className="experience-focus">
+                                        {experience.focus.map((item) => (
+                                            <div className="experience-focus__item" key={item.number}>
+                                                <span className="experience-focus__number">
+                                                    {item.number}
+                                                </span>
+
+                                                <div>
+                                                    <h4>{item.title}</h4>
+                                                    <p>{item.technologies}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Highlights — only where available */}
+                                {experience.highlights && (
+                                    <div className="experience-highlights">
+                                        <span className="experience-section__title">
+                                            Selected highlights
+                                        </span>
+
+                                        <div className="experience-highlights__grid">
+                                            {experience.highlights.map((item) => (
+                                                <div
+                                                    className="experience-highlight"
+                                                    key={`${item.value}-${item.label}`}
+                                                >
+                                                    <strong>{item.value}</strong>
+                                                    <span>{item.label}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Projects */}
+                                <div className="experience-projects">
+                                    <span className="experience-section__title">
+                                        Selected work
+                                    </span>
+
+                                    {experience.projects.map((project, projectIndex) => (
+                                        <div
+                                            className="experience-project"
+                                            key={`${project.name}-${projectIndex}`}
+                                        >
+                                            <div className="experience-project__top">
+                                                <span>
+                                                    {String(projectIndex + 1).padStart(2, "0")}
+                                                </span>
+
+                                                <h4>{project.name}</h4>
+
+                                                {project.link && (
+                                                    <a
+                                                        href={project.link}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        aria-label={`Open ${project.name}`}
+                                                    >
+                                                        <FiArrowUpRight />
+                                                    </a>
+                                                )}
+                                            </div>
+
+                                            <p>{project.description}</p>
+
+                                            <div className="experience-project__tech">
+                                                {project.technologies.split(" · ").map((tech) => (
+                                                    <span key={tech}>{tech}</span>
+                                                ))}
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                             </div>
+                        </motion.article>
+                    ))}
+                </section>
 
-                            {/* Highlights — only where available */}
-                            {experience.highlights && (
-                                <div className="experience-highlights">
-                                    <span className="experience-section__title">
-                                        Selected highlights
-                                    </span>
+                {/* Bottom CTA */}
+                <motion.section
+                    className="experience-cta"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={fadeUp}
+                >
+                    <span>Next chapter</span>
 
-                                    <div className="experience-highlights__grid">
-                                        {experience.highlights.map((item) => (
-                                            <div
-                                                className="experience-highlight"
-                                                key={`${item.value}-${item.label}`}
-                                            >
-                                                <strong>{item.value}</strong>
-                                                <span>{item.label}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
+                    <h2>
+                        Still building.
+                        <br />
+                        <em>Still learning.</em>
+                    </h2>
 
-                            {/* Projects */}
-                            <div className="experience-projects">
-                                <span className="experience-section__title">
-                                    Selected work
-                                </span>
-
-                                {experience.projects.map((project, projectIndex) => (
-                                    <div
-                                        className="experience-project"
-                                        key={`${project.name}-${projectIndex}`}
-                                    >
-                                        <div className="experience-project__top">
-                                            <span>
-                                                {String(projectIndex + 1).padStart(2, "0")}
-                                            </span>
-
-                                            <h4>{project.name}</h4>
-
-                                            {project.link && (
-                                                <a
-                                                    href={project.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    aria-label={`Open ${project.name}`}
-                                                >
-                                                    <FiArrowUpRight />
-                                                </a>
-                                            )}
-                                        </div>
-
-                                        <p>{project.description}</p>
-
-                                        <div className="experience-project__tech">
-                                            {project.technologies.split(" · ").map((tech) => (
-                                                <span key={tech}>{tech}</span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </motion.article>
-                ))}
-            </section>
-
-            {/* Bottom CTA */}
-            <motion.section
-                className="experience-cta"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeUp}
-            >
-                <span>Next chapter</span>
-
-                <h2>
-                    Still building.
-                    <br />
-                    <em>Still learning.</em>
-                </h2>
-
-                <p>
-                    I'm always interested in solving interesting problems, learning new
-                    technologies, and building things that have real impact.
-                </p>
-            </motion.section>
-        </main>
+                    <p>
+                        I'm always interested in solving interesting problems, learning new
+                        technologies, and building things that have real impact.
+                    </p>
+                </motion.section>
+            </main>
+        </>
     );
 };
 

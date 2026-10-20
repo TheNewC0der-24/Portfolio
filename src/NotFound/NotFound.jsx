@@ -3,12 +3,18 @@ import { Typography, Button, Stack, Link as MuiLink } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiHome, FiArrowUpRight } from "react-icons/fi";
 import "./NotFound.css";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
     const navigate = useNavigate();
 
     return (
         <>
+            <Helmet>
+                <title>Page Not Found | Bhavya Khurana</title>
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+
             <div className="not-found">
                 <div className="not-found__glow not-found__glow--one" />
                 <div className="not-found__glow not-found__glow--two" />

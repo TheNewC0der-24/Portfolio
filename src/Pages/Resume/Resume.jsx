@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import { IoIosArrowBack } from "react-icons/io";
@@ -9,14 +9,11 @@ import resume from "../../assets/docs/Resume.png";
 import ResumePDF from "../../assets/docs/Resume.pdf";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./Resume.css";
+import { Helmet } from "react-helmet-async";
 
 const ViewResume = () => {
     const navigate = useNavigate();
     const [isDownloaded, setIsDownloaded] = useState(false);
-
-    useEffect(() => {
-        document.title = "Bhavya Khurana | Resume";
-    }, []);
 
     const handleDownload = () => {
         const link = document.createElement("a");
@@ -36,98 +33,108 @@ const ViewResume = () => {
     };
 
     return (
-        <main className="resume-page">
-            {/* Background */}
-            <div className="resume-page__glow resume-page__glow--one" />
-            <div className="resume-page__glow resume-page__glow--two" />
+        <>
+            <Helmet>
+                <title>Bhavya Khurana | Resume</title>
+                <meta name="description" content="View Bhavya Khurana's resume, software engineering experience, technical skills, and professional qualifications." />
+                <link rel="canonical" href="https://bhavya-khurana.vercel.app/resume" />
+                <meta property="og:title" content="Bhavya Khurana | Resume" />
+                <meta property="og:description" content="Explore Bhavya Khurana's resume, experience, and technical qualifications." />
+                <meta property="og:url" content="https://bhavya-khurana.vercel.app/resume" />
+                <meta property="og:type" content="website" />
+            </Helmet>
 
-            <div className="app-container resume-container">
-                {/* Header */}
-                <header className="resume-header">
-                    <div className="resume-heading">
-                        <span className="resume-heading__eyebrow">
-                            <FaFilePdf />
-                            Professional profile
-                        </span>
+            <main className="resume-page">
+                <div className="resume-page__glow resume-page__glow--one" />
+                <div className="resume-page__glow resume-page__glow--two" />
 
-                        <h1>
-                            My <span>Resume</span>
-                        </h1>
+                <div className="app-container resume-container">
+                    <header className="resume-header">
+                        <div className="resume-heading">
+                            <span className="resume-heading__eyebrow">
+                                <FaFilePdf />
+                                Professional profile
+                            </span>
 
-                        <p>
-                            A quick overview of my experience, skills, projects and
-                            professional journey.
-                        </p>
-                    </div>
+                            <h1>
+                                My <span>Resume</span>
+                            </h1>
 
-                    {/* Actions */}
-                    <div className="resume-actions">
-                        <Button
-                            variant="outlined"
-                            startIcon={<IoIosArrowBack />}
-                            onClick={() => navigate(-1)}
-                            className="resume-btn resume-btn--back"
-                        >
-                            Back
-                        </Button>
-
-                        <Button
-                            variant="contained"
-                            startIcon={isDownloaded ? <FaCheck /> : <FiDownload />}
-                            onClick={isDownloaded ? null : handleDownload}
-                            className={`resume-btn resume-btn--download ${isDownloaded ? "is-downloaded" : ""}`}
-                        >
-                            {isDownloaded ? "Downloaded" : "Download PDF"}
-                        </Button>
-                    </div>
-                </header>
-
-                {/* Resume Viewer */}
-                <section className="resume-viewer">
-                    <div className="resume-viewer__top">
-                        <div className="resume-viewer__dots">
-                            <span />
-                            <span />
-                            <span />
+                            <p>
+                                A quick overview of my experience, skills, projects and
+                                professional journey.
+                            </p>
                         </div>
 
-                        <span className="resume-viewer__label">
-                            Bhavya-Khurana-Resume.pdf
-                        </span>
+                        {/* Actions */}
+                        <div className="resume-actions">
+                            <Button
+                                variant="outlined"
+                                startIcon={<IoIosArrowBack />}
+                                onClick={() => navigate(-1)}
+                                className="resume-btn resume-btn--back"
+                            >
+                                Back
+                            </Button>
 
-                        <span className="resume-viewer__format">PDF</span>
-                    </div>
+                            <Button
+                                variant="contained"
+                                startIcon={isDownloaded ? <FaCheck /> : <FiDownload />}
+                                onClick={isDownloaded ? null : handleDownload}
+                                className={`resume-btn resume-btn--download ${isDownloaded ? "is-downloaded" : ""}`}
+                            >
+                                {isDownloaded ? "Downloaded" : "Download PDF"}
+                            </Button>
+                        </div>
+                    </header>
 
-                    <div className="resume-viewer__content">
-                        <LazyLoadImage
-                            src={resume}
-                            alt="Bhavya Khurana Resume"
-                            className="resume-image"
-                            effect="blur"
-                        />
-                    </div>
-                </section>
+                    {/* Resume Viewer */}
+                    <section className="resume-viewer">
+                        <div className="resume-viewer__top">
+                            <div className="resume-viewer__dots">
+                                <span />
+                                <span />
+                                <span />
+                            </div>
 
-                {/* Bottom CTA */}
-                <section className="resume-footer">
-                    <div>
-                        <span>Looking for something specific?</span>
+                            <span className="resume-viewer__label">
+                                Bhavya-Khurana-Resume.pdf
+                            </span>
 
-                        <h2>
-                            Let's <em>connect.</em>
-                        </h2>
-                    </div>
+                            <span className="resume-viewer__format">PDF</span>
+                        </div>
 
-                    <Button
-                        variant="outlined"
-                        onClick={() => navigate("/contact")}
-                        className="resume-contact-btn"
-                    >
-                        Get in touch
-                    </Button>
-                </section>
-            </div>
-        </main>
+                        <div className="resume-viewer__content">
+                            <LazyLoadImage
+                                src={resume}
+                                alt="Bhavya Khurana Resume"
+                                className="resume-image"
+                                effect="blur"
+                            />
+                        </div>
+                    </section>
+
+                    {/* Bottom CTA */}
+                    <section className="resume-footer">
+                        <div>
+                            <span>Looking for something specific?</span>
+
+                            <h2>
+                                Let's <em>connect.</em>
+                            </h2>
+                        </div>
+
+                        <Button
+                            variant="outlined"
+                            onClick={() => navigate("/contact")}
+                            className="resume-contact-btn"
+                        >
+                            Get in touch
+                        </Button>
+                    </section>
+                </div>
+            </main>
+        </>
     );
 };
 
